@@ -9,17 +9,17 @@
 :root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#342e27;background:#fff3e0;font-synthesis:none}
 *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:16px 12px}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #245edb;outline-offset:4px}button:disabled{opacity:.5;cursor:default}.app{width:min(100%,460px)}header{display:flex;justify-content:space-between;align-items:center;margin:0 4px 18px}.brand{font-weight:900;font-size:19px;letter-spacing:-.6px}.brand span{color:#e85d2b}.sound{border:1px solid #dfd2be;background:#fff9ed;border-radius:100px;padding:9px 12px;font-size:12px;font-weight:700}
 .panel{background:#fffdf8;border:1px solid #eadfcf;border-radius:26px;padding:26px 22px;box-shadow:0 12px 40px #794c1610}.hidden{display:none!important}.tag{font-size:11px;letter-spacing:2px;font-weight:800;color:#9b6448}h1{font-size:46px;line-height:1.15;margin:16px 0;letter-spacing:-2px}h1 em{font-style:normal;color:#e85d2b}p{font-size:14px;line-height:1.8;color:#766957}.intro{margin-bottom:22px}.sample{display:flex;gap:10px;align-items:center;background:#f3efdf;padding:16px;border-radius:16px;margin:24px 0}.sample strong{font-size:27px;white-space:nowrap}.sample small{font-size:12px;line-height:1.6}.sample b{color:#008577}.primary{width:100%;background:#e85d2b;color:white;border:0;border-radius:15px;padding:18px;font-size:18px;font-weight:800;box-shadow:0 5px 0 #bd431a}.primary:active{transform:translateY(3px);box-shadow:0 2px 0 #bd431a}.bestline{text-align:center;font-size:13px;margin:23px 0 0;color:#89765f}.rules{display:flex;justify-content:space-between;font-size:11px;color:#89765f;margin-bottom:24px}.stats{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.score strong{font-size:32px;font-variant-numeric:tabular-nums}.score small{font-size:10px;letter-spacing:1px;color:#8d7a64;display:block}.lives{color:#e85d2b;letter-spacing:4px;font-size:22px}.toolbar{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:12px}.pause{border:1px solid #dfd2be;background:#fffdf8;border-radius:8px;padding:7px 12px}.combo{color:#008577;font-weight:800}.arena{height:300px;height:clamp(210px,35svh,340px);position:relative;overflow:hidden;background-color:#f2efdf;background-image:linear-gradient(#d8cfb640 1px,transparent 1px),linear-gradient(90deg,#d8cfb640 1px,transparent 1px);background-size:28px 28px;border:1px solid #e3dbc9;border-radius:18px}.prompt{position:absolute;top:14px;left:8px;right:8px;text-align:center;font-weight:800;font-size:19px;z-index:1}.prompt small{display:block;font-size:11px;color:#82745e;font-weight:500;margin-bottom:3px}.tile{position:absolute;top:70px;left:50%;width:190px;margin-left:-95px;padding:14px 8px;background:#fffdf8;border:2px solid #e6a469;border-radius:14px;text-align:center;box-shadow:0 5px 0 #deb681;will-change:transform}.tile strong{display:block;font-size:28px}.tile small{font-size:12px;color:#88715b}.dangerline{position:absolute;bottom:16px;left:12px;right:12px;border-top:2px dashed #da937a}.dangerline span{position:absolute;right:0;bottom:4px;font-size:9px;color:#a45a40}.feedback{min-height:42px;text-align:center;font-size:13px;font-weight:700;padding:12px 0 6px;color:#008577}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{border:0;border-radius:17px;padding:12px;color:#fff;font-weight:800;box-shadow:0 5px 0 #00675e;background:#008577;font-size:27px}.answer:last-child{background:#e85d2b;box-shadow:0 5px 0 #bd431a}.answer small{display:block;font-size:12px;font-weight:600;margin-top:2px}.answer:active{transform:translateY(3px)}.keyhint{text-align:center;font-size:10px;color:#95846d;margin:16px 0 0}.overlay{position:absolute;inset:0;background:#fff9eff2;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:35px}.overlay h2{font-size:26px;margin:0 0 10px}.result{text-align:center}.result h1{font-size:31px;letter-spacing:-1px}.resultnum{font-size:76px;font-weight:900;color:#e85d2b;line-height:1.15;margin:15px 0 0;letter-spacing:-3px}.record{display:inline-block;color:#00796b;background:#e4f2df;padding:7px 14px;border-radius:100px;font-size:12px;font-weight:800}.resultdetail{display:flex;justify-content:space-around;background:#f3efdf;border-radius:15px;padding:18px;margin:24px 0}.resultdetail small{display:block;font-size:11px;color:#89765f}.resultdetail strong{font-size:23px}.secondary{margin-top:15px;background:none;border:0;color:#88715b;padding:10px}.flash-good{border-color:#008577}.flash-bad{border-color:#d34532}.footer{text-align:center;font-size:10px;letter-spacing:1px;color:#aa957b;margin:18px 0 0}@media(max-height:700px){body{padding-top:10px}header{margin-bottom:10px}.panel{padding:18px}.arena{height:210px}.feedback{min-height:36px}.keyhint{margin-top:10px}}@media(prefers-reduced-motion:reduce){.tile{will-change:auto}}
-</style></head>
+.goalbox{background:#f3efdf;border-radius:12px;padding:10px 12px;margin-bottom:12px}.goalhead{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#77654f;margin-bottom:6px}.meter{height:5px;border-radius:10px;background:#dfd6bf;overflow:hidden}.meter i{display:block;height:100%;width:0;background:#008577;transition:width .2s}.timebar{height:4px;position:absolute;bottom:0;left:0;right:0;background:#d9ceb9}.timebar i{display:block;background:#008577;width:100%;height:100%;transform-origin:left}.tile.revisit{border-color:#008577}.resultinsight{background:#f3efdf;border-radius:12px;padding:12px;margin:16px 0;font-size:14px;color:#554a3a}.homeprogress{font-size:12px;text-align:center;color:#008577;margin:12px 0 0}.feedback{min-height:54px}.resultdetail{margin:18px 0}.footer{letter-spacing:0}.goalhead b{color:#008577}@media(prefers-reduced-motion:reduce){.meter i{transition:none}}</style></head>
 <body><main class="app">
 <header><div class="brand">けんけん<span>ラッシュ</span></div><button id="sound" class="sound" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">PREFECTURE × REFLEX</div><h1>わかる。押す。<br><em>もう一問！</em></h1><p class="intro">落ちてくる都道府県を見て、<br>お題に合っていたら ○、違ったら ×。</p><div class="sample"><strong>山梨県</strong><small>「や」をふくむ？<br>やまなし → <b>○ をタップ！</b></small></div><div class="rules"><span>♥ ミスは3回まで</span><span>⚡ 連続正解でコンボ</span></div><button id="start" class="primary">あそぶ →</button><div class="bestline">自己ベスト <b id="homeBest">0</b> 点</div></section>
+<section id="home" class="panel"><div class="tag">PREFECTURE × REFLEX</div><h1>わかる。押す。<br><em>もう一問！</em></h1><p class="intro">落ちてくる都道府県を見て、<br>お題に合っていたら ○、違ったら ×。</p><div class="sample"><strong>山梨県</strong><small>「や」をふくむ？<br>やまなし → <b>○ をタップ！</b></small></div><div class="rules"><span>♥ ミスは3回まで</span><span>⚡ 10コンボで♥回復</span></div><button id="start" class="primary">あそぶ →</button><div class="bestline">自己ベスト <b id="homeBest">0</b> 点</div><p id="homeProgress" class="homeprogress"></p></section>
 <section id="game" class="panel hidden" aria-label="クイズ">
 <div class="stats"><div class="score"><small>SCORE</small><strong id="score">0</strong></div><div id="lives" class="lives" aria-label="残り3回">♥♥♥</div></div>
 <div class="toolbar"><span id="level">LEVEL 1</span><span id="combo" class="combo">まずは1問！</span><button id="pause" class="pause">一時停止</button></div>
-<div id="arena" class="arena"><div class="prompt"><small>よみがなで考えよう</small><span id="prompt"></span></div><div id="tile" class="tile"><strong id="prefecture"></strong><small id="reading"></small></div><div class="dangerline"><span>ここまでに答えよう</span></div><div id="overlay" class="overlay hidden"><h2>ひとやすみ</h2><p>準備ができたら再開しよう</p><button id="resume" class="primary">つづける →</button></div></div>
+<div class="goalbox"><div class="goalhead"><span id="goalLabel">次の目標</span><b id="goalGap"></b></div><div class="meter"><i id="goalFill"></i></div></div><div id="arena" class="arena"><div class="prompt"><small>よみがなで考えよう</small><span id="prompt"></span></div><div id="tile" class="tile"><strong id="prefecture"></strong><small id="reading"></small></div><div class="dangerline"><span>ここまでに答えよう</span></div><div class="timebar" role="progressbar" aria-label="回答の残り時間" aria-valuemin="0" aria-valuemax="100" id="timeMeter"><i id="timeFill"></i></div><div id="overlay" class="overlay hidden"><h2>ひとやすみ</h2><p>準備ができたら再開しよう</p><button id="resume" class="primary">つづける →</button></div></div>
 <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 <div class="answers"><button id="yes" class="answer" aria-label="はい、お題に合っている">○<small>あてはまる</small></button><button id="no" class="answer" aria-label="いいえ、お題に合わない">×<small>ちがう</small></button></div><p class="keyhint">タップで回答 · キーボードは ← ○ ／ → ×</p></section>
-<section id="result" class="panel result hidden"><div class="tag">NICE PLAY!</div><h1>もう一回、いけそう？</h1><div id="resultScore" class="resultnum">0</div><p style="margin:0 0 14px">点</p><span id="record" class="record">自己ベストに挑戦！</span><div class="resultdetail"><div><small>正解した数</small><strong id="total">0</strong></div><div><small>最大コンボ</small><strong id="maxCombo">0</strong></div><div><small>到達レベル</small><strong id="finalLevel">1</strong></div></div><p id="reason"></p><button id="replay" class="primary">もう一回！ →</button><button id="back" class="secondary">タイトルへ</button></section><div class="footer">47 PREFECTURES. ONE MORE TRY.</div>
+<section id="result" class="panel result hidden"><div class="tag">NICE PLAY!</div><h1 id="resultTitle">ナイスチャレンジ！</h1><div id="resultScore" class="resultnum">0</div><p style="margin:0 0 14px">点</p><span id="record" class="record">自己ベストに挑戦！</span><div class="resultdetail"><div><small>正解した数</small><strong id="total">0</strong></div><div><small>最大コンボ</small><strong id="maxCombo">0</strong></div><div><small>到達レベル</small><strong id="finalLevel">1</strong></div></div><p id="insight" class="resultinsight"></p><p id="reason"></p><button id="replay" class="primary">もう一回！ →</button><button id="back" class="secondary">タイトルへ</button></section><div class="footer">自分のペースで。休憩はいつでも。</div>
 </main>
 <script>
 'use strict';
@@ -34,20 +34,24 @@ const PREFECTURES=[
 ];
 const LETTERS=['あ','い','う','お','か','き','く','こ','さ','し','た','と','な','に','ま','み','や','わ'];
 const RULES=LETTERS.map(letter=>({label:'「'+letter+'」をふくむ？',test:reading=>reading.includes(letter)}));
-function levelFor(correct){return 1+Math.floor(correct/8);}
-function durationFor(correct){return Math.max(2200,6500-(levelFor(correct)-1)*450);}
+const OPENING_RULES=['あ','い','お','か','さ','と','や','ふ','み'].map(letter=>({label:'「'+letter+'」ではじまる？',test:reading=>reading.startsWith(letter)}));
+function levelFor(correct){return 1+Math.floor(correct/6);}
+function durationFor(correct){return correct<3?7200:Math.max(2300,5900-(levelFor(correct)-1)*380);}
 function pointsFor(combo){return 10*Math.min(5,1+Math.floor(combo/5));}
-function makeQuestion(random=Math.random,previous=''){
-    const rule=RULES[Math.floor(random()*RULES.length)];
+function targetFor(score,best){if(best>0&&score<=best)return {value:best+10,label:'自己ベストを超えよう'};const goals=[50,100,200,350,500,750,1000];return {value:goals.find(x=>x>score)|| (Math.floor(score/500)+1)*500,label:best>0?'次の節目へ':'まずはこの記録へ'};}
+function makeQuestion(random=Math.random,previous='',correct=0){
+    const rules=correct<6?OPENING_RULES:RULES;
+    const rule=rules[Math.floor(random()*rules.length)];
     const expected=random()<0.5;
     let pool=PREFECTURES.filter(p=>rule.test(p[1])===expected&&p[0]!==previous);
     if(!pool.length)pool=PREFECTURES.filter(p=>rule.test(p[1])===expected);
     const prefecture=pool[Math.floor(random()*pool.length)];
-    return {prefecture,label:rule.label,expected};
+    return {prefecture,label:rule.label,expected,explanation:prefecture[1]+' → '+(expected?'○':'×')};
 }
 const $=id=>document.getElementById(id);
-let soundOn=true,best=0,audio=null;
+let soundOn=true,best=0,audio=null,previousRun=null;
 try{best=Number(localStorage.getItem('kenken-best-v2'))||0;soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
+try{const stored=JSON.parse(localStorage.getItem('kenken-last-v3'));if(stored&&Number.isFinite(stored.score)&&Number.isFinite(stored.correct))previousRun=stored;}catch(_){}
 function save(key,value){try{localStorage.setItem(key,value);}catch(_){}}
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
 function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state==='suspended')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
@@ -59,31 +63,92 @@ function chime(good){
 }
 let state='home',score=0,correct=0,combo=0,maxCombo=0,lives=3,question=null;
 let elapsed=0,last=0,raf=0,phase='question',feedbackRemaining=0,lastReason='';
+let attempts=0,recovered=0,reviewQueue=[],questionDuration=7200,slowNext=false,runBest=0,recordAnnounced=false;
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function show(screen){['home','game','result'].forEach(id=>$(id).classList.toggle('hidden',id!==screen));}
-function stats(){$('score').textContent=score;$('lives').textContent='♥'.repeat(lives)+'♡'.repeat(3-lives);$('lives').setAttribute('aria-label','残り'+lives+'回');$('level').textContent='LEVEL '+levelFor(correct);$('combo').textContent=combo?combo+' COMBO · ×'+Math.min(5,1+Math.floor(combo/5)):'まずは1問！';}
+function updateHome(){$('homeBest').textContent=best;$('homeProgress').textContent=previousRun?'前回 '+previousRun.score+'点 · '+previousRun.correct+'問正解':'最初はゆっくり。○か×を押すだけ！';}
+function stats(){
+    $('score').textContent=score;
+    $('lives').textContent='♥'.repeat(lives)+'♡'.repeat(3-lives);
+    $('lives').setAttribute('aria-label','残り'+lives+'回');
+    $('level').textContent=correct<3?'ウォームアップ':'LEVEL '+levelFor(correct);
+    const next=5-combo%5;
+    $('combo').textContent=combo?combo+' COMBO · あと'+next+'問で倍率UP':'次の5連続で得点2倍';
+    if(combo>=20)$('combo').textContent=combo+' COMBO · 得点5倍';
+    const target=targetFor(score,runBest);
+    $('goalLabel').textContent=target.label;
+    $('goalGap').textContent='あと'+(target.value-score)+'点';
+    $('goalFill').style.width=Math.min(100,score/target.value*100)+'%';
+}
 function buttons(enabled){$('yes').disabled=!enabled;$('no').disabled=!enabled;}
-function nextQuestion(){question=makeQuestion(Math.random,question?question.prefecture[0]:'');elapsed=0;phase='question';$('prefecture').textContent=question.prefecture[0];$('reading').textContent=question.prefecture[1];$('prompt').textContent=question.label;$('feedback').textContent='';$('arena').classList.remove('flash-good','flash-bad');$('tile').style.transform='translateY(0)';buttons(true);}
-function start(){cancelAnimationFrame(raf);prepareAudio();score=correct=combo=maxCombo=0;lives=3;question=null;state='playing';$('overlay').classList.add('hidden');show('game');stats();nextQuestion();last=performance.now();raf=requestAnimationFrame(tick);}
+function nextQuestion(){
+    const due=reviewQueue.findIndex(item=>item.due<=attempts);
+    if(due>=0){question={...reviewQueue.splice(due,1)[0].question,revisit:true};}
+    else question=makeQuestion(Math.random,question?question.prefecture[0]:'',correct);
+    elapsed=0;phase='question';questionDuration=durationFor(correct)+(slowNext?1000:0);slowNext=false;
+    $('prefecture').textContent=question.prefecture[0];$('reading').textContent=question.prefecture[1];
+    $('prompt').textContent=question.label;$('feedback').textContent=question.revisit?'さっきの問題。今ならわかる！':'';
+    $('arena').classList.remove('flash-good','flash-bad');
+    $('tile').classList.toggle('revisit',!!question.revisit);
+    $('tile').style.transform='translateY(0)';$('tile').style.borderColor=question.revisit?'#008577':'#e6a469';
+    $('timeFill').style.transform='scaleX(1)';$('timeMeter').setAttribute('aria-valuenow','100');buttons(true);
+}
+function start(){
+    cancelAnimationFrame(raf);prepareAudio();score=correct=combo=maxCombo=attempts=recovered=0;lives=3;question=null;reviewQueue=[];slowNext=false;runBest=best;recordAnnounced=false;lastReason='';
+    state='playing';$('overlay').classList.add('hidden');show('game');stats();nextQuestion();last=performance.now();raf=requestAnimationFrame(tick);
+}
 function tick(now){
     if(state!=='playing')return;
     const delta=Math.max(0,now-last);last=now;
     if(phase==='feedback'){feedbackRemaining-=delta;if(feedbackRemaining<=0){if(lives===0){finish();return;}nextQuestion();}}
-    else {elapsed+=delta;const progress=Math.min(1,elapsed/durationFor(correct));const travel=Math.max(0,$('arena').clientHeight-70-$('tile').offsetHeight-22);$('tile').style.transform='translateY('+(progress*travel)+'px)';if(reducedMotion)$('tile').style.transform='translateY(0)';$('tile').style.borderColor=progress>.75?'#d34532':'#e6a469';if(progress>=1)answer(null);}
+    else{
+        elapsed+=delta;const progress=Math.min(1,elapsed/questionDuration);
+        const travel=Math.max(0,$('arena').clientHeight-70-$('tile').offsetHeight-22);
+        $('tile').style.transform='translateY('+(reducedMotion?0:progress*travel)+'px)';
+        $('tile').style.borderColor=progress>.75?'#d34532':question.revisit?'#008577':'#e6a469';
+        $('timeFill').style.transform='scaleX('+(1-progress)+')';
+        $('timeFill').style.background=progress>.75?'#d34532':'#008577';
+        $('timeMeter').setAttribute('aria-valuenow',String(Math.round((1-progress)*100)));
+        if(progress>=1)answer(null);
+    }
     raf=requestAnimationFrame(tick);
 }
 function answer(value){
     if(state!=='playing'||phase!=='question')return;
-    const timedOut=elapsed>=durationFor(correct);
+    // タップ時点の時刻で判定し、描画の遅延による期限超過の回答を防ぐ。
+    const timedOut=Math.max(elapsed,elapsed+Math.max(0,performance.now()-last))>=questionDuration;
     const good=!timedOut&&value===question.expected;
-    phase='feedback';buttons(false);
-    if(good){combo++;correct++;maxCombo=Math.max(combo,maxCombo);const points=pointsFor(combo);score+=points;$('feedback').textContent=(combo>=5?combo+'コンボ！ ':'正解！ ')+'＋'+points+'点';}
-    else{lives--;combo=0;lastReason=(value===null||timedOut?'時間切れ！':'おしい！')+' '+question.prefecture[0]+'は '+(question.expected?'○':'×');$('feedback').textContent=lastReason;}
-    $('arena').classList.add(good?'flash-good':'flash-bad');chime(good);stats();feedbackRemaining=good?330:1150;
+    phase='feedback';buttons(false);attempts++;
+    if(good){
+        combo++;correct++;maxCombo=Math.max(combo,maxCombo);const points=pointsFor(combo);score+=points;
+        let message=combo>=5?combo+'コンボ！ ＋'+points+'点':'正解！ ＋'+points+'点';
+        if(question.revisit){recovered++;message='覚え直せた！ ＋'+points+'点';}
+        if(combo%10===0&&lives<3){lives++;message=combo+'コンボ！ ♥が1つ回復！';}
+        else if(runBest>0&&score>runBest&&!recordAnnounced){recordAnnounced=true;message='自己ベスト突破！ ＋'+points+'点';}
+        else if(combo%5===0&&combo<=20){message=combo+'コンボ！ 得点'+Math.min(5,1+Math.floor(combo/5))+'倍！';}
+        $('feedback').textContent=message;
+    }else{
+        lives--;combo=0;slowNext=true;
+        lastReason=(value===null||timedOut?'時間切れ。':'おしい！')+' '+question.label+' '+question.prefecture[1]+' → '+(question.expected?'○':'×');
+        $('feedback').textContent=lastReason;
+        if(lives>0&&!reviewQueue.some(item=>item.question.prefecture[0]===question.prefecture[0]&&item.question.label===question.label))reviewQueue.push({question:{...question,revisit:false},due:attempts+2});
+    }
+    $('arena').classList.add(good?'flash-good':'flash-bad');chime(good);stats();feedbackRemaining=good?(combo%5===0?600:280):1500;
 }
 function finish(){
-    cancelAnimationFrame(raf);state='result';buttons(false);show('result');const record=score>best;if(record){best=score;save('kenken-best-v2',String(best));}
-    $('resultScore').textContent=score;$('total').textContent=correct;$('maxCombo').textContent=maxCombo;$('finalLevel').textContent=levelFor(correct);$('record').textContent=record?'自己ベスト更新！ '+best+'点':'自己ベスト '+best+'点';$('reason').textContent=lastReason;$('homeBest').textContent=best;$('replay').focus();
+    cancelAnimationFrame(raf);state='result';buttons(false);show('result');const oldBest=runBest,record=score>best;
+    if(record){best=score;save('kenken-best-v2',String(best));}
+    $('resultTitle').textContent=record?'自己ベスト、更新！':oldBest>0&&oldBest-score<=50?'あと少しで、自己ベスト！':'ナイスチャレンジ！';
+    $('resultScore').textContent=score;$('total').textContent=correct;$('maxCombo').textContent=maxCombo;$('finalLevel').textContent=levelFor(correct);
+    $('record').textContent=record?'前のベストから ＋'+(score-oldBest)+'点':oldBest>0?'自己ベスト更新まで あと'+(oldBest-score+10)+'点':'まずは1問正解を目指そう';
+    const insights=[];
+    if(previousRun&&score>previousRun.score)insights.push('前回より ＋'+(score-previousRun.score)+'点！');
+    if(recovered>0)insights.push('間違えた問題を'+recovered+'問、覚え直せた！');
+    if(attempts>0)insights.push('正答率 '+Math.round(correct/attempts*100)+'%');
+    $('insight').textContent=insights.join(' ／ ');
+    $('reason').textContent=lastReason;
+    previousRun={score,correct,maxCombo};save('kenken-last-v3',JSON.stringify(previousRun));updateHome();
+    $('replay').textContent='もう一回あそぶ →';$('replay').focus();
 }
 function pause(){if(state!=='playing')return;state='paused';cancelAnimationFrame(raf);buttons(false);$('overlay').classList.remove('hidden');$('resume').focus();}
 function resume(){if(state!=='paused')return;prepareAudio();state='playing';$('overlay').classList.add('hidden');buttons(phase==='question');last=performance.now();raf=requestAnimationFrame(tick);}
@@ -92,5 +157,5 @@ $('back').onclick=()=>{state='home';show('home');$('start').focus();};
 $('sound').onclick=()=>{soundOn=!soundOn;save('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)chime(true);};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
 document.addEventListener('keydown',e=>{if(e.repeat||e.altKey||e.ctrlKey||e.metaKey)return;if(state==='playing'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();answer(e.key==='ArrowLeft');}else if(e.key==='Escape'){if(state==='playing')pause();else if(state==='paused')resume();}});
-$('homeBest').textContent=best;updateSound();
+updateHome();updateSound();
 </script></body></html>
