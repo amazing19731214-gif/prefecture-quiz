@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>都道府県 文字縛りクイズ（エンドレス）</title>
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --secondary: #00897B;
+            --bg-color: #FFF3E0;
+            --card-bg: #FFFFFF;
+            --text-color: #333333;
+            --gray-light: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin: 16px;
+        }
+
+        .screen {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* スタート・リザルト画面 */
+        h1 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+            background-color: var(--primary-dark);
+        }
+
+        /* ゲーム画面ヘッダー */
+        .game-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .timer-box {
+            background: #FFE0B2;
+            color: #E65100;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .score-box {
+            background: #E0F2F1;
+            color: #00695C;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* 問題カード */
+        .question-card {
+            background: #FAFAFA;
+            border: 2px dashed #FFCCBC;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* 4択ボタン */
+        .choices-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .choice-btn {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .choice-btn:hover {
+            border-color: var(--primary);
+            background: #FFFBE6;
+        }
+
+        .choice-btn.correct {
+            background: #4CAF50 !important;
+            color: white !important;
+            border-color: #4CAF50 !important;
+        }
+
+        .choice-btn.incorrect {
+            background: #F44336 !important;
+            color: white !important;
+            border-color: #F44336 !important;
+        }
+
+        /* リザルト画面 */
+        .result-score {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- スタート画面 -->
+        <div id="start-screen" class="screen">
+            <h1>日本全国<br>文字縛りクイズ</h1>
+            <p>制限時間30秒！<br>サクサク答えてハイスコアを目指せ！<br>間違えてもすぐに次の問題が出るよ！</p>
+            <button class="btn" onclick="startGame()">ゲームスタート</button>
+        </div>
+
+        <!-- ゲーム画面 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="timer-box">残り時間: <span id="time-left">30</span>秒</div>
+                <div class="score-box">スコア: <span id="current-score">0</span></div>
+            </div>
+
+            <div class="question-card">
+                <div id="question-text" class="question-text">ここに問題文が入ります</div>
+            </div>
+
+            <div class="choices-container" id="choices-container">
+                <!-- 選択肢ボタンが動的に入ります -->
+            </div>
+        </div>
+
+        <!-- リザルト画面 -->
+        <div id="result-screen" class="screen hidden">
+            <h1>タイムアップ！</h1>
+            <p>お疲れ様でした！あなたのスコアは...</p>
+            <div class="result-score"><span id="final-score">0</span>問正解</div>
+            <p id="result-comment" style="font-weight: bold; color: #333;"></p>
+            <button class="btn" onclick="startGame()">もう一度プレイ</button>
+        </div>
+    </div>
+
+    <script>
+        // クイズ問題のリスト（文字縛り・引っ掛け多め）
+        const quizData = [
+            {
+                q: "「あ」から始まる都道府県のうち、日本海側に面している県はどれ？",
+                choices: ["愛知県", "愛媛県", "秋田県", "静岡県"],
+                correct: 2 // 0-indexed (秋田県)
+            },
+            {
+                q: "最後に「ま」で終わる都道府県はどれ？",
+                choices: ["埼玉県", "新潟県", "長野県", "滋賀県"],
+                correct: 0
+            },
+            {
+                q: "「か」から始まる都道府県で、本州に**ない**県はどれ？",
+                choices: ["神奈川県", "鹿児島県", "香川県", "京都府"],
+                correct: 1 // 鹿児島県は九州
+            },
+            {
+                q: "漢字2文字の都道府県のうち、最後に「川」がつく県はどれ？",
+                choices: ["東京都", "神奈川県", "石川県", "香川県"],
+                correct: 2 // 石川県、香川県、神奈川県のうち漢字2文字なら石川県・香川県。選択肢の中の正解をチェック
+            },
+            {
+                q: "名前に「島」がつく都道府県は全部でいくつある？（※選択肢から近いものを選べ）",
+                choices: ["2つ（島根、広島）", "3つ（福島、島根、広島）", "4つ（福島、徳島、島根、広島）", "1つだけ"],
+                correct: 1 // 福島県、島根県、広島県
+            },
+            {
+                q: "「山」がつく都道府県はいくつある？",
+                choices: ["3つ", "5つ", "6つ", "8つ"],
+                correct: 2 // 山形、山梨、富山、和歌山、岡山、山口（計6つ）※漢字に山が含まれる県
+            },
+            {
+                q: "次のうち、「県庁所在地名」と「都道府県名」がまったく同じではない（違う）組み合わせはどれ？",
+                choices: ["青森県 - 青森市", "秋田県 - 秋田市", "山梨県 - 甲府市", "富山県 - 富山市"],
+                correct: 2
+            },
+            {
+                q: "「島根県」と隣り合っていない都道府県はどれ？",
+                choices: ["鳥取県", "広島県", "山口県", "香川県"],
+                correct: 3
+            },
+            {
+                q: "日本で唯一、名前に「府」が2つ（あるいは構成的に）…ではなく、京都府と何府？",
+                choices: ["大阪府", "東京府", "北九州府", "神戸府"],
+                correct: 0
+            },
+            {
+                q: "次のうち、「お」から始まる都道府県はどれ？",
+                choices: ["岡山県", "大分県", "沖縄県", "大阪府（※府県違い）"],
+                correct: 0 // 岡山、大分、沖縄が「お」から始まる
+            }
+        ];
+
+        // 追加のランダム問題ジェネレータ用テンプレート
+        const extraQuestions = [
+            { q: "次のうち、「と」から始まる都道府県はどれ？", choices: ["東京都", "徳島県", "栃木県", "富山県"], correct: 0 },
+            { q: "次のうち、九州地方にある都道府県はどれ？", choices: ["佐賀県", "山口県", "愛媛県", "新潟県"], correct: 0 },
+            { q: "四国地方にある4つの県に含まれないものはどれ？", choices: ["徳島県", "香川県", "岡山県", "高知県"], correct: 2 },
+            { q: "東北地方にある6県に含まれないものはどれ？", choices: ["新潟県", "青森県", "岩手県", "福島県"], correct: 0 }
+        ];
+
+        let allQuestions = [];
+        let score = 0;
+        let timeLeft = 30;
+        let timerId = null;
+        let isAnswerable = true;
+
+        const startScreen = document.getElementById('start-screen');
+        const gameScreen = document.getElementById('game-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const questionText = document.getElementById('question-text');
+        const choicesContainer = document.getElementById('choices-container');
+        const timeLeftSpan = document.getElementById('time-left');
+        const currentScoreSpan = document.getElementById('current-score');
+        const finalScoreSpan = document.getElementById('final-score');
+        const resultComment = document.getElementById('result-comment');
+
+        function startGame() {
+            // 画面切り替え
+            startScreen.classList.add('hidden');
+            resultScreen.classList.add('hidden');
+            gameScreen.classList.remove('hidden');
+
+            // 変数初期化
+            score = 0;
+            timeLeft = 30;
+            currentScoreSpan.textContent = score;
+            timeLeftSpan.textContent = timeLeft;
+            
+            // 問題リストをコピーしてシャッフル
+            allQuestions = [...quizData, ...extraQuestions].sort(() => Math.random() - 0.5);
+
+            // タイマー開始
+            clearInterval(timerId);
+            timerId = setInterval(() => {
+                timeLeft--;
+                timeLeftSpan.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    endGame();
+                }
+            }, 1000);
+
+            showNextQuestion();
+        }
+
+        function showNextQuestion() {
+            if (allQuestions.length === 0) {
+                // 問題がなくなったら再度シャッフルして補充
+                allQuestions = [...quizData, ...extraQuestions].sort(() => Math.random() - 0.5);
+            }
+
+            const currentQ = allQuestions.pop();
+            isAnswerable = true;
+
+            questionText.textContent = currentQ.q;
+            choicesContainer.innerHTML = '';
+
+            currentQ.choices.forEach((choice, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.textContent = choice;
+                btn.onclick = () => handleAnswer(index, currentQ.correct, btn);
+                choicesContainer.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIndex, correctIndex, clickedBtn) {
+            if (!isAnswerable) return;
+            isAnswerable = false;
+
+            const buttons = choicesContainer.getElementsByClassName('choice-btn');
+
+            if (selectedIndex === correctIndex) {
+                clickedBtn.classList.add('correct');
+                score++;
+                currentScoreSpan.textContent = score;
+            } else {
+                clickedBtn.classList.add('incorrect');
+                buttons[correctIndex].classList.add('correct');
+            }
+
+            // 0.6秒後にサクサク次の問題へ
+            setTimeout(() => {
+                showNextQuestion();
+            }, 600);
+        }
+
+        function endGame() {
+            gameScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            finalScoreSpan.textContent = score;
+
+            let comment = "";
+            if (score >= 15) {
+                comment = "すごすぎ！都道府県マスターですね！✨";
+            } else if (score >= 10) {
+                comment = "お見事！なかなかの好成績です！👏";
+            } else if (score >= 5) {
+                comment = "いい調子！次はさらに高みを目指そう！";
+            } else {
+                comment = "テンポよく何度も遊んで覚えていこう！";
+            }
+            resultComment.textContent = comment;
+        }
+    </script>
+</body>
+</html>
