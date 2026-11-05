@@ -1,161 +1,154 @@
-<!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fff3e0">
-<title>けんけんラッシュ｜都道府県クイズ</title>
-<style>
-:root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#342e27;background:#fff3e0;font-synthesis:none}
-*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:16px 12px}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #245edb;outline-offset:4px}button:disabled{opacity:.5;cursor:default}.app{width:min(100%,460px)}header{display:flex;justify-content:space-between;align-items:center;margin:0 4px 18px}.brand{font-weight:900;font-size:19px;letter-spacing:-.6px}.brand span{color:#e85d2b}.sound{border:1px solid #dfd2be;background:#fff9ed;border-radius:100px;padding:9px 12px;font-size:12px;font-weight:700}
-.panel{background:#fffdf8;border:1px solid #eadfcf;border-radius:26px;padding:26px 22px;box-shadow:0 12px 40px #794c1610}.hidden{display:none!important}.tag{font-size:11px;letter-spacing:2px;font-weight:800;color:#9b6448}h1{font-size:46px;line-height:1.15;margin:16px 0;letter-spacing:-2px}h1 em{font-style:normal;color:#e85d2b}p{font-size:14px;line-height:1.8;color:#766957}.intro{margin-bottom:22px}.sample{display:flex;gap:10px;align-items:center;background:#f3efdf;padding:16px;border-radius:16px;margin:24px 0}.sample strong{font-size:27px;white-space:nowrap}.sample small{font-size:12px;line-height:1.6}.sample b{color:#008577}.primary{width:100%;background:#e85d2b;color:white;border:0;border-radius:15px;padding:18px;font-size:18px;font-weight:800;box-shadow:0 5px 0 #bd431a}.primary:active{transform:translateY(3px);box-shadow:0 2px 0 #bd431a}.bestline{text-align:center;font-size:13px;margin:23px 0 0;color:#89765f}.rules{display:flex;justify-content:space-between;font-size:11px;color:#89765f;margin-bottom:24px}.stats{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.score strong{font-size:32px;font-variant-numeric:tabular-nums}.score small{font-size:10px;letter-spacing:1px;color:#8d7a64;display:block}.lives{color:#e85d2b;letter-spacing:4px;font-size:22px}.toolbar{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:12px}.pause{border:1px solid #dfd2be;background:#fffdf8;border-radius:8px;padding:7px 12px}.combo{color:#008577;font-weight:800}.arena{height:300px;height:clamp(210px,35svh,340px);position:relative;overflow:hidden;background-color:#f2efdf;background-image:linear-gradient(#d8cfb640 1px,transparent 1px),linear-gradient(90deg,#d8cfb640 1px,transparent 1px);background-size:28px 28px;border:1px solid #e3dbc9;border-radius:18px}.prompt{position:absolute;top:14px;left:8px;right:8px;text-align:center;font-weight:800;font-size:19px;z-index:1}.prompt small{display:block;font-size:11px;color:#82745e;font-weight:500;margin-bottom:3px}.tile{position:absolute;top:70px;left:50%;width:190px;margin-left:-95px;padding:14px 8px;background:#fffdf8;border:2px solid #e6a469;border-radius:14px;text-align:center;box-shadow:0 5px 0 #deb681;will-change:transform}.tile strong{display:block;font-size:28px}.tile small{font-size:12px;color:#88715b}.dangerline{position:absolute;bottom:16px;left:12px;right:12px;border-top:2px dashed #da937a}.dangerline span{position:absolute;right:0;bottom:4px;font-size:9px;color:#a45a40}.feedback{min-height:42px;text-align:center;font-size:13px;font-weight:700;padding:12px 0 6px;color:#008577}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{border:0;border-radius:17px;padding:12px;color:#fff;font-weight:800;box-shadow:0 5px 0 #00675e;background:#008577;font-size:27px}.answer:last-child{background:#e85d2b;box-shadow:0 5px 0 #bd431a}.answer small{display:block;font-size:12px;font-weight:600;margin-top:2px}.answer:active{transform:translateY(3px)}.keyhint{text-align:center;font-size:10px;color:#95846d;margin:16px 0 0}.overlay{position:absolute;inset:0;background:#fff9eff2;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:35px}.overlay h2{font-size:26px;margin:0 0 10px}.result{text-align:center}.result h1{font-size:31px;letter-spacing:-1px}.resultnum{font-size:76px;font-weight:900;color:#e85d2b;line-height:1.15;margin:15px 0 0;letter-spacing:-3px}.record{display:inline-block;color:#00796b;background:#e4f2df;padding:7px 14px;border-radius:100px;font-size:12px;font-weight:800}.resultdetail{display:flex;justify-content:space-around;background:#f3efdf;border-radius:15px;padding:18px;margin:24px 0}.resultdetail small{display:block;font-size:11px;color:#89765f}.resultdetail strong{font-size:23px}.secondary{margin-top:15px;background:none;border:0;color:#88715b;padding:10px}.flash-good{border-color:#008577}.flash-bad{border-color:#d34532}.footer{text-align:center;font-size:10px;letter-spacing:1px;color:#aa957b;margin:18px 0 0}@media(max-height:700px){body{padding-top:10px}header{margin-bottom:10px}.panel{padding:18px}.arena{height:210px}.feedback{min-height:36px}.keyhint{margin-top:10px}}@media(prefers-reduced-motion:reduce){.tile{will-change:auto}}
-.goalbox{background:#f3efdf;border-radius:12px;padding:10px 12px;margin-bottom:12px}.goalhead{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#77654f;margin-bottom:6px}.meter{height:5px;border-radius:10px;background:#dfd6bf;overflow:hidden}.meter i{display:block;height:100%;width:0;background:#008577;transition:width .2s}.timebar{height:4px;position:absolute;bottom:0;left:0;right:0;background:#d9ceb9}.timebar i{display:block;background:#008577;width:100%;height:100%;transform-origin:left}.tile.revisit{border-color:#008577}.resultinsight{background:#f3efdf;border-radius:12px;padding:12px;margin:16px 0;font-size:14px;color:#554a3a}.homeprogress{font-size:12px;text-align:center;color:#008577;margin:12px 0 0}.feedback{min-height:54px}.resultdetail{margin:18px 0}.footer{letter-spacing:0}.goalhead b{color:#008577}@media(prefers-reduced-motion:reduce){.meter i{transition:none}}</style></head>
-<body><main class="app">
-<header><div class="brand">けんけん<span>ラッシュ</span></div><button id="sound" class="sound" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">PREFECTURE × REFLEX</div><h1>わかる。押す。<br><em>もう一問！</em></h1><p class="intro">落ちてくる都道府県を見て、<br>お題に合っていたら ○、違ったら ×。</p><div class="sample"><strong>山梨県</strong><small>「や」をふくむ？<br>やまなし → <b>○ をタップ！</b></small></div><div class="rules"><span>♥ ミスは3回まで</span><span>⚡ 10コンボで♥回復</span></div><button id="start" class="primary">あそぶ →</button><div class="bestline">自己ベスト <b id="homeBest">0</b> 点</div><p id="homeProgress" class="homeprogress"></p></section>
-<section id="game" class="panel hidden" aria-label="クイズ">
-<div class="stats"><div class="score"><small>SCORE</small><strong id="score">0</strong></div><div id="lives" class="lives" aria-label="残り3回">♥♥♥</div></div>
-<div class="toolbar"><span id="level">LEVEL 1</span><span id="combo" class="combo">まずは1問！</span><button id="pause" class="pause">一時停止</button></div>
-<div class="goalbox"><div class="goalhead"><span id="goalLabel">次の目標</span><b id="goalGap"></b></div><div class="meter"><i id="goalFill"></i></div></div><div id="arena" class="arena"><div class="prompt"><small>よみがなで考えよう</small><span id="prompt"></span></div><div id="tile" class="tile"><strong id="prefecture"></strong><small id="reading"></small></div><div class="dangerline"><span>ここまでに答えよう</span></div><div class="timebar" role="progressbar" aria-label="回答の残り時間" aria-valuemin="0" aria-valuemax="100" id="timeMeter"><i id="timeFill"></i></div><div id="overlay" class="overlay hidden"><h2>ひとやすみ</h2><p>準備ができたら再開しよう</p><button id="resume" class="primary">つづける →</button></div></div>
-<div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-<div class="answers"><button id="yes" class="answer" aria-label="はい、お題に合っている">○<small>あてはまる</small></button><button id="no" class="answer" aria-label="いいえ、お題に合わない">×<small>ちがう</small></button></div><p class="keyhint">タップで回答 · キーボードは ← ○ ／ → ×</p></section>
-<section id="result" class="panel result hidden"><div class="tag">NICE PLAY!</div><h1 id="resultTitle">ナイスチャレンジ！</h1><div id="resultScore" class="resultnum">0</div><p style="margin:0 0 14px">点</p><span id="record" class="record">自己ベストに挑戦！</span><div class="resultdetail"><div><small>正解した数</small><strong id="total">0</strong></div><div><small>最大コンボ</small><strong id="maxCombo">0</strong></div><div><small>到達レベル</small><strong id="finalLevel">1</strong></div></div><p id="insight" class="resultinsight"></p><p id="reason"></p><button id="replay" class="primary">もう一回！ →</button><button id="back" class="secondary">タイトルへ</button></section><div class="footer">自分のペースで。休憩はいつでも。</div>
-</main>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff3e0"><title>けんけんドロップ｜クイズで県名をつくろう</title><style>
+:root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#352f28;background:#fff3e0}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:14px 12px}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #2468d4;outline-offset:3px}button:disabled{opacity:.5}.app{width:min(100%,460px)}header{display:flex;justify-content:space-between;align-items:center;margin:0 4px 12px}.brand{font-weight:900;font-size:19px}.brand b{color:#e65c2a}.sound,.smallbutton{border:1px solid #dfd2be;background:#fffaf0;border-radius:10px;padding:8px 11px;font-size:12px}.panel{background:#fffdf8;border:1px solid #e8ddc9;border-radius:23px;padding:22px;box-shadow:0 12px 40px #794c1610}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:2px;color:#9d704e;font-weight:800}h1{font-size:39px;letter-spacing:-1.8px;line-height:1.2;margin:16px 0}h1 em{font-style:normal;color:#e65c2a}p{font-size:13px;line-height:1.8;color:#7c6c57}.sample{background:#f2efdf;padding:17px;border-radius:15px;margin:22px 0}.sample p{margin:0 0 12px;text-align:center;color:#453a2d;font-weight:700}.example{display:flex;justify-content:center;align-items:center;gap:10px;font-size:24px;font-weight:900}.example span{background:#fffdf8;border:2px solid #e1af75;border-radius:9px;padding:7px 12px}.example strong{color:#008577}.rules{font-size:12px;line-height:1.9;color:#7b6a53;margin:18px 0}.primary{width:100%;border:0;background:#e65c2a;color:white;padding:16px;border-radius:13px;box-shadow:0 4px 0 #b8421b;font-weight:800;font-size:17px}.primary:active,.drop:active{transform:translateY(2px)}.best{text-align:center;font-size:12px;color:#907959;margin:20px 0 0}.stats{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.score strong{font-size:28px;font-variant-numeric:tabular-nums}.score small{display:block;font-size:9px;letter-spacing:1px;color:#8d795e}.timer{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}.timer small{font-size:10px;color:#8d795e;margin-right:5px}.timer.urgent{color:#cf4229}.substats{display:flex;justify-content:space-between;gap:5px;align-items:center;font-size:11px;color:#88765b;margin-bottom:12px}.combo{font-weight:800;color:#008577}.question{padding:13px 12px;background:#f4efdf;border-radius:13px;min-height:82px;display:flex;flex-direction:column;justify-content:center;text-align:center;margin-bottom:10px}.question small{font-size:10px;color:#8e7759;margin-bottom:4px}.question strong{font-size:18px;line-height:1.5}.board{height:270px;position:relative;background:#f3efdf;border:1px solid #ded4c0;border-radius:14px 14px 0 0;overflow:hidden;isolation:isolate}.lanes{display:grid;grid-template-columns:repeat(3,1fr);position:absolute;inset:0}.lane{position:relative;border-right:1px dashed #cbbda1;background:transparent}.lane:last-child{border:0}.lane.selected{background:#0085770d}.stack{position:absolute;bottom:8px;left:5px;right:5px;display:flex;flex-direction:column-reverse;gap:4px}.block{height:36px;background:#e5c4a1;border:1px solid #cda77b;border-radius:7px;display:flex;justify-content:center;align-items:center;font-size:12px;color:#63472c;font-weight:700}.falling{position:absolute;left:0;top:0;width:33.3333%;padding:0 9px;pointer-events:none;z-index:2;will-change:transform}.falling strong{height:40px;display:grid;place-items:center;border:2px solid #e99c52;background:#fffdf8;border-radius:9px;box-shadow:0 4px 0 #dfb980;font-size:25px}.ghost{position:absolute;height:40px;border:2px dashed #00857770;border-radius:8px;bottom:8px;left:9px;right:9px;display:grid;place-items:center;color:#008577;font-size:13px;font-weight:700}.danger{position:absolute;top:42px;left:0;right:0;border-top:1px dashed #d5593980;pointer-events:none;z-index:1}.danger span{position:absolute;right:5px;top:-14px;font-size:8px;color:#ae674a}.prefixes{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:#e5ddca;padding:7px;border-radius:0 0 13px 13px}.prefix{background:#fffdf8;border:2px solid transparent;border-radius:9px;padding:9px 1px;color:#7c674d;font-size:20px;font-weight:900}.prefix.selected{border-color:#008577;color:#007b6f;background:#e7f3e9}.feedback{min-height:53px;padding:9px 0 6px;text-align:center;font-size:12px;font-weight:700;line-height:1.6;color:#008577}.feedback.bad{color:#c24b2c}.controls{display:grid;grid-template-columns:1fr 2.5fr 1fr;gap:8px}.arrow,.drop{border:0;border-radius:12px;padding:13px 6px;font-weight:900;font-size:22px}.arrow{background:#e8e1d1;color:#665741}.drop{background:#008577;color:#fff;box-shadow:0 4px 0 #00665c;font-size:17px}.hint{text-align:center;font-size:9px;color:#98846a;margin:13px 0 0}.overlay{position:absolute;inset:0;background:#fffaf0f5;z-index:4;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center}.overlay h2{font-size:24px}.result{text-align:center}.result h1{font-size:29px}.resultnum{color:#e65c2a;font-weight:900;font-size:64px;line-height:1.2;letter-spacing:-3px}.record{display:inline-block;padding:7px 12px;background:#e5f1df;color:#00796b;font-size:12px;border-radius:100px}.details{display:flex;justify-content:space-around;background:#f3efdf;padding:18px 8px;border-radius:13px;margin:20px 0}.details small{display:block;font-size:10px;color:#907959}.details b{font-size:24px}.secondary{background:none;border:0;color:#897253;padding:14px;margin-top:8px}.footer{text-align:center;font-size:10px;color:#a18c6f;margin:15px 0}.clearflash{animation:clear .35s ease-out}@keyframes clear{from{background:#9fe2bc}to{background:#f3efdf}}@media(max-height:760px){body{padding:8px 10px}.panel{padding:16px}header{margin-bottom:9px}.board{height:230px}.question{min-height:68px;padding:10px}.feedback{min-height:48px}.footer{margin:10px 0}.controls button{padding:11px 5px}}@media(prefers-reduced-motion:reduce){.clearflash{animation:none}.falling{will-change:auto}}
+</style></head><body><main class="app"><header><div class="brand">けんけん<b>ドロップ</b></div><button id="sound" class="sound" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="eyebrow">QUIZ × BLOCK PUZZLE</div><h1>わかったら、<br><em>つなげて消そう。</em></h1><p>クイズの答えになる列へ、文字を動かそう。<br>都道府県名を完成させて、ブロックを消そう！</p><div class="sample"><p>金沢市が県庁所在地なのは？</p><div class="example"><span>石</span>＋<span>川</span>＝<strong>石川県</strong></div></div><div class="rules">① 列をタップ、または ← → で移動<br>②「落とす」で答えを完成！<br>③ 正解で消える。ミスは積み上がる。<br>1回60秒。5段積むとゲームオーバー。</div><button id="start" class="primary">60秒チャレンジ →</button><p class="best">自己ベスト <b id="homeBest">0</b> 点</p></section>
+<section id="game" class="panel hidden" aria-label="都道府県ブロッククイズ"><div class="stats"><div class="score"><small>SCORE</small><strong id="score">0</strong></div><div id="timer" class="timer"><small>残り</small><span id="seconds">60</span>秒</div><button id="pause" class="smallbutton">一時停止</button></div><div class="substats"><span id="level">LEVEL 1</span><span id="combo" class="combo">3連続正解で全列を1段消去！</span></div><div class="question"><small id="questionType">クイズに答えて県名をつくろう</small><strong id="question"></strong></div>
+<div id="board" class="board"><div class="lanes"><div id="lane0" class="lane"><div id="ghost0" class="ghost"></div><div id="stack0" class="stack"></div></div><div id="lane1" class="lane"><div id="ghost1" class="ghost"></div><div id="stack1" class="stack"></div></div><div id="lane2" class="lane"><div id="ghost2" class="ghost"></div><div id="stack2" class="stack"></div></div></div><div class="danger"><span>5段で終了</span></div><div id="falling" class="falling"><strong id="suffix"></strong></div><div id="overlay" class="overlay hidden"><h2>ひとやすみ</h2><p>残り時間も止まっています。</p><button id="resume" class="primary">つづける →</button></div></div>
+<div class="prefixes"><button id="prefix0" class="prefix"></button><button id="prefix1" class="prefix"></button><button id="prefix2" class="prefix"></button></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><div class="controls"><button id="left" class="arrow" aria-label="左の列へ">←</button><button id="drop" class="drop">落とす ▼</button><button id="right" class="arrow" aria-label="右の列へ">→</button></div><p class="hint">列を選んで「落とす」 · PCは ← → と ↓ / Space</p></section>
+<section id="result" class="panel result hidden"><div class="eyebrow">NICE DROP!</div><h1 id="resultTitle">60秒チャレンジ終了！</h1><div id="resultScore" class="resultnum">0</div><p style="margin:0 0 12px">点</p><span id="record" class="record"></span><div class="details"><div><small>正解</small><b id="total">0</b></div><div><small>最大コンボ</small><b id="maxCombo">0</b></div><div><small>消したブロック</small><b id="cleared">0</b></div></div><p id="insight"></p><p id="reason"></p><button id="replay" class="primary">もう一回チャレンジ →</button><button id="back" class="secondary">タイトルへ</button></section><div class="footer">知って、つなげて、すっきり。休憩はいつでも。</div></main>
 <script>
 'use strict';
-// 都道府県名は都・道・府・県を除いたよみで判定する。
-const PREFECTURES=[
-['北海道','ほっかいどう'],['青森県','あおもり'],['岩手県','いわて'],['宮城県','みやぎ'],['秋田県','あきた'],['山形県','やまがた'],['福島県','ふくしま'],
-['茨城県','いばらき'],['栃木県','とちぎ'],['群馬県','ぐんま'],['埼玉県','さいたま'],['千葉県','ちば'],['東京都','とうきょう'],['神奈川県','かながわ'],
-['新潟県','にいがた'],['富山県','とやま'],['石川県','いしかわ'],['福井県','ふくい'],['山梨県','やまなし'],['長野県','ながの'],['岐阜県','ぎふ'],['静岡県','しずおか'],['愛知県','あいち'],
-['三重県','みえ'],['滋賀県','しが'],['京都府','きょうと'],['大阪府','おおさか'],['兵庫県','ひょうご'],['奈良県','なら'],['和歌山県','わかやま'],
-['鳥取県','とっとり'],['島根県','しまね'],['岡山県','おかやま'],['広島県','ひろしま'],['山口県','やまぐち'],['徳島県','とくしま'],['香川県','かがわ'],['愛媛県','えひめ'],['高知県','こうち'],
-['福岡県','ふくおか'],['佐賀県','さが'],['長崎県','ながさき'],['熊本県','くまもと'],['大分県','おおいた'],['宮崎県','みやざき'],['鹿児島県','かごしま'],['沖縄県','おきなわ']
-];
-const LETTERS=['あ','い','う','お','か','き','く','こ','さ','し','た','と','な','に','ま','み','や','わ'];
-const RULES=LETTERS.map(letter=>({label:'「'+letter+'」をふくむ？',test:reading=>reading.includes(letter)}));
-const OPENING_RULES=['あ','い','お','か','さ','と','や','ふ','み'].map(letter=>({label:'「'+letter+'」ではじまる？',test:reading=>reading.startsWith(letter)}));
-function levelFor(correct){return 1+Math.floor(correct/6);}
-function durationFor(correct){return correct<3?7200:Math.max(2300,5900-(levelFor(correct)-1)*380);}
-function pointsFor(combo){return 10*Math.min(5,1+Math.floor(combo/5));}
-function targetFor(score,best){if(best>0&&score<=best)return {value:best+10,label:'自己ベストを超えよう'};const goals=[50,100,200,350,500,750,1000];return {value:goals.find(x=>x>score)|| (Math.floor(score/500)+1)*500,label:best>0?'次の節目へ':'まずはこの記録へ'};}
-function makeQuestion(random=Math.random,previous='',correct=0){
-    const rules=correct<6?OPENING_RULES:RULES;
-    const rule=rules[Math.floor(random()*rules.length)];
-    const expected=random()<0.5;
-    let pool=PREFECTURES.filter(p=>rule.test(p[1])===expected&&p[0]!==previous);
-    if(!pool.length)pool=PREFECTURES.filter(p=>rule.test(p[1])===expected);
-    const prefecture=pool[Math.floor(random()*pool.length)];
-    return {prefecture,label:rule.label,expected,explanation:prefecture[1]+' → '+(expected?'○':'×')};
+const GROUPS=[
+{suffix:'川',entries:[
+{prefix:'石',name:'石川県',facts:['金沢市が県庁所在地なのは？','兼六園があるのは？','能登半島があるのは？']},
+{prefix:'香',name:'香川県',facts:['高松市が県庁所在地なのは？','讃岐うどんで知られるのは？','日本で面積が最も小さい県は？']},
+{prefix:'神奈',name:'神奈川県',facts:['横浜市が県庁所在地なのは？','鎌倉の大仏があるのは？','箱根温泉があるのは？']}
+]},
+{suffix:'山',entries:[
+{prefix:'富',name:'富山県',facts:['富山市が県庁所在地なのは？','黒部ダムがあるのは？','立山黒部アルペンルートの立山駅があるのは？']},
+{prefix:'岡',name:'岡山県',facts:['岡山市が県庁所在地なのは？','倉敷美観地区があるのは？','岡山後楽園があるのは？']},
+{prefix:'和歌',name:'和歌山県',facts:['和歌山市が県庁所在地なのは？','高野山があるのは？','那智の滝があるのは？']}
+]},
+{suffix:'島',entries:[
+{prefix:'福',name:'福島県',facts:['福島市が県庁所在地なのは？','会津若松市があるのは？','猪苗代湖があるのは？']},
+{prefix:'広',name:'広島県',facts:['広島市が県庁所在地なのは？','厳島神社があるのは？','原爆ドームがあるのは？']},
+{prefix:'徳',name:'徳島県',facts:['徳島市が県庁所在地なのは？','阿波おどりで知られるのは？','祖谷のかずら橋があるのは？']},
+{prefix:'鹿児',name:'鹿児島県',facts:['鹿児島市が県庁所在地なのは？','桜島があるのは？','屋久島があるのは？']}
+]}];
+const LIMIT=60000,MAX_STACK=5,STORAGE='kenken-drop-best-v1';
+function shuffled(items,random=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function makeRound(correct=0,previous='',random=Math.random){
+    const groups=GROUPS.filter(g=>g.suffix!==previous);
+    const group=groups[Math.floor(random()*groups.length)];
+    const target=group.entries[Math.floor(random()*group.entries.length)];
+    const others=shuffled(group.entries.filter(e=>e!==target),random).slice(0,2);
+    const entries=shuffled([target,...others],random);
+    const fact=correct<3?0:Math.floor(random()*target.facts.length);
+    return {suffix:group.suffix,entries,target,answer:entries.indexOf(target),prompt:target.facts[fact]};
+}
+function speedFor(correct){return Math.max(2700,8000-Math.floor(correct/4)*650);}
+function pointsFor(combo){return 100+Math.min(4,Math.floor(combo/3))*50;}
+// 正解は落下中の1個と、その列の一番上を消す。3コンボで全列の一番上も消す。
+function settle(stacks,column,good,combo,name){
+    const next=stacks.map(a=>[...a]);let cleared=0;
+    if(good){cleared=1;if(next[column].length){next[column].pop();cleared++;}if(combo%3===0)next.forEach(a=>{if(a.length){a.pop();cleared++;}});}
+    else next[column].push(name);
+    return {stacks:next,cleared,overflow:next.some(a=>a.length>=MAX_STACK)};
 }
 const $=id=>document.getElementById(id);
-let soundOn=true,best=0,audio=null,previousRun=null;
-try{best=Number(localStorage.getItem('kenken-best-v2'))||0;soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
-try{const stored=JSON.parse(localStorage.getItem('kenken-last-v3'));if(stored&&Number.isFinite(stored.score)&&Number.isFinite(stored.correct))previousRun=stored;}catch(_){}
-function save(key,value){try{localStorage.setItem(key,value);}catch(_){}}
+let best=0,soundOn=true,audio=null;
+try{const n=Number(localStorage.getItem(STORAGE));best=Number.isFinite(n)&&n>0?n:0;soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
+function save(key,value){try{localStorage.setItem(key,String(value));}catch(_){}}
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
-function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state==='suspended')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
-function chime(good){
-    if(!soundOn)return;
-    const ctx=prepareAudio();if(!ctx)return;
-    const play=()=>{try{(good?[880,660]:[180]).forEach((hz,i)=>{const o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+i*.16;o.type='sine';o.frequency.value=hz;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.008);g.gain.exponentialRampToValueAtTime(.001,t+.23);o.connect(g);g.connect(ctx.destination);o.onended=()=>{o.disconnect();g.disconnect();};o.start(t);o.stop(t+.24);});}catch(_){}};
-    if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
+function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
+function chime(good,line=false){
+ if(!soundOn)return;const ctx=prepareAudio();if(!ctx)return;
+ const play=()=>{try{(good?(line?[660,880,1046]:[880,660]):[180]).forEach((hz,i)=>{const o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+i*.14;o.frequency.value=hz;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.15,t+.008);g.gain.exponentialRampToValueAtTime(.001,t+.22);o.connect(g);g.connect(ctx.destination);o.onended=()=>{o.disconnect();g.disconnect();};o.start(t);o.stop(t+.23);});}catch(_){}};
+ if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
 }
-let state='home',score=0,correct=0,combo=0,maxCombo=0,lives=3,question=null;
-let elapsed=0,last=0,raf=0,phase='question',feedbackRemaining=0,lastReason='';
-let attempts=0,recovered=0,reviewQueue=[],questionDuration=7200,slowNext=false,runBest=0,recordAnnounced=false;
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function show(screen){['home','game','result'].forEach(id=>$(id).classList.toggle('hidden',id!==screen));}
-function updateHome(){$('homeBest').textContent=best;$('homeProgress').textContent=previousRun?'前回 '+previousRun.score+'点 · '+previousRun.correct+'問正解':'最初はゆっくり。○か×を押すだけ！';}
+let state='home',phase='falling',score=0,correct=0,combo=0,maxCombo=0,cleared=0,attempts=0,stacks=[[],[],[]],selected=1,round=null;
+let remaining=LIMIT,fallElapsed=0,fallDuration=8000,feedbackLeft=0,last=0,raf=0,overflow=false,lastMistake='',runBest=0;
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function show(id){['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
+function controls(){const active=state==='playing'&&phase==='falling';['left','right','drop','prefix0','prefix1','prefix2'].forEach(id=>$(id).disabled=!active);$('left').disabled=!active||selected===0;$('right').disabled=!active||selected===2;}
 function stats(){
-    $('score').textContent=score;
-    $('lives').textContent='♥'.repeat(lives)+'♡'.repeat(3-lives);
-    $('lives').setAttribute('aria-label','残り'+lives+'回');
-    $('level').textContent=correct<3?'ウォームアップ':'LEVEL '+levelFor(correct);
-    const next=5-combo%5;
-    $('combo').textContent=combo?combo+' COMBO · あと'+next+'問で倍率UP':'次の5連続で得点2倍';
-    if(combo>=20)$('combo').textContent=combo+' COMBO · 得点5倍';
-    const target=targetFor(score,runBest);
-    $('goalLabel').textContent=target.label;
-    $('goalGap').textContent='あと'+(target.value-score)+'点';
-    $('goalFill').style.width=Math.min(100,score/target.value*100)+'%';
+ $('score').textContent=score;$('seconds').textContent=Math.ceil(Math.max(0,remaining)/1000);$('timer').classList.toggle('urgent',remaining<=10000);
+ $('level').textContent='LEVEL '+(1+Math.floor(correct/4));$('combo').textContent=combo?combo+' COMBO · あと'+(3-combo%3)+'問で全列消去':'3連続正解で全列を1段消去！';
 }
-function buttons(enabled){$('yes').disabled=!enabled;$('no').disabled=!enabled;}
-function nextQuestion(){
-    const due=reviewQueue.findIndex(item=>item.due<=attempts);
-    if(due>=0){question={...reviewQueue.splice(due,1)[0].question,revisit:true};}
-    else question=makeQuestion(Math.random,question?question.prefecture[0]:'',correct);
-    elapsed=0;phase='question';questionDuration=durationFor(correct)+(slowNext?1000:0);slowNext=false;
-    $('prefecture').textContent=question.prefecture[0];$('reading').textContent=question.prefecture[1];
-    $('prompt').textContent=question.label;$('feedback').textContent=question.revisit?'さっきの問題。今ならわかる！':'';
-    $('arena').classList.remove('flash-good','flash-bad');
-    $('tile').classList.toggle('revisit',!!question.revisit);
-    $('tile').style.transform='translateY(0)';$('tile').style.borderColor=question.revisit?'#008577':'#e6a469';
-    $('timeFill').style.transform='scaleX(1)';$('timeMeter').setAttribute('aria-valuenow','100');buttons(true);
+function renderStacks(){
+ for(let i=0;i<3;i++){
+  const container=$('stack'+i);container.replaceChildren();
+  stacks[i].forEach(name=>{const block=document.createElement('div');block.className='block';block.textContent=name;container.appendChild(block);});
+ }
+}
+function draw(){
+ if(!round)return;
+ for(let i=0;i<3;i++){
+  $('lane'+i).classList.toggle('selected',selected===i);$('prefix'+i).classList.toggle('selected',selected===i);
+  $('prefix'+i).setAttribute('aria-pressed',String(selected===i));$('ghost'+i).textContent=round.entries[i].prefix+round.suffix;
+  $('ghost'+i).style.bottom=(8+stacks[i].length*40)+'px';$('ghost'+i).classList.toggle('hidden',i!==selected||phase!=='falling');
+ }
+ const bottom=Math.max(0,$('board').clientHeight-48-stacks[selected].length*40);
+ const progress=Math.min(1,fallElapsed/fallDuration);
+ $('falling').style.transform='translate('+(selected*100)+'%,'+(reduced?Math.min(12,bottom):progress*bottom)+'px)';
+ $('suffix').style.borderColor=progress>.75?'#cf4229':'#e99c52';
+ controls();
+}
+function nextRound(){
+ round=makeRound(correct,round?round.suffix:'');selected=1;fallElapsed=0;fallDuration=speedFor(correct);phase='falling';
+ $('question').textContent=round.prompt;$('suffix').textContent=round.suffix;
+ for(let i=0;i<3;i++){$('prefix'+i).textContent=round.entries[i].prefix;$('prefix'+i).setAttribute('aria-label',round.entries[i].prefix+'の列を選ぶ');}
+ $('feedback').textContent='';$('feedback').classList.remove('bad');$('questionType').textContent='「'+round.suffix+'」をつなげて、答えの県を完成！';
+ $('falling').classList.remove('hidden');draw();
 }
 function start(){
-    cancelAnimationFrame(raf);prepareAudio();score=correct=combo=maxCombo=attempts=recovered=0;lives=3;question=null;reviewQueue=[];slowNext=false;runBest=best;recordAnnounced=false;lastReason='';
-    state='playing';$('overlay').classList.add('hidden');show('game');stats();nextQuestion();last=performance.now();raf=requestAnimationFrame(tick);
+ cancelAnimationFrame(raf);prepareAudio();score=correct=combo=maxCombo=cleared=attempts=0;stacks=[[],[],[]];selected=1;round=null;remaining=LIMIT;overflow=false;lastMistake='';runBest=best;
+ state='playing';$('overlay').classList.add('hidden');$('board').classList.remove('clearflash');show('game');renderStacks();nextRound();stats();last=performance.now();raf=requestAnimationFrame(tick);
 }
-function tick(now){
-    if(state!=='playing')return;
-    const delta=Math.max(0,now-last);last=now;
-    if(phase==='feedback'){feedbackRemaining-=delta;if(feedbackRemaining<=0){if(lives===0){finish();return;}nextQuestion();}}
-    else{
-        elapsed+=delta;const progress=Math.min(1,elapsed/questionDuration);
-        const travel=Math.max(0,$('arena').clientHeight-70-$('tile').offsetHeight-22);
-        $('tile').style.transform='translateY('+(reducedMotion?0:progress*travel)+'px)';
-        $('tile').style.borderColor=progress>.75?'#d34532':question.revisit?'#008577':'#e6a469';
-        $('timeFill').style.transform='scaleX('+(1-progress)+')';
-        $('timeFill').style.background=progress>.75?'#d34532':'#008577';
-        $('timeMeter').setAttribute('aria-valuenow',String(Math.round((1-progress)*100)));
-        if(progress>=1)answer(null);
-    }
-    raf=requestAnimationFrame(tick);
+function advance(now){
+ if(state!=='playing')return;
+ const delta=Math.max(0,now-last);last=now;
+ remaining=Math.max(0,remaining-delta);
+ if(remaining<=0){finish('time');return;}
+ if(phase==='falling'){fallElapsed+=delta;if(fallElapsed>=fallDuration){resolveAnswer();return;}}
+ else{feedbackLeft-=delta;if(feedbackLeft<=0){if(overflow){finish('stack');return;}nextRound();}}
+ stats();draw();
 }
-function answer(value){
-    if(state!=='playing'||phase!=='question')return;
-    // タップ時点の時刻で判定し、描画の遅延による期限超過の回答を防ぐ。
-    const timedOut=Math.max(elapsed,elapsed+Math.max(0,performance.now()-last))>=questionDuration;
-    const good=!timedOut&&value===question.expected;
-    phase='feedback';buttons(false);attempts++;
-    if(good){
-        combo++;correct++;maxCombo=Math.max(combo,maxCombo);const points=pointsFor(combo);score+=points;
-        let message=combo>=5?combo+'コンボ！ ＋'+points+'点':'正解！ ＋'+points+'点';
-        if(question.revisit){recovered++;message='覚え直せた！ ＋'+points+'点';}
-        if(combo%10===0&&lives<3){lives++;message=combo+'コンボ！ ♥が1つ回復！';}
-        else if(runBest>0&&score>runBest&&!recordAnnounced){recordAnnounced=true;message='自己ベスト突破！ ＋'+points+'点';}
-        else if(combo%5===0&&combo<=20){message=combo+'コンボ！ 得点'+Math.min(5,1+Math.floor(combo/5))+'倍！';}
-        $('feedback').textContent=message;
-    }else{
-        lives--;combo=0;slowNext=true;
-        lastReason=(value===null||timedOut?'時間切れ。':'おしい！')+' '+question.label+' '+question.prefecture[1]+' → '+(question.expected?'○':'×');
-        $('feedback').textContent=lastReason;
-        if(lives>0&&!reviewQueue.some(item=>item.question.prefecture[0]===question.prefecture[0]&&item.question.label===question.label))reviewQueue.push({question:{...question,revisit:false},due:attempts+2});
-    }
-    $('arena').classList.add(good?'flash-good':'flash-bad');chime(good);stats();feedbackRemaining=good?(combo%5===0?600:280):1500;
+function tick(now){if(state!=='playing')return;advance(now);if(state==='playing')raf=requestAnimationFrame(tick);}
+function select(column){
+ if(state!=='playing'||phase!=='falling')return;advance(performance.now());
+ if(state!=='playing'||phase!=='falling')return;selected=Math.max(0,Math.min(2,column));draw();
 }
-function finish(){
-    cancelAnimationFrame(raf);state='result';buttons(false);show('result');const oldBest=runBest,record=score>best;
-    if(record){best=score;save('kenken-best-v2',String(best));}
-    $('resultTitle').textContent=record?'自己ベスト、更新！':oldBest>0&&oldBest-score<=50?'あと少しで、自己ベスト！':'ナイスチャレンジ！';
-    $('resultScore').textContent=score;$('total').textContent=correct;$('maxCombo').textContent=maxCombo;$('finalLevel').textContent=levelFor(correct);
-    $('record').textContent=record?'前のベストから ＋'+(score-oldBest)+'点':oldBest>0?'自己ベスト更新まで あと'+(oldBest-score+10)+'点':'まずは1問正解を目指そう';
-    const insights=[];
-    if(previousRun&&score>previousRun.score)insights.push('前回より ＋'+(score-previousRun.score)+'点！');
-    if(recovered>0)insights.push('間違えた問題を'+recovered+'問、覚え直せた！');
-    if(attempts>0)insights.push('正答率 '+Math.round(correct/attempts*100)+'%');
-    $('insight').textContent=insights.join(' ／ ');
-    $('reason').textContent=lastReason;
-    previousRun={score,correct,maxCombo};save('kenken-last-v3',JSON.stringify(previousRun));updateHome();
-    $('replay').textContent='もう一回あそぶ →';$('replay').focus();
+function drop(){
+ if(state!=='playing'||phase!=='falling')return;advance(performance.now());
+ if(state==='playing'&&phase==='falling')resolveAnswer();
 }
-function pause(){if(state!=='playing')return;state='paused';cancelAnimationFrame(raf);buttons(false);$('overlay').classList.remove('hidden');$('resume').focus();}
-function resume(){if(state!=='paused')return;prepareAudio();state='playing';$('overlay').classList.add('hidden');buttons(phase==='question');last=performance.now();raf=requestAnimationFrame(tick);}
-$('start').onclick=start;$('replay').onclick=start;$('yes').onclick=()=>answer(true);$('no').onclick=()=>answer(false);$('pause').onclick=pause;$('resume').onclick=resume;
+function resolveAnswer(){
+ if(state!=='playing'||phase!=='falling')return;
+ phase='feedback';attempts++;
+ const good=selected===round.answer;
+ if(good){combo++;correct++;maxCombo=Math.max(maxCombo,combo);score+=pointsFor(combo);}else combo=0;
+ const formed=round.entries[selected].prefix+round.suffix+'県';
+ const result=settle(stacks,selected,good,combo,formed);stacks=result.stacks;cleared+=result.cleared;overflow=result.overflow;
+ if(good){$('feedback').textContent=round.target.name+'、正解！ ＋'+pointsFor(combo)+'点'+(combo%3===0?' ／ 3コンボで全列消去！':result.cleared>1?' ／ 積んだブロックも消去！':'');$('board').classList.remove('clearflash');void $('board').offsetWidth;$('board').classList.add('clearflash');}
+ else{lastMistake=round.prompt+' → '+round.target.name;$('feedback').textContent=formed+'ではなく、'+round.target.name+'！ ブロックが1段増えた';}
+ $('feedback').classList.toggle('bad',!good);$('falling').classList.add('hidden');
+ feedbackLeft=good?600:1800;chime(good,good&&combo%3===0);renderStacks();stats();draw();
+}
+function finish(reason){
+ if(state!=='playing')return;state='result';cancelAnimationFrame(raf);show('result');controls();
+ const record=score>best;if(record){best=score;save(STORAGE,best);}
+ $('resultTitle').textContent=reason==='stack'?'ブロックがいっぱい！':'60秒チャレンジ終了！';
+ $('resultScore').textContent=score;$('total').textContent=correct;$('maxCombo').textContent=maxCombo;$('cleared').textContent=cleared;
+ $('record').textContent=record?'自己ベスト更新！ '+best+'点':best>0?'自己ベスト '+best+'点':'次は1問正解を目指そう';
+ $('insight').textContent='正答率 '+(attempts?Math.round(correct/attempts*100):0)+'%'+(runBest>0&&!record?' ／ 記録更新まであと'+(runBest-score+50)+'点':'');
+ $('reason').textContent=lastMistake?'おさらい：'+lastMistake:'正解で県名が完成！お疲れさまでした。';
+ $('homeBest').textContent=best;$('replay').focus();
+}
+function pause(){if(state!=='playing')return;advance(performance.now());if(state!=='playing')return;state='paused';cancelAnimationFrame(raf);$('overlay').classList.remove('hidden');controls();$('resume').focus();}
+function resume(){if(state!=='paused')return;prepareAudio();state='playing';$('overlay').classList.add('hidden');last=performance.now();controls();raf=requestAnimationFrame(tick);}
+$('start').onclick=start;$('replay').onclick=start;$('drop').onclick=drop;$('left').onclick=()=>select(selected-1);$('right').onclick=()=>select(selected+1);
+for(let i=0;i<3;i++)$('prefix'+i).onclick=()=>select(i);
+$('pause').onclick=pause;$('resume').onclick=resume;
 $('back').onclick=()=>{state='home';show('home');$('start').focus();};
 $('sound').onclick=()=>{soundOn=!soundOn;save('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)chime(true);};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
-document.addEventListener('keydown',e=>{if(e.repeat||e.altKey||e.ctrlKey||e.metaKey)return;if(state==='playing'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();answer(e.key==='ArrowLeft');}else if(e.key==='Escape'){if(state==='playing')pause();else if(state==='paused')resume();}});
-updateHome();updateSound();
+document.addEventListener('keydown',e=>{
+ if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;
+ if(e.key==='Escape'){if(state==='playing')pause();else if(state==='paused')resume();return;}
+ if(state!=='playing')return;
+ if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();select(selected+(e.key==='ArrowLeft'?-1:1));}
+ else if(e.key==='ArrowDown'||e.code==='Space'){e.preventDefault();drop();}
+});
+$('homeBest').textContent=best;updateSound();
 </script></body></html>
