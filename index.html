@@ -1,298 +1,140 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>都道府県 文字縛りクイズ｜30秒チャレンジ</title>
-    <style>
-        :root {
-            --primary: #FF5722;
-            --primary-dark: #E64A19;
-            --secondary: #00897B;
-            --bg-color: #FFF3E0;
-            --card-bg: #FFFFFF;
-            --text-color: #333333;
-            --gray-light: #F5F5F5;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            margin: 16px;
-        }
-
-        .screen {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* スタート・リザルト画面 */
-        h1 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 16px 32px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
-            transition: transform 0.1s, background-color 0.2s;
-        }
-
-        .btn:active {
-            transform: scale(0.97);
-            background-color: var(--primary-dark);
-        }
-
-        /* ゲーム画面ヘッダー */
-        .game-header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        .timer-box {
-            background: #FFE0B2;
-            color: #E65100;
-            padding: 6px 14px;
-            border-radius: 20px;
-        }
-
-        .score-box {
-            background: #E0F2F1;
-            color: #00695C;
-            padding: 6px 14px;
-            border-radius: 20px;
-        }
-
-        /* 問題カード */
-        .question-card {
-            background: #FAFAFA;
-            border: 2px dashed #FFCCBC;
-            border-radius: 12px;
-            padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
-
-        .question-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            line-height: 1.4;
-        }
-
-        /* 4択ボタン */
-        .choices-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .choice-btn {
-            background: white;
-            border: 2px solid #E0E0E0;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #444;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-        }
-
-        .choice-btn:hover {
-            border-color: var(--primary);
-            background: #FFFBE6;
-        }
-
-        .choice-btn.correct {
-            background: #4CAF50 !important;
-            color: white !important;
-            border-color: #4CAF50 !important;
-        }
-
-        .choice-btn.incorrect {
-            background: #F44336 !important;
-            color: white !important;
-            border-color: #F44336 !important;
-        }
-
-        /* リザルト画面 */
-        .result-score {
-            font-size: 48px;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 10px 0;
-        }
-    
-        * { box-sizing: border-box; }
-        button { touch-action: manipulation; }
-        button:focus-visible { outline: 3px solid #1976D2; outline-offset: 3px; }
-        .choice-btn:disabled { cursor: default; opacity: 1; }
-        .sound-bar { display:flex; justify-content:flex-end; padding:14px 18px 0; }
-        .small-btn { border:1px solid #ddd; background:#fffaf2; border-radius:12px; padding:8px 12px; font:inherit; font-size:12px; cursor:pointer; }
-        .game-header { flex-wrap:wrap; gap:8px; font-size:14px; }
-        .feedback { min-height:66px; padding:12px 0 0; font-size:13px; line-height:1.6; font-weight:700; color:#00796B; }
-        .feedback.wrong { color:#C62828; }
-        .best { font-size:14px; margin:20px 0 0; color:#777; }
-        .timer-box.urgent { background:#FFEBEE; color:#C62828; }
-        .record { color:#00796B; font-weight:700; margin-bottom:20px; }
-        .question-card { min-height:116px; display:flex; align-items:center; justify-content:center; }
-        .screen { width:100%; }
-        .paused { padding:30px 0; }
-        .paused p { margin:0 0 20px; }
-        @media(max-height:720px) { .screen { padding:18px; } .choice-btn { padding:13px; } .question-card { padding:15px; min-height:90px; margin-bottom:15px; } }
-    </style>
-</head>
-<body>
-
-    <div class="container"><div class="sound-bar"><button id="sound" class="small-btn" aria-pressed="true">音 ON ♪</button></div>
-        <!-- スタート画面 -->
-        <div id="start-screen" class="screen">
-            <h1>日本全国<br>文字縛りクイズ</h1>
-            <p>制限時間30秒！4択をタップして答えよう。<br>正解のピンポン♪で、テンポよく次へ。<br><small>文字の問題は「都・道・府・県」を除いて考えてね。</small></p>
-            <button id="start" class="btn">ゲームスタート</button><p class="best">自己ベスト：<b id="home-best">0</b>問正解</p>
-        </div>
-
-        <!-- ゲーム画面 -->
-        <div id="game-screen" class="screen hidden">
-            <div class="game-header">
-                <div id="timer-box" class="timer-box">残り時間: <span id="time-left">30</span>秒</div>
-                <div class="score-box">正解: <span id="current-score">0</span>問</div><button id="pause" class="small-btn">一時停止</button>
-            </div>
-
-            <div id="play-content"><div class="question-card">
-                <div id="question-text" class="question-text">ここに問題文が入ります</div>
-            </div>
-
-            <div class="choices-container" id="choices-container">
-                <!-- 選択肢ボタンが動的に入ります -->
-            </div><div id="feedback" class="feedback" role="status" aria-live="polite"></div></div><div id="paused" class="paused hidden"><h2>ひとやすみ</h2><p>残り時間も止まっています。</p><button id="resume" class="btn">つづける</button></div>
-        </div>
-
-        <!-- リザルト画面 -->
-        <div id="result-screen" class="screen hidden">
-            <h1>タイムアップ！</h1>
-            <p>お疲れ様でした！あなたのスコアは...</p>
-            <div class="result-score"><span id="final-score">0</span>問正解</div>
-            <p id="record" class="record"></p><p id="result-comment" style="font-weight: bold; color: #333;"></p>
-            <button id="replay" class="btn">もう一度プレイ</button>
-        </div>
-    </div>
-
-    <script>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff3e0"><title>都道府県ソリティア｜1分でいくつ作れる？</title><style>
+:root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#352f28;background:#fff3e0}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:14px 12px}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #2365ce;outline-offset:3px}button:disabled{cursor:default}.app{width:min(100%,470px)}header{display:flex;justify-content:space-between;align-items:center;margin:0 4px 13px;gap:8px}.brand{font-weight:900;font-size:18px}.brand b{color:#e65c2a}.small{border:1px solid #ddceb7;background:#fffaf0;border-radius:10px;padding:8px 11px;font-size:12px;color:#736048}.panel{background:#fffdf8;border:1px solid #e9dec9;border-radius:23px;padding:22px;box-shadow:0 12px 40px #794c1610}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:2px;color:#9d704e;font-weight:800}h1{font-size:35px;letter-spacing:-1.6px;line-height:1.25;margin:16px 0}h1 em{font-style:normal;color:#e65c2a}p{font-size:13px;line-height:1.85;color:#7c6b54}.sample{background:#f3efdf;padding:16px;border-radius:15px;margin:22px 0;text-align:center}.sample p{margin:0 0 12px;color:#55452e;font-weight:700}.example{display:flex;justify-content:center;gap:8px;font-weight:900;font-size:25px}.example span{border:1px solid #deb68a;background:#fffdf8;border-radius:8px;padding:6px 12px;box-shadow:0 3px 0 #ddc4a2}.example small{font-size:15px;align-self:center;color:#917956}.rules{font-size:12px;line-height:1.9;color:#7d6a51;margin:18px 0}.primary{width:100%;border:0;background:#e65c2a;color:#fff;padding:16px;border-radius:13px;box-shadow:0 4px 0 #b8421b;font-weight:800;font-size:17px}.primary:active{transform:translateY(2px)}.best{text-align:center;font-size:12px;color:#907959;margin:20px 0 0}.stats{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.score strong{font-size:30px;font-variant-numeric:tabular-nums}.score small{font-size:11px;margin-left:4px;color:#8e795d}.timer{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}.timer small{font-size:10px;color:#8d795e;margin-right:5px}.timer.urgent{color:#c8492a}.clockbar{height:4px;background:#eadfc8;border-radius:4px;overflow:hidden;margin-bottom:16px}.clockbar i{display:block;height:100%;background:#008577;transform-origin:left}.question{background:#f3efdf;padding:14px 12px;border-radius:13px;text-align:center}.question small{display:block;font-size:10px;color:#987e5c;margin-bottom:4px}.question strong{font-size:18px;line-height:1.5}.answer{display:flex;align-items:center;justify-content:center;gap:7px;min-height:70px;margin-top:12px}.slot{width:48px;height:52px;border:2px dashed #d7c4a8;border-radius:9px;display:grid;place-items:center;font-size:27px;font-weight:800;color:#d4c5ae;background:#fffdf8}.slot.filled{color:#007b6d;border-style:solid;border-color:#85bca4;background:#eef7ea;cursor:pointer}.suffix{font-size:20px;color:#8f7a5e;margin-left:2px}.answer.good .slot{border-color:#008577;background:#d4edcf}.answer.wrong .slot{border-color:#ce5134;background:#fff0e8;color:#b64c33}.feedback{min-height:43px;text-align:center;font-size:12px;line-height:1.6;font-weight:700;color:#008577;padding:6px 0}.feedback.bad{color:#b54c31}.boardhead{display:flex;align-items:center;justify-content:space-between;gap:4px;font-size:10px;color:#907959;margin-bottom:10px}.boardhead strong{color:#008577;font-weight:700}.board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;min-height:220px;background:#eee9d9;padding:12px 9px 16px;border:1px solid #e3d8c0;border-radius:14px;align-items:start}.column{min-width:0;display:flex;flex-direction:column;align-items:stretch}.card{width:100%;height:43px;border:1px solid #d3c2a7;border-radius:7px;background:#e3dccb;display:grid;place-items:center;font-size:23px;font-weight:700;color:#a28b6c;flex:none;margin-top:-9px;box-shadow:0 2px 0 #cdbd9f;position:relative}.card:first-child{height:49px;margin-top:0;background:#fffdf8;border:2px solid #e6a467;color:#443725;box-shadow:0 3px 0 #d7b78f;z-index:8;margin-bottom:7px}.card:first-child:not(:disabled):active{transform:translateY(2px);background:#fff0d4}.card.hinted{outline:3px solid #008577;outline-offset:2px;background:#dff1de}.empty{height:49px;border:1px dashed #d0c1a5;border-radius:7px;display:grid;place-items:center;color:#c3b293;font-size:20px}.tools{display:flex;justify-content:space-between;gap:8px;margin-top:13px}.tools button{flex:1;padding:11px 5px}.tools button:disabled{opacity:.4}.collection{font-size:11px;color:#8b7759;line-height:1.9;margin:14px 0 0;min-height:22px}.collection b{color:#008577}.paused{text-align:center;padding:55px 0}.paused h2{font-size:25px}.result{text-align:center}.result h1{font-size:28px}.resultnum{font-size:69px;line-height:1.15;color:#e65c2a;font-weight:900;letter-spacing:-3px;margin:16px 0 0}.record{display:inline-block;border-radius:100px;background:#e5f1df;color:#00796b;padding:7px 12px;font-size:12px}.resultlist{padding:14px;background:#f3efdf;border-radius:12px;margin:20px 0;font-size:14px;line-height:2;color:#5b4d3a;overflow-wrap:anywhere}.secondary{background:none;border:0;color:#897253;padding:14px;margin-top:8px}.footer{text-align:center;font-size:10px;color:#a18c6f;margin:15px 0}.newboard{color:#008577}@media(max-height:780px){body{padding:8px 10px}.panel{padding:16px}header{margin-bottom:9px}.clockbar{margin-bottom:11px}.question{padding:10px}.question strong{font-size:17px}.answer{min-height:58px;margin-top:8px}.slot{height:47px;width:44px}.feedback{min-height:40px}.board{min-height:182px;padding:9px 7px 14px;gap:7px}.card{height:36px;font-size:21px;margin-top:-8px}.card:first-child{height:43px}.tools{margin-top:10px}.collection{margin-top:10px}.footer{margin-top:10px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style></head><body><main class="app"><header><div class="brand">都道府県<b>ソリティア</b></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="eyebrow">PICK LETTERS. MAKE PREFECTURES.</div><h1>いちばん上から、<br><em>県名をつくろう。</em></h1><p>クイズの答えの文字を、順番にタップ。<br>使った文字が消えて、次の文字が現れる。</p><div class="sample"><p>横浜市がある都道府県は？</p><div class="example"><span>神</span><span>奈</span><span>川</span><small>県</small></div></div><div class="rules">取れるのは、各列のいちばん上だけ。<br>残った文字は、そのまま次の問題へ。<br>「県・府・都・道」は自動で付きます。<br>1分間で、いくつ完成させられるかな？</div><button id="start" class="primary">1分チャレンジ →</button><p class="best">自己ベスト <b id="homeBest">0</b>都道府県</p></section>
+<section id="game" class="panel hidden" aria-label="都道府県文字パズル"><div class="stats"><div class="score"><strong id="score">0</strong><small>都道府県 完成</small></div><div id="timer" class="timer"><small>残り</small><span id="seconds">60</span>秒</div><button id="pause" class="small">一時停止</button></div><div class="clockbar"><i id="clockFill"></i></div>
+<div id="play"><div class="question"><small id="roundLabel">文字を選んで答えよう</small><strong id="question"></strong></div><div id="answer" class="answer" aria-label="組み立て中の答え"></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><div class="boardhead"><strong>↓ 各列のいちばん上だけ取れる</strong><span id="boardCount"></span></div><div id="board" class="board" aria-label="5列の文字カード"></div><div class="tools"><button id="undo" class="small">↶ 1文字戻す</button><button id="reset" class="small">選び直す</button><button id="hint" class="small">ヒント</button></div><div id="collection" class="collection"></div></div>
+<div id="paused" class="paused hidden"><h2>ひとやすみ</h2><p>文字も残り時間も、そのままです。</p><button id="resume" class="primary">つづける →</button></div></section>
+<section id="result" class="panel result hidden"><div class="eyebrow">NICE SOLITAIRE!</div><h1 id="resultTitle">1分チャレンジ終了！</h1><div id="resultScore" class="resultnum">0</div><p style="margin:0 0 14px">都道府県 完成</p><span id="record" class="record"></span><div id="resultList" class="resultlist"></div><p id="insight"></p><button id="replay" class="primary">もう一回チャレンジ →</button><button id="back" class="secondary">タイトルへ</button></section><div class="footer">残りの文字を、少しずつ片づけよう。</div></main>
+<script>
 'use strict';
-const quizData=[["「あ」から始まり、日本海に面している県は？",["愛知県","愛媛県","秋田県","静岡県"],2,"秋田県は日本海に面しています。"],["県名の読みが「ま」で終わるのは？",["埼玉県","新潟県","長野県","滋賀県"],0,"さいたま、の最後は「ま」です。"],["「か」から始まり、九州地方にある県は？",["神奈川県","鹿児島県","香川県","京都府"],1,"かごしま県は九州地方です。"],["名前に「川」がつき、北陸地方にある県は？",["東京都","神奈川県","石川県","香川県"],2,"石川県は北陸地方にあります。"],["名前に漢字の「島」がつく都道府県はいくつ？",["3つ","4つ","5つ","6つ"],2,"福島・島根・広島・徳島・鹿児島の5つです。"],["名前に漢字の「山」がつく都道府県はいくつ？",["3つ","5つ","6つ","8つ"],2,"山形・山梨・富山・和歌山・岡山・山口の6つです。"],["県庁所在地が甲府市なのは？",["青森県","秋田県","山梨県","富山県"],2,"山梨県の県庁所在地は甲府市です。"],["島根県と陸地で隣り合っていないのは？",["鳥取県","広島県","山口県","香川県"],3,"香川県は四国地方にあります。"],["京都府のほかに、名前に「府」がつくのは？",["大阪府","東京都","北海道","兵庫県"],0,"「府」がつくのは京都府と大阪府です。"],["「お」から始まり、中国地方にある県は？",["岡山県","大分県","沖縄県","大阪府"],0,"おかやま県は中国地方です。"],["「と」から始まり、海に面していないのは？",["東京都","徳島県","栃木県","富山県"],2,"栃木県は内陸県です。"],["九州地方にあるのは？",["佐賀県","山口県","愛媛県","新潟県"],0,"佐賀県は九州地方です。"],["四国地方に含まれないのは？",["徳島県","香川県","岡山県","高知県"],2,"岡山県は中国地方です。"],["東北地方に含まれないのは？",["新潟県","青森県","岩手県","福島県"],0,"新潟県は中部地方に分類されます。"],["「み」から始まる都道府県は？",["宮城県","山形県","茨城県","鳥取県"],0,"宮城県は「みやぎ」と読みます。"],["「ふ」から始まる都道府県は？",["福井県","富山県","愛媛県","兵庫県"],0,"福井県は「ふくい」と読みます。"],["名前に漢字の「岡」がつく県は？",["山形県","長野県","福岡県","福島県"],2,"福岡県・静岡県・岡山県に「岡」がつきます。"],["県名の読みが「わ」で終わるのは？",["和歌山県","沖縄県","岩手県","滋賀県"],1,"おきなわ、の最後は「わ」です。"],["「ぐ」から始まる都道府県は？",["岐阜県","群馬県","熊本県","宮崎県"],1,"群馬県は「ぐんま」と読みます。"],["名前に漢字の「長」がつく県は？",["鳥取県","奈良県","長崎県","宮崎県"],2,"長崎県と長野県に「長」がつきます。"],["金沢市が県庁所在地なのは？",["石川県","香川県","神奈川県","福井県"],0,"石川県の県庁所在地は金沢市です。"],["日本で面積が最も小さい都道府県は？",["沖縄県","香川県","大阪府","東京都"],1,"香川県が最も小さい都道府県です。"],["名前に漢字の「愛」がつく県は？",["岐阜県","三重県","愛媛県","奈良県"],2,"愛媛県と愛知県に「愛」がつきます。"],["県名の読みが「ぎ」で終わるのは？",["宮崎県","栃木県","山口県","高知県"],1,"栃木県は「とちぎ」と読みます。"]];
+const PREFECTURES=[["北海","道","札幌市がある都道府県は？"],["青森","県","青森市が県庁所在地なのは？"],["岩手","県","盛岡市が県庁所在地なのは？"],["宮城","県","仙台市がある都道府県は？"],["秋田","県","秋田市が県庁所在地なのは？"],["山形","県","山形市が県庁所在地なのは？"],["福島","県","福島市が県庁所在地なのは？"],["茨城","県","水戸市がある都道府県は？"],["栃木","県","宇都宮市がある都道府県は？"],["群馬","県","前橋市がある都道府県は？"],["埼玉","県","さいたま市がある都道府県は？"],["千葉","県","千葉市が県庁所在地なのは？"],["東京","都","都庁が新宿区にあるのは？"],["神奈川","県","横浜市がある都道府県は？"],["新潟","県","新潟市が県庁所在地なのは？"],["富山","県","富山市が県庁所在地なのは？"],["石川","県","金沢市がある都道府県は？"],["福井","県","福井市が県庁所在地なのは？"],["山梨","県","甲府市がある都道府県は？"],["長野","県","長野市が県庁所在地なのは？"],["岐阜","県","岐阜市が県庁所在地なのは？"],["静岡","県","静岡市が県庁所在地なのは？"],["愛知","県","名古屋市がある都道府県は？"],["三重","県","津市がある都道府県は？"],["滋賀","県","大津市がある都道府県は？"],["京都","府","京都市がある都道府県は？"],["大阪","府","大阪市がある都道府県は？"],["兵庫","県","神戸市がある都道府県は？"],["奈良","県","奈良市が県庁所在地なのは？"],["和歌山","県","和歌山市が県庁所在地なのは？"],["鳥取","県","鳥取市が県庁所在地なのは？"],["島根","県","松江市がある都道府県は？"],["岡山","県","岡山市が県庁所在地なのは？"],["広島","県","広島市が県庁所在地なのは？"],["山口","県","山口市が県庁所在地なのは？"],["徳島","県","徳島市が県庁所在地なのは？"],["香川","県","高松市がある都道府県は？"],["愛媛","県","松山市がある都道府県は？"],["高知","県","高知市が県庁所在地なのは？"],["福岡","県","福岡市が県庁所在地なのは？"],["佐賀","県","佐賀市が県庁所在地なのは？"],["長崎","県","長崎市が県庁所在地なのは？"],["熊本","県","熊本市が県庁所在地なのは？"],["大分","県","大分市が県庁所在地なのは？"],["宮崎","県","宮崎市が県庁所在地なのは？"],["鹿児島","県","鹿児島市が県庁所在地なのは？"],["沖縄","県","那覇市がある都道府県は？"]];
+const LIMIT=60000,COLUMNS=5,BATCH=6,KEY='prefecture-solitaire-best-v1';
+function shuffle(items,random=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+// 同じ漢字は同じ列にまとめる。正解の文字を取れば、次の問題も必ず解ける。
+function makeBoard(targets,random=Math.random){
+ const letters=targets.flatMap(p=>[...p[0]]),counts=new Map();
+ letters.forEach(c=>counts.set(c,(counts.get(c)||0)+1));
+ const weights=shuffle([...counts],random).sort((a,b)=>b[1]-a[1]);
+ const loads=Array(COLUMNS).fill(0),mapping=new Map(),columns=Array.from({length:COLUMNS},()=>[]);
+ for(const [char,count]of weights){const low=Math.min(...loads),choices=loads.map((v,i)=>v===low?i:-1).filter(i=>i>=0);const col=choices[Math.floor(random()*choices.length)];mapping.set(char,col);loads[col]+=count;}
+ for(const char of letters)columns[mapping.get(char)].push(char);
+ return columns;
+}
+function locate(columns,char){return columns.findIndex(column=>column[0]===char);}
 const $=id=>document.getElementById(id);
-const LIMIT=30000,KEY='prefecture-four-choice-best-v1';
 let best=0,soundOn=true,audio=null;
-try{const value=Number(localStorage.getItem(KEY));best=Number.isFinite(value)&&value>0?value:0;soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
+try{const n=Number(localStorage.getItem(KEY));best=Number.isFinite(n)&&n>0?n:0;soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
 function save(key,value){try{localStorage.setItem(key,String(value));}catch(_){}}
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
 function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
-function correctSound(){
+function tone(frequencies,volume=.14){
  if(!soundOn)return;const ctx=prepareAudio();if(!ctx)return;
- const play=()=>{try{[880,660].forEach((hz,i)=>{const oscillator=ctx.createOscillator(),gain=ctx.createGain(),t=ctx.currentTime+i*.18;oscillator.frequency.value=hz;gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(.18,t+.008);gain.gain.exponentialRampToValueAtTime(.001,t+.24);oscillator.connect(gain);gain.connect(ctx.destination);oscillator.onended=()=>{oscillator.disconnect();gain.disconnect();};oscillator.start(t);oscillator.stop(t+.25);});}catch(_){}};
+ const play=()=>{try{frequencies.forEach((hz,i)=>{const o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+i*.16;o.frequency.value=hz;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(volume,t+.007);g.gain.exponentialRampToValueAtTime(.001,t+.22);o.connect(g);g.connect(ctx.destination);o.onended=()=>{o.disconnect();g.disconnect();};o.start(t);o.stop(t+.23);});}catch(_){}};
  if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
 }
-function shuffle(items,random=Math.random){const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}return copy;}
-function buildQuestion(entry){const choices=shuffle(entry[1].map((label,index)=>({label,correct:index===entry[2]})));return {text:entry[0],choices,explanation:entry[3]};}
-let state='home',score=0,attempts=0,remaining=LIMIT,last=0,raf=0,deck=[],current=null,phase='question',feedbackLeft=0,previousEntry=null,lastError='';
-function screen(id){['start-screen','game-screen','result-screen'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
-function updateClock(){$('time-left').textContent=Math.ceil(remaining/1000);$('timer-box').classList.toggle('urgent',remaining<=5000);}
-function startGame(){
- cancelAnimationFrame(raf);prepareAudio();score=attempts=0;remaining=LIMIT;deck=[];current=null;previousEntry=null;lastError='';state='playing';
- $('current-score').textContent=0;$('paused').classList.add('hidden');$('play-content').classList.remove('hidden');screen('game-screen');updateClock();nextQuestion();last=performance.now();raf=requestAnimationFrame(tick);
+let state='home',phase='select',remaining=LIMIT,last=0,raf=0,feedbackLeft=0;
+let deck=[],targets=[],targetIndex=0,columns=[],picks=[],completed=[],mistakes=0,hints=0,highlight=-1,runBest=0,batchNumber=0;
+function show(id){['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
+function current(){return targets[targetIndex];}
+function clock(){$('seconds').textContent=Math.ceil(remaining/1000);$('timer').classList.toggle('urgent',remaining<=10000);$('clockFill').style.transform='scaleX('+(remaining/LIMIT)+')';$('score').textContent=completed.length;}
+function message(text,bad=false){$('feedback').textContent=text;$('feedback').classList.toggle('bad',bad);}
+function renderAnswer(){
+ const container=$('answer');container.replaceChildren();container.classList.toggle('good',phase==='good');container.classList.toggle('wrong',phase==='wrong');
+ [...current()[0]].forEach((_,i)=>{const slot=document.createElement('button');slot.type='button';slot.className='slot'+(i<picks.length?' filled':'');slot.textContent=picks[i]?picks[i].char:'・';slot.disabled=state!=='playing'||phase!=='select'||i>=picks.length;slot.setAttribute('aria-label',picks[i]?picks[i].char+'以降を戻す':(i+1)+'文字目');slot.onclick=()=>rewindTo(i);container.appendChild(slot);});
+ const suffix=document.createElement('span');suffix.className='suffix';suffix.textContent=current()[1];container.appendChild(suffix);
 }
-function nextQuestion(){
- if(!deck.length){deck=shuffle(quizData);if(deck[deck.length-1]===previousEntry&&deck.length>1)[deck[0],deck[deck.length-1]]=[deck[deck.length-1],deck[0]];}
- const entry=deck.pop();previousEntry=entry;current=buildQuestion(entry);phase='question';
- $('question-text').textContent=current.text;$('feedback').textContent='';$('feedback').classList.remove('wrong');
- const container=$('choices-container');container.replaceChildren();
- current.choices.forEach((choice,index)=>{const button=document.createElement('button');button.className='choice-btn';button.textContent=choice.label;button.onclick=()=>answer(index);container.appendChild(button);});
+function renderBoard(){
+ const board=$('board');board.replaceChildren();
+ columns.forEach((column,col)=>{
+  const lane=document.createElement('div');lane.className='column';
+  if(!column.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='·';lane.appendChild(empty);}
+  column.forEach((char,row)=>{const card=document.createElement(row===0?'button':'div');card.className='card'+(row===0&&highlight===col?' hinted':'');card.textContent=char;
+   if(row===0){card.type='button';card.disabled=state!=='playing'||phase!=='select';card.setAttribute('aria-label',(col+1)+'列目の'+char+'を取る');card.onclick=()=>pick(col);}
+   else card.setAttribute('aria-label',char+'、上の文字を取ると選べます');
+   lane.appendChild(card);
+  });board.appendChild(lane);
+ });
+ const active=state==='playing'&&phase==='select';
+ $('undo').disabled=!active||picks.length===0;$('reset').disabled=!active||picks.length===0;$('hint').disabled=!active;
+ $('boardCount').textContent='残り '+columns.reduce((n,c)=>n+c.length,0)+'枚';
+}
+function render(){renderAnswer();renderBoard();clock();}
+function nextTarget(){
+ picks=[];highlight=-1;phase='select';$('question').textContent=current()[2];
+ $('roundLabel').textContent='この山 '+(targetIndex+1)+' / '+targets.length+'問目';
+ message('');render();
+}
+function newBatch(){
+ targets=deck.splice(0,BATCH);targetIndex=0;columns=makeBoard(targets);batchNumber++;nextTarget();
+ if(batchNumber>1)message('この山、全部完成！ 次の文字カードへ。');
+}
+function start(){
+ cancelAnimationFrame(raf);prepareAudio();state='playing';remaining=LIMIT;completed=[];mistakes=hints=batchNumber=0;runBest=best;deck=shuffle(PREFECTURES);
+ $('play').classList.remove('hidden');$('paused').classList.add('hidden');$('collection').textContent='完成した都道府県がここに並びます。';show('game');newBatch();last=performance.now();raf=requestAnimationFrame(tick);
 }
 function advance(now){
- if(state!=='playing')return;
- const delta=Math.max(0,now-last);last=now;remaining=Math.max(0,remaining-delta);updateClock();
- if(remaining<=0){endGame();return;}
- if(phase==='feedback'){feedbackLeft-=delta;if(feedbackLeft<=0)nextQuestion();}
+ if(state!=='playing')return;const delta=Math.max(0,now-last);last=now;remaining=Math.max(0,remaining-delta);clock();
+ if(remaining<=0){finish(false);return;}
+ if(phase==='good'||phase==='wrong'){
+  feedbackLeft-=delta;if(feedbackLeft<=0){
+   if(phase==='wrong'){restoreAll();phase='select';message('文字を戻しました。もう一度選ぼう。');render();}
+   else{targetIndex++;if(targetIndex>=targets.length){if(!deck.length){finish(true);return;}newBatch();}else nextTarget();}
+  }
+ }
 }
 function tick(now){if(state!=='playing')return;advance(now);if(state==='playing')raf=requestAnimationFrame(tick);}
-function answer(index){
- if(state!=='playing'||phase!=='question')return;
- advance(performance.now());if(state!=='playing'||phase!=='question')return;
- const good=current.choices[index].correct;phase='feedback';attempts++;
- const buttons=$('choices-container').children;
- current.choices.forEach((choice,i)=>{buttons[i].disabled=true;if(choice.correct)buttons[i].classList.add('correct');else if(i===index)buttons[i].classList.add('incorrect');});
- if(good){score++;$('current-score').textContent=score;$('feedback').textContent='正解！';correctSound();feedbackLeft=350;}
- else{lastError=current.explanation;$('feedback').textContent='正解は「'+current.choices.find(c=>c.correct).label+'」。'+current.explanation;$('feedback').classList.add('wrong');feedbackLeft=1250;}
+function pick(col){
+ if(state!=='playing'||phase!=='select')return;advance(performance.now());if(state!=='playing'||phase!=='select'||!columns[col]?.length)return;
+ const char=columns[col].shift();picks.push({char,col});highlight=-1;tone([520+picks.length*70],.035);message('');
+ if(picks.length===[...current()[0]].length){
+  if(picks.map(p=>p.char).join('')===current()[0]){
+   phase='good';completed.push(current());feedbackLeft=650;
+   message(current()[0]+current()[1]+'、完成！'+(targetIndex===targets.length-1?' この山を全部片づけた！':''));
+   $('collection').textContent='完成：'+completed.slice(-6).map(p=>p[0]+p[1]).join('・')+(completed.length>6?' …':'');
+   tone([880,660]);
+  }else{phase='wrong';mistakes++;feedbackLeft=1000;message('その県ではなさそう。文字を戻して、もう一度！',true);}
+ }
+ render();
 }
-function endGame(){
- if(state!=='playing')return;state='result';cancelAnimationFrame(raf);screen('result-screen');$('final-score').textContent=score;
- const oldBest=best;if(score>best){best=score;save(KEY,best);}
- $('record').textContent=score>oldBest?'自己ベスト更新！ '+best+'問正解':best>0?'自己ベスト：'+best+'問 ／ 更新まであと'+(best-score+1)+'問':'まずは1問正解を目指そう！';
- $('result-comment').textContent=attempts?'正答率 '+Math.round(score/attempts*100)+'%'+(lastError?' ／ おさらい：'+lastError:' ／ 全問正解！'):'お疲れさまでした。準備ができたらもう一度！';
- $('home-best').textContent=best;$('replay').focus();
+function restoreAll(){while(picks.length){const p=picks.pop();columns[p.col].unshift(p.char);}highlight=-1;}
+function rewindTo(index){
+ if(state!=='playing'||phase!=='select')return;advance(performance.now());if(state!=='playing'||phase!=='select')return;
+ while(picks.length>index){const p=picks.pop();columns[p.col].unshift(p.char);}highlight=-1;message('');render();
+}
+function undo(){rewindTo(Math.max(0,picks.length-1));}
+function reset(){rewindTo(0);}
+function hint(){
+ if(state!=='playing'||phase!=='select')return;advance(performance.now());if(state!=='playing'||phase!=='select')return;
+ hints++;const target=[...current()[0]],typed=picks.map(p=>p.char).join('');
+ if(!current()[0].startsWith(typed)){restoreAll();message('選んだ文字を戻しました。最初は「'+target[0]+'」。');}
+ const char=target[picks.length],col=locate(columns,char);
+ if(col<0){restoreAll();highlight=locate(columns,target[0]);message('いったん戻そう。最初は「'+target[0]+'」。');}
+ else{highlight=col;message('次は「'+char+'」。緑のカードをタップ！');}
+ render();
 }
 function pause(){
- if(state!=='playing')return;advance(performance.now());if(state!=='playing')return;state='paused';cancelAnimationFrame(raf);$('play-content').classList.add('hidden');$('paused').classList.remove('hidden');$('resume').focus();
+ if(state!=='playing')return;advance(performance.now());if(state!=='playing')return;state='paused';cancelAnimationFrame(raf);$('play').classList.add('hidden');$('paused').classList.remove('hidden');$('resume').focus();
 }
-function resume(){if(state!=='paused')return;prepareAudio();state='playing';$('paused').classList.add('hidden');$('play-content').classList.remove('hidden');last=performance.now();raf=requestAnimationFrame(tick);}
-$('start').onclick=startGame;$('replay').onclick=startGame;$('pause').onclick=pause;$('resume').onclick=resume;
-$('sound').onclick=()=>{soundOn=!soundOn;save('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)correctSound();};
+function resume(){if(state!=='paused')return;prepareAudio();state='playing';$('play').classList.remove('hidden');$('paused').classList.add('hidden');last=performance.now();render();raf=requestAnimationFrame(tick);}
+function finish(all){
+ if(state!=='playing')return;state='result';cancelAnimationFrame(raf);show('result');
+ const record=completed.length>best;if(record){best=completed.length;save(KEY,best);}
+ $('resultTitle').textContent=all?'47都道府県、全部完成！':'1分チャレンジ終了！';$('resultScore').textContent=completed.length;
+ $('record').textContent=record?'自己ベスト更新！ '+best+'都道府県':best>0?'自己ベスト '+best+' ／ 更新まであと'+(best-completed.length+1)+'都道府県':'まずは1つ完成させよう！';
+ $('resultList').textContent=completed.length?completed.map(p=>p[0]+p[1]).join(' ・ '):'完成した都道府県がここに並びます。';
+ $('insight').textContent='選び直し '+mistakes+'回 ／ ヒント '+hints+'回。'+(completed.length?'文字を少しずつ片づけられました！':'わからないときはヒントを使ってみよう。');
+ $('homeBest').textContent=best;$('replay').focus();
+}
+$('start').onclick=start;$('replay').onclick=start;$('pause').onclick=pause;$('resume').onclick=resume;$('undo').onclick=undo;$('reset').onclick=reset;$('hint').onclick=hint;
+$('back').onclick=()=>{state='home';show('home');$('start').focus();};
+$('sound').onclick=()=>{soundOn=!soundOn;save('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)tone([880,660]);};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
-document.addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;if(e.key==='Escape'){if(state==='playing')pause();else if(state==='paused')resume();}else if(state==='playing'&&/^[1-4]$/.test(e.key)){e.preventDefault();answer(Number(e.key)-1);}});
-$('home-best').textContent=best;updateSound();
-</script>
-</body>
-</html>
+document.addEventListener('keydown',e=>{
+ if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;
+ if(e.key==='Escape'){if(state==='playing')pause();else if(state==='paused')resume();}
+ else if(state==='playing'&&/^[1-5]$/.test(e.key)){e.preventDefault();pick(Number(e.key)-1);}
+ else if(state==='playing'&&e.key==='Backspace'){e.preventDefault();undo();}
+});
+$('homeBest').textContent=best;updateSound();
+</script></body></html>
