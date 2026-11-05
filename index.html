@@ -380,5 +380,53 @@
             resultComment.textContent = comment;
         }
     </script>
+
+<script>
+let quizAudioContext;
+function prepareQuizAudio() {
+    try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return null;
+        if (!quizAudioContext) quizAudioContext = new AudioContextClass();
+        if (quizAudioContext.state === 'suspended') {
+            quizAudioContext.resume().catch(() => {});
+        }
+        return quizAudioContext;
+    } catch (_) { return null; }
+}
+document.addEventListener('click', prepareQuizAudio, { capture: true });
+function playCorrectSound() {
+    const ctx = prepareQuizAudio();
+    if (!ctx) return;
+    const play = () => {
+        try {
+            [880, 660].forEach((frequency, index) => {
+                const start = ctx.currentTime + index * 0.18;
+                const oscillator = ctx.createOscillator();
+                const gain = ctx.createGain();
+                oscillator.type = 'sine';
+                oscillator.frequency.value = frequency;
+                gain.gain.setValueAtTime(0, start);
+                gain.gain.linearRampToValueAtTime(0.2, start + 0.008);
+                gain.gain.exponentialRampToValueAtTime(0.001, start + 0.24);
+                oscillator.connect(gain);
+                gain.connect(ctx.destination);
+                oscillator.onended = () => { oscillator.disconnect(); gain.disconnect(); };
+                oscillator.start(start);
+                oscillator.stop(start + 0.25);
+            });
+        } catch (_) {}
+    };
+    if (ctx.state === 'running') play();
+    else ctx.resume().then(play).catch(() => {});
+}
+const originalHandleAnswer = handleAnswer;
+handleAnswer = function(selectedIndex, correctIndex, clickedBtn) {
+    if (isAnswerable && selectedIndex === correctIndex) playCorrectSound();
+    return originalHandleAnswer(selectedIndex, correctIndex, clickedBtn);
+};
+</script>
+
 </body>
 </html>
+
