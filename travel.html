@@ -5,11 +5,16 @@
 @media(max-height:510px){header{height:27px}.panel{padding:6px}#game{grid-template-rows:15px 60px 49px 23px 108px minmax(92px,1fr) 22px;gap:3px}.guest .avatar{font-size:20px}.guest .wish{font-size:9px}.draft button{height:26px;width:27px;font-size:20px}.ticket small{font-size:7px}.work{padding:4px}.raw-token .emoji{font-size:19px}.letter{font-size:19px}.hotspot span{font-size:7px}.scene-caption{font-size:6px}h1{font-size:25px}.home-rules{font-size:9px}.home-meta{font-size:9px}.hero{height:70px}#home>p{display:none}.resultlist{font-size:11px}.resultnum{font-size:40px}.dialog-head h2{font-size:15px}.dialog .hintline{font-size:8px}}
 @media(orientation:landscape) and (min-width:650px) and (max-height:510px){.app{max-width:1000px}#game{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"stats stats" "guests scene" "ticket scene" "work scene" "feedback tools";grid-template-rows:16px 60px 52px minmax(104px,1fr) 24px;gap:5px 12px}.stats{grid-area:stats}.guests{grid-area:guests}.ticket-area{grid-area:ticket}.feedback{grid-area:feedback}.work{grid-area:work}.scene{grid-area:scene}.tools{grid-area:tools}#home{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:6px 20px}#home .tag{grid-column:1}#home h1{grid-column:1;grid-row:2/5}#home>p{display:none}#home .hero{grid-column:2;grid-row:1/4;margin:0;height:100px}#home .home-rules{grid-column:2}#home .primary{grid-column:2}#home .home-meta,#home .home-actions{grid-column:1}}
 @media(prefers-reduced-motion:reduce){.letter:not(:disabled):active,.raw-token:not(:disabled):active,.hotspot:active{transform:none}}
+
+.home-images{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;height:clamp(70px,20dvh,145px);margin:15px 0;background:white;border-radius:12px;overflow:hidden}.home-images img{width:100%;height:100%;object-fit:contain;min-width:0}.ticket-content{display:flex;align-items:center;gap:5px;min-height:0}.ticket-photo{width:39px;height:36px;object-fit:contain;background:#fff;border-radius:5px;border:1px solid #e5dab8;flex:none}.ticket-photo.fuji{object-fit:cover;object-position:center 65%}.supply-button,.letter-page{border:0;background:none;font-size:8px;color:#8aa078;padding:2px 0;line-height:1.2;text-decoration:underline}.raw{grid-template-columns:repeat(5,minmax(0,1fr))}.raw-token img{position:static;width:30px;height:29px;object-fit:contain;min-height:0;flex:none;border-radius:4px;background:white}.raw-token img.fuji{object-fit:cover;object-position:center 65%}.raw-token small{font-size:7px}.letters{grid-template-columns:repeat(8,minmax(0,1fr))}.letter-empty{grid-column:1/-1;color:#b0bda2;font-size:10px;display:flex;align-items:center;justify-content:center}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:5px;padding:5px;background:#e9efdd}.picture-card{display:grid;grid-template-rows:minmax(0,1fr) 17px;border:1px solid #d2dfc8;border-radius:9px;overflow:hidden;background:white;min-width:0;min-height:0;padding:0}.picture-card img{position:static;inset:auto;display:block;pointer-events:none;width:100%;height:100%;object-fit:contain;min-width:0;min-height:0}.picture-card.fuji img{object-fit:cover;object-position:center 65%}.picture-card.nature-card img{object-fit:cover}.picture-card span{font-size:9px;line-height:17px;font-weight:700;color:#6c8864;text-align:center;background:#f8fbf1;white-space:nowrap}.picture-card:active{transform:scale(.96)}.resultlist{display:flex;justify-content:center;flex-wrap:wrap;gap:7px}.trip-stamp{width:65px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;line-height:1.4}.trip-stamp img{width:56px;height:51px;object-fit:contain;border-radius:7px;background:white}.trip-stamp img.fuji{object-fit:cover;object-position:center 65%}.convert-hero{display:block;width:100%;height:clamp(80px,24dvh,165px);object-fit:contain;background:white;border-radius:9px}.convert-title{text-align:center;font-size:12px;line-height:1.7;color:#879a78;margin:10px 0}.convert-choices{display:flex;gap:8px}.convert-choices button{flex:1;border:1px solid #c1d6b5;border-radius:10px;background:#f1f8e7;color:#4e876a;padding:13px 5px;font-size:18px;font-weight:800}.convert-choices button small{display:block;font-size:9px;font-weight:400;margin-top:5px}.book-nav{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:#96a884}.book-nav button{border:1px solid #d5e0c7;background:#f5f9eb;border-radius:6px;padding:6px 10px;font-size:10px}.nature-map{position:relative;height:clamp(100px,32dvh,210px);border:1px solid #d1dfc4;border-radius:9px;overflow:hidden}.nature-map>img{width:100%;height:100%;object-fit:fill;position:absolute;inset:0}.nature-tools{display:flex;gap:7px;align-items:center;margin-top:9px;font-size:10px;color:#95a680}.nature-tools button{width:34px;height:32px;border:1px solid #c9daba;background:#f8fbe9;border-radius:6px;font-size:19px}.nature-notice{font-size:10px;min-height:28px;line-height:1.5;color:#659477;margin:9px 0 0}.work-head>span{font-size:9px}
+@media(max-height:650px){.home-images{height:clamp(65px,16dvh,105px);margin:11px 0}.ticket-photo{width:30px;height:29px}.raw-token img{width:24px;height:26px}.raw-token small{font-size:6px}.picture-card{grid-template-rows:minmax(0,1fr) 15px}.picture-card span{font-size:8px;line-height:15px}.gallery{gap:4px;padding:4px}.trip-stamp{width:55px;font-size:9px}.trip-stamp img{width:48px;height:43px}.convert-title{font-size:11px;margin:7px 0}}
+@media(max-height:510px){.ticket-photo{width:25px;height:25px}.ticket-content{gap:3px}.raw-token img{width:21px;height:22px}.picture-card span{font-size:7px}.picture-card{grid-template-rows:minmax(0,1fr) 14px}.home-images{height:65px}.convert-choices button{padding:10px 4px;font-size:16px}.nature-tools button{height:28px;width:30px}.trip-stamp{width:45px;font-size:8px}.trip-stamp img{width:39px;height:35px}}
+@media(orientation:landscape) and (min-width:650px) and (max-height:510px){#home .home-images{grid-column:2;grid-row:1/4;margin:0;height:100px}}
 </style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>風景のかけらで、<br><em>旅をつくろう。</em></h1><p>「海が見たいわ」「山を歩きたいな」<br>3人の旅行客に、ぴったりの行き先を提案。</p><img class="hero" src="assets/travel-landscape.webp" alt="空と森、山から流れる川、海と岩のある風景"><div class="home-rules">① 風景をタップして、絵の素材を取る<br>② 絵をタップして、漢字に変える<br>③ 県名を作って「ここへの旅行はいかが？」<br>正解はひとつじゃない。時間制限もありません。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 5</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
-<section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> / 5人</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。タップで切り替え"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div id="draft" class="draft" aria-label="作っている行き先"></div></div><button id="offer" class="primary offer" disabled>行き先をつくろう</button></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-<div class="work"><div class="work-head"><span>② 絵を押して漢字にする ↓</span><div class="supply"><span>文字の仕入れ</span><button data-supply="富" aria-label="富の文字を仕入れる">富</button><button data-supply="梨" aria-label="梨の文字を仕入れる">梨</button><button data-supply="北" aria-label="北の文字を仕入れる">北</button></div></div><div id="raw" class="raw" aria-label="風景から取った素材"></div><div class="inventory-label"><span>③ 文字を押してチケットへ ↓</span><span>文字を戻すときはチケットをタップ</span></div><div id="letters" class="letters" aria-label="3人で共通の文字の棚"></div></div>
-<div id="scene" class="scene" aria-label="①風景をタップして素材を取ろう"><img src="assets/travel-landscape.webp" alt="左に森と岩、中央に川、奥に山、右に海、上に青い空" draggable="false"><button class="hotspot sky" data-resource="sky" aria-label="青空から青い素材を取る"><span>🟦 青空</span></button><button class="hotspot mountain" data-resource="mountain" aria-label="山の素材を取る"><span>⛰️ 山</span></button><button class="hotspot forest" data-resource="forest" aria-label="森の素材を取る"><span>🌳 森</span></button><button class="hotspot rock" data-resource="rock" aria-label="石の素材を取る"><span>🪨 石</span></button><button class="hotspot river" data-resource="river" aria-label="川の素材を取る"><span>💧 川</span></button><button class="hotspot sea" data-resource="sea" aria-label="海の素材を取る"><span>🌊 海</span></button><div class="scene-caption">① 風景を押して素材を見つけよう</div></div>
+<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>旅の絵を見つけて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>3人の旅行客に、ぴったりの行き先を提案。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 旅の絵をタップして集める<br>② 絵から行き先の文字を作る<br>③ 絵つきのチケットで旅行を提案<br>正解はひとつじゃない。時間制限もありません。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
+<section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> / 5人</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。タップで切り替え"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div class="ticket-content"><img id="ticketPhoto" class="ticket-photo hidden" alt=""><div id="draft" class="draft" aria-label="作っている行き先"></div></div></div><button id="offer" class="primary offer" disabled>行き先をつくろう</button></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="work"><div class="work-head"><span>② 集めた絵 → 行き先の文字に ↓</span><button id="nature" class="supply-button">自然の素材</button></div><div id="raw" class="raw" aria-label="風景から取った素材"></div><div class="inventory-label"><span>③ 文字を押してチケットへ ↓</span><button id="moreLetters" class="letter-page hidden">ほかの文字</button></div><div id="letters" class="letters" aria-label="3人で共通の文字の棚"></div></div>
+<div id="scene" class="scene gallery" aria-label="①旅の絵をタップして集めよう"><button class="picture-card apples" data-sight="apples" aria-label="りんご園の絵を集める"><img src="assets/trip-apples.webp" alt="りんご園" draggable="false"><span>🍎 りんご園</span></button><button class="picture-card yufuin" data-sight="yufuin" aria-label="湯布院の絵を集める"><img src="assets/trip-yufuin.webp" alt="湯布院" draggable="false"><span>♨️ 湯布院</span></button><button class="picture-card takachiho" data-sight="takachiho" aria-label="高千穂峡の絵を集める"><img src="assets/trip-takachiho.webp" alt="高千穂峡" draggable="false"><span>🚣 高千穂峡</span></button><button class="picture-card fuji" data-sight="fuji" aria-label="富士山の絵を集める"><img src="assets/trip-fuji.webp" alt="富士山" draggable="false"><span>🗻 富士山</span></button><button class="picture-card deer" data-sight="deer" aria-label="奈良の鹿の絵を集める"><img src="assets/trip-deer.webp" alt="奈良の鹿" draggable="false"><span>🦌 奈良の鹿</span></button><button id="natureCard" class="picture-card nature-card"><img src="assets/travel-landscape.webp" alt="空・森・山・川・海の素材"><span>🌿 自然の素材</span></button></div>
 <div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="plans" class="small">行き先のヒント</button><button id="help" class="small">遊び方</button></div></section>
 <section id="result" class="panel"><div class="tag">HAVE A WONDERFUL TRIP!</div><h1>5人とも、いってらっしゃい！</h1><div id="earned" class="resultnum">＋50</div><p style="margin:0">コイン獲得</p><div id="servedList" class="resultlist"></div><p id="resultDetail"></p><button id="again" class="primary">次の旅行客を迎える →</button><button id="back" class="secondary">旅行社の入口へ</button></section><div class="footer"><a href="./">ソリティア</a> · <a href="kitchen.html">漢字キッチン</a> · 旅は、ひとつじゃない。</div></main>
 <dialog id="dialog" class="dialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle">旅プラン</h2><button id="closeDialog" class="small">閉じる ×</button></div><div id="dialogBody"></div></dialog>
@@ -19,25 +24,35 @@ const RESOURCES=[
 {id:'sky',name:'青空',icon:'🟦',char:'青'},{id:'forest',name:'森',icon:'🌳',char:'森'},{id:'rock',name:'石',icon:'🪨',char:'石'},
 {id:'river',name:'川',icon:'💧',char:'川'},{id:'mountain',name:'山',icon:'⛰️',char:'山'},{id:'sea',name:'海',icon:'🌊',char:'海'}
 ];
-const LETTERS=['青','森','石','川','山','海','富','梨','北'],SUPPLIES=['富','梨','北'];
+const SIGHTS=[{"id":"apples","name":"りんご園","icon":"🍎","image":"assets/trip-apples.webp","destinations":["aomori","nagano"],"activities":["apples"]},{"id":"yufuin","name":"湯布院","icon":"♨️","image":"assets/trip-yufuin.webp","destinations":["oita"],"activities":["yufuin","onsen"]},{"id":"takachiho","name":"高千穂峡","icon":"🚣","image":"assets/trip-takachiho.webp","destinations":["miyazaki"],"activities":["takachiho","forest","mountain"]},{"id":"fuji","name":"富士山","icon":"🗻","image":"assets/trip-fuji.webp","destinations":["yamanashi","shizuoka"],"activities":["fuji","mountain"]},{"id":"deer","name":"奈良の鹿","icon":"🦌","image":"assets/trip-deer.webp","destinations":["nara"],"activities":["deer","forest"]}];
+const LETTERS=['青','森','石','川','山','海','富','梨','北','長','野','静','岡','大','分','宮','崎','奈','良'],SUPPLIES=['富','梨','北'];
 const WISHES={
 sea:{label:'海が見たいわ',icon:'🌊',thanks:'海の景色、楽しみ！'},
 mountain:{label:'山歩きがしたいな',icon:'⛰️',thanks:'山歩きが楽しみ！'},
 onsen:{label:'温泉でのんびりしたい',icon:'♨️',thanks:'温泉でゆっくりしてくるね！'},
-forest:{label:'森で深呼吸したい',icon:'🌳',thanks:'森でリフレッシュしてくるね！'}
+forest:{label:'森で深呼吸したい',icon:'🌳',thanks:'森でリフレッシュしてくるね！'},apples:{label:'りんごが食べたい',icon:'🍎',sight:'apples',thanks:'りんご狩り、楽しみ！'},yufuin:{label:'湯布院に行きたい',icon:'♨️',sight:'yufuin',thanks:'湯布院の温泉、楽しみ！'},takachiho:{label:'高千穂峡を見たい',icon:'🚣',sight:'takachiho',thanks:'高千穂峡の景色、楽しみ！'},fuji:{label:'富士山を見たい',icon:'🗻',sight:'fuji',thanks:'富士山を見に、いってきます！'},deer:{label:'鹿に会いたいな',icon:'🦌',sight:'deer',thanks:'鹿に会うのが楽しみ！'}
 };
 const DESTINATIONS=[
-{id:'aomori',base:'青森',suffix:'県',tags:['forest','onsen'],plan:'奥入瀬の森・蔦温泉',recipe:'🟦→青 ＋ 🌳→森'},
+{id:'aomori',base:'青森',suffix:'県',tags:['forest','onsen','apples'],plan:'りんご園・奥入瀬の森・蔦温泉',recipe:'🟦→青 ＋ 🌳→森'},
 {id:'ishikawa',base:'石川',suffix:'県',tags:['sea','onsen'],plan:'能登の海・加賀の温泉',recipe:'🪨→石 ＋ 💧→川'},
 {id:'toyama',base:'富山',suffix:'県',tags:['mountain','sea'],plan:'立山の山歩き・富山湾',recipe:'仕入れの「富」 ＋ ⛰️→山'},
-{id:'yamanashi',base:'山梨',suffix:'県',tags:['mountain'],plan:'富士山麓の山歩き',recipe:'⛰️→山 ＋ 仕入れの「梨」'},
-{id:'hokkaido',base:'北海',suffix:'道',tags:['sea','forest'],plan:'海辺の散策・森の散歩',recipe:'仕入れの「北」 ＋ 🌊→海'}
+{id:'yamanashi',base:'山梨',suffix:'県',tags:['mountain','fuji'],plan:'富士山麓の山歩き',recipe:'⛰️→山 ＋ 仕入れの「梨」'},
+{id:'hokkaido',base:'北海',suffix:'道',tags:['sea','forest'],plan:'海辺の散策・森の散歩',recipe:'仕入れの「北」 ＋ 🌊→海'},
+{id:'nagano',base:'長野',suffix:'県',tags:['apples','mountain','onsen','forest'],plan:'りんご園・山の散策',recipe:'りんご園の絵 → 長 ＋ 野'},
+{id:'shizuoka',base:'静岡',suffix:'県',tags:['fuji','sea','mountain'],plan:'富士山の眺望',recipe:'富士山の絵 → 静 ＋ 岡'},
+{id:'oita',base:'大分',suffix:'県',tags:['yufuin','onsen','sea'],plan:'湯布院の温泉・由布岳',recipe:'湯布院の絵 → 大 ＋ 分'},
+{id:'miyazaki',base:'宮崎',suffix:'県',tags:['takachiho','mountain','forest','sea'],plan:'高千穂峡の滝とボート',recipe:'高千穂峡の絵 → 宮 ＋ 崎'},
+{id:'nara',base:'奈良',suffix:'県',tags:['deer','forest'],plan:'奈良公園の鹿',recipe:'鹿の絵 → 奈 ＋ 良'}
 ];
 const AVATARS=['🐱','🐰','🐶','🐼','🐻'],KEY='kotoba-travel-agency-v1';
 const $=id=>document.getElementById(id),clone=x=>JSON.parse(JSON.stringify(x));
-let profile={coins:0,visited:[]},g=null,history=[],state='home',soundOn=true,audio=null,notice='',warning=false;
+let profile={coins:0,visited:[]},g=null,history=[],state='home',soundOn=true,audio=null,notice='',warning=false,letterPage=0;
 function destination(id){return DESTINATIONS.find(d=>d.id===id);}
 function matchDestination(draft){return DESTINATIONS.find(d=>d.base===draft.join(''));}
+function sight(id){return SIGHTS.find(s=>s.id===id);}
+function experienceFor(guest,d){const required=WISHES[guest.wish].sight;return SIGHTS.find(s=>(required?s.id===required:s.activities.includes(guest.wish))&&s.destinations.includes(d.id)&&g.experiences[s.id+':'+d.id]>0);}
+function normaliseGame(s){return s?{...clone(s),sights:clone(s.sights||{}),experiences:clone(s.experiences||{})}:s;}
+function focusLetter(char){const available=LETTERS.filter(c=>g.letters[c]>0);letterPage=Math.floor(Math.max(0,available.indexOf(char))/8);}
 function validProfile(p){return p&&Number.isInteger(p.coins)&&p.coins>=0&&Array.isArray(p.visited)&&p.visited.every(id=>destination(id))&&new Set(p.visited).size===p.visited.length;}
 function validGame(s){
  try{
@@ -48,13 +63,13 @@ function validGame(s){
   if(!s.served.every(v=>Number.isInteger(v.guestId)&&v.guestId>=1&&v.guestId<s.nextId&&WISHES[v.wish]&&destination(v.destination)?.tags.includes(v.wish)&&(v.reward===10||v.reward===15)))return false;
   if(new Set([...live.map(v=>v.id),...s.served.map(v=>v.guestId)]).size!==s.arrived||s.earned!==s.served.reduce((n,v)=>n+v.reward,0))return false;
   const counts=(x,keys)=>x&&Object.keys(x).every(k=>keys.includes(k)&&Number.isInteger(x[k])&&x[k]>=0&&x[k]<=999);
-  return counts(s.raw,RESOURCES.map(r=>r.id))&&counts(s.letters,LETTERS);
+  return counts(s.raw,RESOURCES.map(r=>r.id))&&counts(s.letters,LETTERS)&&counts(s.sights,SIGHTS.map(x=>x.id))&&counts(s.experiences,SIGHTS.flatMap(x=>x.destinations.map(d=>x.id+':'+d)))&&s.served.every(v=>!WISHES[v.wish].sight||v.sight===WISHES[v.wish].sight)&&s.served.every(v=>!v.sight||sight(v.sight)?.destinations.includes(v.destination));
  }catch(_){return false;}
 }
 function persist(){try{localStorage.setItem(KEY,JSON.stringify({profile,g,history}));}catch(_){}}
 let hasSaved=false;
 try{
- const saved=JSON.parse(localStorage.getItem(KEY));
+ const saved=JSON.parse(localStorage.getItem(KEY));if(saved){saved.g=normaliseGame(saved.g);if(Array.isArray(saved.history))saved.history=saved.history.map(h=>({...h,g:normaliseGame(h.g)}));}
  if(validProfile(saved?.profile))profile=saved.profile;
  if(validGame(saved?.g)&&saved.g.served.length<5&&Array.isArray(saved.history)&&saved.history.every(h=>validGame(h.g)&&validProfile(h.profile))){g=saved.g;history=saved.history;hasSaved=true;}
  soundOn=localStorage.getItem('kenken-sound')!=='off';
@@ -62,9 +77,8 @@ try{
 function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
 function newGuest(index){return {id:index+1,wish:g.queue[index],draft:[],plan:null};}
 function fresh(){
- const extra=shuffle(['sea','mountain','onsen'])[0];
- g={queue:['sea','mountain','onsen','forest',extra],guests:[null,null,null],selected:0,raw:{},letters:{},served:[],arrived:3,nextId:4,earned:0};
- g.guests=[newGuest(0),newGuest(1),newGuest(2)];history=[];
+ g={queue:['apples','yufuin','takachiho','fuji','deer'],guests:[null,null,null],selected:0,raw:{},letters:{},sights:{},experiences:{},served:[],arrived:3,nextId:4,earned:0};
+ g.guests=[newGuest(0),newGuest(1),newGuest(2)];history=[];letterPage=0;
 }
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
 function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
@@ -98,23 +112,51 @@ function render(){
  });
  const guest=selectedGuest(),draft=$('draft');draft.replaceChildren();
  const made=guest?matchDestination(guest.draft):null,planned=guest?.plan?destination(guest.plan):null;
+ const photo=guest&&made?experienceFor(guest,made):null,photoEl=$('ticketPhoto');photoEl.className='ticket-photo'+(photo?' '+photo.id:' hidden');if(photo){photoEl.src=photo.image;photoEl.alt=photo.name;}else photoEl.removeAttribute('src');
  $('ticketLabel').textContent=guest?(planned?planned.base+planned.suffix+'のチケット':WISHES[guest.wish].icon+' '+WISHES[guest.wish].label):'みんな出発しました';
  for(let i=0;i<2;i++){const char=guest?.draft[i],b=button(char||'・',char?'':'blank',()=>returnLetter(i),char?char+'を文字の棚へ戻す':'行き先の'+(i+1)+'文字目');b.disabled=!char||state!=='playing';draft.appendChild(b);}
  const suffix=document.createElement('span');suffix.textContent=(made||planned)?.suffix||'旅';draft.appendChild(suffix);
  $('offer').disabled=state!=='playing'||!made;$('offer').textContent=made?made.base+'への旅を\n提案する →':'行き先をつくろう';$('offer').style.whiteSpace='pre-line';
  const raw=$('raw');raw.replaceChildren();
- RESOURCES.forEach(r=>{
-  const count=g.raw[r.id]||0,b=button('','raw-token',()=>processRaw(r.id),r.name+'の素材を加工して'+r.char+'にする。'+count+'個');
-  const icon=document.createElement('span');icon.className='emoji';icon.textContent=r.icon;const label=document.createElement('small');label.textContent='加工';const n=document.createElement('span');n.className='quantity';n.textContent=count?'×'+count:'';
-  b.appendChild(icon);b.appendChild(label);b.appendChild(n);b.disabled=state!=='playing'||!count;raw.appendChild(b);
+ SIGHTS.forEach(s=>{
+  const count=g.sights[s.id]||0,b=button('','raw-token',()=>processSight(s.id),s.name+'の絵から行き先の文字をつくる。'+count+'枚');
+  const img=document.createElement('img');img.src=s.image;img.alt=s.name;img.className=s.id;
+  const label=document.createElement('small');label.textContent='加工';const n=document.createElement('span');n.className='quantity';n.textContent=count?'×'+count:'';
+  b.appendChild(img);b.appendChild(label);b.appendChild(n);b.disabled=state!=='playing'||!count;raw.appendChild(b);
  });
  const letters=$('letters');letters.replaceChildren();
- LETTERS.forEach(char=>{const count=g.letters[char]||0,b=button(char,'letter',()=>useLetter(char),char+'を選んだお客さんのチケットへ。'+count+'個');if(count){const n=document.createElement('span');n.className='quantity';n.textContent=count>1?'×'+count:'';b.appendChild(n);}b.disabled=state!=='playing'||!count||!guest;letters.appendChild(b);});
+ const available=LETTERS.filter(c=>g.letters[c]>0),pages=Math.max(1,Math.ceil(available.length/8));letterPage=Math.min(letterPage,pages-1);
+ available.slice(letterPage*8,(letterPage+1)*8).forEach(char=>{const count=g.letters[char],b=button(char,'letter',()=>useLetter(char),char+'を選んだお客さんのチケットへ。'+count+'個');if(count>1){const n=document.createElement('span');n.className='quantity';n.textContent='×'+count;b.appendChild(n);}b.disabled=state!=='playing'||!guest;letters.appendChild(b);});
+ if(!available.length){const empty=document.createElement('span');empty.className='letter-empty';empty.textContent='加工した行き先の文字が、ここに並びます';letters.appendChild(empty);}
+ $('moreLetters').classList.toggle('hidden',pages===1);$('moreLetters').textContent='ほかの文字 '+(letterPage+1)+'/'+pages;
  $('undo').disabled=!history.length;$('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
 }
 function commit(action){
  if(state!=='playing')return;
  history.push({g:clone(g),profile:clone(profile)});action();persist();render();if(g.served.length===5)finish();
+}
+function collectSight(id){
+ const s=sight(id);if(state!=='playing'||!s||(g.sights[id]||0)>=999)return;
+ commit(()=>{g.sights[id]=(g.sights[id]||0)+1;message(s.icon+' '+s.name+'の絵を集めた！ 上の素材を押して加工しよう。');tone([430],.025);});
+}
+function processSight(id){
+ const s=sight(id);if(state!=='playing'||!s||!g.sights[id])return;
+ if(s.destinations.length===1)makeFromSight(id,s.destinations[0]);else openDialog('convert',id);
+}
+function makeFromSight(id,destId){
+ const s=sight(id),d=destination(destId);if(state!=='playing'||!s||!d||!s.destinations.includes(destId)||!g.sights[id])return;
+ if([...d.base].some(c=>(g.letters[c]||0)>=999)||(g.experiences[id+':'+destId]||0)>=999){message('文字をチケットに使って棚を空けよう。');return;}
+ commit(()=>{
+  g.sights[id]--;for(const char of d.base)g.letters[char]=(g.letters[char]||0)+1;
+  const key=id+':'+destId;g.experiences[key]=(g.experiences[key]||0)+1;
+  if(selectedGuest()&&!selectedGuest().draft.length&&d.tags.includes(selectedGuest().wish))selectedGuest().plan=destId;
+  focusLetter(d.base[0]);message(s.name+' →「'+[...d.base].join('・')+'」ができた！ 文字をチケットへ。');tone([650],.045);
+ });closeDialog();
+}
+function gatherNature(id){
+ const r=RESOURCES.find(r=>r.id===id);if(state!=='playing'||!r||(g.letters[r.char]||0)>=999)return;
+ commit(()=>{if(g.raw[id])g.raw[id]--;g.letters[r.char]=(g.letters[r.char]||0)+1;focusLetter(r.char);message(r.icon+' →「'+r.char+'」ができた！');tone([590],.03);});
+ const note=$('natureNotice');if(note)note.textContent='「'+r.char+'」を棚に用意しました。閉じてチケットに使おう。';
 }
 function collect(id){
  const r=RESOURCES.find(r=>r.id===id);if(state!=='playing'||!r)return;
@@ -128,7 +170,7 @@ function processRaw(id){
 }
 function supply(char){
  if(state!=='playing'||!SUPPLIES.includes(char)||(g.letters[char]||0)>=999)return;
- commit(()=>{g.letters[char]=(g.letters[char]||0)+1;message('「'+char+'」を仕入れました。文字の棚から使えます。');tone([520],.025);});
+ commit(()=>{g.letters[char]=(g.letters[char]||0)+1;focusLetter(char);message('「'+char+'」を仕入れました。文字の棚から使えます。');tone([520],.025);});
 }
 function selectGuest(index){
  if(state!=='playing'||!g.guests[index])return;
@@ -138,20 +180,23 @@ function selectGuest(index){
 function useLetter(char){
  const guest=selectedGuest();if(state!=='playing'||!guest||!g.letters[char])return;
  if(guest.draft.length>=2){message('チケットは2文字。タップで文字を棚に戻せます。',true);return;}
- commit(()=>{g.letters[char]--;guest.draft.push(char);const d=matchDestination(guest.draft);message(d?d.base+d.suffix+'のできあがり！ 旅行を提案してみよう。':'「'+char+'」をチケットに置きました。');tone([590],.03);if(guest.draft.length===2&&!d)message('今回は5か所の旅先から作ろう。「行き先のヒント」を見てみよう。',true);});
+ commit(()=>{g.letters[char]--;guest.draft.push(char);const d=matchDestination(guest.draft);message(d?d.base+d.suffix+'のできあがり！ 旅行を提案してみよう。':'「'+char+'」をチケットに置きました。');tone([590],.03);if(guest.draft.length===2&&!d)message('今回は10か所の旅先から作ろう。「行き先のヒント」を見てみよう。',true);});
 }
 function returnLetter(index){
  const guest=selectedGuest();if(state!=='playing'||!guest?.draft[index])return;
- commit(()=>{const char=guest.draft.splice(index,1)[0];g.letters[char]=(g.letters[char]||0)+1;message('「'+char+'」を棚へ戻しました。別のお客さんにも使えます。');});
+ commit(()=>{const char=guest.draft.splice(index,1)[0];g.letters[char]=(g.letters[char]||0)+1;focusLetter(char);message('「'+char+'」を棚へ戻しました。別のお客さんにも使えます。');});
 }
 function offer(){
  const guest=selectedGuest(),d=guest?matchDestination(guest.draft):null;
  if(state!=='playing'||!guest||!d)return;
- if(!d.tags.includes(guest.wish)){message('「'+WISHES[guest.wish].label+'」に合うプランがいいな。ヒントを見てみよう。',true);return;}
+ if(!d.tags.includes(guest.wish)){message('「'+WISHES[guest.wish].label+'」に合う旅がいいな。ヒントを見てみよう。',true);return;}
+ const photo=experienceFor(guest,d);
+ if(WISHES[guest.wish].sight&&!photo){message(sight(WISHES[guest.wish].sight).name+'の絵も用意して、旅の見どころに添えよう。',true);return;}
  commit(()=>{
   const discovery=!profile.visited.includes(d.id),reward=discovery?15:10,slot=g.selected;
+  if(photo)g.experiences[photo.id+':'+d.id]--;
   if(discovery)profile.visited.push(d.id);profile.coins+=reward;g.earned+=reward;
-  g.served.push({guestId:guest.id,destination:d.id,wish:guest.wish,reward});
+  g.served.push({guestId:guest.id,destination:d.id,wish:guest.wish,reward,sight:photo?.id||null});
   if(g.arrived<5){g.guests[slot]=newGuest(g.arrived);g.arrived++;g.nextId=g.arrived+1;}else g.guests[slot]=null;
   if(!g.guests[g.selected]){const next=g.guests.findIndex(Boolean);g.selected=next<0?0:next;}
   message('✈️ '+d.base+'へ！「'+WISHES[guest.wish].thanks+'」 ＋'+reward+'コイン');tone([880,660]);
@@ -159,38 +204,51 @@ function offer(){
 }
 function undo(){
  if(state!=='playing'||!history.length)return;
- const old=history.pop();g=old.g;profile=old.profile;message('1手戻しました。文字もチケットも戻っています。');persist();render();
+ const old=history.pop();g=old.g;profile=old.profile;letterPage=0;message('1手戻しました。文字もチケットも戻っています。');persist();render();
 }
 function start(){
- prepareAudio();fresh();state='playing';show('game');message('風景を押す → 絵を押して漢字に → チケットへ！');persist();render();
+ prepareAudio();fresh();state='playing';show('game');message('旅の絵を押す → 加工 → 行き先の文字をチケットへ！');persist();render();
 }
 function resume(){if(!g||g.served.length===5)return;prepareAudio();state='playing';show('game');message('おかえりなさい。素材も3人のチケットもそのままです。');render();}
 function goHome(){persist();state='home';updateHome();show('home');}
 function finish(){
  state='result';show('result');$('earned').textContent='＋'+g.earned;
- $('servedList').textContent=g.served.map(v=>{const d=destination(v.destination);return WISHES[v.wish].icon+' '+d.base+d.suffix;}).join(' ・ ');
- $('resultDetail').textContent='ご案内した行き先 '+profile.visited.length+' / 5か所 · 累計 '+profile.coins+'コイン';
+ $('servedList').replaceChildren();g.served.forEach(v=>{const d=destination(v.destination),stamp=document.createElement('div');stamp.className='trip-stamp';if(v.sight){const s=sight(v.sight),img=document.createElement('img');img.src=s.image;img.alt=s.name;img.className=s.id;stamp.appendChild(img);}const label=document.createElement('span');label.textContent=d.base+d.suffix;stamp.appendChild(label);$('servedList').appendChild(stamp);});
+ $('resultDetail').textContent='ご案内した行き先 '+profile.visited.length+' / '+DESTINATIONS.length+'か所 · 累計 '+profile.coins+'コイン';
  updateHome();tone([660,880,1046],.07);$('again').focus();
 }
 function choosePlan(id){
  if(state!=='playing'||!destination(id)||!selectedGuest())return;
  commit(()=>{selectedGuest().plan=id;message(destination(id).recipe+' でチケットを作ろう！');});closeDialog();
 }
-function openDialog(kind){
- const body=$('dialogBody');body.replaceChildren();$('dialogTitle').textContent=kind==='plans'?'この旅行社の5つの旅プラン':'素材と遊び方';
- if(kind==='plans'){
-  const book=document.createElement('div');book.className='book';const guest=state==='playing'?selectedGuest():null;
-  DESTINATIONS.forEach(d=>{
+function openDialog(kind,arg){
+ const body=$('dialogBody');body.replaceChildren();$('dialogTitle').textContent=kind==='plans'?'旅プラン':kind==='convert'?'どちらへの旅にする？':kind==='nature'?'自然から文字を作る':'絵から旅をつくる';
+ if(kind==='convert'){
+  const s=sight(arg);if(!s)return;
+  const img=document.createElement('img');img.src=s.image;img.alt=s.name;img.className='convert-hero '+s.id;body.appendChild(img);
+  const caption=document.createElement('p');caption.className='convert-title';caption.textContent=s.name+'を楽しめる行き先を選んで、県名の文字を作ろう。';body.appendChild(caption);
+  const choices=document.createElement('div');choices.className='convert-choices';
+  s.destinations.forEach(id=>{const d=destination(id),b=button(d.base+d.suffix,'',()=>makeFromSight(s.id,id));b.dataset.convert=id;const note=document.createElement('small');note.textContent=[...d.base].join(' ＋ ')+' をつくる';b.appendChild(note);choices.appendChild(b);});body.appendChild(choices);
+ }else if(kind==='nature'){
+  const map=document.createElement('div');map.className='nature-map';const img=document.createElement('img');img.src='assets/travel-landscape.webp';img.alt='空・森・山・川・海・石のある風景';map.appendChild(img);
+  RESOURCES.forEach(r=>{const b=button('','hotspot '+r.id,()=>gatherNature(r.id),r.name+'から'+r.char+'の文字をつくる'),label=document.createElement('span');label.textContent=r.icon+' '+r.name;b.appendChild(label);b.disabled=state!=='playing';map.appendChild(b);});body.appendChild(map);
+  const tools=document.createElement('div');tools.className='nature-tools';const caption=document.createElement('span');caption.textContent='補助の文字を仕入れる';tools.appendChild(caption);
+  SUPPLIES.forEach(char=>{const b=button(char,'',()=>{supply(char);const note=$('natureNotice');if(note)note.textContent='「'+char+'」を用意しました。閉じて文字の棚から使えます。';});b.disabled=state!=='playing';tools.appendChild(b);});body.appendChild(tools);
+  const note=document.createElement('p');note.id='natureNotice';note.className='nature-notice';note.textContent='風景をタップすると、その漢字が文字の棚へ入ります。';body.appendChild(note);
+ }else if(kind==='plans'){
+  const ids=['aomori','nagano','oita','miyazaki','nara','yamanashi','shizuoka','ishikawa','toyama','hokkaido'],all=ids.map(destination),guest=state==='playing'?selectedGuest():null,page=typeof arg==='number'?arg:guest&&WISHES[guest.wish].sight==='fuji'?1:0;
+  const book=document.createElement('div');book.className='book';
+  all.slice(page*5,page*5+5).forEach(d=>{
    const fits=guest&&d.tags.includes(guest.wish),b=button('','package'+(fits?' fits':''),()=>choosePlan(d.id));
-   const name=document.createElement('b');name.textContent=d.base+d.suffix;const tags=document.createElement('span');tags.textContent=d.tags.map(t=>WISHES[t].icon).join(' ') +(fits?' 希望にぴったり':'');
-   const plan=document.createElement('small');plan.textContent=d.plan+' ／ '+d.recipe;
+   const name=document.createElement('b');name.textContent=d.base+d.suffix;const tags=document.createElement('span');tags.textContent=[...new Set(d.tags.map(t=>WISHES[t].icon))].slice(0,4).join(' ')+(fits?' おすすめ':'');
+   const plan=document.createElement('small');plan.textContent=d.plan;
    b.appendChild(name);b.appendChild(tags);b.appendChild(plan);b.disabled=state!=='playing';book.appendChild(b);
   });body.appendChild(book);
-  const note=document.createElement('p');note.className='hintline';note.textContent='ここで紹介するプランの特徴です。ひとつの希望に複数の行き先を提案できます。「富・梨・北」は素材の棚の「仕入れ」から。';body.appendChild(note);
+  const nav=document.createElement('div');nav.className='book-nav';const prev=button('← 前へ','',()=>openDialog('plans',0));prev.disabled=page===0;const count=document.createElement('span');count.textContent=(page+1)+' / 2';const next=button('次へ →','',()=>openDialog('plans',1));next.disabled=page===1;nav.appendChild(prev);nav.appendChild(count);nav.appendChild(next);body.appendChild(nav);
+  const note=document.createElement('p');note.className='hintline';note.textContent='りんご園は青森・長野、富士山は山梨・静岡。旅先の絵を加工すると県名の文字ができます。自然素材で作る旅先も選べます。';body.appendChild(note);
  }else{
-  const copy=document.createElement('p');copy.className='modal-copy';copy.textContent='①風景をタップ → ②取った絵をタップして漢字に → ③文字をチケットに置き、旅先を提案。お客さんを切り替えても作りかけは残ります。文字を戻すときはチケットをタップ。「1手戻す」や中断・自動保存も使えます。時間制限はありません。';body.appendChild(copy);
-  const recipes=document.createElement('div');recipes.className='help-grid';RESOURCES.forEach(r=>{const line=document.createElement('span');line.textContent=r.icon+' → '+r.char;recipes.appendChild(line);});body.appendChild(recipes);
-  const note=document.createElement('p');note.className='hintline';note.textContent='森は木々が集まった素材。新しい行き先をご案内すると、最初の1回は5コインのおまけ。5人出発したら一区切りです。';body.appendChild(note);
+  const copy=document.createElement('p');copy.className='modal-copy';copy.textContent='①下の旅先の絵を押す → ②集めた絵を加工し、県名の文字を作る → ③文字をチケットへ。完成すると絵が添えられます。お客さんの希望に合う旅を提案しよう。りんご園と富士山は、行き先を2つから選べます。';body.appendChild(copy);
+  const note=document.createElement('p');note.className='modal-copy';note.textContent='3人の作りかけは別々に残ります。文字はチケットをタップで戻せます。素材と文字はみんなで共通。「1手戻す」や途中保存も使えます。時間制限なし、5人出発したら一区切り。';body.appendChild(note);
  }
  const d=$('dialog');if(!d.open){if(d.showModal)d.showModal();else d.setAttribute('open','');}$('closeDialog').focus();
 }
@@ -200,7 +258,9 @@ $('start').onclick=()=>{if(g&&g.served.length<5&&history.length&&!window.confirm
 $('continue').onclick=resume;$('again').onclick=start;$('back').onclick=goHome;$('break').onclick=goHome;
 $('offer').onclick=offer;$('undo').onclick=undo;$('plans').onclick=()=>openDialog('plans');$('homeBook').onclick=()=>openDialog('plans');$('help').onclick=()=>openDialog('help');$('homeHelp').onclick=()=>openDialog('help');$('closeDialog').onclick=()=>closeDialog();
 $('dialog').addEventListener('click',e=>{if(e.target===$('dialog'))closeDialog();});
-document.querySelectorAll('[data-resource]').forEach(b=>b.onclick=()=>collect(b.dataset.resource));
+document.querySelectorAll('[data-sight]').forEach(b=>b.onclick=()=>collectSight(b.dataset.sight));
+$('nature').onclick=()=>openDialog('nature');$('natureCard').onclick=()=>openDialog('nature');
+$('moreLetters').onclick=()=>{const pages=Math.max(1,Math.ceil(LETTERS.filter(c=>g.letters[c]>0).length/8));letterPage=(letterPage+1)%pages;render();};
 document.querySelectorAll('[data-supply]').forEach(b=>b.onclick=()=>supply(b.dataset.supply));
 $('sound').onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('kenken-sound',soundOn?'on':'off');}catch(_){}updateSound();if(soundOn)tone([880,660]);};
 window.addEventListener?.('resize',fit);window.visualViewport?.addEventListener('resize',fit);
