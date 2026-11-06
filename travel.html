@@ -21,13 +21,14 @@
 @media(max-height:510px){.guest .wish.picture-order{height:25px}.guest .avatar{font-size:12px}.order-art{width:29px}.draft .auto-letter{width:22px;font-size:17px}.ticket-area{grid-template-columns:minmax(0,1fr) 105px}}
 
 .work{grid-template-rows:16px minmax(0,1fr) 14px!important;gap:4px}.letters{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.tray-slot{min-height:0;min-width:0;border:1px dashed #bdccb1;border-radius:8px;background:#fcfdef;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#afbb9e;overflow:hidden}.tray-slot.occupied{border:2px solid #d1b479;background:#fffaf0;animation:pop .18s ease-out}.tray-slot img{width:100%;min-height:0;flex:1;object-fit:contain;background:white}.tray-slot span{font-size:8px;color:#8b805f;line-height:14px}.tray-note{font-size:8px;color:#9aab88;text-align:center}.mini-brochure{display:flex;align-items:center;background:white;border:1px solid #dece9b;border-radius:4px;padding:2px;gap:2px}.mini-brochure img{width:28px;height:28px;object-fit:contain}.mini-brochure small{font-size:10px!important;color:#597956!important}.guest .picture-order{display:flex;justify-content:center;gap:3px;height:39px}.guest small{font-size:8px;color:#9aaa89}.help-order{display:flex;justify-content:center;gap:12px;margin:7px}.help-order img{width:45px;height:42px;object-fit:contain}.scene.cleared{animation:tidy .45s ease-out}.scene.blocked{border-color:#d5a96d}@keyframes pop{from{transform:scale(.75)}to{transform:scale(1)}}@keyframes tidy{50%{box-shadow:inset 0 0 24px #fff3a4;background:#f8f1ca}}@media(max-height:650px){.guest .picture-order{height:29px}.guest small{font-size:7px}.mini-brochure img{width:22px;height:23px}.mini-brochure small{font-size:8px!important}}@media(max-height:510px){.guest .picture-order{height:25px}.guest small{font-size:6px}.mini-brochure img{width:20px;height:20px}.tray-slot span{font-size:7px}}@media(prefers-reduced-motion:reduce){.scene.cleared,.tray-slot.occupied{animation:none}}
+.clock{font-size:12px;font-weight:800;background:#e7f2df;border:1px solid #c2d6b7;border-radius:20px;color:#4d8e72;padding:3px 9px;font-variant-numeric:tabular-nums}.clock b{font-size:16px}.clock.urgent-clock{background:#ffead4;border-color:#e7aa74;color:#c36a36;animation:clockpulse .7s infinite alternate}@keyframes clockpulse{to{background:#ffe0ba}}@media(prefers-reduced-motion:reduce){.clock.urgent-clock{animation:none}}
 </style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>重なる絵を片付けて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>4枠をやりくりして、旅の絵を片付けよう。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 一番上の絵を、4枠の一時置場へ<br>② 注文の2枚が揃うと自動でお届け<br>③ 邪魔な絵をどかして、まとめて片付けよう<br>変換の待ち時間も、制限時間もありません。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
-<section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> / 5人</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。合う旅を自動で案内"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div class="ticket-content"><img id="ticketPhoto" class="ticket-photo hidden" alt=""><div id="draft" class="draft" aria-label="作っている行き先"></div></div></div><div id="offer" class="auto-status" role="status">揃うと自動で<br>チケットをお届け ✈️</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>重なる絵を片付けて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>4枠をやりくりして、旅の絵を片付けよう。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 一番上の絵を、4枠の一時置場へ<br>② 注文の2枚が揃うと自動でお届け<br>③ 邪魔な絵をどかして、まとめて片付けよう<br>60秒チャレンジ！ 出発すると次のお客さんが到着。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
+<section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> 組</span><span id="clock" class="clock">⏱ <b id="timeLeft">60</b>秒</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。合う旅を自動で案内"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div class="ticket-content"><img id="ticketPhoto" class="ticket-photo hidden" alt=""><div id="draft" class="draft" aria-label="作っている行き先"></div></div></div><div id="offer" class="auto-status" role="status">揃うと自動で<br>チケットをお届け ✈️</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 <div class="work"><div class="work-head"><span id="stockInfo">一時置場 0 / 4</span><span>2枚そろうと2枠空く</span></div><div id="letters" class="letters" aria-label="4枠の一時置場"></div><div class="tray-note">満杯になったら「1手戻す」で順番を見直そう</div></div>
 <div id="scene" class="scene gallery piles" aria-label="3列に重なった旅の絵。一番上だけ使えます"></div>
 <div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="plans" class="small">行き先のヒント</button><button id="help" class="small">遊び方</button></div></section>
-<section id="result" class="panel"><div class="tag">HAVE A WONDERFUL TRIP!</div><h1>5人とも、いってらっしゃい！</h1><div id="earned" class="resultnum">＋50</div><p style="margin:0">コイン獲得</p><div id="servedList" class="resultlist"></div><p id="resultDetail"></p><button id="again" class="primary">次の旅行客を迎える →</button><button id="back" class="secondary">旅行社の入口へ</button></section><div class="footer"><a href="./">ソリティア</a> · <a href="kitchen.html">漢字キッチン</a> · 旅は、ひとつじゃない。</div></main>
+<section id="result" class="panel"><div class="tag">HAVE A WONDERFUL TRIP!</div><h1>60秒、おつかれさま！</h1><div id="earned" class="resultnum">＋50</div><p id="scoreCoins" style="margin:0">コイン獲得</p><div id="servedList" class="resultlist"></div><p id="resultDetail"></p><button id="again" class="primary">もう一度、60秒に挑戦 →</button><button id="back" class="secondary">旅行社の入口へ</button></section><div class="footer"><a href="./">ソリティア</a> · <a href="kitchen.html">漢字キッチン</a> · 旅は、ひとつじゃない。</div></main>
 <dialog id="dialog" class="dialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle">旅プラン</h2><button id="closeDialog" class="small">閉じる ×</button></div><div id="dialogBody"></div></dialog>
 <script>
 'use strict';
@@ -39,66 +40,82 @@ const SIGHTS=[
  {id:'deer',name:'奈良の鹿',image:'assets/trip-deer.webp',place:'奈良'}
 ];
 const ORDERS=[['apples','yufuin'],['fuji','deer'],['takachiho','apples'],['yufuin','fuji'],['deer','takachiho']];
-const KEY='kotoba-travel-tidy-v3',LIMIT=4,AVATARS=['🐱','🐰','🐶','🐼','🐻'];
+const KEY='kotoba-travel-timed-v4',LIMIT=4,AVATARS=['🐱','🐰','🐶','🐼','🐻'];
 const $=id=>document.getElementById(id),clone=x=>JSON.parse(JSON.stringify(x)),sight=id=>SIGHTS.find(s=>s.id===id);
-let g=null,history=[],state='home',soundOn=true,audio=null,notice='',timer=null;
+let g=null,history=[],state='home',soundOn=true,audio=null,notice='',timer=null,lastTick=0;
+const orderFor=id=>ORDERS[id%ORDERS.length];
 let profile={coins:0,visited:[]};
-try{for(const key of ['kotoba-travel-picture-orders-v2','kotoba-travel-agency-v1']){const old=JSON.parse(localStorage.getItem(key));if(old?.profile){profile=old.profile;break;}}}catch(_){}
+try{for(const key of ['kotoba-travel-tidy-v3','kotoba-travel-picture-orders-v2','kotoba-travel-agency-v1']){const old=JSON.parse(localStorage.getItem(key));if(old?.profile){profile=old.profile;break;}}}catch(_){}
 function validGame(x){
- if(!x||!Array.isArray(x.columns)||x.columns.length!==3||!Array.isArray(x.stock)||x.stock.length>4||!Array.isArray(x.guests)||x.guests.length!==3||!Array.isArray(x.served)||x.served.length>5||!Number.isInteger(x.arrived)||x.arrived<3||x.arrived>5)return false;
+ if(!x||!Array.isArray(x.columns)||x.columns.length!==3||!x.columns.every(Array.isArray)||!Array.isArray(x.stock)||x.stock.length>4||!Array.isArray(x.guests)||x.guests.length!==3||!Array.isArray(x.served)||!Number.isFinite(x.left)||x.left<0||x.left>60000||!Number.isInteger(x.arrived)||x.arrived!==x.served.length+3||!Number.isInteger(x.nextCard))return false;
  const cards=[...x.columns.flat(),...x.stock,...x.served.flatMap(v=>v.cards||[])];
- if(cards.length!==10||new Set(cards.map(c=>c.uid)).size!==10||!cards.every(c=>Number.isInteger(c.uid)&&sight(c.sight)))return false;
- const ids=[...x.guests.filter(v=>v!==null),...x.served.map(v=>v.id)];
- return ids.length===x.arrived&&new Set(ids).size===ids.length&&ids.every(i=>Number.isInteger(i)&&i>=0&&i<x.arrived)&&x.earned===x.served.length*20&&x.served.every(v=>v.cards.length===2&&ORDERS[v.id].every((s,i)=>v.cards[i].sight===s));
+ if(cards.length!==x.nextCard-1||new Set(cards.map(c=>c.uid)).size!==cards.length||!cards.every(c=>Number.isInteger(c.uid)&&c.uid>0&&c.uid<x.nextCard&&sight(c.sight)))return false;
+ const ids=[...x.guests,...x.served.map(v=>v.id)];
+ return ids.length===x.arrived&&new Set(ids).size===ids.length&&ids.every(i=>Number.isInteger(i)&&i>=0&&i<x.arrived)&&x.earned===x.served.length*20&&x.served.every(v=>v.cards.length===2&&orderFor(v.id).every((s,i)=>v.cards[i].sight===s));
 }
 try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved&&validGame(saved.g)){g=saved.g;profile=saved.profile;history=(saved.history||[]).filter(h=>validGame(h.g));}soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify({g,profile,history}));}catch(_){}}
 function tone(notes){if(!soundOn)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;audio ||= new C();audio.resume().catch(()=>{});notes.forEach((f,i)=>{const o=audio.createOscillator(),gain=audio.createGain(),t=audio.currentTime+i*.085;o.frequency.value=f;gain.gain.setValueAtTime(.045,t);gain.gain.exponentialRampToValueAtTime(.001,t+.15);o.connect(gain);gain.connect(audio.destination);o.start(t);o.stop(t+.16);});}catch(_){}}
-function show(id){closeDialog();state=id==='game'?'playing':id;document.body.dataset.screen=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
+function show(id){closeDialog();lastTick=performance.now();state=id==='game'?'playing':id;document.body.dataset.screen=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function message(text,warn=false){notice=text;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
-function updateHome(){$('homeCoins').textContent=profile.coins||0;$('homeVisited').textContent=profile.visited?.length||0;$('continue').classList.toggle('hidden',!g||g.served.length===5);}
-function newRound(){
- clearTimeout(timer);let uid=1;
+function updateHome(){$('homeCoins').textContent=profile.coins||0;$('homeVisited').textContent=profile.visited?.length||0;$('continue').classList.toggle('hidden',!g||g.left<=0);}
+function deal(){
  const layouts=[['deer','apples','yufuin','fuji'],['fuji','takachiho','apples'],['yufuin','deer','takachiho']];
- // Columns change position, while every deal retains a path to completion.
- const offset=Math.floor(Math.random()*3);const columns=layouts.map((_,i)=>layouts[(i+offset)%3].map(s=>({uid:uid++,sight:s})));
- g={columns,stock:[],guests:[0,1,2],arrived:3,served:[],earned:0,lastTrip:null};history=[];
- show('game');message('上の絵を4枠へ。注文の2枚を揃えると、一気に片付く！');render();persist();
+ const offset=Math.floor(Math.random()*3),reverse=Math.random()<.5;
+ g.columns=layouts.map((_,i)=>layouts[(i+offset)%3].map(s=>({uid:g.nextCard++,sight:s})));
+ if(reverse)g.columns.reverse();
+}
+function newRound(){
+ g={columns:[[],[],[]],stock:[],guests:[0,1,2],arrived:3,served:[],earned:0,lastTrip:null,left:60000,nextCard:1};history=[];deal();
+ show('game');message('60秒で何組案内できる？ 4枠を空けながら、どんどん出発！');render();persist();
+}
+function updateClock(){
+ const seconds=Math.ceil(g.left/1000);$('timeLeft').textContent=seconds;
+ $('clock').classList.toggle('urgent-clock',seconds<=10);
+ $('clock').setAttribute('aria-label','残り'+seconds+'秒');
+}
+function tick(now=performance.now()){
+ const delta=Math.max(0,now-lastTick);lastTick=now;
+ if(state!=='playing'||!g||document.hidden||$('dialog').open)return;
+ g.left=Math.max(0,g.left-delta);updateClock();if(g.left===0)finish();
 }
 function matching(order){const used=new Set(),cards=[];for(const id of order){const card=g.stock.find(c=>c.sight===id&&!used.has(c.uid));if(!card)return null;used.add(card.uid);cards.push(card);}return cards;}
 function dispatch(){
  let count=0;
  // Consume only complete orders: an incomplete pair still occupies the shared tray.
  for(let guard=0;guard<5;guard++){
-  const slot=g.guests.findIndex(id=>id!==null&&matching(ORDERS[id]));if(slot<0)break;
-  const id=g.guests[slot],cards=matching(ORDERS[id]),uids=new Set(cards.map(c=>c.uid));
+  const slot=g.guests.findIndex(id=>id!==null&&matching(orderFor(id)));if(slot<0)break;
+  const id=g.guests[slot],cards=matching(orderFor(id)),uids=new Set(cards.map(c=>c.uid));
   g.stock=g.stock.filter(c=>!uids.has(c.uid));
   const trip={id,cards:clone(cards)};g.served.push(trip);g.lastTrip=trip;g.earned+=20;profile.coins=(profile.coins||0)+20;
   profile.visited ||= [];for(const card of cards){const legacy={apples:'aomori',yufuin:'oita',takachiho:'miyazaki',fuji:'yamanashi',deer:'nara'}[card.sight];if(!profile.visited.includes(legacy))profile.visited.push(legacy);}
-  g.guests[slot]=g.arrived<5?g.arrived++:null;count++;
+  const next=g.arrived++;g.guests[slot]=next;
+  // The first five orders are already in the opening deal. Supply later arrivals at the bottom.
+  if(next>=5)for(const material of orderFor(next)){const min=Math.min(...g.columns.map(c=>c.length));const col=g.columns.findIndex(c=>c.length===min);g.columns[col].push({uid:g.nextCard++,sight:material});}
+  count++;
  }
  return count;
 }
 function takeStack(col){
- if(state!=='playing'||!g.columns[col]?.length)return;
+ tick();if(state!=='playing'||!g.columns[col]?.length)return;
  if(g.stock.length>=LIMIT){message('一時置場がいっぱい。1手戻して、取る順番を変えよう。',true);tone([220]);return;}
- history.push({g:clone(g),profile:clone(profile)});
- const card=g.columns[col].shift();g.stock.push(card);const count=dispatch();
+ history.push({g:clone(g),profile:clone(profile)});if(history.length>30)history.shift();
+ const card=g.columns[col].shift();g.stock.push(card);const count=dispatch();const refilled=g.columns.every(c=>!c.length)&&g.stock.length===0;if(refilled)deal();
  if(count){message('✈️ '+count+'組出発！ '+(count*2)+'枚すっきり、＋'+count*20+'コイン');tone(count>1?[660,880,1046,1320]:[660,880,1046]);}
  else if(g.stock.length===4){message('4枠いっぱい。1手戻して、別の絵から取ってみよう。',true);tone([220]);}
  else{message(sight(card.sight).name+'を確保。あと'+(4-g.stock.length)+'枠、どれを先に取る？');tone([440]);}
- render();if(count){$('scene').classList.remove('cleared');void $('scene').offsetWidth;$('scene').classList.add('cleared');}
- persist();if(g.served.length===5){timer=setTimeout(finish,700);}
+ if(refilled)message('✨ 山を全部片付けた！ 次の旅が到着、続けて案内しよう！');render();if(count){$('scene').classList.remove('cleared');void $('scene').offsetWidth;$('scene').classList.add('cleared');}
+ persist();
 }
 function art(card,cls=''){const img=document.createElement('img');const s=sight(typeof card==='string'?card:card.sight);img.src=s.image;img.alt=s.name;img.className=cls;img.draggable=false;return img;}
 function render(){
- $('servedCount').textContent=g.served.length;$('sessionCoins').textContent=g.earned;
+ updateClock();$('servedCount').textContent=g.served.length;$('sessionCoins').textContent=g.earned;
  const guests=$('guests');guests.replaceChildren();
  g.guests.forEach(id=>{const box=document.createElement('div');box.className='guest'+(id===null?' empty':'');if(id===null){box.textContent='✈️ 出発しました';guests.appendChild(box);return;}
-  const avatar=document.createElement('span');avatar.className='avatar';avatar.textContent=AVATARS[id];
+  const avatar=document.createElement('span');avatar.className='avatar';avatar.textContent=AVATARS[id%AVATARS.length];
   const order=document.createElement('div');order.className='picture-order';
-  const used=new Set();for(const s of ORDERS[id]){const card=document.createElement('span');card.className='order-art';card.appendChild(art(s));const held=g.stock.find(c=>c.sight===s&&!used.has(c.uid));if(held){used.add(held.uid);card.classList.add('ready');const check=document.createElement('b');check.textContent='✓';card.appendChild(check);}order.appendChild(card);}
-  const caption=document.createElement('small');caption.textContent='2枚そろえて出発';box.append(avatar,order,caption);box.setAttribute('aria-label',ORDERS[id].map(s=>sight(s).name).join('と')+'の旅');guests.appendChild(box);
+  const used=new Set();for(const s of orderFor(id)){const card=document.createElement('span');card.className='order-art';card.appendChild(art(s));const held=g.stock.find(c=>c.sight===s&&!used.has(c.uid));if(held){used.add(held.uid);card.classList.add('ready');const check=document.createElement('b');check.textContent='✓';card.appendChild(check);}order.appendChild(card);}
+  const caption=document.createElement('small');caption.textContent='2枚そろえて出発';box.append(avatar,order,caption);box.setAttribute('aria-label',orderFor(id).map(s=>sight(s).name).join('と')+'の旅');guests.appendChild(box);
  });
  const tray=$('letters');tray.replaceChildren();
  for(let i=0;i<4;i++){const card=g.stock[i],slot=document.createElement('div');slot.className='tray-slot'+(card?' occupied':'');if(card){slot.appendChild(art(card));const name=document.createElement('span');name.textContent=sight(card.sight).name;slot.appendChild(name);}else{slot.textContent='空き';}tray.appendChild(slot);}
@@ -111,18 +128,24 @@ function render(){
  g.columns.forEach((column,col)=>{const pile=document.createElement('div');pile.className='pile';pile.dataset.col=col;if(!column.length){const empty=document.createElement('div');empty.className='empty-pile';empty.textContent='✨ 片付いた！';pile.appendChild(empty);}column.forEach((card,row)=>{const s=sight(card.sight),b=document.createElement('button');b.type='button';b.className='picture-card '+s.id;b.dataset.top=row===0;b.dataset.sight=s.id;b.dataset.card=card.uid;b.disabled=row!==0;b.style.height='calc((100% + var(--overlap) * '+(column.length-1)+') / '+column.length+')';b.style.zIndex=column.length-row;b.onclick=()=>takeStack(col);b.setAttribute('aria-label',s.name+(row===0?'を一時置場へ':'、上の絵をどかすと取れます'));b.appendChild(art(card));const label=document.createElement('span');label.textContent=s.name;b.appendChild(label);if(row===0){const badge=document.createElement('div');badge.className='top-badge';badge.textContent='取れる';b.appendChild(badge);}pile.appendChild(b);});board.appendChild(pile);});
  $('undo').disabled=!history.length;board.classList.toggle('blocked',g.stock.length===4);
 }
-function undo(){if(state!=='playing'||!history.length)return;clearTimeout(timer);const old=history.pop();g=old.g;profile=old.profile;message('戻しました。取る順番を変えてみよう。');render();persist();}
-function finish(){if(g.served.length!==5)return;show('result');$('earned').textContent='＋'+g.earned;const list=$('servedList');list.replaceChildren();for(const v of g.served){const el=document.createElement('div');el.className='trip-stamp';el.appendChild(art(v.cards[0]));const label=document.createElement('span');label.textContent=v.cards.map(c=>sight(c.sight).place).join('・');el.appendChild(label);list.appendChild(el);}$('resultDetail').textContent='10枚すべて片付いた！ 一時置場も、山も空っぽ。';updateHome();tone([660,880,1046,1320]);}
+function undo(){tick();if(state!=='playing'||!history.length)return;const left=g.left,old=history.pop();g=old.g;g.left=left;profile=old.profile;message('戻しました。取る順番を変えてみよう。');render();persist();}
+function finish(){
+ if(state!=='playing')return;g.left=0;show('result');$('earned').textContent=g.served.length+'組';
+ $('scoreCoins').textContent='＋'+g.earned+'コイン獲得';const list=$('servedList');list.replaceChildren();
+ for(const v of g.served.slice(-6)){const el=document.createElement('div');el.className='trip-stamp';el.appendChild(art(v.cards[0]));const label=document.createElement('span');label.textContent=v.cards.map(c=>sight(c.sight).place).join('・');el.appendChild(label);list.appendChild(el);}
+ let best=g.served.length;try{best=Math.max(best,Number(localStorage.getItem('travel-timed-best'))||0);localStorage.setItem('travel-timed-best',best);}catch(_){}
+ $('resultDetail').textContent='案内した旅 '+g.served.length+'組 ／ ベスト '+best+'組';updateHome();persist();tone([660,880,1046]);
+}
 function closeDialog(){const d=$('dialog');if(d.open)d.close();}
-function openDialog(kind){$('dialogTitle').textContent=kind==='plans'?'旅の組合せ':'遊び方';const body=$('dialogBody');body.replaceChildren();const p=document.createElement('p');p.className='modal-copy';p.textContent='①各列の一番上の絵をタップして一時置場へ。②お客さんが欲しい2枚が揃うと、自動でお届けして2枠空きます。片方だけでは片付きません。③4枠を使い切る前に、どの注文を揃えるか考えよう。満杯になったら「1手戻す」でやり直せます。待ち時間・制限時間はありません。';body.appendChild(p);if(kind==='plans'){for(const order of ORDERS){const row=document.createElement('div');row.className='help-order';for(const id of order)row.appendChild(art(id));body.appendChild(row);}}$('dialog').showModal();}
+function openDialog(kind){tick();$('dialogTitle').textContent=kind==='plans'?'旅の組合せ':'遊び方';const body=$('dialogBody');body.replaceChildren();const p=document.createElement('p');p.className='modal-copy';p.textContent='①各列の一番上の絵をタップして一時置場へ。②お客さんが欲しい2枚が揃うと、自動でお届けして2枠空きます。片方だけでは片付きません。③4枠を使い切る前に、どの注文を揃えるか考えよう。満杯になったら「1手戻す」でやり直せます。60秒で何組案内できるか挑戦！ 出発すると次のお客さんが来ます。次のお客さんに必要な絵は、山の下へ補充されます。戻しても残り時間は戻りません。中断・遊び方・画面を離れている間は時計が止まります。';body.appendChild(p);if(kind==='plans'){for(const order of ORDERS){const row=document.createElement('div');row.className='help-order';for(const id of order)row.appendChild(art(id));body.appendChild(row);}}$('dialog').showModal();}
 function fit(){document.documentElement.style.setProperty('--vh',Math.round(window.visualViewport?.height||innerHeight)+'px');}
-$('start').onclick=()=>{if(g&&g.served.length<5&&history.length&&!confirm('途中の旅を置き換えて、新しく始めますか？'))return;newRound();};
-$('again').onclick=newRound;$('continue').onclick=()=>{show('game');message('続きから。4枠を空けながら片付けよう。');render();};
-$('undo').onclick=undo;$('break').onclick=()=>{clearTimeout(timer);persist();show('home');updateHome();};$('back').onclick=()=>{show('home');updateHome();};
+$('start').onclick=()=>{if(g&&g.left>0&&history.length&&!confirm('途中の旅を置き換えて、新しく始めますか？'))return;newRound();};
+$('again').onclick=newRound;$('continue').onclick=()=>{if(!g||g.left<=0)return;show('game');message('続きから。4枠を空けながら片付けよう。');render();};
+$('undo').onclick=undo;$('break').onclick=()=>{tick();if(state!=='playing')return;persist();show('home');updateHome();};$('back').onclick=()=>{show('home');updateHome();};
 for(const id of ['help','homeHelp'])$(id).onclick=()=>openDialog('help');for(const id of ['plans','homeBook'])$(id).onclick=()=>openDialog('plans');$('closeDialog').onclick=closeDialog;
 $('sound').onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('kenken-sound',soundOn?'on':'off');}catch(_){}updateSound();};
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',soundOn);}
-window.addEventListener('resize',fit);window.visualViewport?.addEventListener('resize',fit);window.addEventListener('pagehide',persist);
+window.addEventListener('resize',fit);window.visualViewport?.addEventListener('resize',fit);window.addEventListener('pagehide',()=>{tick();persist();});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();persist();});setInterval(tick,100);
 fit();updateSound();updateHome();show('home');
 
 </script></body></html>
