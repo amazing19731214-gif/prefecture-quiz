@@ -12,7 +12,7 @@
 <section id="result" class="panel result hidden"><div class="eyebrow">ALL CLEAR!</div><h1>ぜんぶ、片づいた。</h1><div class="resultnum">12 / 12</div><p>文字も、一時置場も、すっきり。</p><div id="resultList" class="resultlist"></div><p id="resultDetail"></p><button id="next" class="primary">別の12県を片づける →</button><button id="resultHome" class="secondary">タイトルへ</button></section><div class="footer">急がず、ひとつずつ。空いていくのを楽しもう。</div></main>
 <script>
 'use strict';
-const PREFECTURES=[["北海","道","札幌市がある都道府県は？"],["青森","県","青森市が県庁所在地なのは？"],["岩手","県","盛岡市が県庁所在地なのは？"],["宮城","県","仙台市がある都道府県は？"],["秋田","県","秋田市が県庁所在地なのは？"],["山形","県","山形市が県庁所在地なのは？"],["福島","県","福島市が県庁所在地なのは？"],["茨城","県","水戸市がある都道府県は？"],["栃木","県","宇都宮市がある都道府県は？"],["群馬","県","前橋市がある都道府県は？"],["埼玉","県","さいたま市がある都道府県は？"],["千葉","県","千葉市が県庁所在地なのは？"],["東京","都","都庁が新宿区にあるのは？"],["神奈川","県","横浜市がある都道府県は？"],["新潟","県","新潟市が県庁所在地なのは？"],["富山","県","富山市が県庁所在地なのは？"],["石川","県","金沢市がある都道府県は？"],["福井","県","福井市が県庁所在地なのは？"],["山梨","県","甲府市がある都道府県は？"],["長野","県","長野市が県庁所在地なのは？"],["岐阜","県","岐阜市が県庁所在地なのは？"],["静岡","県","静岡市が県庁所在地なのは？"],["愛知","県","名古屋市がある都道府県は？"],["三重","県","津市がある都道府県は？"],["滋賀","県","大津市がある都道府県は？"],["京都","府","京都市がある都道府県は？"],["大阪","府","大阪市がある都道府県は？"],["兵庫","県","神戸市がある都道府県は？"],["奈良","県","奈良市が県庁所在地なのは？"],["和歌山","県","和歌山市が県庁所在地なのは？"],["鳥取","県","鳥取市が県庁所在地なのは？"],["島根","県","松江市がある都道府県は？"],["岡山","県","岡山市が県庁所在地なのは？"],["広島","県","広島市が県庁所在地なのは？"],["山口","県","山口市が県庁所在地なのは？"],["徳島","県","徳島市が県庁所在地なのは？"],["香川","県","高松市がある都道府県は？"],["愛媛","県","松山市がある都道府県は？"],["高知","県","高知市が県庁所在地なのは？"],["福岡","県","福岡市が県庁所在地なのは？"],["佐賀","県","佐賀市が県庁所在地なのは？"],["長崎","県","長崎市が県庁所在地なのは？"],["熊本","県","熊本市が県庁所在地なのは？"],["大分","県","大分市が県庁所在地なのは？"],["宮崎","県","宮崎市が県庁所在地なのは？"],["鹿児島","県","鹿児島市が県庁所在地なのは？"],["沖縄","県","那覇市がある都道府県は？"]];
+const PREFECTURES=[["北海","道","日本最北端の宗谷岬があるのは？"],["青森","県","弘前城があるのは？"],["岩手","県","中尊寺の金色堂があるのは？"],["宮城","県","日本三景の「松島」があるのは？"],["秋田","県","「なまはげ」で知られる男鹿半島があるのは？"],["山形","県","銀山温泉があるのは？"],["福島","県","会津の「大内宿」があるのは？"],["茨城","県","偕楽園があるのは？"],["栃木","県","日光東照宮があるのは？"],["群馬","県","草津温泉があるのは？"],["埼玉","県","「時の鐘」で知られる川越の町並みがあるのは？"],["千葉","県","成田国際空港があるのは？"],["東京","都","浅草の雷門があるのは？"],["神奈川","県","鎌倉の大仏があるのは？"],["新潟","県","佐渡島があるのは？"],["富山","県","黒部ダムがあるのは？"],["石川","県","兼六園があるのは？"],["福井","県","断崖の景勝地「東尋坊」があるのは？"],["山梨","県","富士五湖があるのは？"],["長野","県","善光寺があるのは？"],["岐阜","県","合掌造りの集落「白川郷」があるのは？"],["静岡","県","世界遺産の構成資産「三保松原」があるのは？"],["愛知","県","金のしゃちほこで知られる名古屋城があるのは？"],["三重","県","伊勢神宮があるのは？"],["滋賀","県","日本最大の湖、琵琶湖があるのは？"],["京都","府","金閣寺があるのは？"],["大阪","府","道頓堀があるのは？"],["兵庫","県","世界遺産の姫路城があるのは？"],["奈良","県","東大寺の大仏があるのは？"],["和歌山","県","高野山があるのは？"],["鳥取","県","砂の美術館があるのは？"],["島根","県","出雲大社があるのは？"],["岡山","県","倉敷美観地区があるのは？"],["広島","県","原爆ドームがあるのは？"],["山口","県","秋芳洞があるのは？"],["徳島","県","阿波おどりの本場として知られる県は？"],["香川","県","讃岐うどんで知られる県は？"],["愛媛","県","道後温泉があるのは？"],["高知","県","坂本龍馬像が立つ桂浜があるのは？"],["福岡","県","太宰府天満宮があるのは？"],["佐賀","県","吉野ヶ里遺跡があるのは？"],["長崎","県","グラバー園があるのは？"],["熊本","県","阿蘇山があるのは？"],["大分","県","別府温泉があるのは？"],["宮崎","県","高千穂峡があるのは？"],["鹿児島","県","桜島があるのは？"],["沖縄","県","首里城があるのは？"]];
 const SIZE=12,COLS=6,SLOTS=3,STORAGE='prefecture-tidy-v1';
 function shuffle(items,random=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function clone(value){return JSON.parse(JSON.stringify(value));}
@@ -61,7 +61,7 @@ function persist(){if(stage&&game)write(STORAGE,JSON.stringify({stage:{targets:s
 function validSaved(data){
  try{
   const st=data.stage,s=data.game;if(!st||!s||st.targets.length!==SIZE||st.columns.length!==COLS||s.columns.length!==COLS||s.buffer.length!==SLOTS||s.answer.length>3||!Array.isArray(s.done))return false;
-  if(new Set(st.targets.map(p=>p[0])).size!==SIZE||!st.targets.every(p=>PREFECTURES.some(q=>JSON.stringify(q)===JSON.stringify(p))))return false;
+  if(new Set(st.targets.map(p=>p[0])).size!==SIZE||!st.targets.every(p=>PREFECTURES.some(q=>q[0]===p[0]&&q[1]===p[1])))return false;
   const initial=st.columns.flat(),lookup=new Map(initial.map(t=>[t.id,t.char]));
   if(lookup.size!==initial.length||textOf(initial).split('').sort().join('')!==st.targets.map(p=>p[0]).join('').split('').sort().join(''))return false;
   const validateState=x=>{
@@ -80,7 +80,7 @@ function normaliseState(saved){
  if(!wanted){while(x.answer.length){const token=x.answer.pop();x.columns[originColumn(token)].unshift(token);}wanted=remaining[0];}
  x.focus=wanted?wanted.i:0;return x;
 }
-function loadSaved(){try{const data=JSON.parse(localStorage.getItem(STORAGE));if(!validSaved(data)||data.game.done.length===SIZE)return false;stage=data.stage;game=normaliseState(data.game);history=data.history.map(normaliseState);return true;}catch(_){return false;}}
+function loadSaved(){try{const data=JSON.parse(localStorage.getItem(STORAGE));if(!validSaved(data)||data.game.done.length===SIZE)return false;stage=data.stage;stage.targets=stage.targets.map(p=>[...PREFECTURES.find(q=>q[0]===p[0]&&q[1]===p[1])]);game=normaliseState(data.game);history=data.history.map(normaliseState);return true;}catch(_){return false;}}
 const hasSaved=loadSaved();
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
 function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
