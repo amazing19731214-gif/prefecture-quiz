@@ -1,225 +1,273 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f0df"><title>都道府県ソリティア｜どかして、つくって、片づける</title><style>
-:root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#3d382c;background:#f7f0df}*{box-sizing:border-box}body{margin:0;padding:16px 12px;min-height:100svh;display:grid;place-items:center}button{font:inherit;touch-action:manipulation;cursor:pointer}button:disabled{cursor:default}button:focus-visible{outline:3px solid #2268c7;outline-offset:3px}.app{width:min(100%,490px)}header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 5px 14px}.brand{font-size:18px;font-weight:900;letter-spacing:-.5px}.brand span{color:#148673}.small{font-size:11px;border:1px solid #d9cbb1;border-radius:9px;background:#fffcf4;color:#7c694b;padding:8px 11px}.panel{background:#fffdf7;border:1px solid #e3d7bf;border-radius:24px;box-shadow:0 12px 40px #67501a0c;padding:22px}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:2px;color:#9a8562;font-weight:800}h1{font-size:36px;line-height:1.24;letter-spacing:-1.5px;margin:16px 0}h1 em{font-style:normal;color:#148673}p{font-size:13px;line-height:1.85;color:#8b785c}.primary{border:0;border-radius:13px;background:#148673;color:white;font-size:17px;font-weight:800;padding:16px;width:100%;box-shadow:0 4px 0 #0c6354}.primary:active{transform:translateY(2px)}.rules{font-size:12px;line-height:1.95;color:#7f6d50;margin:20px 0}.demo{display:flex;align-items:center;justify-content:center;gap:14px;background:#efe9d8;border-radius:14px;padding:20px;margin:24px 0}.democol{display:flex;flex-direction:column;gap:4px}.demo span{display:grid;place-items:center;width:45px;height:43px;background:#fffdf7;border:1px solid #d4b88e;border-radius:7px;font-size:23px;font-weight:800;box-shadow:0 3px 0 #d8c4a0}.demo span.buried{background:#ddd4bd;color:#9e8866}.demo .parked{border:2px solid #d99b44;background:#fff3d7}.demo small{font-size:11px;color:#8d7958;line-height:1.8}.best{font-size:11px;text-align:center;color:#9b896c;margin:19px 0 0}.stats{display:flex;justify-content:space-between;align-items:center;gap:9px}.stats strong{font-size:29px;font-variant-numeric:tabular-nums}.stats small{font-size:11px;color:#8b795b}.relaxed{font-size:10px;color:#148673;background:#e5efdf;padding:6px 9px;border-radius:30px}.meter{height:5px;background:#ece3cc;border-radius:5px;overflow:hidden;margin:12px 0 14px}.meter i{display:block;height:100%;width:0;background:#148673;transition:width .25s}.question{padding:11px 13px;background:#f1ecdc;border-radius:12px;min-height:74px;display:flex;flex-direction:column;justify-content:center}.question small{font-size:9px;color:#9a835f;margin-bottom:4px}.question strong{font-size:16px;line-height:1.55}.assemble{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:13px 0 4px}.answer{display:flex;gap:6px;min-height:47px;align-items:center}.slot{width:43px;height:46px;border:1px dashed #d5c4a4;border-radius:8px;display:grid;place-items:center;background:#faf6eb;font-size:25px;font-weight:800;color:#cbbd9e}.slot.filled{color:#0d7967;border:2px solid #8eb9a2;background:#edf5e7;cursor:pointer}.answerhint{font-size:10px;color:#a18e6c;line-height:1.7;text-align:right}.feedback{font-size:12px;color:#148673;font-weight:700;line-height:1.65;min-height:43px;padding:7px 0}.feedback.warn{color:#ab6c28}.bufferhead{font-size:10px;color:#9d835f;display:flex;justify-content:space-between;align-items:center;margin:0 0 7px}.buffer{display:flex;justify-content:center;gap:10px;padding:10px;background:#f8eed7;border:1px solid #e4d0a5;border-radius:12px}.buffer button{width:58px;height:46px;border:1px dashed #cdae77;border-radius:8px;background:#fff9e9;display:grid;place-items:center;font-size:24px;font-weight:800;color:#ceb991}.buffer button.occupied{border:2px solid #dba74f;background:#fffdf4;color:#a46c26;box-shadow:0 2px 0 #e5cb9d}.modes{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#e9e3d2;border-radius:12px;margin:13px 0 9px}.mode{border:0;border-radius:9px;background:transparent;color:#897451;padding:10px 4px;font-size:12px;font-weight:800}.mode.active{background:#fffdf7;box-shadow:0 2px 4px #70531c15;color:#0d7967}.mode.park.active{color:#ab7229;background:#fff6df}.boardhead{display:flex;justify-content:space-between;font-size:10px;color:#907b57;margin:10px 2px}.board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;background:#e9e3d1;border:1px solid #dbcfb4;border-radius:14px;padding:13px 9px 17px;align-items:start;min-height:240px}.column{display:flex;flex-direction:column;min-width:0}.card{height:40px;margin-top:-8px;border:1px solid #caba99;border-radius:6px;background:#dad1ba;color:#9a8260;display:grid;place-items:center;font-size:22px;font-weight:700;box-shadow:0 2px 0 #c5b38e;position:relative}.card:first-child{height:45px;margin:0 0 5px;border:2px solid #89ae8e;background:#fffdf4;color:#3e462f;z-index:10;box-shadow:0 3px 0 #bdc5a2}.board.parking .card:first-child{border-color:#d5a14d;box-shadow:0 3px 0 #d7bd88}.card:first-child:not(:disabled):active{transform:translateY(2px);background:#e9f3dc}.card:last-child{margin-bottom:0}.empty{min-height:120px;border:1px dashed #cabea2;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#a2a985;font-size:13px;writing-mode:vertical-rl;letter-spacing:3px}.tools{display:flex;gap:8px;margin-top:12px}.tools button{flex:1;padding:11px 4px}.tools button:disabled{opacity:.35}.targets{border-top:1px solid #eee5d3;margin-top:17px;padding-top:13px}.targetshead{font-size:11px;color:#8c7856;margin-bottom:9px}.targetlist{display:flex;flex-wrap:wrap;gap:6px}.target{font-size:11px;border:1px solid #ded2b8;background:#faf6eb;border-radius:8px;color:#7e6c50;padding:6px 8px}.target.done{color:#148673;background:#e5efdc;border-color:#c0d4b0;text-decoration:line-through}.target.focus{border-color:#148673}.helper{font-size:10px;line-height:1.8;color:#a08a67;margin:13px 0 0}.result{text-align:center}.result h1{font-size:32px}.resultnum{font-size:71px;color:#148673;font-weight:900;line-height:1.2;margin-top:20px}.resultlist{padding:16px;background:#f0ecdb;border-radius:12px;font-size:13px;line-height:2;color:#72603f;margin:22px 0}.secondary{border:0;background:none;color:#947e5d;font-size:12px;padding:14px;margin-top:8px}.footer{text-align:center;font-size:10px;color:#a38f6c;margin:15px 0}.flash{animation:clear .45s ease-out}@keyframes clear{from{background:#addbb4}to{background:#e9e3d1}}@media(max-width:370px){.panel{padding:16px}.board{gap:5px;padding:12px 7px}.card{font-size:20px}.brand{font-size:16px}.target{font-size:10px}}@media(prefers-reduced-motion:reduce){.flash{animation:none}.meter i{transition:none}}
-.suffix{font-size:20px;color:#9c8764;margin-left:2px}.flow{font-size:11px;font-weight:800;color:#148673;margin:14px 0 9px;text-align:center;background:#edf2e5;border-radius:9px;padding:10px 5px}.flow span{font-weight:500;color:#8b7958}.buffer button{height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}.buffer button small{font-size:9px;line-height:1.3;font-weight:500;color:#a27c3c}.slot.filled{cursor:default;animation:arrive .2s ease-out}.target.focus{background:#e6f2df;border-width:2px}.slot:disabled{opacity:1}.bufferhead{gap:5px;font-size:10px}@keyframes arrive{from{transform:scale(.9)}to{transform:scale(1)}}@media(prefers-reduced-motion:reduce){.slot.filled{animation:none}}</style></head><body><main class="app"><header><div class="brand">都道府県<span>ソリティア</span></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="eyebrow">MOVE. MAKE. CLEAR.</div><h1>邪魔な文字をどかす。<br><em>県名が、見つかる。</em></h1><p>ごちゃっと積まれた文字を、ひとつずつ。<br>12都道府県を作って、全部片づけよう。</p><div class="demo"><div class="democol"><span>山</span><span class="buried">森</span></div><small>「山」をどかす →<br>下の「森」が取れる</small><span class="parked">山</span></div><div class="rules">取れるのは、各列のいちばん上だけ。<br>文字をタップすると、一時置場へ。<br>答えに合う文字は自動で使います。時間制限なし。<br>置場の文字はタップで元の列へ。1手戻すも使えます。</div><button id="start" class="primary">12県を片づける →</button><button id="continue" class="primary hidden" style="margin-top:14px">途中からつづける →</button><p class="best">進み具合は自動保存されます。</p></section>
-<section id="game" class="panel hidden" aria-label="都道府県の文字を片づけるパズル"><div class="stats"><div><strong id="score">0</strong><small> / 12 完成</small></div><span class="relaxed">時間制限なし</span><button id="homeButton" class="small">中断</button></div><div class="meter"><i id="progress"></i></div><div class="question"><small>合う文字は自動で答えへ。作る県は下から変更できます。</small><strong id="question"></strong></div>
-<div class="assemble"><div id="answer" class="answer" aria-label="作っている県名"></div><div class="answerhint">合う文字は自動で入る<br>県・府・都・道も自動</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-<div class="bufferhead"><span>一時置場 · 3マス</span><span>置いた文字はタップで元の列へ</span></div><div id="buffer" class="buffer" aria-label="一時置場"></div>
-<div class="flow">上の文字をタップ <span>→ 置場 → 合う文字は答えへ</span></div>
-<div class="boardhead"><span id="modeLabel">タップだけでOK · モード切替なし</span><span id="remaining"></span></div><div id="board" class="board" aria-label="6列の文字カード"></div>
-<div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="help" class="small">遊び方</button><button id="restart" class="small">最初から</button></div>
-<div class="targets"><div class="targetshead">今回つくる12都道府県 · タップで作る県を変更</div><div id="targets" class="targetlist"></div></div><p id="helpText" class="helper hidden">上の文字をタップするだけ。いったん一時置場に入り、今の問題の答えに合う文字は順番に自動で使われます。置場の文字をタップすると元の列の上に戻ります。置場がいっぱいでも、答えに今使える文字は取れます。下の県名で作る県を変更できます。作りかけの文字は元の列へ戻り、新しい答えを作れます。自動で動いた文字も「1手戻す」でまとめて戻せます。</p></section>
-<section id="result" class="panel result hidden"><div class="eyebrow">ALL CLEAR!</div><h1>ぜんぶ、片づいた。</h1><div class="resultnum">12 / 12</div><p>文字も、一時置場も、すっきり。</p><div id="resultList" class="resultlist"></div><p id="resultDetail"></p><button id="next" class="primary">別の12県を片づける →</button><button id="resultHome" class="secondary">タイトルへ</button></section><div class="footer">急がず、ひとつずつ。空いていくのを楽しもう。</div></main>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f0df"><title>都道府県ソリティア｜47都道府県を片づける</title><style>
+:root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#3d382c;background:#f7f0df}*{box-sizing:border-box}body{margin:0;padding:15px 11px;min-height:100svh;display:grid;place-items:center}button{font:inherit;touch-action:manipulation;cursor:pointer;color:inherit}button:disabled{cursor:default}button:focus-visible,summary:focus-visible{outline:3px solid #2268c7;outline-offset:3px}.app{width:min(100%,510px)}header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 4px 13px}.brand{font-size:18px;font-weight:900;letter-spacing:-.5px}.brand span{color:#148673}.small{font-size:11px;border:1px solid #d9cbb1;border-radius:9px;background:#fffcf4;color:#7c694b;padding:9px 10px}.panel{background:#fffdf7;border:1px solid #e3d7bf;border-radius:23px;box-shadow:0 12px 40px #67501a0c;padding:20px}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:1.8px;color:#9a8562;font-weight:800}h1{font-size:35px;line-height:1.25;letter-spacing:-1.5px;margin:16px 0}h1 em{font-style:normal;color:#148673}p{font-size:13px;line-height:1.85;color:#8b785c}.primary{border:0;border-radius:13px;background:#148673;color:white;font-size:17px;font-weight:800;padding:16px;width:100%;box-shadow:0 4px 0 #0c6354}.primary:active{transform:translateY(2px)}.rules{font-size:12px;line-height:1.9;color:#7f6d50;margin:20px 0}.home-art{background:#eee8d6;padding:20px 16px;border-radius:14px;margin:22px 0;display:flex;justify-content:center;gap:12px}.home-stack{display:flex;flex-direction:column;width:57px}.home-stack div{display:grid;place-items:center;height:53px;font-weight:800;font-size:27px;background:#fffcf4;border:2px solid #a1bb9b;border-radius:8px;box-shadow:0 3px 0 #c3c9ac}.home-stack div+div{margin-top:-10px;background:#dcd2b6;border-color:#cfbd96;color:#b39d76}.home-stack small{font-size:9px;margin-top:7px;text-align:center;color:#8e7d5e}.best{font-size:11px;text-align:center;color:#9b896c;margin:19px 0 0}.stats{display:flex;justify-content:space-between;align-items:center;gap:9px}.stats strong{font-size:30px;font-variant-numeric:tabular-nums}.stats small{font-size:11px;color:#8b795b}.relaxed{font-size:10px;color:#148673;background:#e5efdf;padding:6px 9px;border-radius:30px}.meter{height:5px;background:#ece3cc;border-radius:5px;overflow:hidden;margin:11px 0 13px}.meter i{display:block;height:100%;width:0;background:#148673;transition:width .25s}.question{padding:10px 12px;background:#f1ecdc;border-radius:12px;display:flex;flex-direction:column;justify-content:center;min-height:74px}.question small{font-size:9px;color:#9a835f;margin-bottom:5px}.question strong{font-size:16px;line-height:1.55}.region-tag{display:inline-block;font-size:9px;padding:3px 6px;border-radius:5px;background:var(--tint,#e8efdf);color:var(--ink,#148673);font-weight:800;white-space:nowrap}.question-row{display:flex;justify-content:space-between;align-items:center;gap:8px}.assemble{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0 3px}.answer{display:flex;gap:6px;align-items:center}.answer-slot{width:43px;height:47px;border:1px dashed #d5c4a4;border-radius:8px;display:grid;place-items:center;background:#faf6eb;font-size:26px;font-weight:800;color:#cbbd9e}.answer-slot.filled{color:var(--ink,#148673);border:2px solid var(--ink,#8eb9a2);background:var(--tint,#edf5e7)}.suffix{font-size:18px;color:#9c8764}.answerhint{font-size:9px;color:#a18e6c;line-height:1.8;text-align:right}.feedback{font-size:11px;color:#148673;font-weight:700;line-height:1.7;min-height:42px;padding:6px 0}.feedback.warn{color:#ab6c28}.holding{display:grid;grid-template-columns:1fr 1.1fr;gap:12px;align-items:start;margin:1px 0 12px}.zone-label{font-size:10px;color:#8f7b57;margin-bottom:6px;display:flex;justify-content:space-between;gap:4px}.stockrow{display:flex;gap:7px;align-items:start}.stock,.waste{position:relative;width:57px;min-height:74px;border-radius:9px;border:1px dashed #cdbb96;background:#f6f0df;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;color:#9a825c;padding:5px 2px}.stock{background:#798b76;color:#fffdf2;border:2px solid #5c765f;box-shadow:0 3px 0 #b9c2a4}.stock b{font-size:20px;font-weight:600}.stock small{font-size:9px}.waste .letter{font-size:26px;line-height:1.1}.waste.filled{background:#fffcf4;border:2px solid var(--ink);color:#3d382c;box-shadow:0 3px 0 #dacbb0}.waste small{font-size:8px;color:var(--ink)}.buffer{display:flex;gap:6px;justify-content:space-between;padding:7px;background:#f6ebd3;border:1px solid #dfcca2;border-radius:10px}.buffer button{min-width:0;width:32%;height:59px;border:1px dashed #cfb27d;border-radius:7px;background:#fff8e7;color:#cfba93;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:24px;padding:2px}.buffer button.occupied{border:2px solid var(--ink);background:var(--tint);color:#3d382c;box-shadow:0 2px 0 #dfcb9f}.buffer button small{font-size:7px;line-height:1.3;color:var(--ink,#a18551);font-weight:700}.buffer button.selected,.waste.selected{outline:3px solid #df9b34;outline-offset:2px}.boardhead{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:10px;color:#907b57;margin:8px 0}.move-button{font-size:11px;font-weight:800;border:1px solid #d7c69e;background:#fff8e8;padding:8px 10px;border-radius:9px;color:#8b703f}.move-button.active{background:#ffe4ab;border-color:#d59c3d;color:#8f5c1c}.board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;background:#e9e3d1;border:1px solid #dbcfb4;border-radius:14px;padding:12px 8px 17px;align-items:start;min-height:240px}.column{display:flex;flex-direction:column;min-width:0;border-radius:7px}.card{width:100%;height:58px;margin-top:-15px;border:1px solid var(--ink,#b1a388);border-radius:7px;background:var(--tint,#dad1ba);color:#3d382c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;box-shadow:0 2px 0 #c5b38e;position:relative;padding:3px 0 8px;flex:none}.card:first-child{margin:0 0 4px;border-width:2px;background:#fffdf4;z-index:20;box-shadow:0 3px 0 #c4bfa3;padding-bottom:3px}.card .letter{font-size:24px;font-weight:800;line-height:1.2}.card small{font-size:7px;line-height:1.2;color:var(--ink,#8d7d61);font-weight:800}.card.back{height:45px;margin-top:-19px;background:repeating-linear-gradient(45deg,#b9bba3 0 3px,#c4c5ae 3px 7px);color:#f1eddb;border-color:#a7ad94;padding:0;box-shadow:0 2px 0 #9fAA8f}.card.back span{font-size:15px}.card.selected{outline:3px solid #e4a443;outline-offset:-1px;background:#fff0cd}.card.movable{cursor:pointer}.card.movable:active{transform:translateY(1px)}.column.targetable{outline:2px dashed #d49b3f;outline-offset:3px}.empty{min-height:125px;width:100%;border:1px dashed #bcae8e;border-radius:7px;display:flex;align-items:center;justify-content:center;background:transparent;color:#a2a985;font-size:11px;writing-mode:vertical-rl;letter-spacing:2px;padding:8px 0}.tools{display:flex;gap:7px;margin:12px 0}.tools button{flex:1;padding:10px 3px}.tools button:disabled{opacity:.35}.foundations-label{font-size:10px;color:#9b825b;margin:16px 0 8px}.foundations{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.foundation{border:1px solid var(--ink);border-radius:9px;background:var(--tint);padding:8px 2px;color:var(--ink);font-size:9px;font-weight:800}.foundation strong{display:block;font-size:16px;margin-top:2px}.foundation.all{box-shadow:inset 0 0 0 1px var(--ink)}details{margin-top:15px;border-top:1px solid #e9dfc9;padding-top:12px}summary{font-size:11px;color:#8c7856;cursor:pointer;padding:5px 0}.target-group{margin:12px 0}.target-group h3{font-size:11px;margin:0 0 7px;color:var(--ink)}.targetlist{display:flex;flex-wrap:wrap;gap:5px}.target{font-size:10px;border:1px solid #ded2b8;background:#faf6eb;border-radius:7px;color:#7e6c50;padding:7px 8px}.target.done{color:#148673;background:#e5efdc;border-color:#c0d4b0;text-decoration:line-through}.target.focus{background:#e5efdc;border:2px solid var(--ink,#148673)}.helper{font-size:11px;line-height:1.9;color:#8f7b58;margin:14px 0}.result{text-align:center}.result h1{font-size:31px}.resultnum{font-size:68px;color:#148673;font-weight:900;line-height:1.2;margin-top:20px}.resultlist{padding:16px;background:#f0ecdb;border-radius:12px;font-size:12px;line-height:2;color:#72603f;margin:22px 0}.secondary{border:0;background:none;color:#947e5d;font-size:12px;padding:14px;margin-top:8px}.footer{text-align:center;font-size:10px;color:#a38f6c;margin:15px 0}.flash{animation:clear .4s ease-out}@keyframes clear{from{background:#addbb4}to{background:#e9e3d1}}@media(max-width:390px){.panel{padding:15px}.board{gap:5px;padding:11px 6px}.card .letter{font-size:22px}.card small{font-size:6px}.holding{gap:8px;grid-template-columns:1fr 1fr}.stock,.waste{width:51px}.brand{font-size:16px}.answerhint{font-size:8px}.zone-label{font-size:9px}.small{padding:8px}.buffer button{height:59px}.question strong{font-size:15px}}@media(prefers-reduced-motion:reduce){.flash{animation:none}.meter i{transition:none}}
+</style></head><body><main class="app"><header><div class="brand">都道府県<span>ソリティア</span></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="eyebrow">97 CARDS. 47 PREFECTURES.</div><h1>めくる。重ねる。<br><em>日本を、片づける。</em></h1><p>地方のマークを手がかりに、文字を整理。<br>47都道府県を作って、97枚ぜんぶ消そう。</p><div class="home-art"><div class="home-stack"><div>青</div><div>◇</div><small>東北</small></div><div class="home-stack"><div>山</div><div>◇</div><small>中国</small></div><div class="home-stack"><div>川</div><div>◇</div><small>中部</small></div></div><div class="rules">文字をタップ → 一時置場。合う文字は自動で答えへ。<br>同じ地方なら、カードやまとまりを重ねて移動。<br>空いた列には、どの地方のカードも置けます。<br>山札は1枚ずつ。裏の文字は、上が空くとめくれます。<br>時間制限なし。途中保存・何度でも1手戻せます。</div><button id="start" class="primary">47都道府県を片づける →</button><button id="continue" class="primary hidden" style="margin-top:14px">途中からつづける →</button><p class="best">地方ごとに色と名前が付いた、全国版です。</p></section>
+<section id="game" class="panel hidden" aria-label="全国版・都道府県ソリティア"><div class="stats"><div><strong id="score">0</strong><small> / 47 完成</small></div><span class="relaxed">時間制限なし</span><button id="homeButton" class="small">中断</button></div><div class="meter"><i id="progress"></i></div>
+<div class="question"><div class="question-row"><small>この地方の文字で回答。作る県は下から変えられます。</small><span id="goalRegion" class="region-tag"></span></div><strong id="question"></strong></div><div class="assemble"><div id="answer" class="answer" aria-label="自動で組み立て中の県名"></div><div class="answerhint">地方と文字が合えば自動<br>県・府・都・道も自動</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="holding"><div><div class="zone-label"><span>山札・めくったカード</span><span id="stockCount"></span></div><div class="stockrow"><button id="stock" class="stock" aria-label="山札を1枚めくる"></button><button id="waste" class="waste" aria-label="めくった一番上のカード"></button></div></div><div><div class="zone-label"><span>一時置場 · 3マス</span><span>タップで元へ</span></div><div id="buffer" class="buffer" aria-label="3枚の一時置場"></div></div></div>
+<div class="boardhead"><span id="boardLabel">各列のいちばん上をタップ → 置場へ</span><button id="move" class="move-button" aria-pressed="false">重ね移動</button></div><div id="board" class="board" aria-label="6列の場札"></div>
+<div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="help" class="small">遊び方</button><button id="restart" class="small">最初から</button></div><p id="helpText" class="helper hidden">【タップ】場の一番上、またはめくった一番上を置場に送ります。今の答えと地方・文字が合えば、自動で答えへ入ります。置場が満杯でも今使える文字は取れます。<br>【重ね移動】ボタンを押す→移すカードを選ぶ→移動先の列をタップ。同じ地方の表向きカードが一番上から続いていれば、そのまとまりの最後を選ぶとまとめて移せます。移動先の一番上も同じ地方が必要。空いた列なら地方を問わず置けます。置場やめくったカードも1枚ずつ移せます。<br>【裏向き】一番上になると自動でめくれます。一度見えた文字は、戻しても表のまま。<br>【山札】1枚ずつめくります。最後までめくると、未使用分を同じ順番で何度でもめくり直せます。<br>【選び直し】置場をタップすると元の場所へ戻せます。「1手戻す」は自動回答や移動も戻します。中断すれば自動保存。<br>同じ地方の同じ漢字は交換して使えます。地方の完成置場や県名一覧から、問題を切り替えられます。</p>
+<div class="foundations-label">地方ごとの完成置場 · タップでその地方の問題へ</div><div id="foundations" class="foundations"></div><details id="targetDetails"><summary>作る都道府県を選ぶ・完成した県を見る</summary><div id="targets"></div></details></section>
+<section id="result" class="panel result hidden"><div class="eyebrow">ALL JAPAN. ALL CLEAR.</div><h1>日本、ぜんぶ片づいた。</h1><div class="resultnum">47 / 47</div><p>97枚の文字も、山札も、すっきり。</p><div id="resultList" class="resultlist"></div><p id="resultDetail"></p><button id="next" class="primary">別の並びでもう一度 →</button><button id="resultHome" class="secondary">タイトルへ</button></section><div class="footer">めくった先に、次の県。ゆっくり片づけよう。</div></main>
 <script>
 'use strict';
 const PREFECTURES=[["北海","道","日本最北端の宗谷岬があるのは？"],["青森","県","弘前城があるのは？"],["岩手","県","中尊寺の金色堂があるのは？"],["宮城","県","日本三景の「松島」があるのは？"],["秋田","県","「なまはげ」で知られる男鹿半島があるのは？"],["山形","県","銀山温泉があるのは？"],["福島","県","会津の「大内宿」があるのは？"],["茨城","県","偕楽園があるのは？"],["栃木","県","日光東照宮があるのは？"],["群馬","県","草津温泉があるのは？"],["埼玉","県","「時の鐘」で知られる川越の町並みがあるのは？"],["千葉","県","成田国際空港があるのは？"],["東京","都","浅草の雷門があるのは？"],["神奈川","県","鎌倉の大仏があるのは？"],["新潟","県","佐渡島があるのは？"],["富山","県","黒部ダムがあるのは？"],["石川","県","兼六園があるのは？"],["福井","県","断崖の景勝地「東尋坊」があるのは？"],["山梨","県","富士五湖があるのは？"],["長野","県","善光寺があるのは？"],["岐阜","県","合掌造りの集落「白川郷」があるのは？"],["静岡","県","世界遺産の構成資産「三保松原」があるのは？"],["愛知","県","金のしゃちほこで知られる名古屋城があるのは？"],["三重","県","伊勢神宮があるのは？"],["滋賀","県","日本最大の湖、琵琶湖があるのは？"],["京都","府","金閣寺があるのは？"],["大阪","府","道頓堀があるのは？"],["兵庫","県","世界遺産の姫路城があるのは？"],["奈良","県","東大寺の大仏があるのは？"],["和歌山","県","高野山があるのは？"],["鳥取","県","砂の美術館があるのは？"],["島根","県","出雲大社があるのは？"],["岡山","県","倉敷美観地区があるのは？"],["広島","県","原爆ドームがあるのは？"],["山口","県","秋芳洞があるのは？"],["徳島","県","阿波おどりの本場として知られる県は？"],["香川","県","讃岐うどんで知られる県は？"],["愛媛","県","道後温泉があるのは？"],["高知","県","坂本龍馬像が立つ桂浜があるのは？"],["福岡","県","太宰府天満宮があるのは？"],["佐賀","県","吉野ヶ里遺跡があるのは？"],["長崎","県","グラバー園があるのは？"],["熊本","県","阿蘇山があるのは？"],["大分","県","別府温泉があるのは？"],["宮崎","県","高千穂峡があるのは？"],["鹿児島","県","桜島があるのは？"],["沖縄","県","首里城があるのは？"]];
-const SIZE=12,COLS=6,SLOTS=3,STORAGE='prefecture-tidy-v1';
-function shuffle(items,random=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const REGIONS=[
+{name:'北海道',short:'北海道',ink:'#53788b',tint:'#e7eff2',prefs:[0]},
+{name:'東北',short:'東北',ink:'#8171a4',tint:'#efebf7',prefs:[1,2,3,4,5,6]},
+{name:'関東',short:'関東',ink:'#b66b74',tint:'#fae9e8',prefs:[7,8,9,10,11,12,13]},
+{name:'中部',short:'中部',ink:'#a17a30',tint:'#f8efce',prefs:[14,15,16,17,18,19,20,21,22]},
+{name:'近畿',short:'近畿',ink:'#65894a',tint:'#eaf1da',prefs:[23,24,25,26,27,28,29]},
+{name:'中国',short:'中国',ink:'#358b7e',tint:'#def2e9',prefs:[30,31,32,33,34]},
+{name:'四国',short:'四国',ink:'#b47d46',tint:'#f8e9d8',prefs:[35,36,37,38]},
+{name:'九州・沖縄',short:'九州沖縄',ink:'#727aa7',tint:'#e9ecf9',prefs:[39,40,41,42,43,44,45,46]}
+];
+const REGION_OF=PREFECTURES.map((_,i)=>REGIONS.findIndex(r=>r.prefs.includes(i)));
+const CARDS=Object.fromEntries(PREFECTURES.flatMap((p,i)=>[...p[0]].map((char,j)=>[i+'-'+j,{id:i+'-'+j,char,region:REGION_OF[i]}])));
+const ALL_IDS=Object.keys(CARDS),SIZE=47,COLS=6,SLOTS=3,KEY='prefecture-national-solitaire-v1';
 function clone(value){return JSON.parse(JSON.stringify(value));}
-function makeStage(random=Math.random){
- const targets=shuffle(PREFECTURES,random).slice(0,SIZE);
- const tokens=targets.flatMap((p,index)=>[...p[0]].map((char,j)=>({id:index+'-'+j,char})));
- // 早い問題の文字を置場が先取りしないよう、初登場が後の文字を邪魔カードにする。
- const lateFirsts=tokens.filter((token,i)=>Number(token.id.split('-')[0])>=3&&tokens.findIndex(t=>t.char===token.char)===i);
- const blockers=shuffle(lateFirsts,random).slice(0,SLOTS);
- const blockedIds=new Set(blockers.map(t=>t.id));
- const base=tokens.filter(t=>!blockedIds.has(t.id));
- const counts=new Map();base.forEach(t=>counts.set(t.char,(counts.get(t.char)||0)+1));
- const loads=Array(COLS).fill(0),mapping=new Map(),columns=Array.from({length:COLS},()=>[]);
- for(const [char,count] of shuffle([...counts],random).sort((a,b)=>b[1]-a[1])){
-  const min=Math.min(...loads),choices=loads.map((n,i)=>n===min?i:-1).filter(i=>i>=0),column=choices[Math.floor(random()*choices.length)];
-  mapping.set(char,column);loads[column]+=count;
- }
- base.forEach(t=>columns[mapping.get(t.char)].push(t));
- const blockerColumn=mapping.get(tokens[0].char);
- columns[blockerColumn].unshift(...blockers);
- // 解法を生成して保持する。3文字をどかしてから、県名を順番に作れば全消去できる。
- const working=columns.map(c=>[...c]),buffer=Array(SLOTS).fill(null),proof=[];
- for(let i=0;i<blockers.length;i++){buffer[i]=working[blockerColumn].shift();proof.push({type:'park',column:blockerColumn,slot:i});}
- for(let index=0;index<targets.length;index++){
-  for(let j=0;j<targets[index][0].length;j++){
-   const id=index+'-'+j,slot=buffer.findIndex(t=>t&&t.id===id);
-   if(slot>=0){proof.push({type:'buffer',slot});buffer[slot]=null;}
-   else{
-    const column=working.findIndex(c=>c[0]?.id===id);
-    if(column<0)throw Error('Stage has no verified solution');
-    working[column].shift();proof.push({type:'board',column});
-   }
-  }
- }
- if(working.some(c=>c.length)||buffer.some(Boolean))throw Error('Stage verification failed');
- return {targets,columns,proof};
+function shuffle(items,random=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function textOf(ids){return ids.map(id=>CARDS[id].char).join('');}
+function makeDeal(random=Math.random){
+ const order=shuffle(PREFECTURES.map((_,i)=>i),random);
+ const sequence=order.flatMap(i=>[...PREFECTURES[i][0]].map((_,j)=>i+'-'+j));
+ const first=new Map();
+ sequence.forEach((id,i)=>{const c=CARDS[id],key=c.region+':'+c.char;if(!first.has(key))first.set(key,i);});
+ const candidates=sequence.filter((id,i)=>{const c=CARDS[id];return order.indexOf(Number(id.split('-')[0]))>=20&&first.get(c.region+':'+c.char)===i;});
+ const blockers=shuffle(candidates,random).slice(0,3),blocked=new Set(blockers),base=sequence.filter(id=>!blocked.has(id));
+ const columns=Array.from({length:COLS},()=>[]);
+ base.slice(0,30-blockers.length).forEach(id=>{
+  const min=Math.min(...columns.map(c=>c.length)),options=columns.map((c,i)=>c.length===min?i:-1).filter(i=>i>=0);
+  columns[options[Math.floor(random()*options.length)]].push(id);
+ });
+ const firstColumn=columns.findIndex(c=>c[0]===sequence[0]);columns[firstColumn].unshift(...blockers);
+ return {order,columns,stock:base.slice(30-blockers.length),blockers,firstColumn};
 }
-function fresh(stage){return {columns:clone(stage.columns),buffer:Array(SLOTS).fill(null),answer:[],done:[],moves:0,focus:0};}
-function textOf(tokens){return tokens.map(t=>t.char).join('');}
-function remainingTargets(stage,s){return stage.targets.filter(p=>!s.done.some(d=>d.name===p[0]));}
+function fresh(deal){return {columns:clone(deal.columns),stock:[...deal.stock],waste:[],buffer:Array(3).fill(null),answer:[],done:[],focus:deal.order[0],origins:{},moves:0};}
 const $=id=>document.getElementById(id);
-let stage=null,game=null,history=[],state='home',soundOn=true,audio=null,notice='',warning=false;
+let deal=null,g=null,history=[],seen=new Set(),state='home',selecting=false,selection=null,notice='',warning=false,soundOn=true,audio=null;
 try{soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
 function write(key,value){try{localStorage.setItem(key,value);}catch(_){}}
-function persist(){if(stage&&game)write(STORAGE,JSON.stringify({stage:{targets:stage.targets,columns:stage.columns},game,history}));}
-function validSaved(data){
+function persist(){if(deal&&g)write(KEY,JSON.stringify({version:1,deal,g,history,seen:[...seen]}));}
+function done(index){return g.done.some(d=>d.pref===index);}
+function validGame(x){
  try{
-  const st=data.stage,s=data.game;if(!st||!s||st.targets.length!==SIZE||st.columns.length!==COLS||s.columns.length!==COLS||s.buffer.length!==SLOTS||s.answer.length>3||!Array.isArray(s.done))return false;
-  if(new Set(st.targets.map(p=>p[0])).size!==SIZE||!st.targets.every(p=>PREFECTURES.some(q=>q[0]===p[0]&&q[1]===p[1])))return false;
-  const initial=st.columns.flat(),lookup=new Map(initial.map(t=>[t.id,t.char]));
-  if(lookup.size!==initial.length||textOf(initial).split('').sort().join('')!==st.targets.map(p=>p[0]).join('').split('').sort().join(''))return false;
-  const validateState=x=>{
-   if(x.columns.length!==COLS||x.buffer.length!==SLOTS||x.answer.length>3||!Number.isInteger(x.moves)||x.moves<0)return false;
-   if(new Set(x.done.map(d=>d.name)).size!==x.done.length||!x.done.every(d=>st.targets.some(p=>p[0]===d.name)&&textOf(d.tokens)===d.name))return false;
-   const all=[...x.columns.flat(),...x.buffer.filter(Boolean),...x.answer,...x.done.flatMap(d=>d.tokens)];
-   return all.length===initial.length&&new Set(all.map(t=>t.id)).size===initial.length&&all.every(t=>lookup.get(t.id)===t.char);
-  };
-  return validateState(s)&&Array.isArray(data.history)&&data.history.every(validateState);
+  if(!Array.isArray(x.columns)||x.columns.length!==6||!x.columns.every(Array.isArray)||!Array.isArray(x.stock)||!Array.isArray(x.waste)||!Array.isArray(x.buffer)||x.buffer.length!==3||!Array.isArray(x.answer)||x.answer.length>3||!Array.isArray(x.done)||!Number.isInteger(x.moves)||x.moves<0||!Number.isInteger(x.focus)||x.focus<0||x.focus>=47||!x.origins)return false;
+  if(new Set(x.done.map(d=>d.pref)).size!==x.done.length||!x.done.every(d=>Number.isInteger(d.pref)&&d.pref>=0&&d.pref<47&&Array.isArray(d.ids)&&d.ids.every(id=>CARDS[id]?.region===REGION_OF[d.pref])&&textOf(d.ids)===PREFECTURES[d.pref][0]))return false;
+  const ids=[...x.columns.flat(),...x.stock,...x.waste,...x.buffer.filter(Boolean),...x.answer,...x.done.flatMap(d=>d.ids)];
+  if(ids.length!==97||new Set(ids).size!==97||!ids.every(id=>CARDS[id]))return false;
+  if(x.done.length<47&&(x.done.some(d=>d.pref===x.focus)||!PREFECTURES[x.focus][0].startsWith(textOf(x.answer))||!x.answer.every(id=>CARDS[id].region===REGION_OF[x.focus])))return false;
+  return [...x.buffer.filter(Boolean),...x.answer].every(id=>{const o=x.origins[id];return o&&(o.kind==='waste'||o.kind==='column'&&Number.isInteger(o.col)&&o.col>=0&&o.col<6);});
  }catch(_){return false;}
 }
-function originColumn(token){return stage.columns.findIndex(column=>column.some(t=>t.id===token.id));}
-function normaliseState(saved){
- const x=clone(saved),remaining=stage.targets.map((p,i)=>({p,i})).filter(o=>!x.done.some(d=>d.name===o.p[0]));
- let wanted=remaining.find(o=>o.i===x.focus&&o.p[0].startsWith(textOf(x.answer)))||remaining.find(o=>o.p[0].startsWith(textOf(x.answer)));
- if(!wanted){while(x.answer.length){const token=x.answer.pop();x.columns[originColumn(token)].unshift(token);}wanted=remaining[0];}
- x.focus=wanted?wanted.i:0;return x;
+function loadSaved(){
+ try{
+  const data=JSON.parse(localStorage.getItem(KEY));
+  if(data?.version!==1||!data.deal||!validGame(data.g)||data.g.done.length===47||!Array.isArray(data.history)||!data.history.every(validGame)||!Array.isArray(data.seen)||!data.seen.every(id=>CARDS[id]))return false;
+  const d=data.deal,initial=[...d.columns.flat(),...d.stock];
+  if(d.columns.length!==6||initial.length!==97||new Set(initial).size!==97||!initial.every(id=>CARDS[id])||d.order.length!==47||new Set(d.order).size!==47||!d.order.every(i=>Number.isInteger(i)&&i>=0&&i<47))return false;
+  deal=d;g=data.g;history=data.history;seen=new Set(data.seen);revealTops();return true;
+ }catch(_){return false;}
 }
-function loadSaved(){try{const data=JSON.parse(localStorage.getItem(STORAGE));if(!validSaved(data)||data.game.done.length===SIZE)return false;stage=data.stage;stage.targets=stage.targets.map(p=>[...PREFECTURES.find(q=>q[0]===p[0]&&q[1]===p[1])]);game=normaliseState(data.game);history=data.history.map(normaliseState);return true;}catch(_){return false;}}
+function revealTops(){if(g)g.columns.forEach(c=>{if(c.length)seen.add(c[0]);});}
 const hasSaved=loadSaved();
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
 function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
-function tone(frequencies,volume=.13){
+function tone(freqs,volume=.12){
  if(!soundOn)return;const ctx=prepareAudio();if(!ctx)return;
- const play=()=>{try{frequencies.forEach((hz,i)=>{const o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+i*.15;o.frequency.value=hz;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(volume,t+.007);g.gain.exponentialRampToValueAtTime(.001,t+.22);o.connect(g);g.connect(ctx.destination);o.onended=()=>{o.disconnect();g.disconnect();};o.start(t);o.stop(t+.23);});}catch(_){}};
+ const play=()=>{try{freqs.forEach((hz,i)=>{const o=ctx.createOscillator(),a=ctx.createGain(),t=ctx.currentTime+i*.15;o.frequency.value=hz;a.gain.setValueAtTime(0,t);a.gain.linearRampToValueAtTime(volume,t+.007);a.gain.exponentialRampToValueAtTime(.001,t+.22);o.connect(a);a.connect(ctx.destination);o.onended=()=>{o.disconnect();a.disconnect();};o.start(t);o.stop(t+.23);});}catch(_){}};
  if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
 }
 function show(id){['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function message(text,warn=false){notice=text;warning=warn;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
 function button(text,cls,handler,label){const b=document.createElement('button');b.type='button';b.textContent=text;b.className=cls;b.onclick=handler;if(label)b.setAttribute('aria-label',label);return b;}
-function currentTarget(){return stage.targets[game.focus];}
-function chooseNextTarget(){
- const index=stage.targets.findIndex(p=>!game.done.some(d=>d.name===p[0]));game.focus=index<0?0:index;
+function styleRegion(el,region){const r=REGIONS[region];el.style.setProperty('--ink',r.ink);el.style.setProperty('--tint',r.tint);}
+function cardFace(el,id,caption){
+ const c=CARDS[id];styleRegion(el,c.region);el.textContent='';
+ const letter=document.createElement('span');letter.className='letter';letter.textContent=c.char;el.appendChild(letter);
+ const label=document.createElement('small');label.textContent=caption||REGIONS[c.region].short;el.appendChild(label);
+}
+function topBlockCount(col){
+ const column=g.columns[col];if(!column.length)return 0;const region=CARDS[column[0]].region;
+ let count=0;for(const id of column){if(!seen.has(id)||CARDS[id].region!==region)break;count++;}return count;
+}
+function sourceIds(source){
+ if(!source)return [];
+ if(source.kind==='column')return g.columns[source.col].slice(0,source.count);
+ if(source.kind==='buffer')return g.buffer[source.slot]?[g.buffer[source.slot]]:[];
+ return g.waste.length?[g.waste[0]]:[];
+}
+function canPlace(ids,col){
+ if(!ids.length||!ids.every(id=>CARDS[id].region===CARDS[ids[0]].region))return false;
+ const top=g.columns[col][0];return !top||CARDS[top].region===CARDS[ids[0]].region;
 }
 function render(){
- if(!stage||!game)return;
- $('score').textContent=game.done.length;$('progress').style.width=(game.done.length/SIZE*100)+'%';
- const left=game.columns.reduce((n,c)=>n+c.length,0)+game.buffer.filter(Boolean).length+game.answer.length;
- $('remaining').textContent='残り '+left+'文字';
- const wanted=game.done.length===SIZE?null:currentTarget();
- $('question').textContent=wanted?wanted[2]:'全部の都道府県が完成しました！';
+ if(!g||!deal)return;
+ $('score').textContent=g.done.length;$('progress').style.width=(g.done.length/47*100)+'%';
+ const target=PREFECTURES[g.focus],region=REGION_OF[g.focus];$('question').textContent=g.done.length===47?'全国、全部完成！':target[2];
+ $('goalRegion').textContent=REGIONS[region].name;styleRegion($('goalRegion'),region);
  const answer=$('answer');answer.replaceChildren();
- const slots=wanted?[...wanted[0]].length:3;
- for(let i=0;i<slots;i++){
-  const token=game.answer[i],b=button(token?token.char:'・','slot'+(token?' filled':''),()=>{},token?token.char+'、自動で入りました':'答えの'+(i+1)+'文字目');
-  b.disabled=true;answer.appendChild(b);
- }
- if(wanted){const suffix=document.createElement('span');suffix.className='suffix';suffix.textContent=wanted[1];answer.appendChild(suffix);}
+ for(let i=0;i<target[0].length;i++){const slot=document.createElement('span');slot.className='answer-slot'+(g.answer[i]?' filled':'');slot.textContent=g.answer[i]?CARDS[g.answer[i]].char:'・';styleRegion(slot,region);answer.appendChild(slot);}
+ const suffix=document.createElement('span');suffix.className='suffix';suffix.textContent=target[1];answer.appendChild(suffix);
+ $('stockCount').textContent='残り '+g.stock.length+'枚';
+ $('stock').replaceChildren();
+ const stockTitle=document.createElement('b');stockTitle.textContent=g.stock.length?'◇':'↶';$('stock').appendChild(stockTitle);
+ const stockLabel=document.createElement('small');stockLabel.textContent=g.stock.length?'1枚めくる':g.waste.length?'めくり直す':'山札は空';$('stock').appendChild(stockLabel);
+ $('stock').disabled=state!=='playing'||!g.stock.length&&!g.waste.length;
+ $('stock').setAttribute('aria-label',g.stock.length?'山札を1枚めくる':g.waste.length?'未使用カードを同じ順番でめくり直す':'山札は空です');
+ const waste=$('waste');waste.className='waste'+(g.waste.length?' filled':'')+(selection?.kind==='waste'?' selected':'');
+ waste.replaceChildren();
+ if(g.waste.length){cardFace(waste,g.waste[0]);waste.setAttribute('aria-label',REGIONS[CARDS[g.waste[0]].region].name+'の'+CARDS[g.waste[0]].char+'を'+(selecting?'移動用に選ぶ':'置場へ'));}else waste.textContent='めくった札';
+ waste.disabled=state!=='playing'||!g.waste.length;
  const buffer=$('buffer');buffer.replaceChildren();
- for(let i=0;i<SLOTS;i++){
-  const token=game.buffer[i],b=button(token?token.char:'＋',token?'occupied':'',()=>returnBuffer(i),token?token.char+'を元の列へ戻す':'空いている一時置場');
-  if(token){const caption=document.createElement('small');caption.textContent='↶ 戻す';b.appendChild(caption);}
-  b.disabled=state!=='playing'||!token;buffer.appendChild(b);
+ for(let slot=0;slot<3;slot++){
+  const id=g.buffer[slot],b=button(id?'':'＋',(id?'occupied':'')+(selection?.kind==='buffer'&&selection.slot===slot?' selected':''),()=>clickBuffer(slot),id?REGIONS[CARDS[id].region].name+'の'+CARDS[id].char+(selecting?'を移動用に選ぶ':'を元の場所へ戻す'):'一時置場の空きマス');
+  if(id)cardFace(b,id,REGIONS[CARDS[id].region].short+' ↶');b.disabled=state!=='playing';buffer.appendChild(b);
  }
  const board=$('board');board.replaceChildren();
- game.columns.forEach((column,col)=>{
-  const lane=document.createElement('div');lane.className='column';
-  if(!column.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='すっきり';lane.appendChild(empty);}
-  column.forEach((token,row)=>{
-   const card=row===0?button(token.char,'card',()=>takeColumn(col),(col+1)+'列目の'+token.char+'を一時置場へ'):document.createElement('div');
-   if(row>0){card.className='card';card.textContent=token.char;card.setAttribute('aria-label',token.char+'、まだ取れません');}
-   else card.disabled=state!=='playing';
-   lane.appendChild(card);
+ g.columns.forEach((column,col)=>{
+  const lane=document.createElement('div');lane.className='column';if(selection&&!(selection.kind==='column'&&selection.col===col)&&canPlace(sourceIds(selection),col))lane.classList.add('targetable');
+  if(!column.length){const empty=button(selection?'ここへ移動':'空き列','empty',()=>clickColumn(col,0),'空いた'+(col+1)+'列目。どの地方でも移せます');lane.appendChild(empty);}
+  const blockCount=topBlockCount(col);
+  column.forEach((id,row)=>{
+   const face=seen.has(id),movable=face&&row<blockCount,card=button('','card'+(face?'':' back')+(movable?' movable':'')+(selection?.kind==='column'&&selection.col===col&&row<selection.count?' selected':''),()=>clickColumn(col,row),face?REGIONS[CARDS[id].region].name+'の'+CARDS[id].char+(row===0?'、一番上':movable?'、上から'+(row+1)+'枚をまとめて移動':'、まだ取れません'):'裏向きの文字カード');
+   if(face)cardFace(card,id);else{const back=document.createElement('span');back.textContent='◇';card.appendChild(back);}
+   card.disabled=state!=='playing'||(!selection&&(!face||row>0&&!movable));
+   card.style.zIndex=String(column.length-row);lane.appendChild(card);
   });board.appendChild(lane);
  });
- $('undo').disabled=history.length===0;$('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
+ $('move').classList.toggle('active',selecting);$('move').textContent=selecting?'移動を取消':'重ね移動';$('move').setAttribute('aria-pressed',String(selecting));
+ $('boardLabel').textContent=selection?'移動先の列をタップ':selecting?'移すカード・まとまりを選んでください':'いちばん上をタップ → 置場へ';
+ $('undo').disabled=!history.length;$('restart').disabled=!history.length;
+ $('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
+ const banks=$('foundations');banks.replaceChildren();
+ REGIONS.forEach((r,index)=>{const count=g.done.filter(d=>REGION_OF[d.pref]===index).length,b=button('','foundation'+(count===r.prefs.length?' all':''),()=>selectRegion(index),r.name+' '+count+'/'+r.prefs.length+'完成。問題を切り替える');styleRegion(b,index);
+ const label=document.createElement('span');label.textContent=r.name;const amount=document.createElement('strong');amount.textContent=count+'/'+r.prefs.length;b.appendChild(label);b.appendChild(amount);banks.appendChild(b);});
  const list=$('targets');list.replaceChildren();
- stage.targets.forEach((p,index)=>{
-  const done=game.done.some(d=>d.name===p[0]),b=button((done?'✓ ':'')+p[0]+p[1],'target'+(done?' done':'')+(wanted===p?' focus':''),()=>switchTarget(index));
-  b.setAttribute('aria-pressed',String(wanted===p));if(done)b.disabled=true;list.appendChild(b);
+ REGIONS.forEach((r,index)=>{
+  const group=document.createElement('div');group.className='target-group';styleRegion(group,index);const h=document.createElement('h3');h.textContent=r.name;group.appendChild(h);
+  const items=document.createElement('div');items.className='targetlist';
+  r.prefs.forEach(pref=>{const p=PREFECTURES[pref],finished=done(pref),b=button((finished?'✓ ':'')+p[0]+p[1],'target'+(finished?' done':'')+(g.focus===pref?' focus':''),()=>switchTarget(pref));b.disabled=finished;styleRegion(b,index);b.setAttribute('aria-pressed',String(g.focus===pref));items.appendChild(b);});
+  group.appendChild(items);list.appendChild(group);
  });
 }
 function commit(action){
  if(state!=='playing')return;
- history.push(clone(game));game.moves++;action();persist();render();
- if(game.done.length===SIZE)finish();
+ history.push(clone(g));g.moves++;selecting=false;selection=null;action();revealTops();persist();render();if(g.done.length===47)finish();
 }
+function chooseNext(){const next=deal.order.find(i=>!done(i));g.focus=next===undefined?0:next;}
 function feedBuffer(){
- const completed=[],used=[];let guard=0;
- while(game.done.length<SIZE&&guard++<100){
-  const target=currentTarget();
-  if(textOf(game.answer)===target[0]){
-   game.done.push({name:target[0],tokens:[...game.answer]});game.answer=[];completed.push(target[0]+target[1]);chooseNextTarget();continue;
+ const completed=[],used=[];
+ for(let guard=0;g.done.length<47&&guard<120;guard++){
+  const target=PREFECTURES[g.focus],region=REGION_OF[g.focus];
+  if(textOf(g.answer)===target[0]){
+   const ids=[...g.answer];g.done.push({pref:g.focus,ids});ids.forEach(id=>delete g.origins[id]);g.answer=[];completed.push(target[0]+target[1]);chooseNext();continue;
   }
-  const char=[...target[0]][game.answer.length],slot=game.buffer.findIndex(token=>token&&token.char===char);
-  if(slot<0)break;
-  const token=game.buffer[slot];game.buffer[slot]=null;game.answer.push(token);used.push(token.char);
+  const needed=[...target[0]][g.answer.length],slot=g.buffer.findIndex(id=>id&&CARDS[id].char===needed&&CARDS[id].region===region);
+  if(slot<0)break;g.answer.push(g.buffer[slot]);used.push(CARDS[g.buffer[slot]].char);g.buffer[slot]=null;
  }
- if(completed.length){
-  message(completed.join('・')+'、完成！ あと'+(SIZE-game.done.length)+'都道府県。');
-  tone([880,660]);$('board').classList.remove('flash');void $('board').offsetWidth;$('board').classList.add('flash');
- }else if(used.length)message('「'+used.join('・')+'」が答えに入りました。');
+ if(completed.length){message(completed.join('・')+'、完成！ あと'+(47-g.done.length)+'都道府県。');tone([880,660]);$('board').classList.remove('flash');void $('board').offsetWidth;$('board').classList.add('flash');}
+ else if(used.length)message('「'+used.join('・')+'」が答えに入りました。');
  return {completed,used};
 }
-function takeColumn(col){
- if(state!=='playing'||!game.columns[col]?.length)return;
- const token=game.columns[col][0],slot=game.buffer.findIndex(t=>!t),target=currentTarget();
- const fits=token.char===[...target[0]][game.answer.length];
- if(slot<0&&!fits){message('置場がいっぱい。置いた文字をタップすると元の列へ戻せます。',true);return;}
+function sourceTop(source){return source.kind==='column'?g.columns[source.col][0]:source.kind==='buffer'?g.buffer[source.slot]:g.waste[0];}
+function removeSource(source,count=1){
+ if(source.kind==='column')return g.columns[source.col].splice(0,count);
+ if(source.kind==='buffer'){const id=g.buffer[source.slot];g.buffer[source.slot]=null;return [id];}
+ return g.waste.splice(0,count);
+}
+function originFor(source){return source.kind==='column'?{kind:'column',col:source.col}:{kind:'waste'};}
+function takeSource(source,preferredSlot=null){
+ if(state!=='playing')return;const id=sourceTop(source);if(!id)return;
+ const card=CARDS[id],target=PREFECTURES[g.focus],fits=card.region===REGION_OF[g.focus]&&card.char===[...target[0]][g.answer.length],slot=preferredSlot!==null&&!g.buffer[preferredSlot]?preferredSlot:g.buffer.findIndex(t=>!t),origin=source.kind==='buffer'?g.origins[id]:originFor(source);
+ if(slot<0&&!fits){message('置場がいっぱい。置場をタップで戻すか、同じ地方の列へ重ねて空けよう。',true);return;}
  commit(()=>{
-  const taken=game.columns[col].shift();
-  message('「'+taken.char+'」を置きました。タップで元の列に戻せます。');
-  if(slot>=0)game.buffer[slot]=taken;
-  else game.answer.push(taken); // 正解の文字は置場が満杯でも通過できる。
-  const result=feedBuffer();
-  if(slot<0&&!result.completed.length&&!result.used.length)message('「'+taken.char+'」が答えに入りました。');
-  if(!result.completed.length)tone([520],.03);
+  removeSource(source);g.origins[id]=origin;message('「'+card.char+'」を置きました。置場をタップで元に戻せます。');
+  if(slot<0)g.answer.push(id);else g.buffer[slot]=id;
+  const result=feedBuffer();if(slot<0&&!result.completed.length&&!result.used.length)message('「'+card.char+'」が答えに入りました。');
+  if(!result.completed.length)tone([520],.025);
  });
 }
-function returnBuffer(slot){
- if(state!=='playing'||!game.buffer[slot])return;
- commit(()=>{const token=game.buffer[slot];game.buffer[slot]=null;const col=originColumn(token);game.columns[col].unshift(token);message('「'+token.char+'」を元の'+(col+1)+'列目に戻しました。');});
+function returnToOrigin(id){
+ const origin=g.origins[id];if(origin?.kind==='column')g.columns[origin.col].unshift(id);else g.waste.unshift(id);seen.add(id);delete g.origins[id];
 }
-function returnPartialAnswer(){
- while(game.answer.length){const token=game.answer.pop();game.columns[originColumn(token)].unshift(token);}
+function clickBuffer(slot){
+ if(state!=='playing')return;
+ if(selection&&!g.buffer[slot]){
+  const ids=sourceIds(selection);if(ids.length!==1){message('一時置場に置けるのは1枚ずつです。',true);return;}const source=clone(selection);takeSource(source,slot);return;
+ }
+ if(!g.buffer[slot]){message('場の上の文字や、めくったカードをタップするとここに入ります。');return;}
+ if(selecting){selectSource({kind:'buffer',slot});return;}
+ commit(()=>{const id=g.buffer[slot];g.buffer[slot]=null;returnToOrigin(id);message('「'+CARDS[id].char+'」を元の場所へ戻しました。');});
 }
+function clickColumn(col,row=0){
+ if(state!=='playing')return;
+ if(selection){
+  if(selection.kind==='column'&&selection.col===col){selection=null;message('別のカードを選ぶか、移動を取り消せます。');render();return;}
+  moveSelected(col);return;
+ }
+ if(!g.columns[col].length){message('空き列です。「重ね移動」でカードやまとまりを置けます。');return;}
+ if(selecting||row>0){if(row<topBlockCount(col))selectSource({kind:'column',col,count:row+1});else message('一番上から続く、表向きで同じ地方のまとまりだけ移せます。',true);return;}
+ takeSource({kind:'column',col,count:1});
+}
+function clickWaste(){if(state!=='playing'||!g.waste.length)return;if(selecting)selectSource({kind:'waste'});else takeSource({kind:'waste'});}
+function selectSource(source){
+ const ids=sourceIds(source);
+ if(!ids.length||source.kind==='column'&&(source.count<1||source.count>topBlockCount(source.col)))return;
+ selection=clone(source);selecting=true;message(REGIONS[CARDS[ids[0]].region].name+'の'+ids.length+'枚を選択。 同じ地方の列か、空き列をタップ。');render();
+}
+function moveSelected(col){
+ if(state!=='playing'||!selection)return;
+ const source=clone(selection),ids=sourceIds(source);
+ if(source.kind==='column'&&source.col===col)return;
+ if(!canPlace(ids,col)){message('同じ地方のカードの上か、空いた列に移せます。',true);return;}
+ commit(()=>{const moved=removeSource(source,ids.length);g.columns[col].unshift(...moved);moved.forEach(id=>delete g.origins[id]);message(REGIONS[CARDS[moved[0]].region].name+'の'+moved.length+'枚を移動しました。');tone([430],.035);});
+}
+function drawStock(){
+ if(state!=='playing')return;
+ if(g.stock.length)commit(()=>{const id=g.stock.shift();g.waste.unshift(id);seen.add(id);message('カードをめくりました。使うならタップして置場へ。');tone([390],.025);});
+ else if(g.waste.length)commit(()=>{g.stock=g.waste.reverse();g.waste=[];message('未使用のカードを同じ順番で山札に戻しました。');});
+ else message('山札は全部片づいています。');
+}
+function toggleMove(){
+ if(state!=='playing')return;selecting=!selecting;selection=null;message(selecting?'移すカードを選ぼう。まとまりは一番上から同じ地方が続く最後を選びます。':'通常のタップに戻りました。');render();
+}
+function returnPartial(){while(g.answer.length)returnToOrigin(g.answer.pop());}
 function switchTarget(index){
- if(state!=='playing'||!stage.targets[index]||game.done.some(d=>d.name===stage.targets[index][0]))return;
- if(game.focus===index){message(stage.targets[index][2]);return;}
- commit(()=>{
-  const partial=game.answer.length>0;returnPartialAnswer();game.focus=index;
-  message(partial?'作りかけの文字は元の列へ。新しい問題に切り替えました。':'問題を切り替えました。');
-  feedBuffer();
- });
+ if(state!=='playing'||done(index))return;
+ if(g.focus===index){selecting=false;selection=null;message(PREFECTURES[index][2]);render();return;}
+ commit(()=>{const partial=g.answer.length>0;returnPartial();g.focus=index;message(partial?'作りかけの文字は元の場所へ戻し、問題を切り替えました。':'問題を切り替えました。');feedBuffer();});
 }
+function selectRegion(region){const next=deal.order.find(i=>REGION_OF[i]===region&&!done(i));if(next===undefined){message(REGIONS[region].name+'は全部完成！');return;}switchTarget(next);}
 function undo(){
- if(state!=='playing'||!history.length)return;
- const oldCount=game.done.length;game=history.pop();
- message(game.done.length<oldCount?'直前に完成した県も戻しました。取り方を選び直せます。':'1手戻しました。');persist();render();
+ if(state!=='playing'||!history.length)return;g=history.pop();selecting=false;selection=null;revealTops();message('1手戻しました。一度めくれた文字は表のままです。');persist();render();
 }
 function start(){
- prepareAudio();stage=makeStage();game=fresh(stage);history=[];state='playing';show('game');message('上の文字をタップ！ 合う文字は自動で答えに入ります。');persist();render();
+ prepareAudio();deal=makeDeal();g=fresh(deal);history=[];seen=new Set();revealTops();state='playing';selecting=false;selection=null;show('game');message('上の文字をタップ。邪魔なまとまりは「重ね移動」で整理しよう。');persist();render();
 }
-function continueGame(){if(!stage||!game)return;prepareAudio();state='playing';show('game');message('タップで置場へ。合う文字は自動で答えに入ります。');const needed=[...currentTarget()[0]][game.answer.length];if(game.buffer.some(t=>t&&t.char===needed))commit(()=>feedBuffer());else render();}
+function continueGame(){if(!g||!deal)return;prepareAudio();state='playing';selecting=false;selection=null;show('game');message('おかえりなさい。残りをゆっくり片づけよう。');render();}
 function restart(){
- if(state!=='playing'||!history.length)return;
- if(!window.confirm('今の文字の並びを最初の状態に戻しますか？'))return;
- game=fresh(stage);history=[];message('同じ並びの最初から。文字は入れ替えていません。');persist();render();
+ if(state!=='playing'||!history.length||!window.confirm('今の並びを最初からやり直しますか？'))return;
+ g=fresh(deal);history=[];seen=new Set();revealTops();selecting=false;selection=null;message('同じ並びで最初から。');persist();render();
 }
 function goHome(){
- if(stage&&game&&game.done.length<SIZE){persist();$('continue').classList.remove('hidden');$('start').textContent='別の12県で始める →';}else{$('continue').classList.add('hidden');$('start').textContent='12県を片づける →';}
- state='home';show('home');
+ if(g&&g.done.length<47){persist();$('continue').classList.remove('hidden');$('start').textContent='新しい並びで始める →';}else{$('continue').classList.add('hidden');$('start').textContent='47都道府県を片づける →';}
+ state='home';selecting=false;selection=null;show('home');
 }
 function finish(){
- state='result';show('result');tone([660,880,1046,1318],.12);
- $('resultList').textContent=game.done.map(d=>{const p=stage.targets.find(p=>p[0]===d.name);return p[0]+p[1];}).join(' ・ ');
- $('resultDetail').textContent=game.moves+'手で、'+stage.columns.flat().length+'文字がぜんぶ消えました。お疲れさまでした！';persist();$('next').focus();
+ state='result';show('result');tone([660,880,1046,1318],.12);$('resultList').textContent=g.done.map(d=>PREFECTURES[d.pref][0]+PREFECTURES[d.pref][1]).join(' ・ ');$('resultDetail').textContent=g.moves+'手で、97枚すべて片づけました。お疲れさまでした！';persist();$('next').focus();
 }
-$('start').onclick=()=>{if(stage&&game&&game.done.length<SIZE&&history.length&&!window.confirm('途中の盤面を置き換えて、新しい12県で始めますか？'))return;start();};
+$('start').onclick=()=>{if(g&&g.done.length<47&&history.length&&!window.confirm('途中の盤面を置き換えて、新しい並びで始めますか？'))return;start();};
 $('continue').onclick=continueGame;$('homeButton').onclick=goHome;$('resultHome').onclick=goHome;$('next').onclick=start;
-$('undo').onclick=undo;$('restart').onclick=restart;
+$('stock').onclick=drawStock;$('waste').onclick=clickWaste;$('move').onclick=toggleMove;$('undo').onclick=undo;$('restart').onclick=restart;
 $('help').onclick=()=>{$('helpText').classList.toggle('hidden');};
 $('sound').onclick=()=>{soundOn=!soundOn;write('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)tone([880,660]);};
 document.addEventListener('keydown',e=>{
  if(e.repeat||e.ctrlKey||e.metaKey||e.altKey||state!=='playing')return;
- if(/^[1-6]$/.test(e.key)){e.preventDefault();takeColumn(Number(e.key)-1);}
+ if(/^[1-6]$/.test(e.key)){e.preventDefault();clickColumn(Number(e.key)-1);}
  else if(e.key==='Backspace'){e.preventDefault();undo();}
+ else if(e.key==='Escape'&&selecting){e.preventDefault();selecting=false;selection=null;message('移動を取り消しました。');render();}
 });
-if(hasSaved){$('continue').classList.remove('hidden');$('start').textContent='別の12県で始める →';}
+if(hasSaved){$('continue').classList.remove('hidden');$('start').textContent='新しい並びで始める →';}
 updateSound();
 </script></body></html>
