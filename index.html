@@ -1,14 +1,14 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f0df"><title>都道府県ソリティア｜どかして、つくって、片づける</title><style>
 :root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#3d382c;background:#f7f0df}*{box-sizing:border-box}body{margin:0;padding:16px 12px;min-height:100svh;display:grid;place-items:center}button{font:inherit;touch-action:manipulation;cursor:pointer}button:disabled{cursor:default}button:focus-visible{outline:3px solid #2268c7;outline-offset:3px}.app{width:min(100%,490px)}header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 5px 14px}.brand{font-size:18px;font-weight:900;letter-spacing:-.5px}.brand span{color:#148673}.small{font-size:11px;border:1px solid #d9cbb1;border-radius:9px;background:#fffcf4;color:#7c694b;padding:8px 11px}.panel{background:#fffdf7;border:1px solid #e3d7bf;border-radius:24px;box-shadow:0 12px 40px #67501a0c;padding:22px}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:2px;color:#9a8562;font-weight:800}h1{font-size:36px;line-height:1.24;letter-spacing:-1.5px;margin:16px 0}h1 em{font-style:normal;color:#148673}p{font-size:13px;line-height:1.85;color:#8b785c}.primary{border:0;border-radius:13px;background:#148673;color:white;font-size:17px;font-weight:800;padding:16px;width:100%;box-shadow:0 4px 0 #0c6354}.primary:active{transform:translateY(2px)}.rules{font-size:12px;line-height:1.95;color:#7f6d50;margin:20px 0}.demo{display:flex;align-items:center;justify-content:center;gap:14px;background:#efe9d8;border-radius:14px;padding:20px;margin:24px 0}.democol{display:flex;flex-direction:column;gap:4px}.demo span{display:grid;place-items:center;width:45px;height:43px;background:#fffdf7;border:1px solid #d4b88e;border-radius:7px;font-size:23px;font-weight:800;box-shadow:0 3px 0 #d8c4a0}.demo span.buried{background:#ddd4bd;color:#9e8866}.demo .parked{border:2px solid #d99b44;background:#fff3d7}.demo small{font-size:11px;color:#8d7958;line-height:1.8}.best{font-size:11px;text-align:center;color:#9b896c;margin:19px 0 0}.stats{display:flex;justify-content:space-between;align-items:center;gap:9px}.stats strong{font-size:29px;font-variant-numeric:tabular-nums}.stats small{font-size:11px;color:#8b795b}.relaxed{font-size:10px;color:#148673;background:#e5efdf;padding:6px 9px;border-radius:30px}.meter{height:5px;background:#ece3cc;border-radius:5px;overflow:hidden;margin:12px 0 14px}.meter i{display:block;height:100%;width:0;background:#148673;transition:width .25s}.question{padding:11px 13px;background:#f1ecdc;border-radius:12px;min-height:74px;display:flex;flex-direction:column;justify-content:center}.question small{font-size:9px;color:#9a835f;margin-bottom:4px}.question strong{font-size:16px;line-height:1.55}.assemble{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:13px 0 4px}.answer{display:flex;gap:6px;min-height:47px;align-items:center}.slot{width:43px;height:46px;border:1px dashed #d5c4a4;border-radius:8px;display:grid;place-items:center;background:#faf6eb;font-size:25px;font-weight:800;color:#cbbd9e}.slot.filled{color:#0d7967;border:2px solid #8eb9a2;background:#edf5e7;cursor:pointer}.answerhint{font-size:10px;color:#a18e6c;line-height:1.7;text-align:right}.feedback{font-size:12px;color:#148673;font-weight:700;line-height:1.65;min-height:43px;padding:7px 0}.feedback.warn{color:#ab6c28}.bufferhead{font-size:10px;color:#9d835f;display:flex;justify-content:space-between;align-items:center;margin:0 0 7px}.buffer{display:flex;justify-content:center;gap:10px;padding:10px;background:#f8eed7;border:1px solid #e4d0a5;border-radius:12px}.buffer button{width:58px;height:46px;border:1px dashed #cdae77;border-radius:8px;background:#fff9e9;display:grid;place-items:center;font-size:24px;font-weight:800;color:#ceb991}.buffer button.occupied{border:2px solid #dba74f;background:#fffdf4;color:#a46c26;box-shadow:0 2px 0 #e5cb9d}.modes{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#e9e3d2;border-radius:12px;margin:13px 0 9px}.mode{border:0;border-radius:9px;background:transparent;color:#897451;padding:10px 4px;font-size:12px;font-weight:800}.mode.active{background:#fffdf7;box-shadow:0 2px 4px #70531c15;color:#0d7967}.mode.park.active{color:#ab7229;background:#fff6df}.boardhead{display:flex;justify-content:space-between;font-size:10px;color:#907b57;margin:10px 2px}.board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;background:#e9e3d1;border:1px solid #dbcfb4;border-radius:14px;padding:13px 9px 17px;align-items:start;min-height:240px}.column{display:flex;flex-direction:column;min-width:0}.card{height:40px;margin-top:-8px;border:1px solid #caba99;border-radius:6px;background:#dad1ba;color:#9a8260;display:grid;place-items:center;font-size:22px;font-weight:700;box-shadow:0 2px 0 #c5b38e;position:relative}.card:first-child{height:45px;margin:0 0 5px;border:2px solid #89ae8e;background:#fffdf4;color:#3e462f;z-index:10;box-shadow:0 3px 0 #bdc5a2}.board.parking .card:first-child{border-color:#d5a14d;box-shadow:0 3px 0 #d7bd88}.card:first-child:not(:disabled):active{transform:translateY(2px);background:#e9f3dc}.card:last-child{margin-bottom:0}.empty{min-height:120px;border:1px dashed #cabea2;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#a2a985;font-size:13px;writing-mode:vertical-rl;letter-spacing:3px}.tools{display:flex;gap:8px;margin-top:12px}.tools button{flex:1;padding:11px 4px}.tools button:disabled{opacity:.35}.targets{border-top:1px solid #eee5d3;margin-top:17px;padding-top:13px}.targetshead{font-size:11px;color:#8c7856;margin-bottom:9px}.targetlist{display:flex;flex-wrap:wrap;gap:6px}.target{font-size:11px;border:1px solid #ded2b8;background:#faf6eb;border-radius:8px;color:#7e6c50;padding:6px 8px}.target.done{color:#148673;background:#e5efdc;border-color:#c0d4b0;text-decoration:line-through}.target.focus{border-color:#148673}.helper{font-size:10px;line-height:1.8;color:#a08a67;margin:13px 0 0}.result{text-align:center}.result h1{font-size:32px}.resultnum{font-size:71px;color:#148673;font-weight:900;line-height:1.2;margin-top:20px}.resultlist{padding:16px;background:#f0ecdb;border-radius:12px;font-size:13px;line-height:2;color:#72603f;margin:22px 0}.secondary{border:0;background:none;color:#947e5d;font-size:12px;padding:14px;margin-top:8px}.footer{text-align:center;font-size:10px;color:#a38f6c;margin:15px 0}.flash{animation:clear .45s ease-out}@keyframes clear{from{background:#addbb4}to{background:#e9e3d1}}@media(max-width:370px){.panel{padding:16px}.board{gap:5px;padding:12px 7px}.card{font-size:20px}.brand{font-size:16px}.target{font-size:10px}}@media(prefers-reduced-motion:reduce){.flash{animation:none}.meter i{transition:none}}
-</style></head><body><main class="app"><header><div class="brand">都道府県<span>ソリティア</span></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="eyebrow">MOVE. MAKE. CLEAR.</div><h1>邪魔な文字をどかす。<br><em>県名が、見つかる。</em></h1><p>ごちゃっと積まれた文字を、ひとつずつ。<br>12都道府県を作って、全部片づけよう。</p><div class="demo"><div class="democol"><span>山</span><span class="buried">森</span></div><small>「山」をどかす →<br>下の「森」が取れる</small><span class="parked">山</span></div><div class="rules">取れるのは、各列のいちばん上だけ。<br>邪魔な文字は「どかす」で一時置場へ。<br>作れる県から自由に。時間制限はありません。<br>困ったら、何度でも1手戻せます。</div><button id="start" class="primary">12県を片づける →</button><button id="continue" class="primary hidden" style="margin-top:14px">途中からつづける →</button><p class="best">進み具合は自動保存されます。</p></section>
-<section id="game" class="panel hidden" aria-label="都道府県の文字を片づけるパズル"><div class="stats"><div><strong id="score">0</strong><small> / 12 完成</small></div><span class="relaxed">時間制限なし</span><button id="homeButton" class="small">中断</button></div><div class="meter"><i id="progress"></i></div><div class="question"><small>クイズはヒント。別の県から作ってもOK。</small><strong id="question"></strong></div>
-<div class="assemble"><div id="answer" class="answer" aria-label="作っている県名"></div><div class="answerhint">文字を順番に選ぶ<br>県・府・都・道は自動</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-<div class="bufferhead"><span>一時置場 · 3マス</span><span>置いた文字はタップで使える</span></div><div id="buffer" class="buffer" aria-label="一時置場"></div>
-<div class="modes" role="group" aria-label="文字の取り方"><button id="buildMode" class="mode active" aria-pressed="true">県名をつくる</button><button id="parkMode" class="mode park" aria-pressed="false">↗ 邪魔な文字をどかす</button></div>
-<div class="boardhead"><span id="modeLabel">各列のいちばん上をタップ</span><span id="remaining"></span></div><div id="board" class="board" aria-label="6列の文字カード"></div>
+.suffix{font-size:20px;color:#9c8764;margin-left:2px}.flow{font-size:11px;font-weight:800;color:#148673;margin:14px 0 9px;text-align:center;background:#edf2e5;border-radius:9px;padding:10px 5px}.flow span{font-weight:500;color:#8b7958}.buffer button{height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}.buffer button small{font-size:9px;line-height:1.3;font-weight:500;color:#a27c3c}.slot.filled{cursor:default;animation:arrive .2s ease-out}.target.focus{background:#e6f2df;border-width:2px}.slot:disabled{opacity:1}.bufferhead{gap:5px;font-size:10px}@keyframes arrive{from{transform:scale(.9)}to{transform:scale(1)}}@media(prefers-reduced-motion:reduce){.slot.filled{animation:none}}</style></head><body><main class="app"><header><div class="brand">都道府県<span>ソリティア</span></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="eyebrow">MOVE. MAKE. CLEAR.</div><h1>邪魔な文字をどかす。<br><em>県名が、見つかる。</em></h1><p>ごちゃっと積まれた文字を、ひとつずつ。<br>12都道府県を作って、全部片づけよう。</p><div class="demo"><div class="democol"><span>山</span><span class="buried">森</span></div><small>「山」をどかす →<br>下の「森」が取れる</small><span class="parked">山</span></div><div class="rules">取れるのは、各列のいちばん上だけ。<br>文字をタップすると、一時置場へ。<br>答えに合う文字は自動で使います。時間制限なし。<br>置場の文字はタップで元の列へ。1手戻すも使えます。</div><button id="start" class="primary">12県を片づける →</button><button id="continue" class="primary hidden" style="margin-top:14px">途中からつづける →</button><p class="best">進み具合は自動保存されます。</p></section>
+<section id="game" class="panel hidden" aria-label="都道府県の文字を片づけるパズル"><div class="stats"><div><strong id="score">0</strong><small> / 12 完成</small></div><span class="relaxed">時間制限なし</span><button id="homeButton" class="small">中断</button></div><div class="meter"><i id="progress"></i></div><div class="question"><small>合う文字は自動で答えへ。作る県は下から変更できます。</small><strong id="question"></strong></div>
+<div class="assemble"><div id="answer" class="answer" aria-label="作っている県名"></div><div class="answerhint">合う文字は自動で入る<br>県・府・都・道も自動</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="bufferhead"><span>一時置場 · 3マス</span><span>置いた文字はタップで元の列へ</span></div><div id="buffer" class="buffer" aria-label="一時置場"></div>
+<div class="flow">上の文字をタップ <span>→ 置場 → 合う文字は答えへ</span></div>
+<div class="boardhead"><span id="modeLabel">タップだけでOK · モード切替なし</span><span id="remaining"></span></div><div id="board" class="board" aria-label="6列の文字カード"></div>
 <div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="help" class="small">遊び方</button><button id="restart" class="small">最初から</button></div>
-<div class="targets"><div class="targetshead">今回つくる12都道府県 · タップでクイズのヒント</div><div id="targets" class="targetlist"></div></div><p id="helpText" class="helper hidden">「つくる」で文字を順番に選ぶと、県名ができた瞬間に消えます。「どかす」で上の文字を一時置場へ。置場の文字はタップで県名に使えます。県名欄の文字をタップして置場に移すこともできます。置場がいっぱいなら、県名を作って空けるか「1手戻す」。並べ方は最初から解けるように作られています。</p></section>
+<div class="targets"><div class="targetshead">今回つくる12都道府県 · タップで作る県を変更</div><div id="targets" class="targetlist"></div></div><p id="helpText" class="helper hidden">上の文字をタップするだけ。いったん一時置場に入り、今の問題の答えに合う文字は順番に自動で使われます。置場の文字をタップすると元の列の上に戻ります。置場がいっぱいでも、答えに今使える文字は取れます。下の県名で作る県を変更できます。作りかけの文字は元の列へ戻り、新しい答えを作れます。自動で動いた文字も「1手戻す」でまとめて戻せます。</p></section>
 <section id="result" class="panel result hidden"><div class="eyebrow">ALL CLEAR!</div><h1>ぜんぶ、片づいた。</h1><div class="resultnum">12 / 12</div><p>文字も、一時置場も、すっきり。</p><div id="resultList" class="resultlist"></div><p id="resultDetail"></p><button id="next" class="primary">別の12県を片づける →</button><button id="resultHome" class="secondary">タイトルへ</button></section><div class="footer">急がず、ひとつずつ。空いていくのを楽しもう。</div></main>
 <script>
 'use strict';
@@ -19,7 +19,9 @@ function clone(value){return JSON.parse(JSON.stringify(value));}
 function makeStage(random=Math.random){
  const targets=shuffle(PREFECTURES,random).slice(0,SIZE);
  const tokens=targets.flatMap((p,index)=>[...p[0]].map((char,j)=>({id:index+'-'+j,char})));
- const blockers=targets.slice(-3).map((p,j)=>tokens.find(t=>t.id===(SIZE-3+j)+'-0'));
+ // 早い問題の文字を置場が先取りしないよう、初登場が後の文字を邪魔カードにする。
+ const lateFirsts=tokens.filter((token,i)=>Number(token.id.split('-')[0])>=3&&tokens.findIndex(t=>t.char===token.char)===i);
+ const blockers=shuffle(lateFirsts,random).slice(0,SLOTS);
  const blockedIds=new Set(blockers.map(t=>t.id));
  const base=tokens.filter(t=>!blockedIds.has(t.id));
  const counts=new Map();base.forEach(t=>counts.set(t.char,(counts.get(t.char)||0)+1));
@@ -33,7 +35,7 @@ function makeStage(random=Math.random){
  columns[blockerColumn].unshift(...blockers);
  // 解法を生成して保持する。3文字をどかしてから、県名を順番に作れば全消去できる。
  const working=columns.map(c=>[...c]),buffer=Array(SLOTS).fill(null),proof=[];
- for(let i=0;i<SLOTS;i++){buffer[i]=working[blockerColumn].shift();proof.push({type:'park',column:blockerColumn,slot:i});}
+ for(let i=0;i<blockers.length;i++){buffer[i]=working[blockerColumn].shift();proof.push({type:'park',column:blockerColumn,slot:i});}
  for(let index=0;index<targets.length;index++){
   for(let j=0;j<targets[index][0].length;j++){
    const id=index+'-'+j,slot=buffer.findIndex(t=>t&&t.id===id);
@@ -48,11 +50,11 @@ function makeStage(random=Math.random){
  if(working.some(c=>c.length)||buffer.some(Boolean))throw Error('Stage verification failed');
  return {targets,columns,proof};
 }
-function fresh(stage){return {columns:clone(stage.columns),buffer:Array(SLOTS).fill(null),answer:[],done:[],moves:0};}
+function fresh(stage){return {columns:clone(stage.columns),buffer:Array(SLOTS).fill(null),answer:[],done:[],moves:0,focus:0};}
 function textOf(tokens){return tokens.map(t=>t.char).join('');}
 function remainingTargets(stage,s){return stage.targets.filter(p=>!s.done.some(d=>d.name===p[0]));}
 const $=id=>document.getElementById(id);
-let stage=null,game=null,history=[],mode='build',clue=0,state='home',soundOn=true,audio=null,notice='',warning=false;
+let stage=null,game=null,history=[],state='home',soundOn=true,audio=null,notice='',warning=false;
 try{soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
 function write(key,value){try{localStorage.setItem(key,value);}catch(_){}}
 function persist(){if(stage&&game)write(STORAGE,JSON.stringify({stage:{targets:stage.targets,columns:stage.columns},game,history}));}
@@ -71,7 +73,14 @@ function validSaved(data){
   return validateState(s)&&Array.isArray(data.history)&&data.history.every(validateState);
  }catch(_){return false;}
 }
-function loadSaved(){try{const data=JSON.parse(localStorage.getItem(STORAGE));if(!validSaved(data)||data.game.done.length===SIZE)return false;stage=data.stage;game=data.game;history=data.history;return true;}catch(_){return false;}}
+function originColumn(token){return stage.columns.findIndex(column=>column.some(t=>t.id===token.id));}
+function normaliseState(saved){
+ const x=clone(saved),remaining=stage.targets.map((p,i)=>({p,i})).filter(o=>!x.done.some(d=>d.name===o.p[0]));
+ let wanted=remaining.find(o=>o.i===x.focus&&o.p[0].startsWith(textOf(x.answer)))||remaining.find(o=>o.p[0].startsWith(textOf(x.answer)));
+ if(!wanted){while(x.answer.length){const token=x.answer.pop();x.columns[originColumn(token)].unshift(token);}wanted=remaining[0];}
+ x.focus=wanted?wanted.i:0;return x;
+}
+function loadSaved(){try{const data=JSON.parse(localStorage.getItem(STORAGE));if(!validSaved(data)||data.game.done.length===SIZE)return false;stage=data.stage;game=normaliseState(data.game);history=data.history.map(normaliseState);return true;}catch(_){return false;}}
 const hasSaved=loadSaved();
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
 function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
@@ -83,42 +92,46 @@ function tone(frequencies,volume=.13){
 function show(id){['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function message(text,warn=false){notice=text;warning=warn;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
 function button(text,cls,handler,label){const b=document.createElement('button');b.type='button';b.textContent=text;b.className=cls;b.onclick=handler;if(label)b.setAttribute('aria-label',label);return b;}
+function currentTarget(){return stage.targets[game.focus];}
+function chooseNextTarget(){
+ const index=stage.targets.findIndex(p=>!game.done.some(d=>d.name===p[0]));game.focus=index<0?0:index;
+}
 function render(){
  if(!stage||!game)return;
  $('score').textContent=game.done.length;$('progress').style.width=(game.done.length/SIZE*100)+'%';
  const left=game.columns.reduce((n,c)=>n+c.length,0)+game.buffer.filter(Boolean).length+game.answer.length;
  $('remaining').textContent='残り '+left+'文字';
- const remaining=remainingTargets(stage,game),wanted=remaining.find(p=>p===stage.targets[clue])||remaining[0];
+ const wanted=game.done.length===SIZE?null:currentTarget();
  $('question').textContent=wanted?wanted[2]:'全部の都道府県が完成しました！';
  const answer=$('answer');answer.replaceChildren();
- for(let i=0;i<3;i++){
-  const token=game.answer[i],b=button(token?token.char:'・','slot'+(token?' filled':''),()=>parkAnswer(i),token?token.char+'を一時置場へ':'県名の'+(i+1)+'文字目');
-  b.disabled=!token||state!=='playing';answer.appendChild(b);
+ const slots=wanted?[...wanted[0]].length:3;
+ for(let i=0;i<slots;i++){
+  const token=game.answer[i],b=button(token?token.char:'・','slot'+(token?' filled':''),()=>{},token?token.char+'、自動で入りました':'答えの'+(i+1)+'文字目');
+  b.disabled=true;answer.appendChild(b);
  }
+ if(wanted){const suffix=document.createElement('span');suffix.className='suffix';suffix.textContent=wanted[1];answer.appendChild(suffix);}
  const buffer=$('buffer');buffer.replaceChildren();
  for(let i=0;i<SLOTS;i++){
-  const token=game.buffer[i],b=button(token?token.char:'＋',token?'occupied':'',()=>useBuffer(i),token?'一時置場の'+token.char+'を使う':'空きマス'+(i+1)+'。県名欄の最後の文字を置く');
-  b.disabled=state!=='playing';buffer.appendChild(b);
+  const token=game.buffer[i],b=button(token?token.char:'＋',token?'occupied':'',()=>returnBuffer(i),token?token.char+'を元の列へ戻す':'空いている一時置場');
+  if(token){const caption=document.createElement('small');caption.textContent='↶ 戻す';b.appendChild(caption);}
+  b.disabled=state!=='playing'||!token;buffer.appendChild(b);
  }
- const board=$('board');board.replaceChildren();board.classList.toggle('parking',mode==='park');
+ const board=$('board');board.replaceChildren();
  game.columns.forEach((column,col)=>{
   const lane=document.createElement('div');lane.className='column';
   if(!column.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='すっきり';lane.appendChild(empty);}
   column.forEach((token,row)=>{
-   const card=row===0?button(token.char,'card',()=>takeColumn(col),(col+1)+'列目の'+token.char+(mode==='park'?'を一時置場へ':'を県名に使う')):document.createElement('div');
+   const card=row===0?button(token.char,'card',()=>takeColumn(col),(col+1)+'列目の'+token.char+'を一時置場へ'):document.createElement('div');
    if(row>0){card.className='card';card.textContent=token.char;card.setAttribute('aria-label',token.char+'、まだ取れません');}
    else card.disabled=state!=='playing';
    lane.appendChild(card);
   });board.appendChild(lane);
  });
- $('buildMode').classList.toggle('active',mode==='build');$('parkMode').classList.toggle('active',mode==='park');
- $('buildMode').setAttribute('aria-pressed',String(mode==='build'));$('parkMode').setAttribute('aria-pressed',String(mode==='park'));
- $('modeLabel').textContent=mode==='park'?'上の文字 → 空いている一時置場へ':'上の文字 → 県名欄へ';
  $('undo').disabled=history.length===0;$('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
  const list=$('targets');list.replaceChildren();
  stage.targets.forEach((p,index)=>{
-  const done=game.done.some(d=>d.name===p[0]),b=button((done?'✓ ':'')+p[0]+p[1],'target'+(done?' done':'')+(wanted===p?' focus':''),()=>{clue=index;message(done?p[0]+p[1]+'は片づけ済み！':p[2]);render();});
-  if(done)b.disabled=true;list.appendChild(b);
+  const done=game.done.some(d=>d.name===p[0]),b=button((done?'✓ ':'')+p[0]+p[1],'target'+(done?' done':'')+(wanted===p?' focus':''),()=>switchTarget(index));
+  b.setAttribute('aria-pressed',String(wanted===p));if(done)b.disabled=true;list.appendChild(b);
  });
 }
 function commit(action){
@@ -126,56 +139,67 @@ function commit(action){
  history.push(clone(game));game.moves++;action();persist();render();
  if(game.done.length===SIZE)finish();
 }
-function checkAnswer(){
- const name=textOf(game.answer),target=remainingTargets(stage,game).find(p=>p[0]===name);
- if(target){
-  game.done.push({name,tokens:[...game.answer]});game.answer=[];
-  message(target[0]+target[1]+'、完成！ あと'+(SIZE-game.done.length)+'都道府県。');
+function feedBuffer(){
+ const completed=[],used=[];let guard=0;
+ while(game.done.length<SIZE&&guard++<100){
+  const target=currentTarget();
+  if(textOf(game.answer)===target[0]){
+   game.done.push({name:target[0],tokens:[...game.answer]});game.answer=[];completed.push(target[0]+target[1]);chooseNextTarget();continue;
+  }
+  const char=[...target[0]][game.answer.length],slot=game.buffer.findIndex(token=>token&&token.char===char);
+  if(slot<0)break;
+  const token=game.buffer[slot];game.buffer[slot]=null;game.answer.push(token);used.push(token.char);
+ }
+ if(completed.length){
+  message(completed.join('・')+'、完成！ あと'+(SIZE-game.done.length)+'都道府県。');
   tone([880,660]);$('board').classList.remove('flash');void $('board').offsetWidth;$('board').classList.add('flash');
- }else if(name&&!remainingTargets(stage,game).some(p=>p[0].startsWith(name))){
-  message('その並びでは今回の県名になりません。「1手戻す」か、文字を置場へ。',true);
- }else message('');
+ }else if(used.length)message('「'+used.join('・')+'」が答えに入りました。');
+ return {completed,used};
 }
 function takeColumn(col){
  if(state!=='playing'||!game.columns[col]?.length)return;
- if(mode==='park'){
-  const slot=game.buffer.findIndex(t=>!t);
-  if(slot<0){message('一時置場はいっぱい。県名を作って空けるか、1手戻そう。',true);return;}
-  commit(()=>{const token=game.columns[col].shift();game.buffer[slot]=token;message('「'+token.char+'」をどかしました。下の文字が取れます。');tone([410],.035);});
- }else{
-  if(game.answer.length>=3){message('県名欄は3文字まで。文字を置場に移すか、1手戻そう。',true);return;}
-  commit(()=>{game.answer.push(game.columns[col].shift());tone([580+game.answer.length*50],.03);checkAnswer();});
- }
+ const token=game.columns[col][0],slot=game.buffer.findIndex(t=>!t),target=currentTarget();
+ const fits=token.char===[...target[0]][game.answer.length];
+ if(slot<0&&!fits){message('置場がいっぱい。置いた文字をタップすると元の列へ戻せます。',true);return;}
+ commit(()=>{
+  const taken=game.columns[col].shift();
+  message('「'+taken.char+'」を置きました。タップで元の列に戻せます。');
+  if(slot>=0)game.buffer[slot]=taken;
+  else game.answer.push(taken); // 正解の文字は置場が満杯でも通過できる。
+  const result=feedBuffer();
+  if(slot<0&&!result.completed.length&&!result.used.length)message('「'+taken.char+'」が答えに入りました。');
+  if(!result.completed.length)tone([520],.03);
+ });
 }
-function parkAnswer(index){
- if(state!=='playing'||!game.answer[index])return;
- const slot=game.buffer.findIndex(t=>!t);
- if(slot<0){message('置場がいっぱいです。「1手戻す」で選び直せます。',true);return;}
- commit(()=>{const token=game.answer.splice(index,1)[0];game.buffer[slot]=token;message('「'+token.char+'」を一時置場に移しました。');checkAnswer();});
+function returnBuffer(slot){
+ if(state!=='playing'||!game.buffer[slot])return;
+ commit(()=>{const token=game.buffer[slot];game.buffer[slot]=null;const col=originColumn(token);game.columns[col].unshift(token);message('「'+token.char+'」を元の'+(col+1)+'列目に戻しました。');});
 }
-function useBuffer(slot){
- if(state!=='playing')return;
- if(!game.buffer[slot]){
-  if(!game.answer.length){message('「どかす」に切り替えて、邪魔な上の文字をタップしよう。');return;}
-  commit(()=>{game.buffer[slot]=game.answer.pop();message('県名欄の最後の文字を一時置場に置きました。');checkAnswer();});return;
- }
- if(game.answer.length>=3){message('県名欄を空けるか、1手戻そう。',true);return;}
- commit(()=>{game.answer.push(game.buffer[slot]);game.buffer[slot]=null;mode='build';checkAnswer();});
+function returnPartialAnswer(){
+ while(game.answer.length){const token=game.answer.pop();game.columns[originColumn(token)].unshift(token);}
+}
+function switchTarget(index){
+ if(state!=='playing'||!stage.targets[index]||game.done.some(d=>d.name===stage.targets[index][0]))return;
+ if(game.focus===index){message(stage.targets[index][2]);return;}
+ commit(()=>{
+  const partial=game.answer.length>0;returnPartialAnswer();game.focus=index;
+  message(partial?'作りかけの文字は元の列へ。新しい問題に切り替えました。':'問題を切り替えました。');
+  feedBuffer();
+ });
 }
 function undo(){
  if(state!=='playing'||!history.length)return;
  const oldCount=game.done.length;game=history.pop();
  message(game.done.length<oldCount?'直前に完成した県も戻しました。取り方を選び直せます。':'1手戻しました。');persist();render();
 }
-function setMode(value){if(state!=='playing')return;mode=value;message(value==='park'?'邪魔な上の文字をタップ → 空き置場へ。':'上の文字・置場の文字をタップして県名を作ろう。');render();}
 function start(){
- prepareAudio();stage=makeStage();game=fresh(stage);history=[];mode='build';clue=0;state='playing';show('game');message('まずは上の文字を見よう。邪魔なら「どかす」で置場へ。');persist();render();
+ prepareAudio();stage=makeStage();game=fresh(stage);history=[];state='playing';show('game');message('上の文字をタップ！ 合う文字は自動で答えに入ります。');persist();render();
 }
-function continueGame(){if(!stage||!game)return;prepareAudio();state='playing';mode='build';show('game');message('おかえりなさい。残りをゆっくり片づけよう。');render();}
+function continueGame(){if(!stage||!game)return;prepareAudio();state='playing';show('game');message('タップで置場へ。合う文字は自動で答えに入ります。');const needed=[...currentTarget()[0]][game.answer.length];if(game.buffer.some(t=>t&&t.char===needed))commit(()=>feedBuffer());else render();}
 function restart(){
  if(state!=='playing'||!history.length)return;
  if(!window.confirm('今の文字の並びを最初の状態に戻しますか？'))return;
- game=fresh(stage);history=[];clue=0;mode='build';message('同じ並びの最初から。文字は入れ替えていません。');persist();render();
+ game=fresh(stage);history=[];message('同じ並びの最初から。文字は入れ替えていません。');persist();render();
 }
 function goHome(){
  if(stage&&game&&game.done.length<SIZE){persist();$('continue').classList.remove('hidden');$('start').textContent='別の12県で始める →';}else{$('continue').classList.add('hidden');$('start').textContent='12県を片づける →';}
@@ -188,7 +212,7 @@ function finish(){
 }
 $('start').onclick=()=>{if(stage&&game&&game.done.length<SIZE&&history.length&&!window.confirm('途中の盤面を置き換えて、新しい12県で始めますか？'))return;start();};
 $('continue').onclick=continueGame;$('homeButton').onclick=goHome;$('resultHome').onclick=goHome;$('next').onclick=start;
-$('buildMode').onclick=()=>setMode('build');$('parkMode').onclick=()=>setMode('park');$('undo').onclick=undo;$('restart').onclick=restart;
+$('undo').onclick=undo;$('restart').onclick=restart;
 $('help').onclick=()=>{$('helpText').classList.toggle('hidden');};
 $('sound').onclick=()=>{soundOn=!soundOn;write('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)tone([880,660]);};
 document.addEventListener('keydown',e=>{
