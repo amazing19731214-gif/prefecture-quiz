@@ -1,14 +1,71 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff2df"><title>漢字キッチン｜文字を調理して県名をつくろう</title><style>
 :root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#49372b;background:#fff2df}*{box-sizing:border-box}body{margin:0;padding:16px 11px;min-height:100svh;display:grid;place-items:center}button{font:inherit;cursor:pointer;touch-action:manipulation;color:inherit}button:disabled{cursor:default;opacity:.48}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #2476b2;outline-offset:3px}.app{width:min(100%,490px)}header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 4px;margin-bottom:13px}.brand{font-size:20px;font-weight:900;letter-spacing:-.8px}.brand b{color:#db632e}.small{border:1px solid #e1c7a6;background:#fffaf1;color:#9a7653;border-radius:9px;padding:8px 10px;font-size:11px}.panel{border:1px solid #e8cfae;background:#fffdf7;border-radius:24px;padding:22px;box-shadow:0 10px 32px #84571e10}.hidden{display:none!important}.tag{font-size:10px;font-weight:800;letter-spacing:2px;color:#bd8755}h1{font-size:38px;letter-spacing:-1.4px;line-height:1.22;margin:15px 0}h1 em{font-style:normal;color:#dd6732}p{font-size:13px;line-height:1.85;color:#9a7d60}.hero{background:#f6ead5;border-radius:15px;padding:17px;margin:22px 0;text-align:center}.hero .chef{font-size:42px;display:block;margin-bottom:13px}.example{font-size:24px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:7px}.example span{display:grid;place-items:center;width:43px;height:45px;background:#fffdf4;border:1px solid #d5b284;border-radius:8px;box-shadow:0 3px 0 #ddbf93}.example small{font-size:15px;color:#ba9467}.hero p{font-size:12px;margin:13px 0 0}.primary{width:100%;border:0;background:#df6932;color:#fff;padding:15px;border-radius:13px;font-size:17px;font-weight:800;box-shadow:0 4px 0 #b64c22}.primary:active{transform:translateY(2px)}.primary.green{background:#228777;box-shadow:0 4px 0 #136e5b}.home-rules{font-size:12px;line-height:1.95;color:#9b7b56;margin:20px 0}.home-meta{text-align:center;font-size:12px;color:#a58a67;line-height:1.9;margin-top:19px}.topstats{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px;font-size:12px;color:#a58053}.coins{font-weight:800;color:#b67a24;background:#fff0c4;padding:6px 10px;border-radius:30px}.dots{display:flex;gap:5px}.dot{width:8px;height:8px;border:1px solid #d6bf98;border-radius:50%;background:#f2e7d1}.dot.done{background:#df6932;border-color:#df6932}.dot.current{background:#fff5df;border:2px solid #df6932;transform:scale(1.2)}.customer{display:flex;align-items:center;gap:11px;background:#f5ecd9;border-radius:16px;padding:13px;margin-bottom:11px}.avatar{flex:none;width:60px;height:64px;display:grid;place-items:center;background:#ead8b5;border:2px solid #fff8e8;border-radius:16px 16px 23px 23px;font-size:38px}.bubble{flex:1;min-width:0}.bubble small{display:block;font-size:10px;color:#a88a61;margin-bottom:5px}.bubble strong{font-size:17px;line-height:1.6}.bubble .thanks{color:#18806b}.dish{background:radial-gradient(ellipse at center,#fffefa 0 56%,#f0dec2 57% 61%,#fff8e9 62% 73%,transparent 74%);text-align:center;min-height:139px;padding:13px 16px 16px;display:flex;flex-direction:column;justify-content:center}.dish-title{font-size:10px;color:#a88961;margin-bottom:8px}.plate{display:flex;gap:6px;justify-content:center;align-items:center;min-height:49px}.tile{width:42px;height:45px;border:1px solid #d5b992;border-radius:8px;background:#fffdf4;display:grid;place-items:center;font-size:26px;font-weight:800;box-shadow:0 2px 0 #d9bd94;padding:0}.tile.blank{border-style:dashed;box-shadow:none;color:#d8c4a6;background:#fff9ee}.tile.ready{border-color:#5da78d;background:#ecf5df;color:#287965}.dish.finished .tile{background:#e8f1d0;border-color:#91ae63}.suffix{font-size:18px;color:#a78c69}.dish-name{font-size:12px;color:#228777;font-weight:800;min-height:20px;margin-top:7px}.feedback{font-size:12px;line-height:1.7;color:#228777;min-height:46px;padding:7px 0;text-align:center;font-weight:700}.feedback.warn{color:#bd6037}.serve{padding:13px;font-size:15px}.serve[disabled]{background:#c9b99b;box-shadow:0 3px 0 #b7a382;opacity:1}.stations{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:19px}.station{background:#e8f0e0;border:1px solid #cbd9bc;border-radius:14px;padding:11px 9px;min-width:0}.station.output{background:#f7ebd7;border-color:#e5cfa9}.stationhead{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:800;color:#7b8b59;gap:4px;margin-bottom:11px}.output .stationhead{color:#aa8550}.tiny{font-size:9px;background:none;border:0;padding:2px;color:#b08a55;text-decoration:underline}.bench{display:flex;align-items:center;justify-content:center;gap:5px;min-height:51px}.bench .tile{width:40px;height:43px;font-size:25px}.plus{font-size:15px;color:#9caa87}.cook{width:100%;padding:10px 3px;border:0;border-radius:9px;background:#278977;color:#fff;font-size:13px;font-weight:800;margin-top:12px;box-shadow:0 3px 0 #176c5b}.cook:disabled{background:#b0bf9a;box-shadow:none;opacity:1}.progress{height:4px;background:#cedbbe;border-radius:4px;overflow:hidden;margin-top:8px}.progress i{display:block;background:#e8b746;height:100%;width:0}.station.busy .progress i{animation:heat 1.1s linear forwards}.station.busy .bench{animation:simmer .2s infinite alternate}@keyframes heat{to{width:100%}}@keyframes simmer{from{transform:rotate(-1deg)}to{transform:rotate(1deg)}}.tray{display:flex;flex-wrap:wrap;justify-content:center;align-content:start;gap:6px;min-height:118px}.prepared{width:43px;min-height:57px;padding:3px 0;border:1px solid #cead79;background:#fffcf3;border-radius:8px;box-shadow:0 2px 0 #e3c596;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px}.prepared b{font-size:25px;line-height:1.1}.prepared small{font-size:8px;color:#a17c46}.tray-empty{font-size:11px;line-height:1.9;color:#bc9d73;text-align:center;padding-top:20px}.pantry{margin-top:16px;padding:13px;background:#efe2ca;border:1px solid #e0cba7;border-radius:14px}.pantryhead{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:800;color:#a17e50;margin-bottom:10px}.ingredients{display:flex;flex-wrap:wrap;gap:7px}.ingredient{min-width:43px;height:47px;border:1px solid #cfb185;border-radius:8px;background:#fff9e9;box-shadow:0 3px 0 #d6bb92;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;padding:3px 8px}.ingredient:active{transform:translateY(2px)}.direct-label{font-size:10px;color:#a68a62;margin:13px 0 8px}.ingredient.direct{border-color:#9fbc91;background:#f4f9e9;color:#467c4e}.ingredients .none{font-size:11px;color:#a88d68}.recipe-book{margin-top:15px;border-top:1px solid #eee0c9;padding-top:11px}summary{font-size:12px;color:#a47c49;cursor:pointer;padding:5px 0}.recipe-content{font-size:12px;line-height:2.2;color:#8f714c;background:#fff6e5;padding:11px;border-radius:10px;margin-top:9px}.recipe-content b{color:#228777}.recipe-content .formula{display:block;font-size:17px;font-weight:800;color:#71583a;letter-spacing:1px}.caption{font-size:9px;line-height:1.8;color:#a78d6a;margin:12px 0 0}.result{text-align:center}.result h1{font-size:31px}.resultnum{font-size:63px;font-weight:900;color:#db6730;margin:18px 0 0;letter-spacing:-2px}.resultlist{padding:15px;background:#f5ead4;border-radius:13px;font-size:14px;line-height:2;color:#977346;margin:21px 0}.stamp{display:inline-block;padding:6px 10px;border-radius:30px;background:#e9f3dc;color:#27816d;font-size:12px;margin-top:10px}.secondary{border:0;background:none;color:#a07f53;font-size:12px;padding:14px;margin-top:9px}.footer{text-align:center;font-size:10px;color:#b3956d;margin:16px 0}.footer a{color:#a37c4a;text-underline-offset:3px}.booklist{font-size:11px;line-height:2.1;color:#a07d51;margin:10px 0 0;text-align:center}@media(max-width:380px){.panel{padding:16px}.brand{font-size:18px}.customer{padding:11px;gap:9px}.avatar{width:51px;height:58px;font-size:33px}.bubble strong{font-size:16px}.stations{gap:8px}.station{padding:10px 7px}.bench .tile{width:35px;height:40px;font-size:23px}.stationhead{font-size:10px}.prepared{width:39px}.ingredient{min-width:41px;font-size:25px}.pantry{padding:11px}}@media(prefers-reduced-motion:reduce){.station.busy .bench{animation:none}.station.busy .progress i{animation:none;width:100%}}
-</style></head><body><main class="app"><header><div class="brand">漢字<b>キッチン</b> 🍳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">PREPARE. COMBINE. SERVE.</div><h1>文字を調理して、<br><em>県名をどうぞ。</em></h1><p>お客さんの注文は、都道府県のクイズ。<br>素材を加工して、県名にして、お届けしよう。</p><div class="hero"><span class="chef">🧑‍🍳</span><div class="example"><span>木</span><small>＋</small><span>木</span><small>→</small><span>林</span></div><p>「林」にもうひとつ「木」を合わせて「森」。<br>「青」と盛りつければ、青森県のできあがり！</p></div><div class="home-rules">① 部品を2つ選んで「加工する」<br>② できた文字をタップして、お皿へ<br>③ 県名を完成させて、お客さんに出す<br>時間制限なし。1回5人の注文に挑戦。</div><button id="start" class="primary">お店を開く →</button><div class="home-meta">🪙 お店の累計 <b id="homeCoins">0</b>コイン<br>県名スタンプ <b id="homeCollection">0</b> / 20</div><details class="recipe-book"><summary>集めた県名スタンプを見る</summary><div id="collection" class="booklist"></div></details></section>
+
+/* 画面の高さに合わせ、すべての作業場所を同時に表示する。 */
+:root{--view-height:100dvh;--tap:clamp(32px,5.8dvh,43px)}
+html{height:100%;overflow:hidden}
+body{height:var(--view-height);min-height:0;overflow:hidden;overscroll-behavior:none;padding:7px 9px max(8px,env(safe-area-inset-bottom));display:block}
+.app{height:100%;max-height:850px;min-height:0;margin:0 auto;display:flex;flex-direction:column;gap:7px}
+header{flex:none;height:33px;margin:0;padding:0 4px}.brand{font-size:18px}.small{padding:7px 9px;font-size:10px}
+.panel{min-height:0;border-radius:20px;padding:12px;box-shadow:0 6px 24px #84571e0b}
+body[data-screen="game"] .footer{display:none}
+#game{flex:1;display:grid;grid-template-rows:21px minmax(52px,.9fr) minmax(68px,1.05fr) 32px minmax(118px,1.55fr) minmax(72px,.85fr);gap:6px;overflow:hidden}
+.topstats{margin:0;font-size:11px;min-height:0}.coins{padding:4px 9px}.dot{width:7px;height:7px}
+.customer{margin:0;gap:8px;border-radius:12px;padding:8px 10px;min-height:0;overflow:hidden}
+.avatar{width:39px;height:42px;font-size:29px;border-radius:11px;flex:none}.bubble small{font-size:9px;margin-bottom:2px}.bubble strong{font-size:14px;line-height:1.4}.customer .tiny{flex:none;font-size:10px;text-decoration:none;background:#fff8ea;border:1px solid #e4cdab;border-radius:8px;padding:9px 7px}
+.service{display:grid;grid-template-columns:minmax(0,1fr) 126px;gap:8px;align-items:center;min-height:0}
+.dish{min-height:0;height:100%;padding:4px 5px;justify-content:center;background:radial-gradient(ellipse at center,#fffefa 0 54%,#f0dec2 55% 59%,#fff8e9 60% 72%,transparent 73%);overflow:hidden}
+.dish-title{font-size:9px;margin:0 0 3px}.plate{gap:4px;min-height:0}.tile{width:var(--tap);height:var(--tap);font-size:25px;border-radius:7px;flex:none}.plate .tile{width:clamp(31px,5.5dvh,40px);height:clamp(33px,5.8dvh,43px);font-size:24px}.suffix{font-size:15px}.dish-name{min-height:11px;height:12px;margin:3px 0 0;font-size:10px;line-height:12px}
+.serve{font-size:13px;line-height:1.5;padding:10px 6px;min-height:43px;border-radius:11px;box-shadow:0 3px 0 #b64c22}
+.feedback{min-height:0;max-height:32px;padding:0;display:flex;justify-content:center;align-items:center;font-size:11px;line-height:1.35;overflow-wrap:anywhere}
+.stations{margin:0;min-height:0;gap:8px;align-items:stretch}
+.station{min-height:0;padding:8px;display:grid;grid-template-rows:13px minmax(0,1fr) var(--tap) 3px;gap:5px;border-radius:12px}
+.stationhead{margin:0;min-height:0;font-size:10px;white-space:nowrap}.stationhead #cookStatus{font-size:9px}.tiny{font-size:9px;padding:1px}
+.bench{min-height:0;gap:5px}.bench .tile{width:var(--tap);height:var(--tap);font-size:25px}.plus{font-size:13px}
+.cook{margin:0;height:var(--tap);padding:5px 2px;min-height:0;font-size:12px;border-radius:8px;box-shadow:0 2px 0 #176c5b}
+.progress{height:3px;margin:0}
+.station.output{display:flex;flex-direction:column;gap:5px}.output .stationhead{flex:none}
+.tray{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);flex:1;min-height:0;gap:4px;align-content:stretch}
+.prepared{width:100%;min-height:0;padding:2px 0;gap:2px;border-radius:7px}.prepared b{font-size:24px}.prepared small{font-size:7px;line-height:1.2}
+.tray-empty{grid-column:1/-1;display:flex;align-items:center;justify-content:center;min-height:0;padding:4px;font-size:10px;line-height:1.6}
+.pantry{margin:0;min-height:0;border-radius:12px;padding:8px;display:grid;grid-template-columns:minmax(0,1fr) 46px;gap:9px;align-content:center}
+.raw-shelf,.direct-shelf{min-width:0}.pantryhead{min-height:13px;font-size:10px;margin:0 0 6px;gap:5px}.pantryhead small{font-size:8px;font-weight:400;white-space:nowrap}
+.ingredients{display:grid;grid-template-columns:repeat(var(--count,6),minmax(0,1fr));gap:5px}
+.ingredient{min-width:0;width:100%;height:var(--tap);padding:0;font-size:25px;border-radius:7px;box-shadow:0 2px 0 #d6bb92}
+.direct-label{font-size:9px;line-height:13px;height:13px;margin:0 0 6px;white-space:nowrap;text-align:center}
+.direct-shelf .ingredients{display:flex;justify-content:center}.direct-shelf .ingredient{width:var(--tap);flex:none}
+.ingredients .none{font-size:9px;line-height:1.5;text-align:center}
+#home,#result{flex:1;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:18px}
+#home h1{font-size:33px;margin:12px 0}#home>p{margin:0;font-size:12px;line-height:1.65}
+.hero{padding:12px;margin:15px 0}.hero .chef{display:none}.hero .example{font-size:23px;gap:6px}.hero .example span{height:39px;width:40px;font-size:24px}.hero p{font-size:11px;line-height:1.6;margin:10px 0 0}
+.home-rules{font-size:11px;line-height:1.7;margin:0 0 16px}
+#home .primary,#result .primary{padding:12px;font-size:16px}.home-meta{font-size:11px;line-height:1.7;margin-top:15px}.collection-button{align-self:center;margin-top:9px}
+.footer{flex:none;font-size:9px;margin:0;text-align:center;line-height:1.5}
+.result h1{font-size:28px;margin:11px 0}.resultnum{font-size:53px;margin:10px 0 0}.stamp{margin-top:9px;padding:5px 9px;font-size:11px}.resultlist{font-size:12px;line-height:1.9;padding:12px;margin:14px 0}.result #resultCoins{font-size:11px;margin:0 0 14px}.secondary{padding:10px;margin-top:5px;font-size:11px}
+.info-dialog{width:min(calc(100vw - 28px),430px);max-height:calc(var(--view-height) - 34px);margin:auto;padding:17px;border:1px solid #dfc49b;border-radius:18px;background:#fffdf5;color:#6b5035;box-shadow:0 15px 60px #38281140;overflow:hidden}
+.info-dialog::backdrop{background:#4d3b265f}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.dialog-head h2{font-size:18px;margin:0}.recipe-content{margin:0;font-size:12px;line-height:2;padding:12px}.recipe-content .formula{font-size:19px;line-height:2.2}.modal-help{font-size:10px;line-height:1.7;margin:12px 0 0}.booklist{font-size:12px;line-height:2.2;margin:0}
+@media(max-height:640px){
+ body{padding:5px 8px max(6px,env(safe-area-inset-bottom))}.app{gap:5px}header{height:30px}.brand{font-size:17px}.panel{padding:9px}#game{grid-template-rows:19px minmax(48px,.8fr) minmax(60px,.9fr) 28px minmax(108px,1.3fr) minmax(64px,.8fr);gap:5px}
+ .avatar{width:34px;height:36px;font-size:25px}.customer{padding:6px 8px;gap:7px}.bubble small{font-size:8px}.bubble strong{font-size:13px;line-height:1.35}.customer .tiny{padding:7px 6px;font-size:9px}
+ .service{grid-template-columns:minmax(0,1fr) 115px;gap:6px}.dish-title{font-size:8px;margin-bottom:2px}.dish-name{margin-top:2px}.serve{min-height:37px;font-size:12px;padding:7px 3px}.feedback{font-size:10px;line-height:1.35;max-height:28px}
+ .station{padding:6px;gap:4px}.stationhead{font-size:9px}.stationhead #cookStatus{font-size:8px}.bench .tile{font-size:23px}.prepared b{font-size:22px}.prepared small{font-size:7px}.tray-empty{font-size:9px}.pantry{padding:6px;gap:7px}.pantryhead{font-size:9px;margin-bottom:5px}.pantryhead small{font-size:7px}
+ #home,#result{padding:14px}#home h1{font-size:29px;margin:10px 0}#home>p{display:none}.hero{padding:10px;margin:11px 0}.hero p{display:none}.home-rules{font-size:10px;margin-bottom:12px}.home-meta{margin-top:11px;font-size:10px}.collection-button{margin-top:7px}.tag{font-size:9px}.result h1{font-size:25px}.resultnum{font-size:45px}.resultlist{padding:9px;margin:11px 0;font-size:11px}
+}
+@media(max-height:510px){
+ :root{--tap:31px}.panel{padding:6px}#game{grid-template-rows:18px minmax(45px,.8fr) minmax(56px,.9fr) 26px minmax(100px,1.2fr) minmax(57px,.7fr);gap:4px}.station{padding:5px}.stationhead{font-size:8px}.stationhead #cookStatus{font-size:7px}.pantryhead small{display:none}.plate .tile{height:32px;width:30px;font-size:22px}.dish-name{font-size:9px}.service{grid-template-columns:minmax(0,1fr) 106px}.serve{font-size:11px;min-height:35px}.pantry{padding:5px}.ingredient{font-size:23px}#home h1{font-size:25px}.hero .example span{height:34px;width:36px;font-size:22px}.home-meta{margin-top:8px}.home-rules{margin-bottom:9px}.footer{font-size:8px}
+}
+@media(orientation:landscape) and (max-height:510px) and (min-width:600px){
+ .app{max-width:950px;width:100%}#game{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"stats stats" "order service" "stations pantry" "feedback feedback";grid-template-rows:18px minmax(52px,.6fr) minmax(105px,1.4fr) 26px;gap:6px 12px}.topstats{grid-area:stats}.customer{grid-area:order}.service{grid-area:service}.feedback{grid-area:feedback}.stations{grid-area:stations}.pantry{grid-area:pantry;align-self:stretch;align-content:center}#home{display:grid;grid-template-columns:1fr 1fr;gap:5px 20px;align-content:center}#home .tag{grid-column:1}#home h1{grid-column:1;grid-row:2/5}#home .hero{grid-column:2;grid-row:1/3;margin:0}#home .home-rules{grid-column:2}#home .primary{grid-column:2}#home .home-meta{grid-column:1}#home .collection-button{grid-column:1}.info-dialog{max-width:480px}
+}
+.cook{display:grid;place-items:center;font-size:11px;background:#d9e8cb;color:#638558;box-shadow:none}.station.made .progress i{animation:heat .2s ease-out forwards}.ingredient:active,.prepared:active,.tile:not(:disabled):active{transform:scale(.94)}.serve:not(:disabled){background:#228777;box-shadow:0 3px 0 #136e5b}@media(prefers-reduced-motion:reduce){.ingredient:active,.prepared:active,.tile:not(:disabled):active{transform:none}.station.made .progress i{animation:none;width:100%}}</style></head><body><main class="app"><header><div class="brand">漢字<b>キッチン</b> 🍳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="tag">PREPARE. COMBINE. SERVE.</div><h1>文字を調理して、<br><em>県名をどうぞ。</em></h1><p>お客さんの注文は、都道府県のクイズ。<br>素材を加工して、県名にして、お届けしよう。</p><div class="hero"><span class="chef">🧑‍🍳</span><div class="example"><span>木</span><small>＋</small><span>木</span><small>→</small><span>林</span></div><p>「林」にもうひとつ「木」を合わせて「森」。<br>「青」と盛りつければ、青森県のできあがり！</p></div><div class="home-rules">2つ押して加工 → お皿にポン → お客さんへ<br>時間制限なし・1回5人の注文に挑戦。</div><button id="start" class="primary">お店を開く →</button><div class="home-meta">🪙 お店の累計 <b id="homeCoins">0</b>コイン<br>県名スタンプ <b id="homeCollection">0</b> / 20</div><button id="collectionButton" class="small collection-button">県名スタンプを見る</button></section>
 <section id="game" class="panel hidden" aria-label="漢字を加工して注文を作る"><div class="topstats"><span id="orderCount">1 / 5人目</span><div id="dots" class="dots"></div><span class="coins">🪙 <span id="roundCoins">0</span></span></div><div class="customer"><div id="avatar" class="avatar">🐱</div><div class="bubble"><small id="customerLabel">ご注文です！</small><strong id="orderText"></strong></div><button id="recipeHint" class="tiny">レシピ</button></div>
-<div id="dish" class="dish"><div id="dishTitle" class="dish-title">文字を順番に盛りつけよう</div><div id="plate" class="plate" aria-label="県名を盛りつけるお皿"></div><div id="dishName" class="dish-name"></div></div><button id="serve" class="primary serve" disabled>県名を完成させる</button><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
-<div class="stations"><div id="cookStation" class="station"><div class="stationhead"><span>🍳 加工台</span><span id="cookStatus">部品を2つ</span></div><div id="bench" class="bench"></div><button id="cook" class="cook" disabled>加工する</button><div class="progress"><i></i></div></div><div class="station output"><div class="stationhead"><span>加工できた文字</span><button id="clearTray" class="tiny">片づける</button></div><div id="tray" class="tray"></div></div></div>
-<div class="pantry"><div class="pantryhead"><span>素材の部品 → 加工台へ</span><span style="font-size:9px;font-weight:500">何度でも使える</span></div><div id="raw" class="ingredients"></div><div class="direct-label">そのまま使える文字 → お皿へ</div><div id="direct" class="ingredients"></div></div>
-<details id="recipeBook" class="recipe-book"><summary>📖 レシピを見る・答えを確認</summary><div id="recipeContent" class="recipe-content"></div></details><p class="caption">置き間違えた文字や部品は、もう一度タップで戻せます。完成しても、お客さんへ出す前なら直せます。</p></section>
+<div class="service"><div id="dish" class="dish"><div id="dishTitle" class="dish-title">文字を順番に盛りつけよう</div><div id="plate" class="plate" aria-label="県名を盛りつけるお皿"></div><div id="dishName" class="dish-name"></div></div><button id="serve" class="primary serve" disabled>県名を完成</button></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="stations"><div id="cookStation" class="station"><div class="stationhead"><span>② 加工する</span><span id="cookStatus">部品を2つ</span></div><div id="bench" class="bench"></div><div id="cook" class="cook" role="status">部品2つで自動加工</div><div class="progress"><i></i></div></div><div class="station output"><div class="stationhead"><span>できた文字 → お皿</span><button id="clearTray" class="tiny">片づける</button></div><div id="tray" class="tray"></div></div></div>
+<div class="pantry"><div class="raw-shelf"><div class="pantryhead"><span>① 部品 → 加工台へ</span><small>何度でも使える</small></div><div id="raw" class="ingredients"></div></div><div class="direct-shelf"><div class="direct-label">お皿へ ↓</div><div id="direct" class="ingredients"></div></div></div>
+</section>
 <section id="result" class="panel result hidden"><div class="tag">THANK YOU, CHEF!</div><h1>5人とも、いただきます！</h1><div id="earned" class="resultnum">＋50</div><p style="margin:0">コイン獲得</p><span id="newStamps" class="stamp"></span><div id="servedList" class="resultlist"></div><p id="resultCoins"></p><button id="again" class="primary">次の5人を迎える →</button><button id="back" class="secondary">お店の入口へ</button></section>
-<div class="footer"><a href="./">都道府県ソリティアへ</a> · 文字を作って、お客さんを笑顔に。</div></main>
+<div class="footer"><a href="./">都道府県ソリティアへ</a> · 文字を作って、お客さんを笑顔に。</div></main><dialog id="infoDialog" class="info-dialog" aria-labelledby="infoTitle"><div class="dialog-head"><h2 id="infoTitle">レシピ</h2><button id="closeInfo" class="small">閉じる ×</button></div><div id="recipePane"><div id="recipeContent" class="recipe-content"></div><p class="modal-help">部品を2つ押すと自動加工。文字が揃えば県名も自動完成。タップで戻せます。</p></div><div id="collectionPane" class="hidden"><div id="collection" class="booklist"></div></div></dialog>
 <script>
 'use strict';
 const RECIPES=[
@@ -23,26 +80,26 @@ const RECIPES=[
 {out:'庫',parts:['广','車']}
 ];
 const ORDERS=[
-{base:'青森',suffix:'県',q:'弘前城がある県をください！'},
-{base:'秋田',suffix:'県',q:'なまはげで知られる県をください！'},
-{base:'北海',suffix:'道',q:'宗谷岬がある都道府県をください！'},
-{base:'岩手',suffix:'県',q:'中尊寺の金色堂がある県をください！'},
-{base:'埼玉',suffix:'県',q:'川越の「時の鐘」がある県をください！'},
-{base:'神奈川',suffix:'県',q:'鎌倉の大仏がある県をください！'},
-{base:'宮城',suffix:'県',q:'日本三景の松島がある県をください！'},
-{base:'福島',suffix:'県',q:'会津の大内宿がある県をください！'},
-{base:'山梨',suffix:'県',q:'富士五湖がある県をください！'},
-{base:'長野',suffix:'県',q:'善光寺がある県をください！'},
-{base:'静岡',suffix:'県',q:'三保松原がある県をください！'},
-{base:'愛知',suffix:'県',q:'金のしゃちほこの名古屋城がある県をください！'},
-{base:'大阪',suffix:'府',q:'道頓堀がある都道府県をください！'},
-{base:'島根',suffix:'県',q:'出雲大社がある県をください！'},
-{base:'香川',suffix:'県',q:'讃岐うどんで知られる県をください！'},
-{base:'長崎',suffix:'県',q:'グラバー園がある県をください！'},
-{base:'奈良',suffix:'県',q:'東大寺の大仏がある県をください！'},
-{base:'和歌山',suffix:'県',q:'高野山がある県をください！'},
-{base:'佐賀',suffix:'県',q:'吉野ヶ里遺跡がある県をください！'},
-{base:'兵庫',suffix:'県',q:'世界遺産の姫路城がある県をください！'}
+{base:'青森',suffix:'県',q:'弘前城がある県は？'},
+{base:'秋田',suffix:'県',q:'なまはげで知られる県は？'},
+{base:'北海',suffix:'道',q:'宗谷岬がある都道府県は？'},
+{base:'岩手',suffix:'県',q:'中尊寺の金色堂がある県は？'},
+{base:'埼玉',suffix:'県',q:'川越の「時の鐘」がある県は？'},
+{base:'神奈川',suffix:'県',q:'鎌倉の大仏がある県は？'},
+{base:'宮城',suffix:'県',q:'日本三景の松島がある県は？'},
+{base:'福島',suffix:'県',q:'会津の大内宿がある県は？'},
+{base:'山梨',suffix:'県',q:'富士五湖がある県は？'},
+{base:'長野',suffix:'県',q:'善光寺がある県は？'},
+{base:'静岡',suffix:'県',q:'三保松原がある県は？'},
+{base:'愛知',suffix:'県',q:'名古屋城がある県は？'},
+{base:'大阪',suffix:'府',q:'道頓堀がある都道府県は？'},
+{base:'島根',suffix:'県',q:'出雲大社がある県は？'},
+{base:'香川',suffix:'県',q:'讃岐うどんで知られる県は？'},
+{base:'長崎',suffix:'県',q:'グラバー園がある県は？'},
+{base:'奈良',suffix:'県',q:'東大寺の大仏がある県は？'},
+{base:'和歌山',suffix:'県',q:'高野山がある県は？'},
+{base:'佐賀',suffix:'県',q:'吉野ヶ里遺跡がある県は？'},
+{base:'兵庫',suffix:'県',q:'世界遺産の姫路城がある県は？'}
 ];
 const KEY='kanji-kitchen-profile-v1',AVATARS=['🐱','🐶','🐰','🐼','🐻'];
 const $=id=>document.getElementById(id);
@@ -67,7 +124,7 @@ function tone(freqs,volume=.12){
  if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
 }
 let state='home',round=null,order=null,epoch=0,cookTimer=null,serveTimer=null,notice='',warning=false;
-function show(id){['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
+function show(id){closeInfo(false);document.body.dataset.screen=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function message(text,warn=false){notice=text;warning=warn;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
 function button(text,cls,handler,label){const b=document.createElement('button');b.type='button';b.textContent=text;b.className=cls;b.onclick=handler;if(label)b.setAttribute('aria-label',label);return b;}
 function target(){return ORDERS[round.queue[round.index]];}
@@ -85,8 +142,8 @@ function beginOrder(){
  cancelJobs();const t=target(),plan=planFor(t.base);
  const required=[...new Set(plan.raw)],decoys=shuffle(['入','八','口','日','土','木','山','火','人'].filter(c=>!required.includes(c))).slice(0,2);
  order={bench:[],tray:[],plate:[],cooking:false,finished:false,status:'working',nextId:1,raw:shuffle([...required,...decoys]),direct:[...new Set(plan.direct)],plan};
- $('recipeBook').open=round.index===0&&profile.collection.length===0;
- message(round.index===0?'部品を2つ選んで加工しよう。レシピも見られます。':'ご注文です。次の県名を作ろう！');render();
+ closeInfo(false);
+ message(round.index===0?'部品をポンポン2つ押してみよう！':'ご注文です。次の県名を作ろう！');render();
 }
 function start(){
  cancelJobs();prepareAudio();round={queue:makeQueue(),index:0,coins:0,served:[],newStamps:0};state='playing';show('game');beginOrder();
@@ -99,39 +156,41 @@ function render(){
  $('customerLabel').textContent=order.status==='served'?'ごちそうさまでした！':'ご注文です！';
  $('orderText').textContent=order.status==='served'?'ありがとう！ ＋10コイン':t.q;$('orderText').classList.toggle('thanks',order.status==='served');
  $('dish').classList.toggle('finished',order.finished);
- $('dishTitle').textContent=order.finished?'できあがり！ お客さんに渡そう':'文字を順番に盛りつけよう';
+ $('dishTitle').textContent=order.finished?'③ お客さんへどうぞ！':'③ お皿に盛りつける';
  const plate=$('plate');plate.replaceChildren();
  for(let i=0;i<t.base.length;i++){const item=order.plate[i],b=button(item?item.char:'・','tile'+(item?' ready':' blank'),()=>removePlate(i),item?item.char+'を戻す':'県名の'+(i+1)+'文字目');b.disabled=!active||!item;plate.appendChild(b);}
  const suffix=document.createElement('span');suffix.className='suffix';suffix.textContent=t.suffix;plate.appendChild(suffix);
  $('dishName').textContent=order.finished?t.base+t.suffix+' 完成！':'';
- $('serve').textContent=order.status==='served'?'いただきます！':order.finished?'お客さんに出す →':'県名を完成させる';
- $('serve').classList.toggle('green',order.finished);$('serve').disabled=!active||(!order.finished&&order.plate.length!==t.base.length);
- const station=$('cookStation');station.classList.toggle('busy',order.cooking);$('cookStatus').textContent=order.cooking?'加工中…':'部品を2つ';
+ $('serve').textContent=order.status==='served'?'いただきます！':order.finished?'どうぞ！ →':'文字をそろえよう';
+ $('serve').classList.toggle('green',order.finished);$('serve').disabled=!active||!order.finished;
+ const station=$('cookStation');station.classList.toggle('busy',order.cooking);$('cookStatus').textContent='ポンポン選ぼう';
  const bench=$('bench');bench.replaceChildren();
  for(let i=0;i<2;i++){if(i){const plus=document.createElement('span');plus.className='plus';plus.textContent='＋';bench.appendChild(plus);}const item=order.bench[i],b=button(item?item.char:'・','tile'+(item?'':' blank'),()=>removeBench(i),item?item.char+'を加工台から戻す':'加工する部品');b.disabled=!active||order.cooking||!item;bench.appendChild(b);}
- $('cook').textContent=order.cooking?'🍳 加工中…':'加工する';$('cook').disabled=!active||order.cooking||order.bench.length!==2;
+ $('cook').textContent=order.bench.length===2?'組合せを見直そう':'部品2つで自動加工';
  const tray=$('tray');tray.replaceChildren();
- if(!order.tray.length){const empty=document.createElement('div');empty.className='tray-empty';empty.textContent='できた文字がここへ。タップで次の工程！';tray.appendChild(empty);}
+ if(!order.tray.length){const empty=document.createElement('div');empty.className='tray-empty';empty.textContent='できた文字をタップで、お皿へ。';tray.appendChild(empty);}
  order.tray.forEach((item,index)=>{const intermediate=!t.base.includes(item.char)&&order.plan.steps.some(r=>r.parts.includes(item.char)),b=button('','prepared',()=>usePrepared(index),item.char+(intermediate?'をもう一度加工する':'をお皿へ'));
- const char=document.createElement('b');char.textContent=item.char;const route=document.createElement('small');route.textContent=intermediate?'もうひと手間':'お皿へ';b.appendChild(char);b.appendChild(route);b.disabled=!active;tray.appendChild(b);});
+ const char=document.createElement('b');char.textContent=item.char;const route=document.createElement('small');route.textContent=intermediate?'再加工':'お皿へ';b.appendChild(char);b.appendChild(route);b.disabled=!active;tray.appendChild(b);});
  $('clearTray').disabled=!active||!order.tray.length;
- const raw=$('raw');raw.replaceChildren();order.raw.forEach(char=>{const b=button(char,'ingredient',()=>addRaw(char),char+'を加工台へ');b.disabled=!active||order.cooking;raw.appendChild(b);});
+ const raw=$('raw');raw.style.setProperty('--count',String(order.raw.length));raw.replaceChildren();order.raw.forEach(char=>{const b=button(char,'ingredient',()=>addRaw(char),char+'を加工台へ');b.disabled=!active||order.cooking;raw.appendChild(b);});
  const direct=$('direct');direct.replaceChildren();order.direct.forEach(char=>{const b=button(char,'ingredient direct',()=>addDirect(char),char+'をそのままお皿へ');b.disabled=!active;direct.appendChild(b);});
- if(!order.direct.length){const empty=document.createElement('span');empty.className='none';empty.textContent='今回は、すべて加工して作ろう。';direct.appendChild(empty);}
+ if(!order.direct.length){const empty=document.createElement('span');empty.className='none';empty.textContent='すべて加工';direct.appendChild(empty);}
  const recipe=$('recipeContent');recipe.replaceChildren();const answer=document.createElement('div');answer.textContent='注文の答え：'+t.base+t.suffix;recipe.appendChild(answer);
  order.plan.steps.forEach(r=>{const line=document.createElement('span');line.className='formula';line.textContent=r.parts.join(' ＋ ')+' → '+r.out;recipe.appendChild(line);});
  const final=document.createElement('b');final.textContent=[...t.base].join(' ＋ ')+' → '+t.base+t.suffix;recipe.appendChild(final);
  $('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
 }
 function addRaw(char){
- if(!canAct()||order.cooking||!order.raw.includes(char))return;
- if(order.bench.length>=2){message('加工台がいっぱい。部品をタップすると戻せます。',true);return;}
- order.bench.push({char,origin:'shelf'});message(order.bench.length===2?'2つ揃いました。「加工する」を押そう。':'もう1つ部品を選んで、加工しよう。');tone([430],.025);render();
+ if(!canAct()||!order.raw.includes(char))return;
+ if(order.bench.length>=2){message('加工台は2つまで。部品をタップで戻せます。',true);return;}
+ order.bench.push({char,origin:'shelf'});
+ if(order.bench.length===2){cook();return;}
+ message('もう1つ押すと、自動で加工！');tone([430],.025);render();
 }
 function addDirect(char){
  if(!canAct()||!order.direct.includes(char))return;
  if(order.plate.length>=target().base.length){message('お皿がいっぱい。文字をタップして戻せます。',true);return;}
- order.plate.push({char,origin:'shelf'});order.finished=false;message('「'+char+'」を盛りつけました。');tone([530],.025);render();
+ order.plate.push({char,origin:'shelf'});order.finished=false;message('「'+char+'」を盛りつけました。');tone([530],.025);autoFinishDish();render();
 }
 function removeBench(index){
  if(!canAct()||order.cooking||!order.bench[index])return;
@@ -140,35 +199,37 @@ function removeBench(index){
 }
 function removePlate(index){
  if(!canAct()||!order.plate[index])return;
- const item=order.plate[index];if(item.origin==='tray'&&order.tray.length>=6){message('加工した文字の棚がいっぱい。「片づける」で空けられます。',true);return;}
+ const item=order.plate[index];if(item.origin==='tray'&&order.tray.length>=6){message('棚がいっぱい。「片づける」で空けよう。',true);return;}
  order.plate.splice(index,1);if(item.origin==='tray')order.tray.push({id:item.id,char:item.char});order.finished=false;message('文字を戻しました。順番を選び直せます。');render();
 }
 function cook(){
- if(!canAct()||order.cooking||order.bench.length!==2)return;
+ if(!canAct()||order.bench.length!==2)return;
  const recipe=findRecipe(order.bench.map(item=>item.char));
- if(!recipe){message('この2つでは文字にならないみたい。レシピを見て選び直そう。',true);return;}
- if(order.tray.length>=6){message('加工した文字の棚がいっぱい。使うか「片づける」で空けよう。',true);return;}
- order.cooking=true;const token=epoch;message('じっくり加工中…');tone([280,350,430],.04);render();
- cookTimer=setTimeout(()=>{
-  if(token!==epoch||state!=='playing'||!order||order.status!=='working')return;
-  order.cooking=false;order.bench=[];order.tray.push({id:order.nextId++,char:recipe.out});
-  message('「'+recipe.out+'」ができました！ 棚の文字をタップしよう。');tone([710],.06);render();
- },1100);
+ if(!recipe){message('この組合せは作れません。タップで戻して選び直そう。',true);render();return;}
+ if(order.tray.length>=6){message('棚がいっぱい。文字を使うか「片づける」で空けよう。',true);render();return;}
+ order.bench=[];order.tray.push({id:order.nextId++,char:recipe.out});
+ message('「'+recipe.out+'」のできあがり！');tone([650],.045);
+ $('cookStation').classList.remove('made');void $('cookStation').offsetWidth;$('cookStation').classList.add('made');render();
+}
+function autoFinishDish(){
+ if(order.plate.length!==target().base.length)return false;
+ if(order.plate.map(item=>item.char).join('')!==target().base){message('文字の順番を見直そう。タップで戻せます。',true);return false;}
+ finishDish();return true;
 }
 function usePrepared(index){
  if(!canAct()||!order.tray[index])return;const item=order.tray[index],t=target(),intermediate=!t.base.includes(item.char)&&order.plan.steps.some(r=>r.parts.includes(item.char));
  if(intermediate){
   if(order.cooking||order.bench.length>=2){message('加工台を空けてから、もうひと手間加えよう。',true);return;}
-  order.tray.splice(index,1);order.bench.push({char:item.char,id:item.id,origin:'tray'});message(order.bench.length===2?'2つ揃いました。「加工する」を押そう。':'「'+item.char+'」を加工台へ。もう1つ部品を足そう。');
+  order.tray.splice(index,1);order.bench.push({char:item.char,id:item.id,origin:'tray'});if(order.bench.length===2){cook();return;}message('「'+item.char+'」を加工台へ。もう1つ押そう！');
  }else{
   if(order.plate.length>=t.base.length){message('お皿がいっぱい。文字をタップして戻せます。',true);return;}
-  order.tray.splice(index,1);order.plate.push({char:item.char,id:item.id,origin:'tray'});order.finished=false;message('「'+item.char+'」を盛りつけました。');
+  order.tray.splice(index,1);order.plate.push({char:item.char,id:item.id,origin:'tray'});order.finished=false;message('「'+item.char+'」を盛りつけました。');tone([570],.025);autoFinishDish();
  }
  render();
 }
 function finishDish(){
  if(!canAct()||order.finished)return;
- if(order.plate.map(item=>item.char).join('')!==target().base){message('注文の答えと違うみたい。文字や順番を見直してみよう。',true);return;}
+ if(order.plate.map(item=>item.char).join('')!==target().base){message('文字や順番を見直そう。レシピも見られます。',true);return;}
  order.finished=true;message(target().base+target().suffix+'、できあがり！ お客さんに出そう。');tone([740,990],.07);render();
 }
 function serve(){
@@ -180,7 +241,7 @@ function serve(){
  const token=epoch;serveTimer=setTimeout(()=>{
   if(token!==epoch||state!=='playing')return;
   if(round.index===4){endRound();return;}round.index++;beginOrder();
- },1100);
+ },400);
 }
 function endRound(){
  cancelJobs();state='result';show('result');$('earned').textContent='＋'+round.coins;$('newStamps').textContent='新しい県名スタンプ '+round.newStamps+'個';
@@ -188,9 +249,28 @@ function endRound(){
  updateHome();tone([660,880,1046],.09);$('again').focus();
 }
 $('start').onclick=start;$('again').onclick=start;$('back').onclick=()=>{cancelJobs();state='home';updateHome();show('home');};
-$('cook').onclick=cook;$('serve').onclick=()=>{if(order?.finished)serve();else finishDish();};
-$('clearTray').onclick=()=>{if(!canAct())return;order.tray=[];message('加工した文字の棚を片づけました。素材は何度でも使えます。');render();};
-$('recipeHint').onclick=()=>{$('recipeBook').open=!$('recipeBook').open;if($('recipeBook').open)$('recipeBook').scrollIntoView?.({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});};
+$('serve').onclick=serve;
+$('clearTray').onclick=()=>{if(!canAct())return;order.tray=[];message('棚を片づけました。素材は何度でも使えます。');if(order.bench.length===2)cook();else render();};
+$('recipeHint').onclick=()=>openInfo('recipe');
+$('collectionButton').onclick=()=>openInfo('collection');
+$('closeInfo').onclick=()=>closeInfo();
+$('infoDialog').addEventListener('click',e=>{if(e.target===$('infoDialog'))closeInfo();});
 $('sound').onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('kenken-sound',soundOn?'on':'off');}catch(_){}updateSound();if(soundOn)tone([880,660]);};
-updateHome();updateSound();
+function openInfo(kind){
+ const dialog=$('infoDialog');$('infoTitle').textContent=kind==='recipe'?'📖 注文のレシピ':'県名スタンプ';
+ $('recipePane').classList.toggle('hidden',kind!=='recipe');$('collectionPane').classList.toggle('hidden',kind!=='collection');
+ if(!dialog.open){if(dialog.showModal)dialog.showModal();else dialog.setAttribute('open','');}
+ $('closeInfo').focus();
+}
+function closeInfo(focus=true){
+ const dialog=$('infoDialog');if(!dialog?.open)return;
+ if(dialog.close)dialog.close();else dialog.removeAttribute('open');
+ if(focus)(state==='playing'?$('recipeHint'):$('collectionButton')).focus();
+}
+function fitViewport(){
+ const height=Math.round(window.visualViewport?.height||window.innerHeight||600);
+ document.documentElement.style.setProperty('--view-height',height+'px');
+}
+window.addEventListener?.('resize',fitViewport);window.visualViewport?.addEventListener('resize',fitViewport);
+fitViewport();show('home');updateHome();updateSound();
 </script></body></html>
