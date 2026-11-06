@@ -15,8 +15,12 @@
 @media(max-height:650px){#game{grid-template-rows:16px 67px 54px 25px 114px minmax(105px,1fr) 24px}.work{grid-template-rows:13px 33px 10px minmax(28px,1fr);gap:3px}.job{padding:3px;gap:3px}.job img{width:25px;height:25px}.job small,.job .remaining{font-size:7px}.jobs{gap:4px}.pile .picture-card{grid-template-rows:minmax(0,1fr) 15px}.pile .picture-card span{font-size:8px}}
 @media(max-height:510px){#game{grid-template-rows:15px 60px 49px 23px 108px minmax(92px,1fr) 22px}.work{grid-template-rows:12px 32px 10px minmax(26px,1fr);gap:3px}.gallery.piles{padding:5px;gap:5px}.pile .picture-card span{font-size:7px}.top-badge{font-size:6px;padding:1px 3px}}
 @media(orientation:landscape) and (min-width:650px) and (max-height:510px){#game{grid-template-rows:16px 60px 52px minmax(108px,1fr) 24px}}
-.guest{cursor:default}.guest .mini-ticket{font-size:8px;white-space:nowrap}.auto-status{font-size:11px;line-height:1.7;color:#659b75;text-align:center;background:#eaf4e0;border:1px dashed #a7c49c;border-radius:10px;padding:9px 4px}.draft .auto-letter{display:grid;place-items:center;width:32px;height:32px;font-size:23px;font-weight:800;border:1px solid #d8c58e;background:#fffdf1;border-radius:6px;box-shadow:0 2px 0 #e6d9aa;color:#536b4f}.draft .auto-letter.blank{border-style:dashed;color:#ddcf9f;box-shadow:none}.stock-letter{display:grid;place-items:center;cursor:default}.guest.active{animation:preparing 1.4s ease-in-out infinite alternate}@keyframes preparing{to{border-color:#b4c597;background:#f4f6e4}}@media(max-height:650px){.guest .mini-ticket{font-size:7px}.auto-status{font-size:10px;padding:6px 3px}.draft .auto-letter{width:29px;height:28px;font-size:21px}}@media(max-height:510px){.guest .mini-ticket{font-size:6px}.draft .auto-letter{width:27px;height:26px;font-size:20px}.auto-status{font-size:9px}}@media(prefers-reduced-motion:reduce){.guest.active{animation:none}}</style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>旅の絵を見つけて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>3人の旅行客に、ぴったりの行き先を提案。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 各列の一番上の絵を取る<br>② 3秒で文字に。待つ間は別の旅の準備<br>③ 組合せが揃うと自動でチケットをお届け<br>文字の棚は6文字まで。変換台は2つ。<br>旅の制限時間はありません。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
+.guest{cursor:default}.guest .mini-ticket{font-size:8px;white-space:nowrap}.auto-status{font-size:11px;line-height:1.7;color:#659b75;text-align:center;background:#eaf4e0;border:1px dashed #a7c49c;border-radius:10px;padding:9px 4px}.draft .auto-letter{display:grid;place-items:center;width:32px;height:32px;font-size:23px;font-weight:800;border:1px solid #d8c58e;background:#fffdf1;border-radius:6px;box-shadow:0 2px 0 #e6d9aa;color:#536b4f}.draft .auto-letter.blank{border-style:dashed;color:#ddcf9f;box-shadow:none}.stock-letter{display:grid;place-items:center;cursor:default}.guest.active{animation:preparing 1.4s ease-in-out infinite alternate}@keyframes preparing{to{border-color:#b4c597;background:#f4f6e4}}@media(max-height:650px){.guest .mini-ticket{font-size:7px}.auto-status{font-size:10px;padding:6px 3px}.draft .auto-letter{width:29px;height:28px;font-size:21px}}@media(max-height:510px){.guest .mini-ticket{font-size:6px}.draft .auto-letter{width:27px;height:26px;font-size:20px}.auto-status{font-size:9px}}@media(prefers-reduced-motion:reduce){.guest.active{animation:none}}
+.guest{gap:2px;padding:3px}.guest .avatar{font-size:17px}.guest .wish.picture-order{display:flex;gap:3px;justify-content:center;height:39px;width:100%}.order-art{height:100%;width:43px;position:relative;background:white;border:1px solid #d8deca;border-radius:6px;overflow:hidden}.order-art img{width:100%;height:100%;object-fit:contain}.order-art.ready{border:2px solid #54a879;background:#e4f3dc}.order-art b{position:absolute;right:0;bottom:0;color:white;background:#54a879;border-radius:6px;padding:0 3px}.guest .mini-ticket{width:90%;text-align:center;line-height:1.1;font-size:7px}.patience{display:block;height:3px;border-radius:3px;background:#e1dfcc;overflow:hidden;margin-bottom:2px}.patience i{display:block;width:100%;height:100%;background:#73b482}.guest.urgent .patience i{background:#e49a54}.guest.urgent{border-color:#dcaa6a}.second-stop{font-size:11px!important}.ticket-content{min-width:0}.draft{gap:3px}
+@media(max-height:650px){.guest .wish.picture-order{height:29px}.guest .avatar{font-size:14px}.order-art{width:33px}.guest .mini-ticket{font-size:6px}.ticket-photo{width:23px}.second-stop{font-size:9px!important}}
+@media(max-height:510px){.guest .wish.picture-order{height:25px}.guest .avatar{font-size:12px}.order-art{width:29px}.draft .auto-letter{width:22px;font-size:17px}.ticket-area{grid-template-columns:minmax(0,1fr) 105px}}
+</style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>旅の絵を見つけて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>絵の注文に合うパンフレットを揃えよう。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 各列の一番上の絵を取る<br>② 3秒で文字に。待つ間は別の旅の準備<br>③ パンフレットを全部揃えて自動でお届け<br>文字の棚は6文字まで。変換台は2つ。<br>絵が2枚の注文も！ 早く揃えるとチップが増えます。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
 <section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> / 5人</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。合う旅を自動で案内"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div class="ticket-content"><img id="ticketPhoto" class="ticket-photo hidden" alt=""><div id="draft" class="draft" aria-label="作っている行き先"></div></div></div><div id="offer" class="auto-status" role="status">揃うと自動で<br>チケットをお届け ✈️</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 <div class="work"><div class="work-head"><span id="stockInfo">文字 0 / 6</span><button id="nature" class="supply-button">自然の素材</button></div><div id="jobs" class="jobs" aria-label="3秒で文字に変える2つの変換台"></div><div class="inventory-label"><span>組合せが揃うと自動でチケットに</span><button id="moreLetters" class="letter-page hidden">ほかの文字</button></div><div id="letters" class="letters" aria-label="3人で共通の文字の棚"></div></div>
 <div id="scene" class="scene gallery piles" aria-label="3列に重なった旅の絵。一番上だけ使えます"></div>
@@ -50,17 +54,18 @@ const DESTINATIONS=[
 {id:'nara',base:'奈良',suffix:'県',tags:['deer','forest'],plan:'奈良公園の鹿',recipe:'鹿の絵 → 奈 ＋ 良'}
 ];
 const STOCK_LIMIT=6,WORK_MS=3000,WORK_SLOTS=2;
-const AVATARS=['🐱','🐰','🐶','🐼','🐻'],KEY='kotoba-travel-agency-v1';
+const AVATARS=['🐱','🐰','🐶','🐼','🐻'],KEY='kotoba-travel-picture-orders-v2';
 const $=id=>document.getElementById(id),clone=x=>JSON.parse(JSON.stringify(x));
 let profile={coins:0,visited:[]},g=null,history=[],state='home',soundOn=true,audio=null,notice='',warning=false,letterPage=0,pendingSource=null,jobLast=0,migrationColumns=null;
 function destination(id){return DESTINATIONS.find(d=>d.id===id);}
 function matchDestination(draft){return DESTINATIONS.find(d=>d.base===draft.join(''));}
 function sight(id){return SIGHTS.find(s=>s.id===id);}
 function experienceFor(guest,d){const required=WISHES[guest.wish].sight;return SIGHTS.find(s=>(required?s.id===required:s.activities.includes(guest.wish))&&s.destinations.includes(d.id)&&g.experiences[s.id+':'+d.id]>0);}
+const ORDER_SETS=[['apples'],['yufuin'],['takachiho'],['fuji','deer'],['apples','yufuin']];
+function wishes(v){return v.orders||[v.wish];}
+function remaining(v){return wishes(v).filter((_,i)=>!v.brochures?.[i]);}
 function makeColumns(){
- const columns=shuffle(['apples','yufuin','takachiho']).map((id,index)=>[{uid:index+1,sight:id}]);let next=4;
- for(const id of ['fuji','deer']){const min=Math.min(...columns.map(c=>c.length)),options=columns.map((c,i)=>c.length===min?i:-1).filter(i=>i>=0);columns[options[Math.floor(Math.random()*options.length)]].push({uid:next++,sight:id});}
- while(columns.flat().length<7){const min=Math.min(...columns.map(c=>c.length)),choices=columns.map((c,i)=>c.length===min?i:-1).filter(i=>i>=0);columns[choices[Math.floor(Math.random()*choices.length)]].push({uid:next++,sight:SIGHTS[Math.floor(Math.random()*SIGHTS.length)].id});}
+ const columns=[[],[],[]];let uid=1;const route=['apples','yufuin','takachiho','fuji','deer','apples','yufuin'];for(let i=0;i<route.length;i++)columns[i%3].push({uid:uid++,sight:route[i]});
  return columns;
 }
 function normaliseGame(s){
@@ -82,7 +87,7 @@ function validGame(s){
   const live=s.guests.filter(Boolean);
   if(live.length+s.served.length!==s.arrived||live.length&& !s.guests[s.selected]||!live.length&&s.served.length!==5)return false;
   if(!live.every(v=>Number.isInteger(v.id)&&v.id>=1&&v.id<s.nextId&&WISHES[v.wish]&&Array.isArray(v.draft)&&v.draft.length<=2&&v.draft.every(c=>LETTERS.includes(c))&&(!v.plan||destination(v.plan))))return false;
-  if(!s.served.every(v=>Number.isInteger(v.guestId)&&v.guestId>=1&&v.guestId<s.nextId&&WISHES[v.wish]&&destination(v.destination)?.tags.includes(v.wish)&&(v.reward===10||v.reward===15)))return false;
+  if(!s.served.every(v=>Number.isInteger(v.guestId)&&v.guestId>=1&&v.guestId<s.nextId&&WISHES[v.wish]&&destination(v.destination)?.tags.includes(v.wish)&&Number.isInteger(v.reward)&&v.reward>=10&&v.reward<=40))return false;
   if(new Set([...live.map(v=>v.id),...s.served.map(v=>v.guestId)]).size!==s.arrived||s.earned!==s.served.reduce((n,v)=>n+v.reward,0))return false;
   const counts=(x,keys)=>x&&Object.keys(x).every(k=>keys.includes(k)&&Number.isInteger(x[k])&&x[k]>=0&&x[k]<=999);
   if(!Array.isArray(s.columns)||s.columns.length!==3||!s.columns.every(c=>Array.isArray(c)&&c.every(v=>Number.isInteger(v.uid)&&v.uid>0&&sight(v.sight)))||!Array.isArray(s.jobs)||s.jobs.length>2||!Number.isInteger(s.nextJob))return false;
@@ -100,9 +105,9 @@ try{
  soundOn=localStorage.getItem('kenken-sound')!=='off';
 }catch(_){}
 function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
-function newGuest(index){return {id:index+1,wish:g.queue[index],draft:[],plan:null};}
+function newGuest(index){return {id:index+1,wish:g.queue[index],orders:ORDER_SETS[index],brochures:[],wait:0,draft:[],plan:null};}
 function fresh(){
- g={queue:['apples','yufuin','takachiho','fuji','deer'],guests:[null,null,null],selected:0,raw:{},letters:{},sights:{},experiences:{},served:[],arrived:3,nextId:4,earned:0,columns:makeColumns(),jobs:[],nextJob:1,autoMode:1,lastTrip:null};
+ g={queue:['apples','yufuin','takachiho','fuji','apples'],guests:[null,null,null],selected:0,raw:{},letters:{},sights:{},experiences:{},served:[],arrived:3,nextId:4,earned:0,columns:makeColumns(),jobs:[],nextJob:1,autoMode:1,lastTrip:null};
  g.guests=[newGuest(0),newGuest(1),newGuest(2)];history=[];letterPage=0;jobLast=performance.now();pendingSource=null;
 }
 function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
@@ -125,21 +130,21 @@ function render(){
  $('servedCount').textContent=g.served.length;$('sessionCoins').textContent=g.earned;
  const guests=$('guests');guests.replaceChildren();
  g.guests.forEach((v,index)=>{
-  const preparing=v&&g.jobs.some(j=>j.kind==='picture'&&destination(j.destination).tags.includes(v.wish)&&(!WISHES[v.wish].sight||WISHES[v.wish].sight===j.sight));
+  const preparing=v&&g.jobs.some(j=>j.kind==='picture'&&remaining(v).some(w=>destination(j.destination).tags.includes(w))&&(!WISHES[v.wish].sight||WISHES[v.wish].sight===j.sight));
   const b=document.createElement('div');b.className='guest'+(preparing?' active':'')+(!v?' empty':'');
   if(!v)b.textContent='✈️ 出発しました';
   else{
    const avatar=document.createElement('span');avatar.className='avatar';avatar.textContent=AVATARS[(v.id-1)%AVATARS.length];
-   const wish=document.createElement('span');wish.className='wish';wish.textContent=WISHES[v.wish].label;
-   const mini=document.createElement('span');mini.className='mini-ticket';mini.textContent=preparing?'旅行を準備中':'希望に合う組合せを待っています';
-   b.appendChild(avatar);b.appendChild(wish);b.appendChild(mini);b.setAttribute('aria-label','お客さん'+v.id+'：'+WISHES[v.wish].label);
+   const wish=document.createElement('span');wish.className='wish';wish.classList.add('picture-order');wishes(v).forEach((id,i)=>{const card=document.createElement('span');card.className='order-art'+(v.brochures?.[i]?' ready':'');const art=sight(WISHES[id].sight);if(art){const img=document.createElement('img');img.src=art.image;img.alt=WISHES[id].label;card.appendChild(img);}else card.textContent=WISHES[id].icon;if(v.brochures?.[i]){const check=document.createElement('b');check.textContent='✓';card.appendChild(check);}wish.appendChild(card);});
+   const mini=document.createElement('span');mini.className='mini-ticket';mini.innerHTML='<span class=patience><i></i></span><span class=tip-label></span>'; 
+   b.appendChild(avatar);b.appendChild(wish);b.appendChild(mini);b.dataset.guest=v.id;b.setAttribute('aria-label','お客さん'+v.id+'：'+wishes(v).map(w=>WISHES[w].label).join('と')); 
   }guests.appendChild(b);
  });
  const draft=$('draft');draft.replaceChildren();const trip=g.lastTrip,made=trip?destination(trip.destination):null,photo=trip?.sight?sight(trip.sight):null;
  const photoEl=$('ticketPhoto');photoEl.className='ticket-photo'+(photo?' '+photo.id:' hidden');if(photo){photoEl.src=photo.image;photoEl.alt=photo.name;}else photoEl.removeAttribute('src');
- $('ticketLabel').textContent=made?'お届けしたチケット':'組合せから自動でチケットを作成';
+ $('ticketLabel').textContent=made?'お届けした旅のパンフレット':'絵の注文を揃えて旅へ出発';
  for(let i=0;i<2;i++){const b=document.createElement('span');b.className='auto-letter'+(made?'':' blank');b.textContent=made?made.base[i]:'・';draft.appendChild(b);}
- const suffix=document.createElement('span');suffix.textContent=made?made.suffix:'旅';draft.appendChild(suffix);
+ const suffix=document.createElement('span');suffix.textContent=made?made.suffix:'旅';draft.appendChild(suffix);if(trip?.brochures?.length>1){const more=document.createElement('span');more.className='second-stop';more.textContent='＋'+destination(trip.brochures[1].destination).base;draft.appendChild(more);}
  $('offer').innerHTML=made?'自動でお届け済み<br>いってらっしゃい！':'揃うと自動で<br>お客さんへ ✈️';
  const letters=$('letters');letters.replaceChildren();
  const available=LETTERS.filter(c=>g.letters[c]>0),pages=Math.max(1,Math.ceil(available.length/8));letterPage=Math.min(letterPage,pages-1);
@@ -171,7 +176,7 @@ function render(){
    if(row===0){const badge=document.createElement('div');badge.className='top-badge';badge.textContent='使える';b.appendChild(badge);}pile.appendChild(b);
   });board.appendChild(pile);
  });
- updateJobBars();
+ updateJobBars();updatePatience();
  $('undo').disabled=!history.length;$('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
 }
 function commit(action){
@@ -185,9 +190,10 @@ function updateJobBars(){
   const bar=box.querySelector('.bar i'),time=box.querySelector('.remaining');if(bar)bar.style.width=(100*(1-j.left/WORK_MS))+'%';if(time)time.textContent='あと'+(Math.max(0,j.left)/1000).toFixed(1)+'秒';
  }
 }
+function updatePatience(){if(!g)return;for(const box of $('guests').children){const v=g.guests.find(v=>v?.id===Number(box.dataset.guest));if(!v)continue;const left=Math.max(0,1-(v.wait||0)/45000);box.classList.toggle('urgent',left<.34);const fill=box.querySelector('.patience i');if(fill)fill.style.width=100*left+'%';const text=box.querySelector('.tip-label');if(text)text.textContent=left>.66?'チップ ＋10':left>.33?'チップ ＋5':'ゆっくりでも大丈夫';}}
 function advanceJobs(now,draw=true){
  const delta=Math.max(0,now-jobLast);jobLast=now;
- if(state!=='playing'||!g||!g.jobs.length)return;
+ if(state!=='playing'||!g)return;for(const guest of g.guests.filter(Boolean))guest.wait=(guest.wait||0)+delta;if(draw)updatePatience();if(!g.jobs.length)return;
  for(const j of g.jobs)j.left=Math.max(0,j.left-delta);
  const finished=g.jobs.filter(j=>j.left===0);
  if(finished.length){
@@ -207,7 +213,7 @@ function canStart(count){
 }
 function autoDestination(s){
  const choices=s.destinations.map(destination),waiting=g.guests.filter(Boolean).sort((a,b)=>a.id-b.id);
- for(const guest of waiting){const fitting=choices.filter(d=>d.tags.includes(guest.wish)&&(!WISHES[guest.wish].sight||WISHES[guest.wish].sight===s.id));if(fitting.length){fitting.sort((a,b)=>Number(profile.visited.includes(a.id))-Number(profile.visited.includes(b.id)));return fitting[0].id;}}
+ for(const guest of waiting){const fitting=choices.filter(d=>remaining(guest).some(w=>d.tags.includes(w)&&(!WISHES[w].sight||WISHES[w].sight===s.id)));if(fitting.length){fitting.sort((a,b)=>Number(profile.visited.includes(a.id))-Number(profile.visited.includes(b.id)));return fitting[0].id;}}
  return choices.find(d=>!profile.visited.includes(d.id))?.id||choices[0].id;
 }
 function takeStack(col){
@@ -279,27 +285,29 @@ function hasLetters(d){
  return Object.entries(needed).every(([char,n])=>(g.letters[char]||0)>=n);
 }
 function autoDispatch(){
- if(state!=='playing'||!g)return 0;let sent=0;const messages=[];
- for(let guard=0;guard<5&&g.served.length<5;guard++){
-  let chosen=null;
-  for(const guest of g.guests.filter(Boolean).sort((a,b)=>a.id-b.id)){
+ if(state!=='playing'||!g)return 0;let sent=0;
+ for(const guest of g.guests.filter(Boolean).sort((a,b)=>a.id-b.id)){
+  guest.brochures ||= [];guest.wait ||= 0;
+  wishes(guest).forEach((wish,index)=>{
+   if(guest.brochures[index])return;
    for(const d of DESTINATIONS){
-    if(!d.tags.includes(guest.wish)||!hasLetters(d))continue;
-    const photo=experienceFor(guest,d);if(WISHES[guest.wish].sight&&!photo)continue;
-    chosen={guest,d,photo};break;
-   }if(chosen)break;
-  }
-  if(!chosen)break;
-  const {guest,d,photo}=chosen,slot=g.guests.findIndex(v=>v?.id===guest.id);
-  for(const char of d.base)g.letters[char]--;if(photo)g.experiences[photo.id+':'+d.id]--;
-  const discovery=!profile.visited.includes(d.id),reward=discovery?15:10;
-  if(discovery)profile.visited.push(d.id);profile.coins+=reward;g.earned+=reward;
-  const record={guestId:guest.id,destination:d.id,wish:guest.wish,reward,sight:photo?.id||null};g.served.push(record);g.lastTrip=record;
+    if(!d.tags.includes(wish)||!hasLetters(d))continue;
+    const photo=experienceFor({wish},d);if(WISHES[wish].sight&&!photo)continue;
+    for(const char of d.base)g.letters[char]--;if(photo)g.experiences[photo.id+':'+d.id]--;
+    guest.brochures[index]={destination:d.id,sight:photo?.id||null};
+    message('📖 '+d.base+'のパンフレット完成！ あと'+remaining(guest).length+'枚');break;
+   }
+  });
+  if(remaining(guest).length)continue;
+  const slot=g.guests.findIndex(v=>v?.id===guest.id),first=guest.brochures[0];
+  const tip=guest.wait<15000?10:guest.wait<30000?5:0,reward=10*wishes(guest).length+tip;
+  for(const trip of guest.brochures)if(!profile.visited.includes(trip.destination))profile.visited.push(trip.destination);
+  profile.coins+=reward;g.earned+=reward;
+  const record={guestId:guest.id,destination:first.destination,wish:guest.wish,reward,sight:first.sight,brochures:clone(guest.brochures),tip};g.served.push(record);g.lastTrip=record;
   if(g.arrived<5){g.guests[slot]=newGuest(g.arrived);g.arrived++;g.nextId=g.arrived+1;}else g.guests[slot]=null;
-  if(!g.guests[g.selected]){const next=g.guests.findIndex(Boolean);g.selected=next<0?0:next;}
-  messages.push(d.base+'へ！「'+WISHES[guest.wish].thanks+'」＋'+reward);sent++;
+  if(!g.guests[g.selected])g.selected=Math.max(0,g.guests.findIndex(Boolean));
+  message('✈️ '+guest.brochures.map(t=>destination(t.destination).base).join('・')+'の旅へ！ ＋'+reward+'コイン（チップ'+tip+'）');tone([880,660]);sent++;
  }
- if(sent){message('✈️ '+messages.join(' ／ ')+'コイン');tone([880,660]);}
  return sent;
 }
 function undo(){
@@ -313,7 +321,7 @@ function resume(){if(!g||g.served.length===5)return;prepareAudio();state='playin
 function goHome(){advanceJobs(performance.now(),false);persist();state='home';updateHome();show('home');}
 function finish(){
  state='result';show('result');$('earned').textContent='＋'+g.earned;
- $('servedList').replaceChildren();g.served.forEach(v=>{const d=destination(v.destination),stamp=document.createElement('div');stamp.className='trip-stamp';if(v.sight){const s=sight(v.sight),img=document.createElement('img');img.src=s.image;img.alt=s.name;img.className=s.id;stamp.appendChild(img);}const label=document.createElement('span');label.textContent=d.base+d.suffix;stamp.appendChild(label);$('servedList').appendChild(stamp);});
+ $('servedList').replaceChildren();g.served.forEach(v=>{const d=destination(v.destination),stamp=document.createElement('div');stamp.className='trip-stamp';if(v.sight){const s=sight(v.sight),img=document.createElement('img');img.src=s.image;img.alt=s.name;img.className=s.id;stamp.appendChild(img);}const label=document.createElement('span');label.textContent=(v.brochures||[{destination:d.id}]).map(t=>destination(t.destination).base).join('・')+'の旅';stamp.appendChild(label);$('servedList').appendChild(stamp);});
  $('resultDetail').textContent='ご案内した行き先 '+profile.visited.length+' / '+DESTINATIONS.length+'か所 · 累計 '+profile.coins+'コイン';
  updateHome();tone([660,880,1046],.07);$('again').focus();
 }
@@ -347,8 +355,8 @@ function openDialog(kind,arg){
   const nav=document.createElement('div');nav.className='book-nav';const prev=button('← 前へ','',()=>openDialog('plans',0));prev.disabled=page===0;const count=document.createElement('span');count.textContent=(page+1)+' / 2';const next=button('次へ →','',()=>openDialog('plans',1));next.disabled=page===1;nav.appendChild(prev);nav.appendChild(count);nav.appendChild(next);body.appendChild(nav);
   const note=document.createElement('p');note.className='hintline';note.textContent='りんご園は青森・長野、富士山は山梨・静岡。一番上の絵を取り、3秒で行き先の文字を作ります。自然素材で作る旅先も選べます。';body.appendChild(note);
  }else{
-  const copy=document.createElement('p');copy.className='modal-copy';copy.textContent='①下の一番上の絵を取り、3秒で行き先の文字を作ります。②文字をチケットに置く。③旅行を提案。完成すると絵が添えられます。お客さんの希望に合う旅を提案しよう。りんご園や富士山の行き先も、お客さんの希望に合わせて自動で選びます。';body.appendChild(copy);
-  const note=document.createElement('p');note.className='modal-copy';note.textContent='文字の棚は6文字まで。変換中の文字の分も確保します。文字を置いたり提案ボタンを押す必要はありません。素材選びと棚の空き具合に集中できます。「1手戻す」や途中保存も使えます。時間制限なし、5人出発したら一区切り。';body.appendChild(note);
+  const copy=document.createElement('p');copy.className='modal-copy';copy.textContent='①下の一番上の絵を取り、3秒で行き先の文字を作ります。②文字が揃うとパンフレットが完成し、注文の絵にチェックが付きます。③絵が2枚の注文は、両方揃うと自動でお届け。りんご園や富士山の行き先も、お客さんの希望に合わせて自動で選びます。';body.appendChild(copy);
+  const note=document.createElement('p');note.className='modal-copy';note.textContent='文字の棚は6文字まで。変換中の文字の分も確保します。文字を置いたり提案ボタンを押す必要はありません。素材選びと棚の空き具合に集中できます。「1手戻す」や途中保存も使えます。15秒以内のお届けでチップ10、30秒以内で5。それ以降もお客さんは待ってくれます。5人出発したら一区切り。';body.appendChild(note);
  }
  const d=$('dialog');if(!d.open){if(d.showModal)d.showModal();else d.setAttribute('open','');}$('closeDialog').focus();
 }
