@@ -1,12 +1,12 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f0df"><title>都道府県ソリティア｜47都道府県を片づける</title><style>
 :root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#3d382c;background:#f7f0df}*{box-sizing:border-box}body{margin:0;padding:15px 11px;min-height:100svh;display:grid;place-items:center}button{font:inherit;touch-action:manipulation;cursor:pointer;color:inherit}button:disabled{cursor:default}button:focus-visible,summary:focus-visible{outline:3px solid #2268c7;outline-offset:3px}.app{width:min(100%,510px)}header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 4px 13px}.brand{font-size:18px;font-weight:900;letter-spacing:-.5px}.brand span{color:#148673}.small{font-size:11px;border:1px solid #d9cbb1;border-radius:9px;background:#fffcf4;color:#7c694b;padding:9px 10px}.panel{background:#fffdf7;border:1px solid #e3d7bf;border-radius:23px;box-shadow:0 12px 40px #67501a0c;padding:20px}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:1.8px;color:#9a8562;font-weight:800}h1{font-size:35px;line-height:1.25;letter-spacing:-1.5px;margin:16px 0}h1 em{font-style:normal;color:#148673}p{font-size:13px;line-height:1.85;color:#8b785c}.primary{border:0;border-radius:13px;background:#148673;color:white;font-size:17px;font-weight:800;padding:16px;width:100%;box-shadow:0 4px 0 #0c6354}.primary:active{transform:translateY(2px)}.rules{font-size:12px;line-height:1.9;color:#7f6d50;margin:20px 0}.home-art{background:#eee8d6;padding:20px 16px;border-radius:14px;margin:22px 0;display:flex;justify-content:center;gap:12px}.home-stack{display:flex;flex-direction:column;width:57px}.home-stack div{display:grid;place-items:center;height:53px;font-weight:800;font-size:27px;background:#fffcf4;border:2px solid #a1bb9b;border-radius:8px;box-shadow:0 3px 0 #c3c9ac}.home-stack div+div{margin-top:-10px;background:#dcd2b6;border-color:#cfbd96;color:#b39d76}.home-stack small{font-size:9px;margin-top:7px;text-align:center;color:#8e7d5e}.best{font-size:11px;text-align:center;color:#9b896c;margin:19px 0 0}.stats{display:flex;justify-content:space-between;align-items:center;gap:9px}.stats strong{font-size:30px;font-variant-numeric:tabular-nums}.stats small{font-size:11px;color:#8b795b}.relaxed{font-size:10px;color:#148673;background:#e5efdf;padding:6px 9px;border-radius:30px}.meter{height:5px;background:#ece3cc;border-radius:5px;overflow:hidden;margin:11px 0 13px}.meter i{display:block;height:100%;width:0;background:#148673;transition:width .25s}.question{padding:10px 12px;background:#f1ecdc;border-radius:12px;display:flex;flex-direction:column;justify-content:center;min-height:74px}.question small{font-size:9px;color:#9a835f;margin-bottom:5px}.question strong{font-size:16px;line-height:1.55}.region-tag{display:inline-block;font-size:9px;padding:3px 6px;border-radius:5px;background:var(--tint,#e8efdf);color:var(--ink,#148673);font-weight:800;white-space:nowrap}.question-row{display:flex;justify-content:space-between;align-items:center;gap:8px}.assemble{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0 3px}.answer{display:flex;gap:6px;align-items:center}.answer-slot{width:43px;height:47px;border:1px dashed #d5c4a4;border-radius:8px;display:grid;place-items:center;background:#faf6eb;font-size:26px;font-weight:800;color:#cbbd9e}.answer-slot.filled{color:var(--ink,#148673);border:2px solid var(--ink,#8eb9a2);background:var(--tint,#edf5e7)}.suffix{font-size:18px;color:#9c8764}.answerhint{font-size:9px;color:#a18e6c;line-height:1.8;text-align:right}.feedback{font-size:11px;color:#148673;font-weight:700;line-height:1.7;min-height:42px;padding:6px 0}.feedback.warn{color:#ab6c28}.holding{display:grid;grid-template-columns:1fr 1.1fr;gap:12px;align-items:start;margin:1px 0 12px}.zone-label{font-size:10px;color:#8f7b57;margin-bottom:6px;display:flex;justify-content:space-between;gap:4px}.stockrow{display:flex;gap:7px;align-items:start}.stock,.waste{position:relative;width:57px;min-height:74px;border-radius:9px;border:1px dashed #cdbb96;background:#f6f0df;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;color:#9a825c;padding:5px 2px}.stock{background:#798b76;color:#fffdf2;border:2px solid #5c765f;box-shadow:0 3px 0 #b9c2a4}.stock b{font-size:20px;font-weight:600}.stock small{font-size:9px}.waste .letter{font-size:26px;line-height:1.1}.waste.filled{background:#fffcf4;border:2px solid var(--ink);color:#3d382c;box-shadow:0 3px 0 #dacbb0}.waste small{font-size:8px;color:var(--ink)}.buffer{display:flex;gap:6px;justify-content:space-between;padding:7px;background:#f6ebd3;border:1px solid #dfcca2;border-radius:10px}.buffer button{min-width:0;width:32%;height:59px;border:1px dashed #cfb27d;border-radius:7px;background:#fff8e7;color:#cfba93;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:24px;padding:2px}.buffer button.occupied{border:2px solid var(--ink);background:var(--tint);color:#3d382c;box-shadow:0 2px 0 #dfcb9f}.buffer button small{font-size:7px;line-height:1.3;color:var(--ink,#a18551);font-weight:700}.buffer button.selected,.waste.selected{outline:3px solid #df9b34;outline-offset:2px}.boardhead{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:10px;color:#907b57;margin:8px 0}.move-button{font-size:11px;font-weight:800;border:1px solid #d7c69e;background:#fff8e8;padding:8px 10px;border-radius:9px;color:#8b703f}.move-button.active{background:#ffe4ab;border-color:#d59c3d;color:#8f5c1c}.board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;background:#e9e3d1;border:1px solid #dbcfb4;border-radius:14px;padding:12px 8px 17px;align-items:start;min-height:240px}.column{display:flex;flex-direction:column;min-width:0;border-radius:7px}.card{width:100%;height:58px;margin-top:-15px;border:1px solid var(--ink,#b1a388);border-radius:7px;background:var(--tint,#dad1ba);color:#3d382c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;box-shadow:0 2px 0 #c5b38e;position:relative;padding:3px 0 8px;flex:none}.card:first-child{margin:0 0 4px;border-width:2px;background:#fffdf4;z-index:20;box-shadow:0 3px 0 #c4bfa3;padding-bottom:3px}.card .letter{font-size:24px;font-weight:800;line-height:1.2}.card small{font-size:7px;line-height:1.2;color:var(--ink,#8d7d61);font-weight:800}.card.back{height:45px;margin-top:-19px;background:repeating-linear-gradient(45deg,#b9bba3 0 3px,#c4c5ae 3px 7px);color:#f1eddb;border-color:#a7ad94;padding:0;box-shadow:0 2px 0 #9fAA8f}.card.back span{font-size:15px}.card.selected{outline:3px solid #e4a443;outline-offset:-1px;background:#fff0cd}.card.movable{cursor:pointer}.card.movable:active{transform:translateY(1px)}.column.targetable{outline:2px dashed #d49b3f;outline-offset:3px}.empty{min-height:125px;width:100%;border:1px dashed #bcae8e;border-radius:7px;display:flex;align-items:center;justify-content:center;background:transparent;color:#a2a985;font-size:11px;writing-mode:vertical-rl;letter-spacing:2px;padding:8px 0}.tools{display:flex;gap:7px;margin:12px 0}.tools button{flex:1;padding:10px 3px}.tools button:disabled{opacity:.35}.foundations-label{font-size:10px;color:#9b825b;margin:16px 0 8px}.foundations{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.foundation{border:1px solid var(--ink);border-radius:9px;background:var(--tint);padding:8px 2px;color:var(--ink);font-size:9px;font-weight:800}.foundation strong{display:block;font-size:16px;margin-top:2px}.foundation.all{box-shadow:inset 0 0 0 1px var(--ink)}details{margin-top:15px;border-top:1px solid #e9dfc9;padding-top:12px}summary{font-size:11px;color:#8c7856;cursor:pointer;padding:5px 0}.target-group{margin:12px 0}.target-group h3{font-size:11px;margin:0 0 7px;color:var(--ink)}.targetlist{display:flex;flex-wrap:wrap;gap:5px}.target{font-size:10px;border:1px solid #ded2b8;background:#faf6eb;border-radius:7px;color:#7e6c50;padding:7px 8px}.target.done{color:#148673;background:#e5efdc;border-color:#c0d4b0;text-decoration:line-through}.target.focus{background:#e5efdc;border:2px solid var(--ink,#148673)}.helper{font-size:11px;line-height:1.9;color:#8f7b58;margin:14px 0}.result{text-align:center}.result h1{font-size:31px}.resultnum{font-size:68px;color:#148673;font-weight:900;line-height:1.2;margin-top:20px}.resultlist{padding:16px;background:#f0ecdb;border-radius:12px;font-size:12px;line-height:2;color:#72603f;margin:22px 0}.secondary{border:0;background:none;color:#947e5d;font-size:12px;padding:14px;margin-top:8px}.footer{text-align:center;font-size:10px;color:#a38f6c;margin:15px 0}.flash{animation:clear .4s ease-out}@keyframes clear{from{background:#addbb4}to{background:#e9e3d1}}@media(max-width:390px){.panel{padding:15px}.board{gap:5px;padding:11px 6px}.card .letter{font-size:22px}.card small{font-size:6px}.holding{gap:8px;grid-template-columns:1fr 1fr}.stock,.waste{width:51px}.brand{font-size:16px}.answerhint{font-size:8px}.zone-label{font-size:9px}.small{padding:8px}.buffer button{height:59px}.question strong{font-size:15px}}@media(prefers-reduced-motion:reduce){.flash{animation:none}.meter i{transition:none}}
-</style></head><body><main class="app"><header><div class="brand">都道府県<span>ソリティア</span></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="eyebrow">97 CARDS. 47 PREFECTURES.</div><h1>めくる。重ねる。<br><em>日本を、片づける。</em></h1><p>地方のマークを手がかりに、文字を整理。<br>47都道府県を作って、97枚ぜんぶ消そう。</p><div class="home-art"><div class="home-stack"><div>青</div><div>◇</div><small>東北</small></div><div class="home-stack"><div>山</div><div>◇</div><small>中国</small></div><div class="home-stack"><div>川</div><div>◇</div><small>中部</small></div></div><div class="rules">文字をタップ → 一時置場。合う文字は自動で答えへ。<br>同じ地方なら、カードやまとまりを重ねて移動。<br>空いた列には、どの地方のカードも置けます。<br>山札は1枚ずつ。裏の文字は、上が空くとめくれます。<br>時間制限なし。途中保存・何度でも1手戻せます。</div><button id="start" class="primary">47都道府県を片づける →</button><button id="continue" class="primary hidden" style="margin-top:14px">途中からつづける →</button><p class="best">地方ごとに色と名前が付いた、全国版です。</p></section>
+.card.movable,.waste.filled,.buffer button.occupied{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.drag-ghost{position:fixed;left:0;top:0;pointer-events:none;z-index:10000;min-width:74px;max-width:150px;background:#fff9e9;border:2px solid var(--ink,#b48b43);border-radius:10px;padding:10px 12px;color:#413727;box-shadow:4px 5px 0 #d5c29d99,8px 10px 0 #d5c29d44,0 10px 25px #4a3b1b25;text-align:center;font-size:22px;font-weight:800;white-space:pre-line}.drag-ghost small{display:block;font-size:10px;color:var(--ink);margin-top:4px}.drag-source{opacity:.35}.column.drag-over{outline:3px solid #168b73;outline-offset:3px;background:#d7ebd0}.column.drag-invalid{outline:2px dashed #c34c33;outline-offset:3px}.buffer button.drag-over{outline:3px solid #168b73;outline-offset:2px}.boardhead{align-items:center}.boardhead>span{font-size:9px;max-width:62%}.move-button{font-size:10px}@media(prefers-reduced-motion:reduce){.drag-ghost{box-shadow:none}}</style></head><body><main class="app"><header><div class="brand">都道府県<span>ソリティア</span></div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="eyebrow">97 CARDS. 47 PREFECTURES.</div><h1>めくる。重ねる。<br><em>日本を、片づける。</em></h1><p>地方のマークを手がかりに、文字を整理。<br>47都道府県を作って、97枚ぜんぶ消そう。</p><div class="home-art"><div class="home-stack"><div>青</div><div>◇</div><small>東北</small></div><div class="home-stack"><div>山</div><div>◇</div><small>中国</small></div><div class="home-stack"><div>川</div><div>◇</div><small>中部</small></div></div><div class="rules">文字をタップ → 一時置場。合う文字は自動で答えへ。<br>同じ地方のカードは、そのままドラッグで重ね移動。<br>空いた列には、どの地方のカードも置けます。<br>山札は1枚ずつ。裏の文字は、上が空くとめくれます。<br>時間制限なし。途中保存・何度でも1手戻せます。</div><button id="start" class="primary">47都道府県を片づける →</button><button id="continue" class="primary hidden" style="margin-top:14px">途中からつづける →</button><p class="best">地方ごとに色と名前が付いた、全国版です。</p></section>
 <section id="game" class="panel hidden" aria-label="全国版・都道府県ソリティア"><div class="stats"><div><strong id="score">0</strong><small> / 47 完成</small></div><span class="relaxed">時間制限なし</span><button id="homeButton" class="small">中断</button></div><div class="meter"><i id="progress"></i></div>
 <div class="question"><div class="question-row"><small>この地方の文字で回答。作る県は下から変えられます。</small><span id="goalRegion" class="region-tag"></span></div><strong id="question"></strong></div><div class="assemble"><div id="answer" class="answer" aria-label="自動で組み立て中の県名"></div><div class="answerhint">地方と文字が合えば自動<br>県・府・都・道も自動</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 <div class="holding"><div><div class="zone-label"><span>山札・めくったカード</span><span id="stockCount"></span></div><div class="stockrow"><button id="stock" class="stock" aria-label="山札を1枚めくる"></button><button id="waste" class="waste" aria-label="めくった一番上のカード"></button></div></div><div><div class="zone-label"><span>一時置場 · 3マス</span><span>タップで元へ</span></div><div id="buffer" class="buffer" aria-label="3枚の一時置場"></div></div></div>
-<div class="boardhead"><span id="boardLabel">各列のいちばん上をタップ → 置場へ</span><button id="move" class="move-button" aria-pressed="false">重ね移動</button></div><div id="board" class="board" aria-label="6列の場札"></div>
-<div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="help" class="small">遊び方</button><button id="restart" class="small">最初から</button></div><p id="helpText" class="helper hidden">【タップ】場の一番上、またはめくった一番上を置場に送ります。今の答えと地方・文字が合えば、自動で答えへ入ります。置場が満杯でも今使える文字は取れます。<br>【重ね移動】ボタンを押す→移すカードを選ぶ→移動先の列をタップ。同じ地方の表向きカードが一番上から続いていれば、そのまとまりの最後を選ぶとまとめて移せます。移動先の一番上も同じ地方が必要。空いた列なら地方を問わず置けます。置場やめくったカードも1枚ずつ移せます。<br>【裏向き】一番上になると自動でめくれます。一度見えた文字は、戻しても表のまま。<br>【山札】1枚ずつめくります。最後までめくると、未使用分を同じ順番で何度でもめくり直せます。<br>【選び直し】置場をタップすると元の場所へ戻せます。「1手戻す」は自動回答や移動も戻します。中断すれば自動保存。<br>同じ地方の同じ漢字は交換して使えます。地方の完成置場や県名一覧から、問題を切り替えられます。</p>
+<div class="boardhead"><span id="boardLabel">各列のタップで置場 · ドラッグでまとめて移動</span><button id="move" class="move-button" aria-pressed="false">タップ移動 OFF</button></div><div id="board" class="board" aria-label="6列の場札"></div>
+<div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="help" class="small">遊び方</button><button id="restart" class="small">最初から</button></div><p id="helpText" class="helper hidden">【タップ】場の一番上、またはめくった一番上を置場に送ります。今の答えと地方・文字が合えば、自動で答えへ入ります。置場が満杯でも今使える文字は取れます。<br>【ドラッグで移動】カードを指でつかんで別の列へ動かします。一番上をドラッグすると、続いている同じ地方の表向きカードをまとめて移せます。まとまりの途中からドラッグすると、そこまでの上側を移せます。移動先は同じ地方の一番上か空き列。置場とめくったカードもドラッグできます。1枚だけ置場へ送るときは、短くタップするだけ。<br>【タップで移動】ドラッグの代わりにボタンをONにすると、選ぶ→移動先をタップで移せます。何度移動してもONのまま。終わったらOFFにします。<br>【裏向き】一番上になると自動でめくれます。一度見えた文字は、戻しても表のまま。<br>【山札】1枚ずつめくります。最後までめくると、未使用分を同じ順番で何度でもめくり直せます。<br>【選び直し】置場をタップすると元の場所へ戻せます。「1手戻す」は自動回答や移動も戻します。中断すれば自動保存。<br>同じ地方の同じ漢字は交換して使えます。地方の完成置場や県名一覧から、問題を切り替えられます。</p>
 <div class="foundations-label">地方ごとの完成置場 · タップでその地方の問題へ</div><div id="foundations" class="foundations"></div><details id="targetDetails"><summary>作る都道府県を選ぶ・完成した県を見る</summary><div id="targets"></div></details></section>
 <section id="result" class="panel result hidden"><div class="eyebrow">ALL JAPAN. ALL CLEAR.</div><h1>日本、ぜんぶ片づいた。</h1><div class="resultnum">47 / 47</div><p>97枚の文字も、山札も、すっきり。</p><div id="resultList" class="resultlist"></div><p id="resultDetail"></p><button id="next" class="primary">別の並びでもう一度 →</button><button id="resultHome" class="secondary">タイトルへ</button></section><div class="footer">めくった先に、次の県。ゆっくり片づけよう。</div></main>
 <script>
@@ -45,7 +45,7 @@ function makeDeal(random=Math.random){
 }
 function fresh(deal){return {columns:clone(deal.columns),stock:[...deal.stock],waste:[],buffer:Array(3).fill(null),answer:[],done:[],focus:deal.order[0],origins:{},moves:0};}
 const $=id=>document.getElementById(id);
-let deal=null,g=null,history=[],seen=new Set(),state='home',selecting=false,selection=null,notice='',warning=false,soundOn=true,audio=null;
+let deal=null,g=null,history=[],seen=new Set(),state='home',selecting=false,selection=null,tapMove=false,dragState=null,notice='',warning=false,soundOn=true,audio=null;
 try{soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
 function write(key,value){try{localStorage.setItem(key,value);}catch(_){}}
 function persist(){if(deal&&g)write(KEY,JSON.stringify({version:1,deal,g,history,seen:[...seen]}));}
@@ -80,7 +80,7 @@ function tone(freqs,volume=.12){
 }
 function show(id){['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function message(text,warn=false){notice=text;warning=warn;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
-function button(text,cls,handler,label){const b=document.createElement('button');b.type='button';b.textContent=text;b.className=cls;b.onclick=handler;if(label)b.setAttribute('aria-label',label);return b;}
+function button(text,cls,handler,label){const b=document.createElement('button');b.type='button';b.textContent=text;b.className=cls;b.onclick=e=>{if(b._suppressClick){b._suppressClick=false;e?.preventDefault();return;}handler();};if(label)b.setAttribute('aria-label',label);return b;}
 function styleRegion(el,region){const r=REGIONS[region];el.style.setProperty('--ink',r.ink);el.style.setProperty('--tint',r.tint);}
 function cardFace(el,id,caption){
  const c=CARDS[id];styleRegion(el,c.region);el.textContent='';
@@ -119,25 +119,27 @@ function render(){
  waste.replaceChildren();
  if(g.waste.length){cardFace(waste,g.waste[0]);waste.setAttribute('aria-label',REGIONS[CARDS[g.waste[0]].region].name+'の'+CARDS[g.waste[0]].char+'を'+(selecting?'移動用に選ぶ':'置場へ'));}else waste.textContent='めくった札';
  waste.disabled=state!=='playing'||!g.waste.length;
+ if(g.waste.length)wireDrag(waste,()=>({kind:'waste'}));
  const buffer=$('buffer');buffer.replaceChildren();
  for(let slot=0;slot<3;slot++){
   const id=g.buffer[slot],b=button(id?'':'＋',(id?'occupied':'')+(selection?.kind==='buffer'&&selection.slot===slot?' selected':''),()=>clickBuffer(slot),id?REGIONS[CARDS[id].region].name+'の'+CARDS[id].char+(selecting?'を移動用に選ぶ':'を元の場所へ戻す'):'一時置場の空きマス');
-  if(id)cardFace(b,id,REGIONS[CARDS[id].region].short+' ↶');b.disabled=state!=='playing';buffer.appendChild(b);
+  b.dataset.buffer=String(slot);if(id){cardFace(b,id,REGIONS[CARDS[id].region].short+' ↶');wireDrag(b,()=>({kind:'buffer',slot}));}b.disabled=state!=='playing';buffer.appendChild(b);
  }
  const board=$('board');board.replaceChildren();
  g.columns.forEach((column,col)=>{
-  const lane=document.createElement('div');lane.className='column';if(selection&&!(selection.kind==='column'&&selection.col===col)&&canPlace(sourceIds(selection),col))lane.classList.add('targetable');
+  const lane=document.createElement('div');lane.className='column';lane.dataset.col=String(col);if(selection&&!(selection.kind==='column'&&selection.col===col)&&canPlace(sourceIds(selection),col))lane.classList.add('targetable');
   if(!column.length){const empty=button(selection?'ここへ移動':'空き列','empty',()=>clickColumn(col,0),'空いた'+(col+1)+'列目。どの地方でも移せます');lane.appendChild(empty);}
   const blockCount=topBlockCount(col);
   column.forEach((id,row)=>{
    const face=seen.has(id),movable=face&&row<blockCount,card=button('','card'+(face?'':' back')+(movable?' movable':'')+(selection?.kind==='column'&&selection.col===col&&row<selection.count?' selected':''),()=>clickColumn(col,row),face?REGIONS[CARDS[id].region].name+'の'+CARDS[id].char+(row===0?'、一番上':movable?'、上から'+(row+1)+'枚をまとめて移動':'、まだ取れません'):'裏向きの文字カード');
    if(face)cardFace(card,id);else{const back=document.createElement('span');back.textContent='◇';card.appendChild(back);}
    card.disabled=state!=='playing'||(!selection&&(!face||row>0&&!movable));
+   if(movable)wireDrag(card,()=>({kind:'column',col,count:row===0?topBlockCount(col):row+1}));
    card.style.zIndex=String(column.length-row);lane.appendChild(card);
   });board.appendChild(lane);
  });
- $('move').classList.toggle('active',selecting);$('move').textContent=selecting?'移動を取消':'重ね移動';$('move').setAttribute('aria-pressed',String(selecting));
- $('boardLabel').textContent=selection?'移動先の列をタップ':selecting?'移すカード・まとまりを選んでください':'いちばん上をタップ → 置場へ';
+ $('move').classList.toggle('active',tapMove);$('move').textContent=tapMove?'タップ移動 ON':'タップ移動 OFF';$('move').setAttribute('aria-pressed',String(tapMove));
+ $('boardLabel').textContent=selection?'移動先の列をタップ':selecting?'移すカード・まとまりを選ぶ':'タップで置場 · ドラッグでまとめて移動';
  $('undo').disabled=!history.length;$('restart').disabled=!history.length;
  $('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
  const banks=$('foundations');banks.replaceChildren();
@@ -151,9 +153,78 @@ function render(){
   group.appendChild(items);list.appendChild(group);
  });
 }
+function clearDragPaint(){
+ for(const lane of $('board').children){lane.classList.remove('drag-over','drag-invalid','targetable');for(const el of lane.children)el.classList.remove('drag-source');}
+ for(const el of $('buffer').children)el.classList.remove('drag-over');
+}
+function dragDestination(x,y){
+ const el=document.elementFromPoint(x,y);if(!el)return null;
+ const lane=el.closest('[data-col]');if(lane)return {kind:'column',col:Number(lane.dataset.col)};
+ const slot=el.closest('[data-buffer]');if(slot)return {kind:'buffer',slot:Number(slot.dataset.buffer)};
+ return null;
+}
+function paintDrag(x,y){
+ const d=dragState;if(!d?.active)return;
+ d.ghost.style.transform='translate('+(x+13)+'px,'+(y-55)+'px)';
+ for(const lane of $('board').children)lane.classList.remove('drag-over','drag-invalid');
+ for(const el of $('buffer').children)el.classList.remove('drag-over');
+ const dest=dragDestination(x,y),ids=sourceIds(d.source);
+ if(dest?.kind==='column'){
+  const same=d.source.kind==='column'&&d.source.col===dest.col;
+  $('board').children[dest.col]?.classList.add(!same&&canPlace(ids,dest.col)?'drag-over':'drag-invalid');
+ }else if(dest?.kind==='buffer'&&ids.length===1&&!g.buffer[dest.slot])$('buffer').children[dest.slot]?.classList.add('drag-over');
+}
+function beginDrag(d,x,y){
+ const ids=sourceIds(d.source);
+ if(!ids.length||d.source.kind==='column'&&(d.source.count<1||d.source.count>topBlockCount(d.source.col)))return false;
+ d.active=true;d.el._suppressClick=true;selection=clone(d.source);selecting=true;
+ const ghost=document.createElement('div');ghost.className='drag-ghost';styleRegion(ghost,CARDS[ids[0]].region);
+ ghost.textContent=ids.map(id=>CARDS[id].char).join('・');const small=document.createElement('small');small.textContent=REGIONS[CARDS[ids[0]].region].name+' · '+ids.length+'枚';ghost.appendChild(small);document.body.appendChild(ghost);d.ghost=ghost;
+ for(let col=0;col<6;col++){
+  const lane=$('board').children[col];
+  if(!(d.source.kind==='column'&&d.source.col===col)&&canPlace(ids,col))lane?.classList.add('targetable');
+ }
+ if(d.source.kind==='column')for(let row=0;row<ids.length;row++)$('board').children[d.source.col]?.children[row]?.classList.add('drag-source');
+ message(ids.length+'枚をまとめて移動。同じ地方の列か、空き列で指を離そう。');paintDrag(x,y);return true;
+}
+function cleanupDrag(){
+ const d=dragState;if(!d)return;dragState=null;
+ d.ghost?.remove();try{if(d.el.hasPointerCapture?.(d.pointerId))d.el.releasePointerCapture(d.pointerId);}catch(_){}
+ clearDragPaint();dragState=null;
+}
+function cancelDrag(){
+ const active=dragState?.active;cleanupDrag();if(active){selection=null;selecting=tapMove;message('移動を取り消しました。カードは元のままです。');render();}
+}
+function endDrag(e,cancelled=false){
+ const d=dragState;if(!d||e.pointerId!==d.pointerId)return;
+ const active=d.active,dest=active&&!cancelled?dragDestination(e.clientX,e.clientY):null,source=clone(d.source);
+ if(active)e.preventDefault();cleanupDrag();if(!active)return;
+ if(!dest||cancelled){selection=null;selecting=tapMove;message('移動先がなかったので元に戻しました。');render();return;}
+ selection=source;selecting=true;
+ if(dest.kind==='column'&&!(source.kind==='column'&&source.col===dest.col)&&canPlace(sourceIds(source),dest.col)){moveSelected(dest.col);return;}
+ if(dest.kind==='buffer'&&sourceIds(source).length===1&&!g.buffer[dest.slot]){takeSource(source,dest.slot);return;}
+ selection=null;selecting=tapMove;message('同じ地方の列か空き列へ。置場に移せるのは1枚です。',true);render();
+}
+function wireDrag(el,sourceFor){
+ el.onpointerdown=e=>{
+  if(state!=='playing'||e.isPrimary===false||e.button!==undefined&&e.button!==0||dragState)return;
+  el._suppressClick=false;const source=sourceFor();if(!sourceIds(source).length)return;
+  dragState={el,source:clone(source),pointerId:e.pointerId,x:e.clientX,y:e.clientY,active:false,ghost:null};
+  try{el.setPointerCapture(e.pointerId);}catch(_){}
+ };
+ el.onpointermove=e=>{
+  const d=dragState;if(!d||d.el!==el||e.pointerId!==d.pointerId)return;
+  if(!d.active&&Math.hypot(e.clientX-d.x,e.clientY-d.y)>=8){if(!beginDrag(d,e.clientX,e.clientY)){cleanupDrag();return;}}
+  if(d.active){e.preventDefault();paintDrag(e.clientX,e.clientY);}
+ };
+ el.onpointerup=e=>endDrag(e);
+ el.onpointercancel=e=>endDrag(e,true);
+ el.onlostpointercapture=e=>{if(dragState?.pointerId===e.pointerId)cancelDrag();};
+ el.ondragstart=e=>e.preventDefault();
+}
 function commit(action){
  if(state!=='playing')return;
- history.push(clone(g));g.moves++;selecting=false;selection=null;action();revealTops();persist();render();if(g.done.length===47)finish();
+ history.push(clone(g));g.moves++;selecting=tapMove;selection=null;action();revealTops();persist();render();if(g.done.length===47)finish();
 }
 function chooseNext(){const next=deal.order.find(i=>!done(i));g.focus=next===undefined?0:next;}
 function feedBuffer(){
@@ -230,7 +301,7 @@ function drawStock(){
  else message('山札は全部片づいています。');
 }
 function toggleMove(){
- if(state!=='playing')return;selecting=!selecting;selection=null;message(selecting?'移すカードを選ぼう。まとまりは一番上から同じ地方が続く最後を選びます。':'通常のタップに戻りました。');render();
+ if(state!=='playing')return;tapMove=!tapMove;selecting=tapMove;selection=null;message(tapMove?'タップ移動ON。選ぶ→移動先をタップ。続けて何度でも移せます。':'通常タップに戻りました。ドラッグならいつでもまとめて移せます。');render();
 }
 function returnPartial(){while(g.answer.length)returnToOrigin(g.answer.pop());}
 function switchTarget(index){
@@ -240,34 +311,36 @@ function switchTarget(index){
 }
 function selectRegion(region){const next=deal.order.find(i=>REGION_OF[i]===region&&!done(i));if(next===undefined){message(REGIONS[region].name+'は全部完成！');return;}switchTarget(next);}
 function undo(){
- if(state!=='playing'||!history.length)return;g=history.pop();selecting=false;selection=null;revealTops();message('1手戻しました。一度めくれた文字は表のままです。');persist();render();
+ if(state!=='playing'||!history.length)return;g=history.pop();selecting=tapMove;selection=null;revealTops();message('1手戻しました。一度めくれた文字は表のままです。');persist();render();
 }
 function start(){
- prepareAudio();deal=makeDeal();g=fresh(deal);history=[];seen=new Set();revealTops();state='playing';selecting=false;selection=null;show('game');message('上の文字をタップ。邪魔なまとまりは「重ね移動」で整理しよう。');persist();render();
+ prepareAudio();deal=makeDeal();g=fresh(deal);history=[];seen=new Set();revealTops();state='playing';tapMove=false;selecting=false;selection=null;show('game');message('短くタップで置場へ。同じ地方のまとまりはドラッグで移せます。');persist();render();
 }
-function continueGame(){if(!g||!deal)return;prepareAudio();state='playing';selecting=false;selection=null;show('game');message('おかえりなさい。残りをゆっくり片づけよう。');render();}
+function continueGame(){if(!g||!deal)return;prepareAudio();state='playing';tapMove=false;selecting=false;selection=null;show('game');message('おかえりなさい。残りをゆっくり片づけよう。');render();}
 function restart(){
  if(state!=='playing'||!history.length||!window.confirm('今の並びを最初からやり直しますか？'))return;
- g=fresh(deal);history=[];seen=new Set();revealTops();selecting=false;selection=null;message('同じ並びで最初から。');persist();render();
+ g=fresh(deal);history=[];seen=new Set();revealTops();tapMove=false;selecting=false;selection=null;message('同じ並びで最初から。');persist();render();
 }
 function goHome(){
  if(g&&g.done.length<47){persist();$('continue').classList.remove('hidden');$('start').textContent='新しい並びで始める →';}else{$('continue').classList.add('hidden');$('start').textContent='47都道府県を片づける →';}
- state='home';selecting=false;selection=null;show('home');
+ state='home';tapMove=false;selecting=false;selection=null;show('home');
 }
 function finish(){
  state='result';show('result');tone([660,880,1046,1318],.12);$('resultList').textContent=g.done.map(d=>PREFECTURES[d.pref][0]+PREFECTURES[d.pref][1]).join(' ・ ');$('resultDetail').textContent=g.moves+'手で、97枚すべて片づけました。お疲れさまでした！';persist();$('next').focus();
 }
 $('start').onclick=()=>{if(g&&g.done.length<47&&history.length&&!window.confirm('途中の盤面を置き換えて、新しい並びで始めますか？'))return;start();};
 $('continue').onclick=continueGame;$('homeButton').onclick=goHome;$('resultHome').onclick=goHome;$('next').onclick=start;
-$('stock').onclick=drawStock;$('waste').onclick=clickWaste;$('move').onclick=toggleMove;$('undo').onclick=undo;$('restart').onclick=restart;
+$('stock').onclick=drawStock;$('waste').onclick=e=>{if($('waste')._suppressClick){$('waste')._suppressClick=false;e?.preventDefault();return;}clickWaste();};$('move').onclick=toggleMove;$('undo').onclick=undo;$('restart').onclick=restart;
 $('help').onclick=()=>{$('helpText').classList.toggle('hidden');};
 $('sound').onclick=()=>{soundOn=!soundOn;write('kenken-sound',soundOn?'on':'off');updateSound();if(soundOn)tone([880,660]);};
 document.addEventListener('keydown',e=>{
  if(e.repeat||e.ctrlKey||e.metaKey||e.altKey||state!=='playing')return;
  if(/^[1-6]$/.test(e.key)){e.preventDefault();clickColumn(Number(e.key)-1);}
  else if(e.key==='Backspace'){e.preventDefault();undo();}
- else if(e.key==='Escape'&&selecting){e.preventDefault();selecting=false;selection=null;message('移動を取り消しました。');render();}
+ else if(e.key==='Escape'&&(selecting||dragState)){e.preventDefault();if(dragState)cancelDrag();tapMove=false;selecting=false;selection=null;message('移動を取り消しました。');render();}
 });
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&dragState)cancelDrag();});
+window.addEventListener?.('blur',()=>{if(dragState)cancelDrag();});
 if(hasSaved){$('continue').classList.remove('hidden');$('start').textContent='新しい並びで始める →';}
 updateSound();
 </script></body></html>
