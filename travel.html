@@ -1,0 +1,208 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#edf5e8"><title>ことば旅行社｜風景から旅をつくろう</title><style>
+:root{font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;color:#394b43;background:#edf5e8;--vh:100dvh}*{box-sizing:border-box}html{height:100%;overflow:hidden}body{margin:0;height:var(--vh);padding:7px 9px max(8px,env(safe-area-inset-bottom));overflow:hidden}button{font:inherit;cursor:pointer;touch-action:manipulation;color:inherit}button:disabled{cursor:default;opacity:.42}button:focus-visible,a:focus-visible{outline:3px solid #2268bc;outline-offset:2px}.app{width:min(100%,500px);height:100%;max-height:850px;margin:auto;display:flex;flex-direction:column;gap:7px;min-height:0}header{display:flex;justify-content:space-between;align-items:center;height:32px;flex:none;padding:0 4px}.brand{font-size:19px;font-weight:900;letter-spacing:-.7px}.brand b{color:#268d87}.small{font-size:10px;border:1px solid #c6d8be;background:#fbfff6;color:#789173;padding:7px 10px;border-radius:8px}.panel{border:1px solid #cfdcc4;border-radius:20px;background:#fffef7;padding:12px;min-height:0;box-shadow:0 7px 26px #52724410}.hidden{display:none!important}.tag{font-size:9px;letter-spacing:2px;color:#94a58a;font-weight:800}h1{font-size:34px;line-height:1.25;letter-spacing:-1.4px;margin:13px 0}h1 em{font-style:normal;color:#258b83}p{font-size:12px;line-height:1.9;color:#8b9980}.primary{width:100%;padding:13px;border:0;border-radius:12px;background:#258b83;box-shadow:0 4px 0 #176f68;color:white;font-size:16px;font-weight:800}.primary:active{transform:translateY(2px)}.primary:disabled{background:#bfccba;box-shadow:0 3px 0 #aabca3;opacity:1}.footer{font-size:9px;color:#9aab8d;text-align:center;line-height:1.6;flex:none}.footer a{color:#809575;text-underline-offset:3px}body[data-screen="game"] .footer{display:none}#home,#result{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px;overflow:hidden}.hero{height:clamp(90px,22dvh,165px);width:100%;object-fit:cover;border-radius:13px;margin:16px 0;border:1px solid #d4e1c8}.home-rules{font-size:11px;color:#85957a;line-height:1.9;margin:0 0 17px}.home-meta{font-size:11px;text-align:center;color:#8fa080;margin:17px 0 0;line-height:1.8}.home-actions{display:flex;justify-content:center;gap:8px;margin-top:11px}
+#game{flex:1;display:grid;grid-template-rows:18px 82px 66px 30px 132px minmax(130px,1fr) 26px;gap:6px;overflow:hidden}.stats{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#8c9b80}.stats b{font-size:15px;color:#53765e}.coins{font-weight:800;color:#ad843b;background:#fff2c9;border-radius:30px;padding:4px 9px}.stats .small{padding:4px 8px;font-size:9px}.guests{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;min-height:0}.guest{border:1px solid #d4decb;border-radius:12px;background:#f4f6e9;padding:6px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:0;min-height:0;position:relative}.guest.active{border:2px solid #2e9c8a;background:#eaf5df;box-shadow:0 2px 0 #c0d9b4}.guest .avatar{font-size:25px;line-height:1.1}.guest .wish{font-size:clamp(8px,2.55vw,11px);font-weight:800;line-height:1.4;white-space:nowrap}.guest .mini-ticket{font-size:9px;min-height:13px;line-height:1.2;color:#7d9a6a}.guest.empty{font-size:11px;color:#a5b599;border-style:dashed;background:transparent}.ticket-area{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:8px;align-items:center;min-height:0}.ticket{height:100%;min-height:0;position:relative;background:#fff4cf;border:1px dashed #d6bf7e;border-radius:10px;padding:5px 7px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}.ticket:before,.ticket:after{content:'';position:absolute;top:45%;width:9px;height:9px;background:#fffef7;border-radius:50%}.ticket:before{left:-5px}.ticket:after{right:-5px}.ticket small{font-size:9px;color:#aa955a;line-height:1.2}.draft{display:flex;justify-content:center;align-items:center;gap:5px}.draft button{width:32px;height:32px;font-size:23px;font-weight:800;border:1px solid #d8c58e;background:#fffdf1;border-radius:6px;box-shadow:0 2px 0 #e6d9aa;padding:0}.draft button.blank{border-style:dashed;color:#ddcf9f;box-shadow:none}.draft span{font-size:13px;color:#a69870}.offer{font-size:12px;line-height:1.5;padding:9px 5px;min-height:43px}.feedback{display:flex;align-items:center;justify-content:center;min-height:0;font-size:11px;font-weight:700;line-height:1.4;text-align:center;color:#288d77}.feedback.warn{color:#b38843}.work{background:#f1f2e3;border:1px solid #d8dfc7;border-radius:12px;padding:7px;min-height:0;display:grid;grid-template-rows:20px minmax(30px,1fr) 12px minmax(33px,1fr);gap:4px}.work-head{display:flex;align-items:center;justify-content:space-between;gap:4px;font-size:10px;color:#8b9a79;font-weight:700}.supply{display:flex;align-items:center;gap:4px;font-size:8px;font-weight:400;white-space:nowrap}.supply button{width:23px;height:23px;padding:0;border:1px solid #cbd7bc;background:#fffcf0;border-radius:6px;color:#77906a;font-size:15px;font-weight:700}.raw{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;min-height:0}.raw-token{position:relative;min-width:0;min-height:0;border:1px solid #d2d8bf;border-radius:7px;background:#fffdf3;display:flex;align-items:center;justify-content:center;gap:2px;padding:0}.raw-token .emoji{font-size:23px;line-height:1}.raw-token small{font-size:7px;color:#9caa88}.raw-token .quantity{position:absolute;top:0;right:2px;font-size:8px;color:#789665}.inventory-label{font-size:9px;color:#91a17d;line-height:12px;display:flex;justify-content:space-between}.letters{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;min-height:0}.letter{position:relative;min-width:0;min-height:0;border:1px solid #a6c4a6;background:#fffef5;border-radius:6px;box-shadow:0 2px 0 #d2dfc3;font-size:22px;font-weight:800;padding:0;color:#3c725c}.letter .quantity{position:absolute;top:0;right:2px;font-size:7px;line-height:1;color:#7d9970}.letter:disabled{background:#e8eddb;color:#b5c0a4;border-color:#d4ddc5;box-shadow:none;opacity:.65}.letter:not(:disabled):active,.raw-token:not(:disabled):active{transform:scale(.93)}.scene{position:relative;min-height:0;overflow:hidden;border:1px solid #c6d6bc;border-radius:13px;background:#b9dbe3;isolation:isolate}.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-select:none;pointer-events:none}.scene-caption{position:absolute;left:8px;bottom:5px;padding:3px 7px;border-radius:20px;background:#fffdf0d9;font-size:8px;color:#5f8466;z-index:2;pointer-events:none}.hotspot{position:absolute;border:1px solid transparent;border-radius:16px;padding:0;background:transparent;display:flex;align-items:center;justify-content:center;z-index:1;min-height:24px;user-select:none;-webkit-user-select:none}.hotspot span{background:#fffef0d9;border:1px solid #ffffffb0;color:#416f5c;border-radius:20px;padding:3px 7px;font-size:9px;font-weight:800;box-shadow:0 2px 6px #306e6d20}.hotspot:hover,.hotspot:focus-visible{background:#ffffcc22;border-color:#ffffdc}.hotspot:active{background:#fffbc366;transform:scale(.96)}.hotspot.sky{left:23%;top:1%;width:21%;height:23%}.hotspot.mountain{left:53%;top:9%;width:24%;height:34%}.hotspot.forest{left:2%;top:24%;width:29%;height:30%}.hotspot.rock{left:2%;top:64%;width:26%;height:28%}.hotspot.river{left:34%;top:47%;width:22%;height:35%}.hotspot.sea{left:72%;top:57%;width:26%;height:36%}.tools{display:flex;gap:7px;min-height:0}.tools button{flex:1;padding:4px 3px;font-size:10px}.tools button:disabled{opacity:.35}.result h1{font-size:29px;margin:12px 0}.resultnum{font-size:60px;color:#258b83;font-weight:900;line-height:1.2;margin-top:15px}.resultlist{font-size:12px;line-height:2;color:#829372;padding:14px;background:#eff4e0;border-radius:12px;margin:18px 0}.secondary{border:0;background:none;color:#8f9f7e;font-size:11px;padding:12px}.dialog{width:min(460px,calc(100vw - 24px));max-height:calc(var(--vh) - 28px);margin:auto;padding:15px;border:1px solid #cadac1;background:#fffef5;border-radius:17px;color:#50694e;overflow:hidden;box-shadow:0 20px 80px #31492c44}.dialog::backdrop{background:#2a493752}.dialog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.dialog-head h2{font-size:17px;margin:0}.book{display:grid;gap:6px}.package{border:1px solid #d7dfc5;border-radius:9px;background:#f5f7e9;padding:8px 10px;text-align:left;display:grid;grid-template-columns:70px minmax(0,1fr);gap:3px 7px;align-items:center}.package b{font-size:16px}.package span{font-size:9px;color:#8b9b76}.package small{font-size:9px;color:#98a582;grid-column:1/-1}.package.fits{border-color:#66aa8b;background:#edf6df}.package:disabled{opacity:1}.modal-copy{font-size:11px;line-height:1.85;color:#879875}.recipe-lines{font-size:14px;line-height:2.1;color:#65876d}.help-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 9px;font-size:13px;color:#78946e}.dialog .hintline{font-size:9px;line-height:1.7;color:#9eac8c;margin:9px 0 0}
+@media(max-height:650px){body{padding:5px 8px max(6px,env(safe-area-inset-bottom))}.app{gap:5px}header{height:29px}.brand{font-size:17px}.panel{padding:8px}#game{grid-template-rows:16px 67px 54px 25px 114px minmax(105px,1fr) 24px;gap:4px}.guest{padding:4px 2px;gap:2px}.guest .avatar{font-size:23px}.guest .wish{font-size:10px}.guest .mini-ticket{font-size:8px}.ticket-area{grid-template-columns:minmax(0,1fr) 119px;gap:6px}.ticket{padding:3px 5px;gap:2px}.ticket small{font-size:8px}.draft button{width:29px;height:28px;font-size:21px}.offer{font-size:11px;min-height:37px;padding:7px 3px}.feedback{font-size:10px}.work{padding:5px;grid-template-rows:18px minmax(28px,1fr) 11px minmax(31px,1fr);gap:3px}.work-head{font-size:9px}.supply{font-size:7px;gap:3px}.supply button{width:21px;height:21px;font-size:14px}.raw-token .emoji{font-size:21px}.raw-token small{font-size:6px}.letters{gap:3px}.letter{font-size:20px}.inventory-label{font-size:8px}.hotspot span{font-size:8px;padding:2px 5px}.tools button{font-size:9px}.scene-caption{font-size:7px}#home,#result{padding:15px}h1{font-size:29px;margin:10px 0}#home>p{font-size:11px;line-height:1.7;margin:0}.hero{height:clamp(70px,19dvh,120px);margin:12px 0}.home-rules{font-size:10px;margin-bottom:12px}.home-meta{font-size:10px;margin-top:11px}.home-actions{margin-top:8px}.primary{padding:11px;font-size:15px}.result h1{font-size:26px}.resultnum{font-size:48px}.resultlist{padding:11px;margin:12px 0}.dialog{padding:12px}.package{padding:6px 9px;gap:2px 6px}.package b{font-size:15px}.package span,.package small{font-size:8px}}
+@media(max-height:510px){header{height:27px}.panel{padding:6px}#game{grid-template-rows:15px 60px 49px 23px 108px minmax(92px,1fr) 22px;gap:3px}.guest .avatar{font-size:20px}.guest .wish{font-size:9px}.draft button{height:26px;width:27px;font-size:20px}.ticket small{font-size:7px}.work{padding:4px}.raw-token .emoji{font-size:19px}.letter{font-size:19px}.hotspot span{font-size:7px}.scene-caption{font-size:6px}h1{font-size:25px}.home-rules{font-size:9px}.home-meta{font-size:9px}.hero{height:70px}#home>p{display:none}.resultlist{font-size:11px}.resultnum{font-size:40px}.dialog-head h2{font-size:15px}.dialog .hintline{font-size:8px}}
+@media(orientation:landscape) and (min-width:650px) and (max-height:510px){.app{max-width:1000px}#game{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"stats stats" "guests scene" "ticket scene" "work scene" "feedback tools";grid-template-rows:16px 60px 52px minmax(104px,1fr) 24px;gap:5px 12px}.stats{grid-area:stats}.guests{grid-area:guests}.ticket-area{grid-area:ticket}.feedback{grid-area:feedback}.work{grid-area:work}.scene{grid-area:scene}.tools{grid-area:tools}#home{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:6px 20px}#home .tag{grid-column:1}#home h1{grid-column:1;grid-row:2/5}#home>p{display:none}#home .hero{grid-column:2;grid-row:1/4;margin:0;height:100px}#home .home-rules{grid-column:2}#home .primary{grid-column:2}#home .home-meta,#home .home-actions{grid-column:1}}
+@media(prefers-reduced-motion:reduce){.letter:not(:disabled):active,.raw-token:not(:disabled):active,.hotspot:active{transform:none}}
+</style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
+<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>風景のかけらで、<br><em>旅をつくろう。</em></h1><p>「海が見たいわ」「山を歩きたいな」<br>3人の旅行客に、ぴったりの行き先を提案。</p><img class="hero" src="assets/travel-landscape.webp" alt="空と森、山から流れる川、海と岩のある風景"><div class="home-rules">① 風景をタップして、絵の素材を取る<br>② 絵をタップして、漢字に変える<br>③ 県名を作って「ここへの旅行はいかが？」<br>正解はひとつじゃない。時間制限もありません。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 5</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
+<section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> / 5人</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。タップで切り替え"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div id="draft" class="draft" aria-label="作っている行き先"></div></div><button id="offer" class="primary offer" disabled>行き先をつくろう</button></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="work"><div class="work-head"><span>② 絵を押して漢字にする ↓</span><div class="supply"><span>文字の仕入れ</span><button data-supply="富" aria-label="富の文字を仕入れる">富</button><button data-supply="梨" aria-label="梨の文字を仕入れる">梨</button><button data-supply="北" aria-label="北の文字を仕入れる">北</button></div></div><div id="raw" class="raw" aria-label="風景から取った素材"></div><div class="inventory-label"><span>③ 文字を押してチケットへ ↓</span><span>文字を戻すときはチケットをタップ</span></div><div id="letters" class="letters" aria-label="3人で共通の文字の棚"></div></div>
+<div id="scene" class="scene" aria-label="①風景をタップして素材を取ろう"><img src="assets/travel-landscape.webp" alt="左に森と岩、中央に川、奥に山、右に海、上に青い空" draggable="false"><button class="hotspot sky" data-resource="sky" aria-label="青空から青い素材を取る"><span>🟦 青空</span></button><button class="hotspot mountain" data-resource="mountain" aria-label="山の素材を取る"><span>⛰️ 山</span></button><button class="hotspot forest" data-resource="forest" aria-label="森の素材を取る"><span>🌳 森</span></button><button class="hotspot rock" data-resource="rock" aria-label="石の素材を取る"><span>🪨 石</span></button><button class="hotspot river" data-resource="river" aria-label="川の素材を取る"><span>💧 川</span></button><button class="hotspot sea" data-resource="sea" aria-label="海の素材を取る"><span>🌊 海</span></button><div class="scene-caption">① 風景を押して素材を見つけよう</div></div>
+<div class="tools"><button id="undo" class="small">↶ 1手戻す</button><button id="plans" class="small">行き先のヒント</button><button id="help" class="small">遊び方</button></div></section>
+<section id="result" class="panel"><div class="tag">HAVE A WONDERFUL TRIP!</div><h1>5人とも、いってらっしゃい！</h1><div id="earned" class="resultnum">＋50</div><p style="margin:0">コイン獲得</p><div id="servedList" class="resultlist"></div><p id="resultDetail"></p><button id="again" class="primary">次の旅行客を迎える →</button><button id="back" class="secondary">旅行社の入口へ</button></section><div class="footer"><a href="./">ソリティア</a> · <a href="kitchen.html">漢字キッチン</a> · 旅は、ひとつじゃない。</div></main>
+<dialog id="dialog" class="dialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle">旅プラン</h2><button id="closeDialog" class="small">閉じる ×</button></div><div id="dialogBody"></div></dialog>
+<script>
+'use strict';
+const RESOURCES=[
+{id:'sky',name:'青空',icon:'🟦',char:'青'},{id:'forest',name:'森',icon:'🌳',char:'森'},{id:'rock',name:'石',icon:'🪨',char:'石'},
+{id:'river',name:'川',icon:'💧',char:'川'},{id:'mountain',name:'山',icon:'⛰️',char:'山'},{id:'sea',name:'海',icon:'🌊',char:'海'}
+];
+const LETTERS=['青','森','石','川','山','海','富','梨','北'],SUPPLIES=['富','梨','北'];
+const WISHES={
+sea:{label:'海が見たいわ',icon:'🌊',thanks:'海の景色、楽しみ！'},
+mountain:{label:'山歩きがしたいな',icon:'⛰️',thanks:'山歩きが楽しみ！'},
+onsen:{label:'温泉でのんびりしたい',icon:'♨️',thanks:'温泉でゆっくりしてくるね！'},
+forest:{label:'森で深呼吸したい',icon:'🌳',thanks:'森でリフレッシュしてくるね！'}
+};
+const DESTINATIONS=[
+{id:'aomori',base:'青森',suffix:'県',tags:['forest','onsen'],plan:'奥入瀬の森・蔦温泉',recipe:'🟦→青 ＋ 🌳→森'},
+{id:'ishikawa',base:'石川',suffix:'県',tags:['sea','onsen'],plan:'能登の海・加賀の温泉',recipe:'🪨→石 ＋ 💧→川'},
+{id:'toyama',base:'富山',suffix:'県',tags:['mountain','sea'],plan:'立山の山歩き・富山湾',recipe:'仕入れの「富」 ＋ ⛰️→山'},
+{id:'yamanashi',base:'山梨',suffix:'県',tags:['mountain'],plan:'富士山麓の山歩き',recipe:'⛰️→山 ＋ 仕入れの「梨」'},
+{id:'hokkaido',base:'北海',suffix:'道',tags:['sea','forest'],plan:'海辺の散策・森の散歩',recipe:'仕入れの「北」 ＋ 🌊→海'}
+];
+const AVATARS=['🐱','🐰','🐶','🐼','🐻'],KEY='kotoba-travel-agency-v1';
+const $=id=>document.getElementById(id),clone=x=>JSON.parse(JSON.stringify(x));
+let profile={coins:0,visited:[]},g=null,history=[],state='home',soundOn=true,audio=null,notice='',warning=false;
+function destination(id){return DESTINATIONS.find(d=>d.id===id);}
+function matchDestination(draft){return DESTINATIONS.find(d=>d.base===draft.join(''));}
+function validProfile(p){return p&&Number.isInteger(p.coins)&&p.coins>=0&&Array.isArray(p.visited)&&p.visited.every(id=>destination(id))&&new Set(p.visited).size===p.visited.length;}
+function validGame(s){
+ try{
+  if(!s||!Array.isArray(s.guests)||s.guests.length!==3||!Array.isArray(s.queue)||s.queue.length!==5||!s.queue.every(w=>WISHES[w])||!Array.isArray(s.served)||s.served.length>5||!Number.isInteger(s.arrived)||s.arrived<3||s.arrived>5||s.nextId!==s.arrived+1||!Number.isInteger(s.selected)||s.selected<0||s.selected>2||!Number.isInteger(s.earned)||s.earned<0)return false;
+  const live=s.guests.filter(Boolean);
+  if(live.length+s.served.length!==s.arrived||live.length&& !s.guests[s.selected]||!live.length&&s.served.length!==5)return false;
+  if(!live.every(v=>Number.isInteger(v.id)&&v.id>=1&&v.id<s.nextId&&WISHES[v.wish]&&Array.isArray(v.draft)&&v.draft.length<=2&&v.draft.every(c=>LETTERS.includes(c))&&(!v.plan||destination(v.plan))))return false;
+  if(!s.served.every(v=>Number.isInteger(v.guestId)&&v.guestId>=1&&v.guestId<s.nextId&&WISHES[v.wish]&&destination(v.destination)?.tags.includes(v.wish)&&(v.reward===10||v.reward===15)))return false;
+  if(new Set([...live.map(v=>v.id),...s.served.map(v=>v.guestId)]).size!==s.arrived||s.earned!==s.served.reduce((n,v)=>n+v.reward,0))return false;
+  const counts=(x,keys)=>x&&Object.keys(x).every(k=>keys.includes(k)&&Number.isInteger(x[k])&&x[k]>=0&&x[k]<=999);
+  return counts(s.raw,RESOURCES.map(r=>r.id))&&counts(s.letters,LETTERS);
+ }catch(_){return false;}
+}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify({profile,g,history}));}catch(_){}}
+let hasSaved=false;
+try{
+ const saved=JSON.parse(localStorage.getItem(KEY));
+ if(validProfile(saved?.profile))profile=saved.profile;
+ if(validGame(saved?.g)&&saved.g.served.length<5&&Array.isArray(saved.history)&&saved.history.every(h=>validGame(h.g)&&validProfile(h.profile))){g=saved.g;history=saved.history;hasSaved=true;}
+ soundOn=localStorage.getItem('kenken-sound')!=='off';
+}catch(_){}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function newGuest(index){return {id:index+1,wish:g.queue[index],draft:[],plan:null};}
+function fresh(){
+ const extra=shuffle(['sea','mountain','onsen'])[0];
+ g={queue:['sea','mountain','onsen','forest',extra],guests:[null,null,null],selected:0,raw:{},letters:{},served:[],arrived:3,nextId:4,earned:0};
+ g.guests=[newGuest(0),newGuest(1),newGuest(2)];history=[];
+}
+function updateSound(){$('sound').textContent=soundOn?'音 ON ♪':'音 OFF';$('sound').setAttribute('aria-pressed',String(soundOn));}
+function prepareAudio(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audio)audio=new C();if(audio.state!=='running')audio.resume().catch(()=>{});return audio;}catch(_){return null;}}
+function tone(freqs,volume=.1){
+ if(!soundOn)return;const ctx=prepareAudio();if(!ctx)return;
+ const play=()=>{try{freqs.forEach((hz,i)=>{const o=ctx.createOscillator(),a=ctx.createGain(),t=ctx.currentTime+i*.14;o.frequency.value=hz;a.gain.setValueAtTime(0,t);a.gain.linearRampToValueAtTime(volume,t+.007);a.gain.exponentialRampToValueAtTime(.001,t+.18);o.connect(a);a.connect(ctx.destination);o.onended=()=>{o.disconnect();a.disconnect();};o.start(t);o.stop(t+.19);});}catch(_){}};
+ if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
+}
+function show(id){closeDialog(false);document.body.dataset.screen=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
+function message(text,warn=false){notice=text;warning=warn;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
+function button(text,cls,fn,label){const b=document.createElement('button');b.type='button';b.textContent=text;b.className=cls;b.onclick=fn;if(label)b.setAttribute('aria-label',label);return b;}
+function selectedGuest(){return g?.guests[g.selected];}
+function updateHome(){
+ $('homeCoins').textContent=profile.coins;$('homeVisited').textContent=profile.visited.length;
+ const resumable=g&&g.served.length<5;$('continue').classList.toggle('hidden',!resumable);$('start').textContent=resumable?'新しく旅行のお手伝い →':'旅行のお手伝いをする →';
+}
+function render(){
+ if(!g)return;
+ $('servedCount').textContent=g.served.length;$('sessionCoins').textContent=g.earned;
+ const guests=$('guests');guests.replaceChildren();
+ g.guests.forEach((v,index)=>{
+  const b=button('','guest'+(index===g.selected&&v?' active':'')+(!v?' empty':''),()=>selectGuest(index));
+  if(!v){b.textContent='✈️ 出発しました';b.disabled=true;}
+  else{
+   const avatar=document.createElement('span');avatar.className='avatar';avatar.textContent=AVATARS[(v.id-1)%AVATARS.length];
+   const wish=document.createElement('span');wish.className='wish';wish.textContent=WISHES[v.wish].label;
+   const mini=document.createElement('span');mini.className='mini-ticket';mini.textContent=v.draft.length?v.draft.join('')+'…':index===g.selected?'お手伝い中':'タップで選ぶ';
+   b.appendChild(avatar);b.appendChild(wish);b.appendChild(mini);b.setAttribute('aria-label','お客さん'+v.id+'：'+WISHES[v.wish].label);b.setAttribute('aria-pressed',String(index===g.selected));
+  }
+  guests.appendChild(b);
+ });
+ const guest=selectedGuest(),draft=$('draft');draft.replaceChildren();
+ const made=guest?matchDestination(guest.draft):null,planned=guest?.plan?destination(guest.plan):null;
+ $('ticketLabel').textContent=guest?(planned?planned.base+planned.suffix+'のチケット':WISHES[guest.wish].icon+' '+WISHES[guest.wish].label):'みんな出発しました';
+ for(let i=0;i<2;i++){const char=guest?.draft[i],b=button(char||'・',char?'':'blank',()=>returnLetter(i),char?char+'を文字の棚へ戻す':'行き先の'+(i+1)+'文字目');b.disabled=!char||state!=='playing';draft.appendChild(b);}
+ const suffix=document.createElement('span');suffix.textContent=(made||planned)?.suffix||'旅';draft.appendChild(suffix);
+ $('offer').disabled=state!=='playing'||!made;$('offer').textContent=made?made.base+'への旅を\n提案する →':'行き先をつくろう';$('offer').style.whiteSpace='pre-line';
+ const raw=$('raw');raw.replaceChildren();
+ RESOURCES.forEach(r=>{
+  const count=g.raw[r.id]||0,b=button('','raw-token',()=>processRaw(r.id),r.name+'の素材を加工して'+r.char+'にする。'+count+'個');
+  const icon=document.createElement('span');icon.className='emoji';icon.textContent=r.icon;const label=document.createElement('small');label.textContent='加工';const n=document.createElement('span');n.className='quantity';n.textContent=count?'×'+count:'';
+  b.appendChild(icon);b.appendChild(label);b.appendChild(n);b.disabled=state!=='playing'||!count;raw.appendChild(b);
+ });
+ const letters=$('letters');letters.replaceChildren();
+ LETTERS.forEach(char=>{const count=g.letters[char]||0,b=button(char,'letter',()=>useLetter(char),char+'を選んだお客さんのチケットへ。'+count+'個');if(count){const n=document.createElement('span');n.className='quantity';n.textContent=count>1?'×'+count:'';b.appendChild(n);}b.disabled=state!=='playing'||!count||!guest;letters.appendChild(b);});
+ $('undo').disabled=!history.length;$('feedback').textContent=notice;$('feedback').classList.toggle('warn',warning);
+}
+function commit(action){
+ if(state!=='playing')return;
+ history.push({g:clone(g),profile:clone(profile)});action();persist();render();if(g.served.length===5)finish();
+}
+function collect(id){
+ const r=RESOURCES.find(r=>r.id===id);if(state!=='playing'||!r)return;
+ if((g.raw[id]||0)>=999){message('素材がたくさん！ 先に文字に変えよう。');return;}
+ commit(()=>{g.raw[id]=(g.raw[id]||0)+1;message(r.icon+' '+r.name+'の素材を見つけた！ 次は素材を押して加工。');tone([430],.025);});
+}
+function processRaw(id){
+ const r=RESOURCES.find(r=>r.id===id);if(state!=='playing'||!r||!g.raw[id])return;
+ if((g.letters[r.char]||0)>=999){message('文字がたくさん！ チケットに使ってみよう。');return;}
+ commit(()=>{g.raw[id]--;g.letters[r.char]=(g.letters[r.char]||0)+1;message(r.icon+' →「'+r.char+'」ができた！ 文字を押してチケットへ。');tone([650],.045);});
+}
+function supply(char){
+ if(state!=='playing'||!SUPPLIES.includes(char)||(g.letters[char]||0)>=999)return;
+ commit(()=>{g.letters[char]=(g.letters[char]||0)+1;message('「'+char+'」を仕入れました。文字の棚から使えます。');tone([520],.025);});
+}
+function selectGuest(index){
+ if(state!=='playing'||!g.guests[index])return;
+ if(g.selected===index){message(WISHES[g.guests[index].wish].label+'に合う旅を考えよう。');return;}
+ commit(()=>{g.selected=index;message('お客さんを切り替えました。作りかけのチケットは残ります。');});
+}
+function useLetter(char){
+ const guest=selectedGuest();if(state!=='playing'||!guest||!g.letters[char])return;
+ if(guest.draft.length>=2){message('チケットは2文字。タップで文字を棚に戻せます。',true);return;}
+ commit(()=>{g.letters[char]--;guest.draft.push(char);const d=matchDestination(guest.draft);message(d?d.base+d.suffix+'のできあがり！ 旅行を提案してみよう。':'「'+char+'」をチケットに置きました。');tone([590],.03);if(guest.draft.length===2&&!d)message('今回は5か所の旅先から作ろう。「行き先のヒント」を見てみよう。',true);});
+}
+function returnLetter(index){
+ const guest=selectedGuest();if(state!=='playing'||!guest?.draft[index])return;
+ commit(()=>{const char=guest.draft.splice(index,1)[0];g.letters[char]=(g.letters[char]||0)+1;message('「'+char+'」を棚へ戻しました。別のお客さんにも使えます。');});
+}
+function offer(){
+ const guest=selectedGuest(),d=guest?matchDestination(guest.draft):null;
+ if(state!=='playing'||!guest||!d)return;
+ if(!d.tags.includes(guest.wish)){message('「'+WISHES[guest.wish].label+'」に合うプランがいいな。ヒントを見てみよう。',true);return;}
+ commit(()=>{
+  const discovery=!profile.visited.includes(d.id),reward=discovery?15:10,slot=g.selected;
+  if(discovery)profile.visited.push(d.id);profile.coins+=reward;g.earned+=reward;
+  g.served.push({guestId:guest.id,destination:d.id,wish:guest.wish,reward});
+  if(g.arrived<5){g.guests[slot]=newGuest(g.arrived);g.arrived++;g.nextId=g.arrived+1;}else g.guests[slot]=null;
+  if(!g.guests[g.selected]){const next=g.guests.findIndex(Boolean);g.selected=next<0?0:next;}
+  message('✈️ '+d.base+'へ！「'+WISHES[guest.wish].thanks+'」 ＋'+reward+'コイン');tone([880,660]);
+ });
+}
+function undo(){
+ if(state!=='playing'||!history.length)return;
+ const old=history.pop();g=old.g;profile=old.profile;message('1手戻しました。文字もチケットも戻っています。');persist();render();
+}
+function start(){
+ prepareAudio();fresh();state='playing';show('game');message('風景を押す → 絵を押して漢字に → チケットへ！');persist();render();
+}
+function resume(){if(!g||g.served.length===5)return;prepareAudio();state='playing';show('game');message('おかえりなさい。素材も3人のチケットもそのままです。');render();}
+function goHome(){persist();state='home';updateHome();show('home');}
+function finish(){
+ state='result';show('result');$('earned').textContent='＋'+g.earned;
+ $('servedList').textContent=g.served.map(v=>{const d=destination(v.destination);return WISHES[v.wish].icon+' '+d.base+d.suffix;}).join(' ・ ');
+ $('resultDetail').textContent='ご案内した行き先 '+profile.visited.length+' / 5か所 · 累計 '+profile.coins+'コイン';
+ updateHome();tone([660,880,1046],.07);$('again').focus();
+}
+function choosePlan(id){
+ if(state!=='playing'||!destination(id)||!selectedGuest())return;
+ commit(()=>{selectedGuest().plan=id;message(destination(id).recipe+' でチケットを作ろう！');});closeDialog();
+}
+function openDialog(kind){
+ const body=$('dialogBody');body.replaceChildren();$('dialogTitle').textContent=kind==='plans'?'この旅行社の5つの旅プラン':'素材と遊び方';
+ if(kind==='plans'){
+  const book=document.createElement('div');book.className='book';const guest=state==='playing'?selectedGuest():null;
+  DESTINATIONS.forEach(d=>{
+   const fits=guest&&d.tags.includes(guest.wish),b=button('','package'+(fits?' fits':''),()=>choosePlan(d.id));
+   const name=document.createElement('b');name.textContent=d.base+d.suffix;const tags=document.createElement('span');tags.textContent=d.tags.map(t=>WISHES[t].icon).join(' ') +(fits?' 希望にぴったり':'');
+   const plan=document.createElement('small');plan.textContent=d.plan+' ／ '+d.recipe;
+   b.appendChild(name);b.appendChild(tags);b.appendChild(plan);b.disabled=state!=='playing';book.appendChild(b);
+  });body.appendChild(book);
+  const note=document.createElement('p');note.className='hintline';note.textContent='ここで紹介するプランの特徴です。ひとつの希望に複数の行き先を提案できます。「富・梨・北」は素材の棚の「仕入れ」から。';body.appendChild(note);
+ }else{
+  const copy=document.createElement('p');copy.className='modal-copy';copy.textContent='①風景をタップ → ②取った絵をタップして漢字に → ③文字をチケットに置き、旅先を提案。お客さんを切り替えても作りかけは残ります。文字を戻すときはチケットをタップ。「1手戻す」や中断・自動保存も使えます。時間制限はありません。';body.appendChild(copy);
+  const recipes=document.createElement('div');recipes.className='help-grid';RESOURCES.forEach(r=>{const line=document.createElement('span');line.textContent=r.icon+' → '+r.char;recipes.appendChild(line);});body.appendChild(recipes);
+  const note=document.createElement('p');note.className='hintline';note.textContent='森は木々が集まった素材。新しい行き先をご案内すると、最初の1回は5コインのおまけ。5人出発したら一区切りです。';body.appendChild(note);
+ }
+ const d=$('dialog');if(!d.open){if(d.showModal)d.showModal();else d.setAttribute('open','');}$('closeDialog').focus();
+}
+function closeDialog(focus=true){const d=$('dialog');if(!d?.open)return;if(d.close)d.close();else d.removeAttribute('open');if(focus)(state==='playing'?$('plans'):$('homeBook')).focus();}
+function fit(){document.documentElement.style.setProperty('--vh',Math.round(window.visualViewport?.height||window.innerHeight||650)+'px');}
+$('start').onclick=()=>{if(g&&g.served.length<5&&history.length&&!window.confirm('途中の旅の準備を置き換えて、新しく始めますか？'))return;start();};
+$('continue').onclick=resume;$('again').onclick=start;$('back').onclick=goHome;$('break').onclick=goHome;
+$('offer').onclick=offer;$('undo').onclick=undo;$('plans').onclick=()=>openDialog('plans');$('homeBook').onclick=()=>openDialog('plans');$('help').onclick=()=>openDialog('help');$('homeHelp').onclick=()=>openDialog('help');$('closeDialog').onclick=()=>closeDialog();
+$('dialog').addEventListener('click',e=>{if(e.target===$('dialog'))closeDialog();});
+document.querySelectorAll('[data-resource]').forEach(b=>b.onclick=()=>collect(b.dataset.resource));
+document.querySelectorAll('[data-supply]').forEach(b=>b.onclick=()=>supply(b.dataset.supply));
+$('sound').onclick=()=>{soundOn=!soundOn;try{localStorage.setItem('kenken-sound',soundOn?'on':'off');}catch(_){}updateSound();if(soundOn)tone([880,660]);};
+window.addEventListener?.('resize',fit);window.visualViewport?.addEventListener('resize',fit);
+fit();updateHome();updateSound();show('home');
+</script></body></html>
