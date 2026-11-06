@@ -26,8 +26,9 @@
 .letters{grid-template-columns:repeat(4,minmax(0,1fr))}.guest .picture-order{width:100%;gap:2px}.guest .order-art{flex:1;min-width:0;max-width:32px}.draft{gap:2px}.mini-brochure{flex-direction:column;gap:0;padding:1px}.mini-brochure img{width:26px;height:23px}.mini-brochure small{font-size:8px!important;line-height:10px}.ticket-area{grid-template-columns:minmax(0,1fr) 112px}@media(max-height:650px){.mini-brochure img{width:21px;height:19px}.mini-brochure small{font-size:7px!important;line-height:9px}}@media(max-height:510px){.mini-brochure img{width:18px;height:16px}.guest .order-art{max-width:27px}.ticket-area{grid-template-columns:minmax(0,1fr) 100px}}
 
 .ticket-area{position:relative;padding-bottom:15px}.craft-status{left:3px;right:3px;bottom:0;border:0;background:transparent;padding:0;display:flex;align-items:center;gap:7px;font-size:8px;height:13px}.craft-status>div{flex:1;margin:0;height:4px}.craft-status.hidden{display:none}.next-guest{display:flex;align-items:center;gap:3px;font-size:8px;color:#879772}.next-guest img{width:18px;height:17px;object-fit:contain;background:white;border-radius:3px}.ticket small{font-size:8px}.mini-brochure img{height:18px}.mini-brochure small{line-height:8px}.draft{font-size:12px}@media(max-height:650px){.ticket-area{padding-bottom:12px}.craft-status{height:11px;font-size:7px}.mini-brochure img{height:14px}.ticket{padding:2px 4px;gap:1px}.mini-brochure small{font-size:6px!important}.next-guest img{width:15px;height:14px}.next-guest{font-size:7px}}@media(max-height:510px){.mini-brochure img{height:11px}.ticket small{font-size:7px}.mini-brochure small{line-height:7px}}
+.gallery.piles{padding-top:26px}.batch-meter{position:absolute;top:5px;left:9px;right:9px;font-size:10px;color:#659271;font-weight:800;z-index:30;pointer-events:none}.batch-clear{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f3f9e6ed;color:#50946a;font-size:23px;font-weight:800;animation:pop .3s ease-out}.batch-clear small{font-size:11px;font-weight:400;margin-top:10px;color:#9bac89}@media(max-height:510px){.gallery.piles{padding-top:21px}.batch-meter{font-size:8px;top:4px}.batch-clear{font-size:18px}}
 </style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>重なる絵を片付けて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>4枠をやりくりして、旅の絵を片付けよう。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 一番上の絵を、4枠の一時置場へ<br>② 3枚揃うと作成台へ。3秒でパンフレットに<br>③ 作成中も次の旅を準備！ 次のお客さんも見よう<br>60秒チャレンジ！ 出発すると次のお客さんが到着。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
+<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>重なる絵を片付けて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>4枠をやりくりして、旅の絵を片付けよう。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 一番上の絵を、4枠の一時置場へ<br>② 3枚揃うと作成台へ。3秒でパンフレットに<br>③ 作成中も次の旅を準備！ 次のお客さんも見よう<br>60秒で何山片付く？ 15枚を使い切ると次の山へ。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
 <section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> 組</span><span id="clock" class="clock">⏱ <b id="timeLeft">60</b>秒</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。合う旅を自動で案内"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div class="ticket-content"><img id="ticketPhoto" class="ticket-photo hidden" alt=""><div id="draft" class="draft" aria-label="作っている行き先"></div></div></div><div id="craftStatus" class="craft-status hidden" role="status"><span>作成中</span><div><i></i></div></div><div id="offer" class="auto-status" role="status">揃うと自動で<br>チケットをお届け ✈️</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 <div class="work"><div class="work-head"><span id="stockInfo">一時置場 0 / 4</span><div id="nextGuest" class="next-guest" aria-label="次に来るお客さんの注文"></div></div><div id="letters" class="letters" aria-label="4枠の一時置場"></div><div class="tray-note">満杯になったら「1手戻す」で順番を見直そう</div></div>
 <div id="scene" class="scene gallery piles" aria-label="3列に重なった旅の絵。一番上だけ使えます"></div>
@@ -44,18 +45,18 @@ const SIGHTS=[
  {id:'deer',name:'奈良の鹿',image:'assets/trip-deer.webp',place:'奈良'}
 ];
 const ORDERS=[['apples','yufuin','fuji'],['deer','takachiho','apples'],['fuji','deer','yufuin'],['takachiho','apples','fuji'],['yufuin','takachiho','deer']];
-const KEY='kotoba-travel-pipeline-v7',LIMIT=4,AVATARS=['🐱','🐰','🐶','🐼','🐻'];
+const KEY='kotoba-travel-batches-v8',LIMIT=4,AVATARS=['🐱','🐰','🐶','🐼','🐻'];
 const $=id=>document.getElementById(id),clone=x=>JSON.parse(JSON.stringify(x)),sight=id=>SIGHTS.find(s=>s.id===id);
 let g=null,history=[],state='home',soundOn=true,audio=null,notice='',timer=null,lastTick=0;
 const orderFor=id=>ORDERS[id%ORDERS.length];
 let profile={coins:0,visited:[]};
-try{for(const key of ['kotoba-travel-three-stops-v6','kotoba-travel-two-slots-v5','kotoba-travel-timed-v4','kotoba-travel-tidy-v3','kotoba-travel-picture-orders-v2','kotoba-travel-agency-v1']){const old=JSON.parse(localStorage.getItem(key));if(old?.profile){profile=old.profile;break;}}}catch(_){}
+try{for(const key of ['kotoba-travel-pipeline-v7','kotoba-travel-three-stops-v6','kotoba-travel-two-slots-v5','kotoba-travel-timed-v4','kotoba-travel-tidy-v3','kotoba-travel-picture-orders-v2','kotoba-travel-agency-v1']){const old=JSON.parse(localStorage.getItem(key));if(old?.profile){profile=old.profile;break;}}}catch(_){}
 function validGame(x){
- if(!x||!Array.isArray(x.columns)||x.columns.length!==3||!x.columns.every(Array.isArray)||!Array.isArray(x.stock)||x.stock.length>LIMIT||!Array.isArray(x.guests)||x.guests.length!==3||!Array.isArray(x.served)||!Number.isFinite(x.left)||x.left<0||x.left>60000||!Number.isInteger(x.arrived)||x.arrived!==x.served.length+3||!Number.isInteger(x.nextCard))return false;
+ if(!x||!Array.isArray(x.columns)||x.columns.length!==3||!x.columns.every(Array.isArray)||!Array.isArray(x.stock)||x.stock.length>LIMIT||!Array.isArray(x.guests)||x.guests.length!==3||!Array.isArray(x.served)||!Number.isFinite(x.left)||x.left<0||x.left>60000||!Number.isInteger(x.arrived)||x.arrived!==x.served.length+x.guests.filter(v=>v!==null).length||!Number.isInteger(x.batch)||x.batch<1||!Number.isInteger(x.cleared)||x.cleared<0||!Number.isFinite(x.clearing)||x.clearing<0||x.clearing>900||!Number.isInteger(x.nextCard))return false;
  const cards=[...x.columns.flat(),...x.stock,...(x.job?.cards||[]),...x.served.flatMap(v=>v.cards||[])];
  if(cards.length!==x.nextCard-1||new Set(cards.map(c=>c.uid)).size!==cards.length||!cards.every(c=>Number.isInteger(c.uid)&&c.uid>0&&c.uid<x.nextCard&&sight(c.sight)))return false;
  if(x.job&&(!x.guests.includes(x.job.guest)||!Number.isFinite(x.job.left)||x.job.left<0||x.job.left>3000||!orderFor(x.job.guest).every((s,i)=>x.job.cards[i]?.sight===s)))return false;
- const ids=[...x.guests,...x.served.map(v=>v.id)];
+ const ids=[...x.guests.filter(v=>v!==null),...x.served.map(v=>v.id)];
  return ids.length===x.arrived&&new Set(ids).size===ids.length&&ids.every(i=>Number.isInteger(i)&&i>=0&&i<x.arrived)&&x.earned===x.served.length*20&&x.served.every(v=>v.cards.length===3&&orderFor(v.id).every((s,i)=>v.cards[i].sight===s));
 }
 try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved&&validGame(saved.g)){g=saved.g;profile=saved.profile;history=(saved.history||[]).filter(h=>validGame(h.g));}soundOn=localStorage.getItem('kenken-sound')!=='off';}catch(_){}
@@ -65,14 +66,14 @@ function show(id){closeDialog();lastTick=performance.now();state=id==='game'?'pl
 function message(text,warn=false){notice=text;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
 function updateHome(){$('homeCoins').textContent=profile.coins||0;$('homeVisited').textContent=profile.visited?.length||0;$('continue').classList.toggle('hidden',!g||g.left<=0);}
 function deal(){
- const layouts=[['deer','apples','yufuin'],['takachiho','fuji','deer'],['apples','fuji','yufuin']];
+ const layouts=[['deer','apples','yufuin','takachiho','yufuin'],['takachiho','fuji','deer','apples','takachiho'],['apples','fuji','yufuin','fuji','deer']];
  const offset=Math.floor(Math.random()*3),reverse=Math.random()<.5;
  g.columns=layouts.map((_,i)=>layouts[(i+offset)%3].map(s=>({uid:g.nextCard++,sight:s})));
  if(reverse)g.columns.reverse();
 }
 function newRound(){
- g={columns:[[],[],[]],stock:[],guests:[0,1,2],arrived:3,served:[],earned:0,lastTrip:null,left:60000,nextCard:1,job:null};history=[];deal();
- show('game');message('60秒で何組案内できる？ 4枠を空けながら、どんどん出発！');render();persist();
+ g={columns:[[],[],[]],stock:[],guests:[0,1,2],arrived:3,served:[],earned:0,lastTrip:null,left:60000,nextCard:1,job:null,batch:1,cleared:0,clearing:0};history=[];deal();
+ show('game');message('15枚を使い切ろう！ 途中の補充なし、全部片付くと次の山へ');render();persist();
 }
 function updateClock(){
  const seconds=Math.ceil(g.left/1000);$('timeLeft').textContent=seconds;
@@ -82,12 +83,13 @@ function updateClock(){
 function tick(now=performance.now()){
  const delta=Math.max(0,now-lastTick);lastTick=now;
  if(state!=='playing'||!g||document.hidden||$('dialog').open)return;
+ if(g.clearing>0){g.clearing=Math.max(0,g.clearing-delta);if(g.clearing===0){g.batch++;g.guests=[g.arrived,g.arrived+1,g.arrived+2];g.arrived+=3;deal();message('📦 第'+g.batch+'便が到着！ また15枚を片付けよう');render();persist();}return;}
  const active=Math.min(delta,g.left);g.left=Math.max(0,g.left-delta);if(g.job){g.job.left=Math.max(0,g.job.left-active);if(g.job.left===0){completeJob();render();persist();}else updateCraft();}updateClock();if(g.left===0)finish();
 }
 function matching(order){const used=new Set(),cards=[];for(const id of order){const card=g.stock.find(c=>c.sight===id&&!used.has(c.uid));if(!card)return null;used.add(card.uid);cards.push(card);}return cards;}
 function dispatch(){
  if(g.job)return false;
- const guest=g.guests.find(id=>matching(orderFor(id)));if(guest===undefined)return false;
+ const guest=g.guests.find(id=>id!==null&&matching(orderFor(id)));if(guest===undefined)return false;
  const cards=matching(orderFor(guest)),used=new Set(cards.map(c=>c.uid));g.stock=g.stock.filter(c=>!used.has(c.uid));g.job={guest,cards:clone(cards),left:3000};
  message('📖 作成台へ！ 空いた4枠で次の旅を準備しよう');tone([550]);return true;
 }
@@ -100,14 +102,14 @@ function completeJob(){
  const slot=g.guests.indexOf(job.guest),id=job.guest,cards=job.cards;
  g.job=null;const trip={id,cards:clone(cards)};g.served.push(trip);g.lastTrip=trip;g.earned+=20;profile.coins=(profile.coins||0)+20;
  profile.visited ||= [];for(const card of cards){const legacy={apples:'aomori',yufuin:'oita',takachiho:'miyazaki',fuji:'yamanashi',deer:'nara'}[card.sight];if(!profile.visited.includes(legacy))profile.visited.push(legacy);}
- const next=g.arrived++;g.guests[slot]=next;
- for(const material of orderFor(next)){const min=Math.min(...g.columns.map(c=>c.length));const col=g.columns.findIndex(c=>c.length===min);g.columns[col].push({uid:g.nextCard++,sight:material});}
+ g.guests[slot]=g.arrived<g.batch*5?g.arrived++:null;
  message('✈️ お届け！ ＋20コイン');tone([660,880,1046]);if(g.left>0&&dispatch())message('✈️ お届け完了 → 次のパンフレットを続けて作成！');
+ if(g.served.length===g.batch*5&&g.columns.every(c=>!c.length)&&g.stock.length===0&&!g.job){g.cleared++;g.clearing=900;message('✨ 全部片付いた！ 山も置場もすっきり！');tone([660,880,1046,1320]);}
  $('scene').classList.remove('cleared');void $('scene').offsetWidth;$('scene').classList.add('cleared');
 }
 
 function takeStack(col){
- tick();if(state!=='playing'||!g.columns[col]?.length)return;
+ tick();if(state!=='playing'||g.clearing>0||!g.columns[col]?.length)return;
  if(g.stock.length>=LIMIT){message('一時置場がいっぱい。1手戻して、取る順番を変えよう。',true);tone([220]);return;}
  history.push({g:clone(g),profile:clone(profile)});if(history.length>30)history.shift();
  const card=g.columns[col].shift();g.stock.push(card);const crafting=dispatch();
@@ -119,7 +121,7 @@ function art(card,cls=''){const img=document.createElement('img');const s=sight(
 function render(){
  updateClock();$('servedCount').textContent=g.served.length;$('sessionCoins').textContent=g.earned;
  const guests=$('guests');guests.replaceChildren();
- g.guests.forEach(id=>{const box=document.createElement('div');box.className='guest'+(id===null?' empty':'');if(id===null){box.textContent='✈️ 出発しました';guests.appendChild(box);return;}
+ g.guests.forEach(id=>{const box=document.createElement('div');box.className='guest'+(id===null?' empty':'');if(id===null){box.textContent='✨ ご案内完了';guests.appendChild(box);return;}
   const avatar=document.createElement('span');avatar.className='avatar';avatar.textContent=AVATARS[id%AVATARS.length];
   const order=document.createElement('div');order.className='picture-order';
   const used=new Set();for(const s of orderFor(id)){const card=document.createElement('span');card.className='order-art';card.appendChild(art(s));const held=(g.job?.guest===id?g.job.cards:g.stock).find(c=>c.sight===s&&!used.has(c.uid));if(held){used.add(held.uid);card.classList.add('ready');const check=document.createElement('b');check.textContent='✓';card.appendChild(check);}order.appendChild(card);}
@@ -134,7 +136,8 @@ function render(){
  if(g.job||g.lastTrip){for(const card of (g.job||g.lastTrip).cards){const item=document.createElement('span');item.className='mini-brochure';item.appendChild(art(card));const name=document.createElement('small');name.textContent=sight(card.sight).place;item.appendChild(name);draft.appendChild(item);}}else draft.textContent='📖 ＋ 📖 ＋ 📖 → ✈️';
  const board=$('scene');board.replaceChildren();
  g.columns.forEach((column,col)=>{const pile=document.createElement('div');pile.className='pile';pile.dataset.col=col;if(!column.length){const empty=document.createElement('div');empty.className='empty-pile';empty.textContent='✨ 片付いた！';pile.appendChild(empty);}column.forEach((card,row)=>{const s=sight(card.sight),b=document.createElement('button');b.type='button';b.className='picture-card '+s.id;b.dataset.top=row===0;b.dataset.sight=s.id;b.dataset.card=card.uid;b.disabled=row!==0;b.style.height='calc((100% + var(--overlap) * '+(column.length-1)+') / '+column.length+')';b.style.zIndex=column.length-row;b.onclick=()=>takeStack(col);b.setAttribute('aria-label',s.name+(row===0?'を一時置場へ':'、上の絵をどかすと取れます'));b.appendChild(art(card));const label=document.createElement('span');label.textContent=s.name;b.appendChild(label);if(row===0){const badge=document.createElement('div');badge.className='top-badge';badge.textContent='取れる';b.appendChild(badge);}pile.appendChild(b);});board.appendChild(pile);});
- const preview=$('nextGuest');preview.replaceChildren();const label=document.createElement('span');label.textContent='次のお客さん ';preview.appendChild(label);for(const id of orderFor(g.arrived))preview.appendChild(art(id));
+ const preview=$('nextGuest');preview.replaceChildren();const label=document.createElement('span');label.textContent='次のお客さん ';preview.appendChild(label);if(g.arrived<g.batch*5){for(const id of orderFor(g.arrived))preview.appendChild(art(id));}else label.textContent=g.clearing?'✨ 次の便を準備中':'この便はあと'+(g.batch*5-g.served.length)+'組';
+ const meter=document.createElement('div');meter.className='batch-meter';const left=g.columns.flat().length+g.stock.length+(g.job?.cards.length||0);meter.textContent='第'+g.batch+'便 · 残り'+left+' / 15枚';board.appendChild(meter);if(g.clearing){const done=document.createElement('div');done.className='batch-clear';done.innerHTML='✨ 全部片付いた！<small>次の山が届きます</small>';board.appendChild(done);}
  updateCraft();$('undo').disabled=!history.length;board.classList.toggle('blocked',g.stock.length===LIMIT);
 }
 function undo(){tick();if(state!=='playing'||!history.length)return;const left=g.left,old=history.pop();g=old.g;g.left=left;profile=old.profile;message('戻しました。取る順番を変えてみよう。');render();persist();}
@@ -142,11 +145,11 @@ function finish(){
  if(state!=='playing')return;g.left=0;show('result');$('earned').textContent=g.served.length+'組';
  $('scoreCoins').textContent='＋'+g.earned+'コイン獲得';const list=$('servedList');list.replaceChildren();
  for(const v of g.served.slice(-6)){const el=document.createElement('div');el.className='trip-stamp';el.appendChild(art(v.cards[0]));const label=document.createElement('span');label.textContent=v.cards.map(c=>sight(c.sight).place).join('・');el.appendChild(label);list.appendChild(el);}
- let best=g.served.length;try{best=Math.max(best,Number(localStorage.getItem('travel-pipeline-best'))||0);localStorage.setItem('travel-pipeline-best',best);}catch(_){}
- $('resultDetail').textContent='案内した旅 '+g.served.length+'組 ／ ベスト '+best+'組';updateHome();persist();tone([660,880,1046]);
+ let best=g.served.length;try{best=Math.max(best,Number(localStorage.getItem('travel-batches-best'))||0);localStorage.setItem('travel-batches-best',best);}catch(_){}
+ $('resultDetail').textContent='案内した旅 '+g.served.length+'組 ／ '+g.cleared+'山すっきり ／ ベスト '+best+'組';updateHome();persist();tone([660,880,1046]);
 }
 function closeDialog(){const d=$('dialog');if(d.open)d.close();}
-function openDialog(kind){tick();$('dialogTitle').textContent=kind==='plans'?'旅の組合せ':'遊び方';const body=$('dialogBody');body.replaceChildren();const p=document.createElement('p');p.className='modal-copy';p.textContent='①各列の一番上の絵をタップして一時置場へ。②お客さんが欲しい3枚が揃うと、3秒かけてパンフレットにして自動でお届け。3枚は別の作成台へ移り、一時置場が空きます。作成中も次の注文を準備できます。作成台が空いたら、揃っている次の注文を自動で作り始めます。次に来るお客さんの絵も参考にしよう。③4枠を使い切る前に、どの注文を揃えるか考えよう。満杯になったら「1手戻す」でやり直せます。60秒で何組案内できるか挑戦！ 出発すると次のお客さんが来ます。次のお客さんに必要な絵は、山の下へ補充されます。戻しても残り時間は戻りません。中断・遊び方・画面を離れている間は時計が止まります。';body.appendChild(p);if(kind==='plans'){for(const order of ORDERS){const row=document.createElement('div');row.className='help-order';for(const id of order)row.appendChild(art(id));body.appendChild(row);}}$('dialog').showModal();}
+function openDialog(kind){tick();$('dialogTitle').textContent=kind==='plans'?'旅の組合せ':'遊び方';const body=$('dialogBody');body.replaceChildren();const p=document.createElement('p');p.className='modal-copy';p.textContent='①各列の一番上の絵をタップして一時置場へ。②お客さんが欲しい3枚が揃うと、3秒かけてパンフレットにして自動でお届け。3枚は別の作成台へ移り、一時置場が空きます。作成中も次の注文を準備できます。作成台が空いたら、揃っている次の注文を自動で作り始めます。次に来るお客さんの絵も参考にしよう。③4枠を使い切る前に、どの注文を揃えるか考えよう。満杯になったら「1手戻す」でやり直せます。60秒で何組案内できるか挑戦！ 出発すると次のお客さんが来ます。1便は15枚・5組分です。途中の補充はありません。全部使って5組案内すると、山も置場も空っぽに！ 少し見せてから次の15枚が届きます。片付いた演出中は時計が止まります。戻しても残り時間は戻りません。中断・遊び方・画面を離れている間は時計が止まります。';body.appendChild(p);if(kind==='plans'){for(const order of ORDERS){const row=document.createElement('div');row.className='help-order';for(const id of order)row.appendChild(art(id));body.appendChild(row);}}$('dialog').showModal();}
 function fit(){document.documentElement.style.setProperty('--vh',Math.round(window.visualViewport?.height||innerHeight)+'px');}
 $('start').onclick=()=>{if(g&&g.left>0&&history.length&&!confirm('途中の旅を置き換えて、新しく始めますか？'))return;newRound();};
 $('again').onclick=newRound;$('continue').onclick=()=>{if(!g||g.left<=0)return;show('game');message('続きから。4枠を空けながら片付けよう。');render();};
