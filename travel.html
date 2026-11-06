@@ -27,8 +27,9 @@
 
 .ticket-area{position:relative;padding-bottom:15px}.craft-status{left:3px;right:3px;bottom:0;border:0;background:transparent;padding:0;display:flex;align-items:center;gap:7px;font-size:8px;height:13px}.craft-status>div{flex:1;margin:0;height:4px}.craft-status.hidden{display:none}.next-guest{display:flex;align-items:center;gap:3px;font-size:8px;color:#879772}.next-guest img{width:18px;height:17px;object-fit:contain;background:white;border-radius:3px}.ticket small{font-size:8px}.mini-brochure img{height:18px}.mini-brochure small{line-height:8px}.draft{font-size:12px}@media(max-height:650px){.ticket-area{padding-bottom:12px}.craft-status{height:11px;font-size:7px}.mini-brochure img{height:14px}.ticket{padding:2px 4px;gap:1px}.mini-brochure small{font-size:6px!important}.next-guest img{width:15px;height:14px}.next-guest{font-size:7px}}@media(max-height:510px){.mini-brochure img{height:11px}.ticket small{font-size:7px}.mini-brochure small{line-height:7px}}
 .gallery.piles{padding-top:26px}.batch-meter{position:absolute;top:5px;left:9px;right:9px;font-size:10px;color:#659271;font-weight:800;z-index:30;pointer-events:none}.batch-clear{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f3f9e6ed;color:#50946a;font-size:23px;font-weight:800;animation:pop .3s ease-out}.batch-clear small{font-size:11px;font-weight:400;margin-top:10px;color:#9bac89}@media(max-height:510px){.gallery.piles{padding-top:21px}.batch-meter{font-size:8px;top:4px}.batch-clear{font-size:18px}}
+.home-images{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:1fr 1fr}.home-images img{min-height:0}.brand:after{content:"8種の旅";font-size:8px;color:#93a181;margin-left:7px}.picture-card.snow img,.picture-card.castle img{object-fit:contain;background:white}
 </style></head><body><main class="app"><header><div class="brand">ことば<b>旅行社</b> 🧳</div><button id="sound" class="small" aria-pressed="true">音 ON ♪</button></header>
-<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>重なる絵を片付けて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>4枠をやりくりして、旅の絵を片付けよう。</p><div class="home-images"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 一番上の絵を、4枠の一時置場へ<br>② 3枚揃うと作成台へ。3秒でパンフレットに<br>③ 作成中も次の旅を準備！ 次のお客さんも見よう<br>60秒で何山片付く？ 15枚を使い切ると次の山へ。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 10</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
+<section id="home" class="panel"><div class="tag">FIND A SCENE. MAKE A JOURNEY.</div><h1>重なる絵を片付けて、<br><em>旅をつくろう。</em></h1><p>「りんごが食べたい」「湯布院に行きたい」<br>4枠をやりくりして、旅の絵を片付けよう。</p><div class="home-images"><img src="assets/trip-sea.webp" alt="沖縄の海"><img src="assets/trip-castle.webp" alt="姫路城"><img src="assets/trip-snow.webp" alt="北海道の雪景色"><img src="assets/trip-apples.webp" alt="りんご園" class="apples"><img src="assets/trip-yufuin.webp" alt="湯布院" class="yufuin"><img src="assets/trip-takachiho.webp" alt="高千穂峡" class="takachiho"><img src="assets/trip-fuji.webp" alt="富士山" class="fuji"><img src="assets/trip-deer.webp" alt="奈良の鹿" class="deer"></div><div class="home-rules">① 一番上の絵を、4枠の一時置場へ<br>② 3枚揃うと作成台へ。3秒でパンフレットに<br>③ 作成中も次の旅を準備！ 次のお客さんも見よう<br>60秒で何山片付く？ 15枚を使い切ると次の山へ。</div><button id="start" class="primary">旅行のお手伝いをする →</button><button id="continue" class="primary hidden" style="margin-top:10px">途中からつづける →</button><div class="home-meta">🪙 累計 <b id="homeCoins">0</b>コイン · ご案内した行き先 <b id="homeVisited">0</b> / 8</div><div class="home-actions"><button id="homeBook" class="small">旅プランを見る</button><button id="homeHelp" class="small">遊び方</button></div></section>
 <section id="game" class="panel hidden" aria-label="風景から文字を作る旅行代理店"><div class="stats"><span>出発 <b id="servedCount">0</b> 組</span><span id="clock" class="clock">⏱ <b id="timeLeft">60</b>秒</span><span class="coins">🪙 <span id="sessionCoins">0</span></span><button id="break" class="small">中断</button></div><div id="guests" class="guests" aria-label="3人のお客さん。合う旅を自動で案内"></div><div class="ticket-area"><div class="ticket"><small id="ticketLabel">選んだお客さんへのチケット</small><div class="ticket-content"><img id="ticketPhoto" class="ticket-photo hidden" alt=""><div id="draft" class="draft" aria-label="作っている行き先"></div></div></div><div id="craftStatus" class="craft-status hidden" role="status"><span>作成中</span><div><i></i></div></div><div id="offer" class="auto-status" role="status">揃うと自動で<br>チケットをお届け ✈️</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 <div class="work"><div class="work-head"><span id="stockInfo">一時置場 0 / 4</span><div id="nextGuest" class="next-guest" aria-label="次に来るお客さんの注文"></div></div><div id="letters" class="letters" aria-label="4枠の一時置場"></div><div class="tray-note">満杯になったら「1手戻す」で順番を見直そう</div></div>
 <div id="scene" class="scene gallery piles" aria-label="3列に重なった旅の絵。一番上だけ使えます"></div>
@@ -42,15 +43,18 @@ const SIGHTS=[
  {id:'yufuin',name:'湯布院',image:'assets/trip-yufuin.webp',place:'大分'},
  {id:'takachiho',name:'高千穂峡',image:'assets/trip-takachiho.webp',place:'宮崎'},
  {id:'fuji',name:'富士山',image:'assets/trip-fuji.webp',place:'山梨'},
- {id:'deer',name:'奈良の鹿',image:'assets/trip-deer.webp',place:'奈良'}
+ {id:'deer',name:'奈良の鹿',image:'assets/trip-deer.webp',place:'奈良'},
+ {id:'sea',name:'沖縄の海',image:'assets/trip-sea.webp',place:'沖縄'},
+ {id:'castle',name:'姫路城',image:'assets/trip-castle.webp',place:'兵庫'},
+ {id:'snow',name:'北海道の雪景色',image:'assets/trip-snow.webp',place:'北海道'}
 ];
-const ORDERS=[['apples','yufuin','fuji'],['deer','takachiho','apples'],['fuji','deer','yufuin'],['takachiho','apples','fuji'],['yufuin','takachiho','deer']];
-const KEY='kotoba-travel-batches-v8',LIMIT=4,AVATARS=['🐱','🐰','🐶','🐼','🐻'];
+const ORDERS=[['apples','sea','fuji'],['deer','castle','yufuin'],['snow','takachiho','sea'],['castle','apples','snow'],['fuji','yufuin','takachiho']];
+const KEY='kotoba-travel-eight-v9',LIMIT=4,AVATARS=['🐱','🐰','🐶','🐼','🐻'];
 const $=id=>document.getElementById(id),clone=x=>JSON.parse(JSON.stringify(x)),sight=id=>SIGHTS.find(s=>s.id===id);
 let g=null,history=[],state='home',soundOn=true,audio=null,notice='',timer=null,lastTick=0;
 const orderFor=id=>ORDERS[id%ORDERS.length];
 let profile={coins:0,visited:[]};
-try{for(const key of ['kotoba-travel-pipeline-v7','kotoba-travel-three-stops-v6','kotoba-travel-two-slots-v5','kotoba-travel-timed-v4','kotoba-travel-tidy-v3','kotoba-travel-picture-orders-v2','kotoba-travel-agency-v1']){const old=JSON.parse(localStorage.getItem(key));if(old?.profile){profile=old.profile;break;}}}catch(_){}
+try{for(const key of ['kotoba-travel-batches-v8','kotoba-travel-pipeline-v7','kotoba-travel-three-stops-v6','kotoba-travel-two-slots-v5','kotoba-travel-timed-v4','kotoba-travel-tidy-v3','kotoba-travel-picture-orders-v2','kotoba-travel-agency-v1']){const old=JSON.parse(localStorage.getItem(key));if(old?.profile){profile=old.profile;break;}}}catch(_){}
 function validGame(x){
  if(!x||!Array.isArray(x.columns)||x.columns.length!==3||!x.columns.every(Array.isArray)||!Array.isArray(x.stock)||x.stock.length>LIMIT||!Array.isArray(x.guests)||x.guests.length!==3||!Array.isArray(x.served)||!Number.isFinite(x.left)||x.left<0||x.left>60000||!Number.isInteger(x.arrived)||x.arrived!==x.served.length+x.guests.filter(v=>v!==null).length||!Number.isInteger(x.batch)||x.batch<1||!Number.isInteger(x.cleared)||x.cleared<0||!Number.isFinite(x.clearing)||x.clearing<0||x.clearing>900||!Number.isInteger(x.nextCard))return false;
  const cards=[...x.columns.flat(),...x.stock,...(x.job?.cards||[]),...x.served.flatMap(v=>v.cards||[])];
@@ -64,13 +68,29 @@ function persist(){try{localStorage.setItem(KEY,JSON.stringify({g,profile,histor
 function tone(notes){if(!soundOn)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;audio ||= new C();audio.resume().catch(()=>{});notes.forEach((f,i)=>{const o=audio.createOscillator(),gain=audio.createGain(),t=audio.currentTime+i*.085;o.frequency.value=f;gain.gain.setValueAtTime(.045,t);gain.gain.exponentialRampToValueAtTime(.001,t+.15);o.connect(gain);gain.connect(audio.destination);o.start(t);o.stop(t+.16);});}catch(_){}}
 function show(id){closeDialog();lastTick=performance.now();state=id==='game'?'playing':id;document.body.dataset.screen=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function message(text,warn=false){notice=text;$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
-function updateHome(){$('homeCoins').textContent=profile.coins||0;$('homeVisited').textContent=profile.visited?.length||0;$('continue').classList.toggle('hidden',!g||g.left<=0);}
-function deal(){
- const layouts=[['deer','apples','yufuin','takachiho','yufuin'],['takachiho','fuji','deer','apples','takachiho'],['apples','fuji','yufuin','fuji','deer']];
- const offset=Math.floor(Math.random()*3),reverse=Math.random()<.5;
- g.columns=layouts.map((_,i)=>layouts[(i+offset)%3].map(s=>({uid:g.nextCard++,sight:s})));
- if(reverse)g.columns.reverse();
+function updateHome(){$('homeCoins').textContent=profile.coins||0;$('homeVisited').textContent=(profile.visited||[]).filter(id=>['aomori','oita','miyazaki','yamanashi','nara','okinawa','hyogo','hokkaido'].includes(id)).length;$('continue').classList.toggle('hidden',!g||g.left<=0);}
+function shuffled(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function solveBoard(columns,stock=[],guests=[0,1,2],next=3){
+ const failed=new Set();
+ function search(cols,tray,waiting,arrived,path){
+  // Model completing each brochure before proceeding. This also works with the separate workbench.
+  while(true){const slot=waiting.findIndex(id=>id!==null&&ORDERS[id%5].every(s=>tray.includes(s)));if(slot<0)break;for(const s of ORDERS[waiting[slot]%5])tray.splice(tray.indexOf(s),1);waiting[slot]=arrived<5?arrived++:null;}
+  if(cols.every(c=>!c.length)&&!tray.length)return path;
+  if(tray.length>=LIMIT)return null;
+  const key=JSON.stringify([cols,tray.slice().sort(),waiting,arrived]);if(failed.has(key))return null;
+  for(let col=0;col<3;col++){if(!cols[col].length)continue;const cs=cols.map(c=>c.slice()),ts=[...tray,cs[col].shift()];const answer=search(cs,ts,waiting.slice(),arrived,[...path,col]);if(answer)return answer;}
+  failed.add(key);return null;
+ }
+ return search(columns.map(c=>c.slice()),stock.slice(),guests.slice(),next,[]);
 }
+function deal(){
+ const material=ORDERS.flat();let layout=null;
+ for(let attempt=0;attempt<60;attempt++){const mixed=shuffled(material),candidate=[mixed.slice(0,5),mixed.slice(5,10),mixed.slice(10,15)];if(solveBoard(candidate)){layout=candidate;break;}}
+ // A constructive fallback interleaves a valid order sequence while preserving it within each column.
+ if(!layout){layout=[[],[],[]];for(const id of [1,0,2,3,4])for(const s of ORDERS[id])layout[Math.floor(Math.random()*3)].push(s);}
+ g.columns=layout.map(c=>c.map(s=>({uid:g.nextCard++,sight:s})));
+}
+
 function newRound(){
  g={columns:[[],[],[]],stock:[],guests:[0,1,2],arrived:3,served:[],earned:0,lastTrip:null,left:60000,nextCard:1,job:null,batch:1,cleared:0,clearing:0};history=[];deal();
  show('game');message('15枚を使い切ろう！ 途中の補充なし、全部片付くと次の山へ');render();persist();
@@ -101,7 +121,7 @@ function completeJob(){
  const job=g.job;if(!job)return;
  const slot=g.guests.indexOf(job.guest),id=job.guest,cards=job.cards;
  g.job=null;const trip={id,cards:clone(cards)};g.served.push(trip);g.lastTrip=trip;g.earned+=20;profile.coins=(profile.coins||0)+20;
- profile.visited ||= [];for(const card of cards){const legacy={apples:'aomori',yufuin:'oita',takachiho:'miyazaki',fuji:'yamanashi',deer:'nara'}[card.sight];if(!profile.visited.includes(legacy))profile.visited.push(legacy);}
+ profile.visited ||= [];for(const card of cards){const legacy={apples:'aomori',yufuin:'oita',takachiho:'miyazaki',fuji:'yamanashi',deer:'nara',sea:'okinawa',castle:'hyogo',snow:'hokkaido'}[card.sight];if(!profile.visited.includes(legacy))profile.visited.push(legacy);}
  g.guests[slot]=g.arrived<g.batch*5?g.arrived++:null;
  message('✈️ お届け！ ＋20コイン');tone([660,880,1046]);if(g.left>0&&dispatch())message('✈️ お届け完了 → 次のパンフレットを続けて作成！');
  if(g.served.length===g.batch*5&&g.columns.every(c=>!c.length)&&g.stock.length===0&&!g.job){g.cleared++;g.clearing=900;message('✨ 全部片付いた！ 山も置場もすっきり！');tone([660,880,1046,1320]);}
@@ -145,7 +165,7 @@ function finish(){
  if(state!=='playing')return;g.left=0;show('result');$('earned').textContent=g.served.length+'組';
  $('scoreCoins').textContent='＋'+g.earned+'コイン獲得';const list=$('servedList');list.replaceChildren();
  for(const v of g.served.slice(-6)){const el=document.createElement('div');el.className='trip-stamp';el.appendChild(art(v.cards[0]));const label=document.createElement('span');label.textContent=v.cards.map(c=>sight(c.sight).place).join('・');el.appendChild(label);list.appendChild(el);}
- let best=g.served.length;try{best=Math.max(best,Number(localStorage.getItem('travel-batches-best'))||0);localStorage.setItem('travel-batches-best',best);}catch(_){}
+ let best=g.served.length;try{best=Math.max(best,Number(localStorage.getItem('travel-eight-best'))||0);localStorage.setItem('travel-eight-best',best);}catch(_){}
  $('resultDetail').textContent='案内した旅 '+g.served.length+'組 ／ '+g.cleared+'山すっきり ／ ベスト '+best+'組';updateHome();persist();tone([660,880,1046]);
 }
 function closeDialog(){const d=$('dialog');if(d.open)d.close();}
