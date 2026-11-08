@@ -42,6 +42,16 @@ function img(id){const data=sight(id);let el;if(data.baseSprite!==undefined){el=
 
 function message(text,warn=false){$('feedback').textContent=text;$('feedback').classList.toggle('warn',warn);}
 function tone(notes){if(!soundOn)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;audio ||= new C();audio.resume().catch(()=>{});notes.forEach((f,i)=>{const o=audio.createOscillator(),v=audio.createGain(),t=audio.currentTime+i*.075;o.frequency.value=f;v.gain.setValueAtTime(.04,t);v.gain.exponentialRampToValueAtTime(.001,t+.14);o.connect(v);v.connect(audio.destination);o.start(t);o.stop(t+.15);});}catch(_){}}
+function coinSound(){
+ if(!soundOn)return;
+ try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;audio ||= new C();audio.resume().catch(()=>{});
+  const t=audio.currentTime,o=audio.createOscillator(),v=audio.createGain(),filter=audio.createBiquadFilter();
+  o.type='square';o.frequency.setValueAtTime(987.77,t);o.frequency.setValueAtTime(1318.51,t+.075);
+  filter.type='lowpass';filter.frequency.value=4200;filter.Q.value=.5;
+  v.gain.setValueAtTime(.001,t);v.gain.linearRampToValueAtTime(.035,t+.004);v.gain.setValueAtTime(.035,t+.075);v.gain.exponentialRampToValueAtTime(.001,t+.32);
+  o.connect(filter);filter.connect(v);v.connect(audio.destination);o.start(t);o.stop(t+.34);
+ }catch(_){}
+}
 function show(id){state=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));lastFrame=performance.now();}
 function newItem(type){return {uid:g.nextItem++,type};}
 function freshType(){const wish=g.orders[Math.floor(Math.random()*g.orders.length)];return Math.random()<.65?wish:SIGHTS[Math.floor(Math.random()*SIGHTS.length)].id;}
@@ -85,7 +95,7 @@ function fulfill(){
   const options=SIGHTS.map(s=>s.id).filter(id=>id!==type&&!g.orders.includes(id)),held=options.filter(id=>g.stock.some(v=>v.type===id)),choices=held.length?held:options;
   g.orders[slot]=choices[Math.floor(Math.random()*choices.length)];count++;message('✈️ '+sight(type).name+'の旅をお届け！');
  }
- if(count){recordBest();tone([660,880,1046]);$('river').classList.remove('flash');void $('river').offsetWidth;$('river').classList.add('flash');}return count;
+ if(count){recordBest();coinSound();$('river').classList.remove('flash');void $('river').offsetWidth;$('river').classList.add('flash');}return count;
 }
 function take(plateId,slot){
  if(state!=='game'||paused||document.hidden)return;const p=g.plates.find(p=>p.id===plateId),item=p?.items[slot];if(!item)return;
@@ -94,7 +104,7 @@ function take(plateId,slot){
  const origin=$('river').querySelector('[data-uid="'+item.uid+'"] .art')?.getBoundingClientRect();
  p.items[slot]=null;if(order>=0){const index=g.placed[order].length;g.placed[order].push(item);queueStockFlight(item,order,index,origin,'order');}else{g.stock.push(item);queueStockFlight(item,null,null,origin,'stock');}
  if(p.items.every(v=>!v))p.ready=400;
- if(!fulfill()){message(order>=0?sight(item.type).name+'を注文のお皿へ！':sight(item.type).name+'をストックへ。あと'+(5-g.stock.length)+'皿');tone([440]);}
+ if(!fulfill()){message(order>=0?sight(item.type).name+'を注文のお皿へ！':sight(item.type).name+'をストックへ。あと'+(5-g.stock.length)+'皿');coinSound();}
  render();renderPlates();
 }
 function returnStock(uid){if(state!=='game'||paused||g.flying.includes(uid))return;const at=g.stock.findIndex(v=>v.uid===uid);if(at<0)return;const [item]=g.stock.splice(at,1);const plate=g.plates.find(p=>p.y>=0&&p.y<.75&&p.items.includes(null))||g.plates.find(p=>p.items.includes(null));if(plate)plate.items[plate.items.indexOf(null)]=item;else g.returned.push(item);message(sight(item.type).name+'を流れるお皿に戻したよ');render();renderPlates();}
@@ -125,7 +135,7 @@ function openControls(kind){
   content.append(controlButton('つづける',closeControls,'control-primary'),controlButton('遊び方',()=>{closeControls();openDialog(true);}),controlButton('はじめから',()=>openControls('restart')));
  }else if(kind==='settings'){
   const label=document.createElement('p');label.className='control-copy';label.textContent='効果音';content.appendChild(label);
-  const toggle=controlButton('',()=>{soundOn=!soundOn;try{localStorage.setItem('kenken-sound',soundOn?'on':'off');}catch(_){}soundLabel();update();if(soundOn)tone([660,880]);},'sound-switch');toggle.id='soundSwitch';toggle.setAttribute('role','switch');
+  const toggle=controlButton('',()=>{soundOn=!soundOn;try{localStorage.setItem('kenken-sound',soundOn?'on':'off');}catch(_){}soundLabel();update();if(soundOn)coinSound();},'sound-switch');toggle.id='soundSwitch';toggle.setAttribute('role','switch');
   function update(){toggle.textContent=soundOn?'音 ON ♪':'音 OFF';toggle.setAttribute('aria-checked',String(soundOn));toggle.classList.toggle('enabled',soundOn);}update();content.append(toggle,controlButton('つづける',closeControls,'control-primary'));
  }else{
   const copy=document.createElement('p');copy.className='control-copy';copy.textContent='今の注文とストックをリセットします。最高記録は残ります。';content.append(copy,controlButton('戻る',()=>openControls('menu')),controlButton('はじめから遊ぶ',newRound,'control-primary'));
