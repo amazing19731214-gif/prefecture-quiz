@@ -45,29 +45,41 @@ function tone(notes){if(!soundOn)return;try{const C=window.AudioContext||window.
 function show(id){state=id;['home','game','result'].forEach(s=>$(s).classList.toggle('hidden',s!==id));lastFrame=performance.now();}
 function newItem(type){return {uid:g.nextItem++,type};}
 function freshType(){const wish=g.orders[Math.floor(Math.random()*g.orders.length)];return Math.random()<.65?wish:SIGHTS[Math.floor(Math.random()*SIGHTS.length)].id;}
-function newRound(){if($('gameMenu').open)$('gameMenu').close();document.querySelectorAll('.stock-flight').forEach(el=>el.remove());if($('dialog').open)$('dialog').close();paused=false;const types=shuffle(SIGHTS.map(s=>s.id));g={orders:types.slice(0,4),placed:[[],[],[],[]],stock:[],plates:[],nextItem:1,left:60000,served:[],returned:[],deliveryDue:[0,0,0,0],flying:[],transfers:[]};
+function newRound(){if($('gameMenu').open)$('gameMenu').close();document.querySelectorAll('.stock-flight').forEach(el=>el.remove());if($('dialog').open)$('dialog').close();paused=false;const types=shuffle(SIGHTS.map(s=>s.id));g={orders:types.slice(0,4),placed:[[],[],[],[]],stock:[],plates:[],nextItem:1,left:60000,served:[],returned:[],deliveryDue:[0,0,0,0],flying:[],transfers:[],needsDispatch:false};
  const deck=shuffle(SIGHTS.flatMap(s=>Array(g.orders.includes(s.id)?4:5).fill(s.id)));let at=0;
  for(let lane=0;lane<4;lane++)for(let row=0;row<8;row++)g.plates.push({id:lane*8+row,lane,y:-.10+row*.14,items:[0,1,2].map(()=>newItem(deck[at++])),nextItems:[0,1,2].map(()=>newItem(freshType())),ready:0});
  show('game');buildRiver();render();message('どの絵でも取れるよ。注文に合う絵はそのまま上へ！');tone([550]);}
 function buildRiver(){const river=$('river');river.replaceChildren();for(const plate of g.plates){const el=document.createElement('div');el.className='plate';el.dataset.plate=plate.id;el.style.setProperty('--lane',plate.lane);for(let slot=0;slot<3;slot++){const b=document.createElement('button');b.type='button';b.className='material';b.dataset.slot=slot;b.onclick=()=>take(plate.id,slot);el.appendChild(b);}const wait=document.createElement('div');wait.className='waiting';wait.setAttribute('aria-label','次に出る皿');el.appendChild(wait);river.appendChild(el);}renderPlates();movePlates();}
 function renderPlates(){for(const plate of g.plates){const el=$('river').querySelector('[data-plate="'+plate.id+'"]');el.classList.toggle('is-empty',plate.items.every(v=>!v));[...el.querySelectorAll(':scope > .material')].forEach((b,slot)=>{const item=plate.items[slot];b.replaceChildren();b.disabled=!item;b.setAttribute('aria-label',item?sight(item.type).name+'を注文またはストック皿へ':'空のお皿');if(item){b.dataset.uid=item.uid;b.dataset.type=item.type;b.appendChild(img(item.type));}else{delete b.dataset.uid;delete b.dataset.type;}});const wait=el.querySelector('.waiting');wait.replaceChildren();const label=document.createElement('small');label.textContent='次';wait.appendChild(label);for(const item of plate.nextItems)wait.appendChild(img(item.type));}}
 function movePlates(){const height=$('river').clientHeight;for(const p of g.plates){const el=$('river').querySelector('[data-plate="'+p.id+'"]');if(el)el.style.transform='translateY('+(p.y*height)+'px)';}}
-function queueStockFlight(item,slot,index){
- const source=$('stock').querySelector('[data-uid="'+item.uid+'"]');const rect=source?.getBoundingClientRect();
- if(rect){g.transfers.push({uid:item.uid,type:item.type,slot,index,rect:{x:rect.x,y:rect.y,width:rect.width,height:rect.height}});g.flying.push(item.uid);g.deliveryDue[slot]=performance.now()+550;}
+function queueStockFlight(item,slot,index,origin=null,kind='order'){
+ const source=origin||$('stock').querySelector('[data-uid="'+item.uid+'"] .art')?.getBoundingClientRect();
+ if(!source||source.width<=0||source.height<=0)return;
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ const duration=reduced?140:origin?360:500;
+ g.transfers.push({uid:item.uid,type:item.type,slot,index,kind,duration,rect:{x:source.x,y:source.y,width:source.width,height:source.height}});
+ g.flying.push(item.uid);if(kind==='order')g.deliveryDue[slot]=Math.max(g.deliveryDue[slot]||0,performance.now()+duration+50);
 }
 function playStockFlights(){
- const game=g,transfers=g.transfers.splice(0);for(const flight of transfers){const target=$('orders').children[flight.slot]?.querySelectorAll('.art')[flight.index];if(!target)continue;const to=target.getBoundingClientRect(),el=img(flight.type);el.classList.add('stock-flight');Object.assign(el.style,{left:flight.rect.x+'px',top:flight.rect.y+'px',width:flight.rect.width+'px',height:flight.rect.height+'px'});document.body.appendChild(el);
-  const animation=el.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:'translate('+(to.x-flight.rect.x)+'px,'+(to.y-flight.rect.y)+'px) scale(.82)',opacity:1}],{duration:500,easing:'cubic-bezier(.25,.75,.25,1)',fill:'forwards'});
-  animation.finished.then(()=>{el.remove();if(g!==game)return;g.flying=g.flying.filter(uid=>uid!==flight.uid);const landed=$('orders').querySelector('[data-arrival="'+flight.uid+'"]');if(landed){landed.style.visibility='';landed.classList.add('arrived');}}).catch(()=>el.remove());
+ const game=g,transfers=g.transfers.splice(0);
+ for(const flight of transfers){
+  const target=flight.kind==='stock'?$('stock').querySelector('[data-uid="'+flight.uid+'"] .art'):$('orders').querySelector('[data-arrival="'+flight.uid+'"]');
+  if(!target){g.flying=g.flying.filter(uid=>uid!==flight.uid);continue;}
+  const to=target.getBoundingClientRect(),el=img(flight.type);el.classList.add('stock-flight');el.dataset.flightUid=flight.uid;el.dataset.destination=flight.kind;
+  Object.assign(el.style,{left:flight.rect.x+'px',top:flight.rect.y+'px',width:flight.rect.width+'px',height:flight.rect.height+'px',transformOrigin:'top left'});document.body.appendChild(el);
+  const dx=to.x-flight.rect.x,dy=to.y-flight.rect.y,sx=to.width/flight.rect.width,sy=to.height/flight.rect.height;
+  const animation=el.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:'translate('+(dx*.45)+'px,'+(dy*.5-24)+'px) scale(1.12)',opacity:1,offset:.5},{transform:'translate('+dx+'px,'+dy+'px) scale('+sx+','+sy+')',opacity:1}],{duration:flight.duration,easing:'cubic-bezier(.2,.65,.25,1)',fill:'forwards'});
+  const settle=()=>{el.remove();if(g!==game)return;g.flying=g.flying.filter(uid=>uid!==flight.uid);const landed=document.querySelector('[data-arrival="'+flight.uid+'"]');if(landed){landed.style.visibility='';landed.classList.add('arrived');}g.needsDispatch=true;};
+  animation.finished.then(settle).catch(settle);
  }
 }
+
 function recordBest(){if(g.served.length>best){best=g.served.length;try{localStorage.setItem(KEY,best);}catch(_){}}}
 function fulfill(){
  let count=0;
  for(let guard=0;guard<12;guard++){
   // Anything held for a newly arrived order goes directly onto that order.
-  for(let slot=0;slot<4;slot++)while(g.placed[slot].length<3){const at=g.stock.findIndex(v=>v.type===g.orders[slot]);if(at<0)break;const item=g.stock[at];queueStockFlight(item,slot,g.placed[slot].length);g.placed[slot].push(g.stock.splice(at,1)[0]);}
+  for(let slot=0;slot<4;slot++)while(g.placed[slot].length<3){const at=g.stock.findIndex(v=>v.type===g.orders[slot]&&!g.flying.includes(v.uid));if(at<0)break;const item=g.stock[at];queueStockFlight(item,slot,g.placed[slot].length);g.placed[slot].push(g.stock.splice(at,1)[0]);}
   const slot=g.placed.findIndex((a,i)=>a.length===3&&(g.deliveryDue[i]||0)<=performance.now());if(slot<0)break;
   const type=g.orders[slot],cards=g.placed[slot];g.served.push({type,cards});g.placed[slot]=[];g.deliveryDue[slot]=0;
   const options=SIGHTS.map(s=>s.id).filter(id=>id!==type&&!g.orders.includes(id)),held=options.filter(id=>g.stock.some(v=>v.type===id)),choices=held.length?held:options;
@@ -79,20 +91,21 @@ function take(plateId,slot){
  if(state!=='game'||paused||document.hidden)return;const p=g.plates.find(p=>p.id===plateId),item=p?.items[slot];if(!item)return;
  const order=g.orders.findIndex((type,i)=>type===item.type&&g.placed[i].length<3);
  if(order<0&&g.stock.length>=5){message('注文にない絵はストックへ。5皿いっぱいなので、絵を押して戻そう。',true);tone([220]);return;}
- p.items[slot]=null;if(order>=0)g.placed[order].push(item);else g.stock.push(item);
+ const origin=$('river').querySelector('[data-uid="'+item.uid+'"] .art')?.getBoundingClientRect();
+ p.items[slot]=null;if(order>=0){const index=g.placed[order].length;g.placed[order].push(item);queueStockFlight(item,order,index,origin,'order');}else{g.stock.push(item);queueStockFlight(item,null,null,origin,'stock');}
  if(p.items.every(v=>!v))p.ready=400;
  if(!fulfill()){message(order>=0?sight(item.type).name+'を注文のお皿へ！':sight(item.type).name+'をストックへ。あと'+(5-g.stock.length)+'皿');tone([440]);}
  render();renderPlates();
 }
-function returnStock(uid){if(state!=='game'||paused)return;const at=g.stock.findIndex(v=>v.uid===uid);if(at<0)return;const [item]=g.stock.splice(at,1);const plate=g.plates.find(p=>p.y>=0&&p.y<.75&&p.items.includes(null))||g.plates.find(p=>p.items.includes(null));if(plate)plate.items[plate.items.indexOf(null)]=item;else g.returned.push(item);message(sight(item.type).name+'を流れるお皿に戻したよ');render();renderPlates();}
-function render(){const orders=$('orders');orders.replaceChildren();g.orders.forEach(type=>{const card=document.createElement('div');card.className='order';const images=document.createElement('div');images.className='order-art';const count=g.placed[g.orders.indexOf(type)].length;for(let i=0;i<3;i++){const image=img(type);if(i<count){image.classList.add('have');const item=g.placed[g.orders.indexOf(type)][i];image.dataset.arrival=item.uid;if(g.flying.includes(item.uid))image.style.visibility='hidden';}images.appendChild(image);}const name=document.createElement('small');name.textContent=sight(type).name+'の旅';const n=document.createElement('span');n.className='count';n.textContent=Math.min(count,3)+' / 3';card.append(images,name,n);orders.appendChild(card);});const stock=$('stock');stock.replaceChildren();for(let i=0;i<5;i++){const item=g.stock[i],b=document.createElement('button');b.type='button';b.className='stock-dish'+(item?'':' empty');b.disabled=!item;if(item){b.dataset.uid=item.uid;b.appendChild(img(item.type));const name=document.createElement('span');name.textContent=sight(item.type).name;b.appendChild(name);b.onclick=()=>returnStock(item.uid);b.setAttribute('aria-label',sight(item.type).name+'を流れる皿へ戻す');}else{b.textContent='・';b.setAttribute('aria-label','空きストック皿');}stock.appendChild(b);}$('stockCount').textContent=g.stock.length;$('served').textContent=g.served.length;updateClock();playStockFlights();}
+function returnStock(uid){if(state!=='game'||paused||g.flying.includes(uid))return;const at=g.stock.findIndex(v=>v.uid===uid);if(at<0)return;const [item]=g.stock.splice(at,1);const plate=g.plates.find(p=>p.y>=0&&p.y<.75&&p.items.includes(null))||g.plates.find(p=>p.items.includes(null));if(plate)plate.items[plate.items.indexOf(null)]=item;else g.returned.push(item);message(sight(item.type).name+'を流れるお皿に戻したよ');render();renderPlates();}
+function render(){const orders=$('orders');orders.replaceChildren();g.orders.forEach(type=>{const card=document.createElement('div');card.className='order';const images=document.createElement('div');images.className='order-art';const count=g.placed[g.orders.indexOf(type)].length;for(let i=0;i<3;i++){const image=img(type);if(i<count){image.classList.add('have');const item=g.placed[g.orders.indexOf(type)][i];image.dataset.arrival=item.uid;if(g.flying.includes(item.uid))image.style.visibility='hidden';}images.appendChild(image);}const name=document.createElement('small');name.textContent=sight(type).name+'の旅';const n=document.createElement('span');n.className='count';n.textContent=Math.min(count,3)+' / 3';card.append(images,name,n);orders.appendChild(card);});const stock=$('stock');stock.replaceChildren();for(let i=0;i<5;i++){const item=g.stock[i],b=document.createElement('button');b.type='button';b.className='stock-dish'+(item?'':' empty');b.disabled=!item;if(item){b.dataset.uid=item.uid;const picture=img(item.type);picture.dataset.arrival=item.uid;if(g.flying.includes(item.uid))picture.style.visibility='hidden';b.appendChild(picture);const name=document.createElement('span');name.textContent=sight(item.type).name;b.appendChild(name);b.onclick=()=>returnStock(item.uid);b.setAttribute('aria-label',sight(item.type).name+'を流れる皿へ戻す');}else{b.textContent='・';b.setAttribute('aria-label','空きストック皿');}stock.appendChild(b);}$('stockCount').textContent=g.stock.length;$('served').textContent=g.served.length;updateClock();playStockFlights();}
 function updateClock(){$('time').textContent=Math.ceil(g.left/1000);$('clock').classList.toggle('urgent',g.left<=10000);}
 function step(delta){
  if(state!=='game'||paused||document.hidden)return;const active=Math.max(0,Math.min(delta,1000));let refreshed=false;
  for(const plate of g.plates){plate.y+=active*.000035;while(plate.y>=1)plate.y-=1.12;
   if(plate.items.every(v=>!v)){plate.ready=Math.max(0,plate.ready-active);if(plate.ready===0){plate.items=plate.nextItems;plate.nextItems=[0,1,2].map(()=>g.returned.shift()||newItem(freshType()));refreshed=true;}}
  }
- if(g.deliveryDue.some(t=>t>0&&t<=performance.now())){g.deliveryDue=g.deliveryDue.map(t=>t<=performance.now()?0:t);fulfill();render();}if(refreshed)renderPlates();movePlates();updateClock();
+ if(g.needsDispatch||g.deliveryDue.some(t=>t>0&&t<=performance.now())){g.needsDispatch=false;g.deliveryDue=g.deliveryDue.map(t=>t<=performance.now()?0:t);fulfill();render();}if(refreshed)renderPlates();movePlates();updateClock();
 }
 function finish(){if(state!=='game')return;g.left=0;best=Math.max(best,g.served.length);try{localStorage.setItem(KEY,best);}catch(_){}$('resultCount').textContent=g.served.length+'組';$('resultBest').textContent='ベスト '+best+'組';$('homeBest').textContent='ベスト '+best+'組';show('result');tone([660,880,1046]);}
 function openDialog(help=false){paused=state==='game';$('dialogTitle').textContent=help?'遊び方':'ちょっとひと休み';$('dialogCopy').textContent=help?'上の注文は同じ都道府県の絵3つ。下のお皿は上から下へ流れます。1皿の3つの絵は、どれでも自由にタップして取れます。注文に合う絵は上の注文へ直接置きます。注文にない絵だけ、中央のストック皿5個に置きます。各皿には次の3枚が待機しており、今の3枚を取り切ると出てきます。注文の絵が3つ揃うと自動でお届け！ 置き間違えたらストックの絵をタップして戻せます。時間制限はありません。注文へ直接置ける絵を揃え、ストック5皿を使いながら遊びます。':'時計もお皿も止まっています。準備ができたら、つづけよう。';$('dialogClose').textContent=state==='game'?'つづける':'閉じる';if(!$('dialog').open)$('dialog').showModal();}
